@@ -1,0 +1,75 @@
+Issues:
+0. CONTROLLARE CARDINSERT E VALUTARE SE FARE UNA TRIPLA
+1. modificare il database id in tutte (Album Name)
+2. Risolvere tutti i casi di valori non buoni per le query --- dop
+3. 
+5. Finire sistema di verifica   ----------- quASI FINITO
+6.  
+7.  gestione pagamenti -------------- SECONDO ---------PAYPAL Busisness
+8. sistema di ritorno della password tramite mail --------TERZO
+9. sistemare bug
+
+
+
+Example Request
+
+1. Get all articles for the product with idProduct 266361:
+
+GET https://api.cardmarket.com/ws/v2.0/articles/266361
+
+2. Get articles for the product with idProduct 266361 that
+
+    are from private sellers (userType=private,
+    are in English (idLanguage=1),
+    and are in minimum near mint condition (minCondition=NM),
+    return only 10 entities starting from 0:
+
+GET https://api.cardmarket.com/ws/v2.0/articles/266361?userType=private&idLanguage=1&minCondition=NM&start=0&maxResults=10 
+
+
+documentazioni richieste
+
+    idProduct
+        Product ID
+        Type: integer
+        Mandatory
+    start and maxResults (query parameter)
+        If specified, only maxResults entities are returned starting from start
+        Type: integer and integer
+        Optional (if provided, both must be provided)
+        See also: Partial Content Documentation
+    userType (query parameter)
+        only articles from sellers with the specified user type are returned (private for private sellers only; commercial for all commercial sellers, including powersellers; powerseller for powersellers only)
+        Type: string (with values as stated above)
+        Optional
+    minUserScore (query parameter)
+        only articles from sellers with the sepcified user score or better are returned (1 for outstanding > 2 for very good > 3 good > 4 for average > 5 for bad)
+        Type: int (with values as stated above)
+        Optional
+    idLanguage (query parameter)
+        only articles are returned that match the give language (1 for English; 2 for French; 3 for German; 4 for Spanish; 5 for Italian; 6 for Simplified Chinese; 7 for Japanese; 8 for Portuguese; 9 for Russian; 10 for Korean; 11 for Traditional Chinese)
+        Type: int (with values as stated above)
+        Optional
+    minCondition (query parameter)
+        only articles with the specified condition or better are returned (MT for Mint > NM for Near Mint > EX for Exellent > GD for Good > LP for Light Played > PL for Played > PO for Poor)
+        Type: string (with values as stated above)
+        Optional
+    isFoil (query parameter)
+        only articles that are flagged as foil are returned
+        Type: bool (true|false)
+        Optional
+    isSigned (query parameter)
+        only articles that are flagged as signed are returned
+        Type: bool (true|false)
+        Optional
+    isAltered (query parameter)
+        only articles that are flagged as altered are returned
+        Type: bool (true|false)
+        Optional
+    minAvailable (query parameter)
+        only articles with a minimum amount as specified are returned
+        Attention: The minimum amount refers to the total number of copies from that seller. If you search for minAvailable=4, you will also get results with count lower than 4 if that seller has additional copies for a different price, condition, etc. but always matching all of your search criteria.
+        Type: int
+        Optional
+
+Example Request
