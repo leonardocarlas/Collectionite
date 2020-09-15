@@ -202,6 +202,34 @@ function preparation_name(string $card_name){
 
         //https://www.cardmarket.com/it/Pokemon/Products/Singles/Darkness-Ablaze/Butterfree-V-Dizzying-Poison-Blasting-Wind
         $li = "https://www.cardmarket.com/en/";
+        
+        if (strpos($card_name, ' δ') == true){
+            $card_name =  str_replace(' δ', '', $card_name);
+        }
+        if (strpos($card_name, ']') == true){
+            $card_name =  str_replace(']', '', $card_name);
+        }
+        if (strpos($card_name, '[') == true){
+            $card_name =  str_replace('[', '', $card_name);
+        }
+        if (strpos($card_name, '|') == true){
+            $card_name =  str_replace('|', '', $card_name);
+        }
+        if (strpos($card_name, ')') == true){
+            $card_name =  str_replace(')', '', $card_name);
+        }
+        if (strpos($card_name, '(') == true){
+            $card_name =  str_replace('(', '', $card_name);
+        }
+        if (strpos($card_name, '.') == true){
+            $card_name =  str_replace('.', '', $card_name);
+        }
+        if (strpos($card_name, '☆') == true){
+            $card_name =  str_replace('☆', '', $card_name);
+        } 
+
+        
+
         $card_name= preg_replace('/\s+/', '-', $card_name);
         $set_name= preg_replace('/\s+/', '-', $set_name);
 
@@ -335,33 +363,36 @@ function preparation_name(string $card_name){
         curl_close($curlHandle);
 
     
-        $decoded            = json_decode($content);
+        //$decoded= json_decode($content);
+
+        
 
 
         $jsonIterator = new RecursiveIteratorIterator(
-        new RecursiveArrayIterator(json_decode($content, TRUE)),
-        RecursiveIteratorIterator::SELF_FIRST);
-
+            new RecursiveArrayIterator(json_decode($content, TRUE)),
+            RecursiveIteratorIterator::SELF_FIRST);
+         
         $prezzi = array();
         $verification = false;
-
+         
         foreach ($jsonIterator as $key => $val) {
-        if(is_array($val)) {
-            //echo "$key:\n";
-        } else {
-            //echo "$key => $val\n";
-            if($key == "comments"){
-                    $verification = true;
+            if(is_array($val)) {
+               
+            } else {
+                
+                if($key == "comments"){
+                     $verification = true;
+                }
+                if($key == "price" and $verification == true){
+                  array_push($prezzi, $val);
+                  $verification =false;
+                }
+                
             }
-            if($key == "price" and $verification == true){
-                array_push($prezzi, $val);
-                $verification =false;
-            }
-            
-        }
         }
 
-        if(count($prezzi)) {
+        $avarage = 0;
+        if(count($prezzi) > 0) {
             $average = array_sum($prezzi)/count($prezzi);
         }
 

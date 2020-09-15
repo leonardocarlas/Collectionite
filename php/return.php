@@ -43,9 +43,9 @@ GET https://api.cardmarket.com/ws/v2.0/articles/266361?userType=private&idLangua
 * @var version string OAuth version, currently 1.0
 */
 
-$id_product = 489259;
-$language = 5;
-$cond = "NM";
+$id_product = 277305;
+$language = 1;
+$cond = "GD";
 $maxResults = 5;
 $start = 0;
 
@@ -181,10 +181,10 @@ curl_close($curlHandle);
 *
 @var $decoded \SimpleXMLElement|\stdClass Converted Object (XML|JSON)
 */
-$decoded            = json_decode($content);
+//$decoded            = json_decode($content);
 //$decoded            = simplexml_load_string($content);
 
-//echo "Contenuto  ". $content;
+echo "Contenuto  ". $content;
 //echo "Informazioni  ";
 //print_r($info );
 
@@ -201,9 +201,9 @@ $verification = false;
 
 foreach ($jsonIterator as $key => $val) {
    if(is_array($val)) {
-       //echo "$key:\n";
+      echo "$key:\n";
    } else {
-       //echo "$key => $val\n";
+       echo "$key => $val\n";
        if($key == "comments"){
             $verification = true;
        }

@@ -8,14 +8,29 @@
         if (strpos($nome, ' (V.2)') == true){
             $nome = str_replace(' (V.2)', '', $nome);
         }
+        if (strpos($nome, ' δ') == true){
+            $nome =  str_replace(' δ', '', $nome);
+        }
+        if (strpos($nome, ']') == true){
+            $nome =  str_replace(']', '', $nome);
+        }
+        if (strpos($nome, '[') == true){
+            $nome =  str_replace('[', '', $nome);
+        }
+        if (strpos($card_name, '|') == true){
+            $nome =  str_replace('|', '', $nome);
+        }
+        
+
         return $nome;
     }
 ?>
 
 
 
+
 <?php
-    $carta = "Dark Blastoise [Hydrocannon | Rocket Tackle] (V.1)";
+    $carta = "Simisage [Seed Bomb | Giga Impact]";  //"Kyogre ☆";
     echo "Pre:  " .$carta  ;
     echo "<br><br>";
     $carta = preparation_name($carta);
