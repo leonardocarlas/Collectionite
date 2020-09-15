@@ -1,9 +1,9 @@
 Issues:
-0. CONTROLLARE CARDINSERT E VALUTARE SE FARE UNA TRIPLA
-1. modificare il database id in tutte (Album Name)
-2. Risolvere tutti i casi di valori non buoni per le query --- dop
+
+
+2. Risolvere tutti i casi di valori non buoni per le query 
 3. 
-5. Finire sistema di verifica   ----------- quASI FINITO
+5. 
 6.  
 7.  gestione pagamenti -------------- SECONDO ---------PAYPAL Busisness
 8. sistema di ritorno della password tramite mail --------TERZO

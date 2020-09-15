@@ -83,9 +83,31 @@
                 </div>
                 <div class="card-body">
 
-                <p class="card-text">Dragon collection is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>.
-            The main function of our application is to create a place where an user can evaluate the value of its cards collection. To that, a user can save its card and organize them using some virtual album.
-            To insert a card into an album the user needs to insert the set's and the card's name to activate the process of research of the value on Card Market.The datas of the card will be stored into our database so when the user wants to know the actual value of it’s collection, or its album he will be able to know the current value of each card.</p>
+                <p class="card-text">Our application is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>.
+                <p>What can you do with Dragon Collection?</p>
+                        <text>
+                        First of all, you can create a virtual album where you can put the cards that you possess in real life time.
+                        The types of TCGs that are supported by our site are 13:
+                        </text>
+                        
+                        <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG and Weibb Swharz.</p>
+                        <text>
+                        For all this cards, our site will be able to connect to the servers of cardmarket.com, access to the datas of the cards
+                        and retrieve for you some useful informations like: </text>
+                        <ul>
+                            <li> minimum price  </li>
+                            <li> trend price    </li>
+                            <li> an evalution price based on 2 features, the condition and the language of the card, using the selling prices of the users of cardmarket.  </li>
+                        </ul>
+                        <text>
+                        You can also share your collections with your friends.
+                        <br>
+                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), 
+                        you only need to pay 2€. After that, your account will be mantained forever in our databases.
+                        Try yourself for the first month and enjoy.
+                        <br><br><br><br>
+                        The Team of Dragon Collection.
+                        </text>
                 </div>
             </div>
           </div>

@@ -43,9 +43,9 @@ GET https://api.cardmarket.com/ws/v2.0/articles/266361?userType=private&idLangua
 * @var version string OAuth version, currently 1.0
 */
 
-$id_product = 277305;
+$id_product = 277306;
 $language = 1;
-$cond = "GD";
+$cond = 'LP';
 $maxResults = 5;
 $start = 0;
 
@@ -201,9 +201,9 @@ $verification = false;
 
 foreach ($jsonIterator as $key => $val) {
    if(is_array($val)) {
-      echo "$key:\n";
+      //echo "$key:\n";
    } else {
-       echo "$key => $val\n";
+       //echo "$key => $val\n";
        if($key == "comments"){
             $verification = true;
        }
