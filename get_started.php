@@ -91,6 +91,8 @@
 
               </form>
 
+              <a href="reset_password.php"> Forgot your password? </a>
+
             </table>
             </div>
           

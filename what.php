@@ -48,7 +48,7 @@
                         The types of TCGs that are supported by our site are 13:
                         </text>
                         
-                        <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG, Weibb Swharz</p>
+                        <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG, Weiß Schwarz</p>
                         <text>
                         For all this cards, our site will be able to connect to the servers of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>, access to the datas of the cards
                         and retrieve for you some useful informations like: </text>
