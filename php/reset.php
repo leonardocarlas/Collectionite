@@ -48,7 +48,7 @@ if(isset($_POST['reset-request-submit'])){
     }
 
     mysqli_stmt_close($stmt);
-    mysqli_close();
+    mysqli_close($connessione);
 
     $to = $user_mail;
     $subject = "Reset password fo Dragon Collection";

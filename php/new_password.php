@@ -66,8 +66,37 @@ if(isset($_POST['reset-password-submit'])){
                         echo "You need to re-submit your reset request.";
                         exit();
                     } else {
+                        $sql = "UPDATE USER SET Hashed_password =? WHERE Email = ?";
+                        $stmt = mysqli_stmt_init($connessione);
 
-                        
+                        if(!mysqli_stmt_prepare($stmt, $sql)){
+
+                            echo "There was an error";
+                            exit();
+
+                        } else {
+                            $new_hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                            mysqli_stmt_bind_param($stmt, "sS",  $new_hashed_password, $token_email);
+                            mysqli_stmt_execute($stmt); 
+
+                            $sql = "DELETE FROM PASSWORDRESET WHERE Emailreset=?";
+                            $stmt = mysqli_stmt_init($connessione);
+
+                            if(!mysqli_stmt_prepare($stmt, $sql)){
+
+                                echo "There was an error";
+                                exit();
+
+                            } else {
+                            
+                                mysqli_stmt_bind_param($stmt, "s", $token_email);
+                                mysqli_stmt_execute($stmt);
+                                header("Location: ../get_started.php?newpass=passwordupdated");
+                            }
+
+                            
+                        }
+
                     }
                 }
 

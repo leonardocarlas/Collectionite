@@ -90,7 +90,13 @@
                 </tr>
 
               </form>
-
+              <?php
+                  if(isset($_GET['newpass'])){
+                      if($_GET['newpass'] == "passwordupdated"){
+                        echo '<p class="signupsuccess"> Your password has benn updated </p>';
+                      }
+                  }
+              ?>
               <a href="reset_password.php"> Forgot your password? </a>
 
             </table>
