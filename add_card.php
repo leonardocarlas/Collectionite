@@ -582,7 +582,7 @@ else{       ?>
         <div class="form-group">
             <select name="extravalues" class="form-control">
                 <option>--Extra Values--</option>
-                <option>Normale</option>
+                <option>Normal</option>
                 <option>Foil</option>
                 <option>Holo Reverse</option>
                 <option>Cosmo Holo</option>

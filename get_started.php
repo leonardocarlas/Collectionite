@@ -86,6 +86,10 @@
                   <td><input type="password" class="form-control" name="pass2" placeholder="Repeat password"></td>
                 </tr>
                 <tr>
+                  <td></td>
+                  <td><button class="btn btn-link"><a href="reset_password.php" > Forgot your password? </a></button></td>
+                </tr>
+                <tr>
                   <td><input type="submit" class="btn btn-primary" name="tasto_invia" value="Invia i tuoi dati"></td>
                 </tr>
 
@@ -97,7 +101,7 @@
                       }
                   }
               ?>
-              <a href="reset_password.php"> Forgot your password? </a>
+              
 
             </table>
             </div>

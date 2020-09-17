@@ -77,7 +77,7 @@
 
 
 
-
+<!--  GESTIONE ERRORI    -->
 
 <?php   if(isset($_GET['Carte'])){  ?>
 
@@ -99,10 +99,31 @@
             );
         </script>
 
-<?php  }?>
+<?php  } if(isset($_GET['error'])){  ?>
+            
+            <?php  if($_GET['error'] == "emptyfields"){ ?>
+                <div class="alert alert-danger" role="alert" >
+                    Pay attention: you forgot to insert the card name or the set name.
+                </div>
+
+            <?php }?>
+            
+            <?php if($_GET['error'] == "features-not-selected"){  ?>
+                <div class="alert alert-danger" role="alert">
+                    Pay attention: you forgot to select the features of the cards.
+                </div>
+
+            <?php } ?>
+
+            <?php if($_GET['error'] == "SQL_CardNotInDB"){  ?>
+                <div class="alert alert-danger" role="alert">
+                    There is a problem. Or you have wrongly inserted the card name &/or set or the site has a probelm. Retry. If the problem still exists, contact us in the spot for that.
+                </div>
+
+            <?php } ?>
 
 
-
+<?php } ?>
 
 
     
@@ -175,20 +196,30 @@
                                             $lo = low_trend($row['Idcard']);
                                                     ?>
 
-                                        <td> <?php echo $lo[0]; ?></td>
-                                        <td> <?php echo $lo[1]; ?>   </td>
+                                        <td> <?php echo $lo[1]; ?></td>
+                                        <td> <?php echo $lo[2]; ?>   </td>
 
                                     
                                     <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
 
                                         <td> <?php 
                                                     $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
-                                                    echo $media;     
+                                                    if($media != 0){
+                                                        echo $media;
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "For this card there is a problem. Pls contact us about it, meanwhile check it on Minimum & Trend ";
+                                                    }    
                                         ?></td>
                                     <?php } ?>
 
                                         <td> <?php  
+                                            if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){
+                                                    $link = $lo[0];
+                                            }else{
                                                     $link = li($row['Card_name'],$row['Set_name']);
+                                            }
                                                     echo '<a href="'.$link.'">link<a>';
 
                                         ?></td>
@@ -412,42 +443,45 @@ function preparation_name(string $card_name){
         $content            = curl_exec($curlHandle);
         $info               = curl_getinfo($curlHandle);
         curl_close($curlHandle);
-        
 
-        //$decoded            = json_decode($content);
-        //$decoded            = simplexml_load_string($content);
-        
-        //echo "Contenuto  ". $content;
-        //echo "Informazioni  ";
-        //print_r($info );
+        if(strlen($content)!=0)
+        {
+            //$decoded            = json_decode($content);
+            //$decoded            = simplexml_load_string($content);
+            
+            //echo "Contenuto  ". $content;
+            //echo "Informazioni  ";
+            //print_r($info );
 
+            
+            $jsonIterator = new RecursiveIteratorIterator(
+            new RecursiveArrayIterator(json_decode($content, TRUE)),
+            RecursiveIteratorIterator::SELF_FIRST);
+            
+            $prezzi = array();
+            $verification = false;
+            
+            foreach ($jsonIterator as $key => $val) {
+                if(is_array($val)) {
+                    //echo "$key:\n";
+                } else {
+                    //echo "$key => $val\n";
+                    if($key == "comments"){
+                            $verification = true;
+                    }
+                    if($key == "price" and $verification == true){
+                        array_push($prezzi, $val);
+                        $verification =false;
+                    }
+                    
+                }
+            }
+            if(count($prezzi)) {
+            $average = array_sum($prezzi)/count($prezzi);
+            }
         
-        $jsonIterator = new RecursiveIteratorIterator(
-           new RecursiveArrayIterator(json_decode($content, TRUE)),
-           RecursiveIteratorIterator::SELF_FIRST);
-        
-        $prezzi = array();
-        $verification = false;
-        
-        foreach ($jsonIterator as $key => $val) {
-           if(is_array($val)) {
-              //echo "$key:\n";
-           } else {
-               //echo "$key => $val\n";
-               if($key == "comments"){
-                    $verification = true;
-               }
-               if($key == "price" and $verification == true){
-                 array_push($prezzi, $val);
-                 $verification =false;
-               }
-               
-           }
-        }
-        
-        
-        if(count($prezzi)) {
-           $average = array_sum($prezzi)/count($prezzi);
+        } else {
+            $average = 0;
         }
 
         return $average;
@@ -666,9 +700,17 @@ function preparation_name(string $card_name){
                 if($key == "TREND"){
                     array_push($low_trend, $val);
                 }
-                
+                if($key == "website"){
+                    array_push($low_trend, $val);
+                   }
+                  
+                  
+                  
+              }
             }
-        }
+        $uncomplete_link = $low_trend[0];
+        $complete_link = "https://www.cardmarket.com".$uncomplete_link ;
+        $low_trend[0] = $complete_link;
 
         return $low_trend;
 

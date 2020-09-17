@@ -23,11 +23,16 @@ if(isset($_POST['inserisci-carta'])){
     $extravalues = $_POST['extravalues'];
 
     $nome_carta = preparation_name($nome_carta);
+    $nome_set = preparation_set($nome_set);
     
    
     ////////  Gestire errori //////////
     if(empty($nome_set) || empty($nome_carta)){
         header("Location: ../album.php?error=emptyfields");
+        exit();
+    }
+    if( $conditions==="--Conditions--" || $languages==="--Languages--" || $quantity==="--Quantities--" || $extravalues==="--Extra Values--"){
+        header("Location: ../album.php?error=features-not-selected");
         exit();
     }
     
@@ -136,7 +141,17 @@ else if(isset($_GET['delete'])){
         if (strpos($nome, ' (V.2)') == true){
             $nome = str_replace(' (V.2)', '', $nome);
         }
+    
         return $nome;
+    }
+
+    function preparation_set(string $card_set){
+        $nome_set = $card_set;
+        
+        if($nome_set === "Expedition"){
+            $nome_set = "Expedition Base Set";
+        }
+        return $nome_set;
     }
 ?>
 

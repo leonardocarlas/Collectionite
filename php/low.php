@@ -200,11 +200,17 @@ foreach ($jsonIterator as $key => $val) {
        if($key == "TREND"){
         array_push($low_trend, $val);
        }
+       if($key == "website"){
+         array_push($low_trend, $val);
+        }
        
        
        
    }
 }
+$uncomplete_link = $low_trend[0];
+$complete_link = "https://www.cardmarket.com".$uncomplete_link ;
+$low_trend[0] = $complete_link;
 
 echo "\n";
 echo "--------------";

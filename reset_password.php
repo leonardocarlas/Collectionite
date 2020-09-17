@@ -16,14 +16,14 @@
                             <div class="card-body">
         
                                 <h1>Reset your password </h1>
-                                <p>An email will be send to you with instructions on how to resete your password. </p>
+                                <p>An email will be send to you with instructions on how to reset your password. </p>
                                     
                                 <form action="php/reset.php" method="POST">
 
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="email" placeholder="Enter your e-mail address" aria-label="Enter your e-mail address" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" name="resete-request-submit" type="submit"> Receive new passwrod by e-mail</button>
+                                            <button class="btn btn-outline-secondary" name="reset-request-submit" type="submit"> Receive new passwrod by e-mail</button>
                                         </div>
                                 </div>
                                 </form>
