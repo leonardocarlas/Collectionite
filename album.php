@@ -13,6 +13,14 @@
         $id_album = $_GET['ID'];
         $_SESSION['idalbum'] = $id_album;
     }
+    if(isset($_POST['selected-min&trend']))
+    {
+        $_SESSION['evaluation'] = "min&trend";
+    }
+    if(isset($_POST['selected-evaluation']))
+    {
+        $_SESSION['evaluation'] = "lan&cond";
+    }
 
     $album_corrente = $_SESSION['album-selezionato'];
     
@@ -24,21 +32,41 @@
 
     $id_album = $_SESSION['idalbum'];
 ?>
+
+
     <div class="content-wrapper">
             <div class="content-header">
                 <div class="container">
-                <div class="row mb-3">
+                <div class="row mb-2">
                     <div class="col-sm-6">
                     <h1 class="m-0 text-dark"> You are in the album: <?php echo $album_corrente; ?></h1>
                     </div><!-- /.col -->
                 </div>
-                <div class="row mb-5">
+                <div class="row mb-2">
                     <a class="btn btn-primary" href="home.php">Back to Select the Album</a>
                 </div>
                 </div><!-- /.container-fluid -->
             </div>' 
         <div>
     </div>
+
+       <!-- SELECTING THE EVALUATION METHOD -->
+
+       <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container">
+                <div class="row justify-content-center mb-1">
+                    <form action="album.php" method="POST">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="submit" name="selected-min&trend" class="btn btn-warning">Minimum & Trend Prices</button>
+                            <button type="submit" name="selected-evaluation" class="btn btn-warning">Evaluation Prices based on Language & Condition</button>
+                        </div>
+                    </form>
+                </div><!-- /.container-fluid -->
+            </div>' 
+        <div>
+    </div>
+
 
 <?php
     require "add_card.php";
@@ -109,8 +137,18 @@
                                                 <th>Language</th>
                                                 <th>Extra Values</th>
                                                 <th>Conditions</th>
-                                                <th>Minimum Value</th>
-                                                <th>Medium Price</th> 
+
+                                            <?php if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){ ?>
+
+                                                <th>Minimum Price</th>
+                                                <th>Trend Price</th>
+
+                                            <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
+
+                                                <th>Evaluation Price</th> 
+
+                                            <?php }  ?>
+
                                                 <th>Open it in cardmarket.com</th>                                  
                                                 <th colspan="2">Action</th>
                                             </tr>
@@ -119,6 +157,7 @@
                                 <!--
                                     //print_r($carte);  echo count($carte);
                                     //<td> <a href="php/cardinsert.php?edit='. $row['CardName'].'">Edit Name</a> </td>
+                                    $_SESSION['evaluation'] = "min&trend";
                                 --> 
 
                                 <?php    
@@ -131,11 +170,23 @@
                                         <td> <?php echo $row['Language'] ?></td>
                                         <td> <?php echo $row['ExtraValues'] ?></td>
                                         <td> <?php echo $row['Conditions'] ?></td>
-                                        <td> <?php echo "not actually" ?></td>
+
+                                    <?php if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){ 
+                                            $lo = low_trend($row['Idcard']);
+                                                    ?>
+
+                                        <td> <?php echo $lo[0]; ?></td>
+                                        <td> <?php echo $lo[1]; ?>   </td>
+
+                                    
+                                    <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
+
                                         <td> <?php 
                                                     $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
                                                     echo $media;     
                                         ?></td>
+                                    <?php } ?>
+
                                         <td> <?php  
                                                     $link = li($row['Card_name'],$row['Set_name']);
                                                     echo '<a href="'.$link.'">link<a>';
@@ -173,7 +224,7 @@
 
 
 
-
+<br><br><br>
 <?php
     require "footer.php";
 ?>
@@ -459,3 +510,170 @@ function preparation_name(string $card_name){
         return $id_language;
     }
 ?>
+
+
+<?php
+
+    function low_trend(int $idcarta){
+
+        $id_product = $idcarta;
+
+
+        $method             = "GET";
+        $url                = "https://api.cardmarket.com/ws/v2.0/output.json/products/".$id_product;
+        $appToken           = "D5lSR859bgB50sVj";
+        $appSecret          = "DLszKXEZCrNbZRQ8dTc1kLo6QxyDkicR";
+        $accessToken        = "";
+        $accessSecret       = "";
+        $nonce              = "53eb1f44909d6";
+        $timestamp          = "1407917892";
+        $signatureMethod    = "HMAC-SHA1";
+        $version            = "1.0";
+
+        /**
+        * Gather all parameters that need to be included in the Authorization header and are know yet
+        *
+        * Attention: If you have query parameters, they MUST also be part of this array!
+        *
+        * @var $params array|string[] Associative array of all needed authorization header parameters
+        */
+        $params             = array(
+        'realm'                     => $url,
+        'oauth_consumer_key'        => $appToken,
+        'oauth_token'               => $accessToken,
+        'oauth_nonce'               => $nonce,
+        'oauth_timestamp'           => $timestamp,
+        'oauth_signature_method'    => $signatureMethod,
+        'oauth_version'             => $version,
+        );
+
+        /**
+        * Start composing the base string from the method and request URI
+        *  $url    = "https://api.cardmarket.com/ws/v2.0/articles/".$id_product. "&idLanguage=".$language."&minCondition=".$cond."&start=0&maxResults=10";
+        * Attention: If you have query parameters, don't include them in the URI
+        *
+        * @var $baseString string Finally the encoded base string for that request, that needs to be signed
+        */
+        $baseString         = strtoupper($method) . "&";
+        $baseString        .= rawurlencode($url) . "&";
+
+        /*
+        * Gather, encode, and sort the base string parameters
+        */
+        $encodedParams      = array();
+        foreach ($params as $key => $value)
+        {
+        if ("realm" != $key)
+        {
+            $encodedParams[rawurlencode($key)] = rawurlencode($value);
+        }
+        }
+        ksort($encodedParams);
+
+        /*
+        * Expand the base string by the encoded parameter=value pairs
+        */
+        $values             = array();
+        foreach ($encodedParams as $key => $value)
+        {
+        $values[] = $key . "=" . $value;
+        }
+        $paramsString       = rawurlencode(implode("&", $values));
+        $baseString        .= $paramsString;
+
+        /*
+        * Create the signingKey
+        */
+        $signatureKey       = rawurlencode($appSecret) . "&" . rawurlencode($accessSecret);
+
+        /**
+        * Create the OAuth signature
+        * Attention: Make sure to provide the binary data to the Base64 encoder
+        *
+        * @var $oAuthSignature string OAuth signature value
+        */
+        $rawSignature       = hash_hmac("sha1", $baseString, $signatureKey, true);
+        $oAuthSignature     = base64_encode($rawSignature);
+
+        /*
+        * Include the OAuth signature parameter in the header parameters array
+        */
+        $params['oauth_signature'] = $oAuthSignature;
+
+        /*
+        * Construct the header string
+        */
+        $header             = "Authorization: OAuth ";
+        $headerParams       = array();
+        foreach ($params as $key => $value)
+        {
+        $headerParams[] = $key . "=\"" . $value . "\"";
+        }
+        $header            .= implode(", ", $headerParams);
+
+        /*
+        * Get the cURL handler from the library function
+        */
+        $curlHandle         = curl_init();
+
+        /*
+        * Set the required cURL options to successfully fire a request to MKM's API
+        *
+        * For more information about cURL options refer to PHP's cURL manual:
+        * http://php.net/manual/en/function.curl-setopt.php
+        */
+        $url = "https://api.cardmarket.com/ws/v2.0/output.json/products/".$id_product;
+
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array($header));
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false);
+
+        /**
+        * Execute the request, retrieve information about the request and response, and close the connection
+        *
+        * @var $content string Response to the request
+        * @var $info array Array with information about the last request on the $curlHandle
+        */
+        $content            = curl_exec($curlHandle);
+        $info               = curl_getinfo($curlHandle);
+        curl_close($curlHandle);
+
+
+        //$decoded            = json_decode($content);
+        //$decoded            = simplexml_load_string($content);
+
+        //echo "Contenuto  ". $content;
+        //echo "Informazioni  ";
+        //print_r($info );
+
+
+
+        $jsonIterator = new RecursiveIteratorIterator(
+        new RecursiveArrayIterator(json_decode($content, TRUE)),
+        RecursiveIteratorIterator::SELF_FIRST);
+
+        $low_trend = array();
+
+        foreach ($jsonIterator as $key => $val) {
+            if(is_array($val)) {
+                
+            } else {
+                
+                if($key == "LOW"){
+                        array_push($low_trend, $val);
+                }
+                if($key == "TREND"){
+                    array_push($low_trend, $val);
+                }
+                
+            }
+        }
+
+        return $low_trend;
+
+}//chiusura funzione
+
+
+?>
+

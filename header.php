@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <title>Leo Collection</title>
+    <title>Dragon Collection</title>
     <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
     
@@ -47,17 +47,17 @@
         <li class="nav-item">
             <?php
                 if(basename($_SERVER['PHP_SELF']) == "index.php")
-                    echo '<a href="index.php" class="nav-link active">Leo Collection</a>';
+                    echo '<a href="index.php" class="nav-link active">Dragon Collection</a>';
                 else
-                    echo '<a href="index.php" class="nav-link">Leo Collection</a>';
+                    echo '<a href="index.php" class="nav-link">Dragon Collection</a>';
             ?>
           </li>
           <li class="nav-item">
             <?php
                 if(basename($_SERVER['PHP_SELF']) == "what.php")
-                    echo '<a href="what.php" class="nav-link active">What is Leo Collection</a>';
+                    echo '<a href="what.php" class="nav-link active">What is Dragon Collection</a>';
                 else
-                    echo '<a href="what.php" class="nav-link">What is Leo Collection</a>';
+                    echo '<a href="what.php" class="nav-link">What is Dragon Collection</a>';
             ?>
           </li>
           <li class="nav-item">

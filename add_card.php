@@ -627,17 +627,21 @@ else{       ?>
         </div>
         <div class="row justify-content-center mt-2">
             <div class="col-3">
-                <input class="btn btn-primary btn-block" type="submit" name="inserisci-carta" value="Inserisci Carta">
+                <input class="btn btn-primary btn-block" type="submit" name="inserisci-carta" value="Insert Card">
             </div>
         </div>
             
         </form>
         </div>
-        <div class="card-footer">
-            <form method="POST" action="php/get_cards.php">    
-                <input class="btn btn-info" type="submit" name="aggiorna_carte" value="Aggiorna Carte">
-            </form>
-        </div>
+
+        <?php if(isset($_POST['selected-min&trend']) || isset($_POST['selected-evaluation'])) {  ?>
+                <div class="card-footer">
+                    <form method="POST" action="php/get_cards.php">    
+                        <input class="btn btn-info" type="submit" name="aggiorna_carte" value="Reload Cards">
+                    </form>
+                </div>
+        <?php  }  ?>
+
     </div>
     </div>
     </div>
