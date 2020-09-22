@@ -76,7 +76,7 @@
         <div class="row mb-5">
         </div>
         <div class="row">
-          <div class="col-7">  
+          <div class="col">  
           <div class="card card-primary card-outline">
                 <div class="card-header">
                 <h5 class="card-title m-0">What is Dragon Collection</h5>
@@ -111,17 +111,18 @@
                 </div>
             </div>
           </div>
-          <div class="col-1">
           </div>
-          <div class="col-md-2">
-              <img class="img-thumbnail" src="immagini/card.jpg">
-              </div>
-            
-            <div class="col-md-2">
-              <img class="img-thumbnail" src="immagini/img2.jpg">
+          <div class="row justify-content-center">
+            <div class="col-5">
+                <img class="img-thumbnail" src="immagini/card.jpg">
+            </div>
+            <div class="col-5">
+                <img class="img-thumbnail" src="immagini/img2.jpg">
+            </div>
           </div>
           <!-- /.col-md-6 -->
         </div>
+        <br><br>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

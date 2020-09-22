@@ -97,13 +97,14 @@
             }
             else {
                 echo '<form  action="php/login.php" method="post" class="form-inline">
-                        <div class="form-group  mb-2">
+                        <div class="form-group m-2">
                             <input type="text" name="username" class="form-control" placeholder="Username">       
                         </div>          
-                        <div class="form-group mx-sm-3 mb-2">          
+
+                        <div class="form-group m-2">          
                             <input type="password" name="password" class="form-control" placeholder="Password"> 
                             </div>
-                            <button class="btn btn-dark mb-2" type="submit" name="login-submit">Login</button>
+                            <button class="btn btn-dark m-2" type="submit" name="login-submit">Login</button>
                             
                         </form>';
             }
