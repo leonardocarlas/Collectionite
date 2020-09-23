@@ -95,22 +95,21 @@ if(isset($_POST['tasto_invia'])){
                     
                     $mail = new PHPMailer();
                     $mail->isSMTP();
+                    $mail->SMTPAuth = true ;
+                    $mail->SMTPSecure='ssl';
 
                     $mail->Host='smtp.gmail.com';
                     $mail->Port='465';
-                    $mail->SMTPAuth=true;
-                    $mail->SMTPSecure='ssl';
-
+                    $mail->isHTML();
+                    
                     $mail->Username='lio.del.bronx@gmail.com';
                     $mail->Password='xefeco87';
 
-                    $mail->setFrom('lio.del.bronx@gmail.com','Dragon Collection');
-                    $mail->AddAddress($to);
-                    //$mail->addReplyTo('lio.del.bronx@gmail.com');
-
-                    $mail->isHTML(TRUE);
+                    $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
                     $mail->Subject = $subject;
                     $mail->Body = $message;
+                    $mail->AddAddress($to);
+                    //$mail->addReplyTo('lio.del.bronx@gmail.com');
                    
                     if(!$mail->send()){
                         echo "Message could not be sent";

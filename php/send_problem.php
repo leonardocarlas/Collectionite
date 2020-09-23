@@ -1,10 +1,12 @@
 <?php
 
-    require "../mail/phpmailer/PHPMailerAutoload.php";
+    
 
 
 
 if(isset($_POST['invia-problema'])){
+
+    require_once('../mail/phpmailer/PHPMailerAutoload.php');
 
     $sender = $_POST['sender-email'];
     $subject = $_POST['subject-problem'];
@@ -17,33 +19,44 @@ if(isset($_POST['invia-problema'])){
 
     $message = $headers . "\r\n" . $txt ;
 
-    $mail = new PHPMailer();
-    $mail->isSMTP();
+    $mail = new PHPMailer(true);
 
-    $mail->Host='smtp.gmail.com';
-    $mail->Port='465';
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='ssl';
+    try {
+        $mail->isSMTP(true);
+        $mail->SMTPAuth = true ;
+        $mail->SMTPSecure='ssl';
 
-    $mail->Username='lio.del.bronx@gmail.com';
-    $mail->Password='xefeco87';
+        $mail->Host='smtp.gmail.com';
+        $mail->Port='465';
+        $mail->isHTML();
+                        
+        $mail->Username='lio.del.bronx@gmail.com';
+        $mail->Password='xefeco87';
 
-    $mail->setFrom($sender);
-    $mail->AddAddress($to);
-    //$mail->addReplyTo('lio.del.bronx@gmail.com');
+        $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->AddAddress($to);
 
-    $mail->isHTML(TRUE);
-    $mail->Subject = $subject;
-    $mail->Body = $message;
-    
-    if(!$mail->send()){
-         echo "Message could not be sent";
-    }
-    else{
-        //PUT THE USER TO THE VERIFICATION PAGE
-    header("Location: ../contact.php?Email=SENT");
+        $mail->Send();
+        //echo "Message Sent OK\n";
+        header("Location: ../contact.php?Email=SENT");
         exit();
+
+    } catch (phpmailerException $e) {
+      echo $e->errorMessage(); //Pretty error messages from PHPMailer
+    } catch (Exception $e) {
+      echo $e->getMessage(); //Boring error messages from anything else!
     }
+
+   
+                   
+    
+    //else{
+        //PUT THE USER TO THE VERIFICATION PAGE
+    //header("Location: ../contact.php?Email=SENT");
+        //exit();
+    //}
 
     
     
