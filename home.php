@@ -192,7 +192,7 @@ if(isset($col_selected)){
 
         
 
-        $sql = "SELECT Album_name, Idalbum FROM ALBUM WHERE Iduser='$id_user' AND Idcollection='$idcollection' ; ";
+        $sql = "SELECT Album_name, Idalbum FROM album WHERE Iduser='$id_user' AND Idcollection='$idcollection' ; ";
         
         $result = $connessione->query($sql);
 

@@ -19,7 +19,7 @@ if(isset($_POST['reset-password-submit'])){
 
     require "dbh.php";
 
-    $sql = "SELECT * FROM PASSWORDRESET WHERE Selectorreset = ? AND Expiresreset >=? ";
+    $sql = "SELECT * FROM passwordreset WHERE Selectorreset = ? AND Expiresreset >=? ";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -48,7 +48,7 @@ if(isset($_POST['reset-password-submit'])){
 
                 $token_email = $row['Emailreset'];
 
-                $sql = "SELECT * FROM USER WHERE USER.Email = ?";
+                $sql = "SELECT * FROM user WHERE USER.Email = ?";
                 $stmt = mysqli_stmt_init($connessione);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -66,7 +66,7 @@ if(isset($_POST['reset-password-submit'])){
                         echo "You need to re-submit your reset request.";
                         exit();
                     } else {
-                        $sql = "UPDATE USER SET Hashed_password =? WHERE Email = ?";
+                        $sql = "UPDATE user SET Hashed_password =? WHERE Email = ?";
                         $stmt = mysqli_stmt_init($connessione);
 
                         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -79,7 +79,7 @@ if(isset($_POST['reset-password-submit'])){
                             mysqli_stmt_bind_param($stmt, "sS",  $new_hashed_password, $token_email);
                             mysqli_stmt_execute($stmt); 
 
-                            $sql = "DELETE FROM PASSWORDRESET WHERE Emailreset=?";
+                            $sql = "DELETE FROM passwordreset WHERE Emailreset=?";
                             $stmt = mysqli_stmt_init($connessione);
 
                             if(!mysqli_stmt_prepare($stmt, $sql)){

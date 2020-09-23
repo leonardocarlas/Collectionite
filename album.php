@@ -132,7 +132,7 @@
     <?php
         if(isset($_GET['Carte'])){
             
-            $sql = "SELECT Idpossession, CARD.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM POSSESSES JOIN CARD ON POSSESSES.Idcard = CARD.Idcard WHERE POSSESSES.Iduser = '$id_user' AND POSSESSES.Idalbum = '$id_album' " ;
+            $sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = '$id_user' AND possesses.Idalbum = '$id_album' " ;
             $result = $connessione->query($sql);
 
             if ($result->num_rows > 0) {

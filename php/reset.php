@@ -17,7 +17,7 @@ if(isset($_POST['reset-request-submit'])){
 
     $user_mail = $_POST['email'];
 
-    $sql = "DELETE FROM PASSWORDRESET WHERE Emailreset=?";
+    $sql = "DELETE FROM passwordreset WHERE Emailreset=?";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -32,7 +32,7 @@ if(isset($_POST['reset-request-submit'])){
 
     }
 
-    $sql = "INSERT INTO PASSWORDRESET (Emailreset, Selectorreset, Tokenreset, Expiresreset) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO passwordreset (Emailreset, Selectorreset, Tokenreset, Expiresreset) VALUES (?,?,?,?)";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){

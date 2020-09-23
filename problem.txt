@@ -1,13 +1,8 @@
 Issues:
 
 
-2. Risolvere tutti i casi di valori non buoni per le query 
-3. 
-5. 
-6.  
-7.  gestione pagamenti -------------- SECONDO ---------PAYPAL Busisness
-8. sistema di ritorno della password tramite mail --------TERZO
-9. sistemare bug
+Parte grafica:
+- header.php. è sballato e il nome utente è un poco spostato rispetto a login
 
 
 

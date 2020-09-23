@@ -18,7 +18,7 @@ if(isset($_POST['login-submit']))
     }
     else{
 
-        $sql = "SELECT * FROM USER WHERE Username=?;";  
+        $sql = "SELECT * FROM user WHERE Username=?;";  
         $stmt = mysqli_stmt_init($connessione);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){

@@ -20,7 +20,7 @@ if(isset($_POST['aggiungi_album'])){
         exit();
     }
     else{
-        $sql = "INSERT INTO ALBUM (Album_name, Idcollection, Iduser) VALUES (?,?,?)";
+        $sql = "INSERT INTO album (Album_name, Idcollection, Iduser) VALUES (?,?,?)";
         $stmt = mysqli_stmt_init($connessione);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -56,7 +56,7 @@ else if(isset($_GET['delete'])){
     $id = $_GET['delete'];
     
     // sql to delete a record
-    $sql = "DELETE FROM ALBUM WHERE Idalbum = '$id' ";
+    $sql = "DELETE FROM album WHERE Idalbum = '$id' ";
 
     if ($connessione->query($sql) === TRUE) {
 
@@ -84,7 +84,7 @@ elseif(isset ($_GET['edit'])) {
 
     $id = $_GET['edit'];
 
-    $sql = "SELECT Album_name, Idalbum FROM ALBUM WHERE Idalbum = '$id' ";
+    $sql = "SELECT Album_name, Idalbum FROM album WHERE Idalbum = '$id' ";
     $result = mysqli_query($connessione, $sql);
 
     if (count($result)==1) {
@@ -108,7 +108,7 @@ elseif(isset($_POST['update_album'])){
     $nome= $_POST['old_album_name'];
     $id = $_GET['E'];
     
-    $sql = "UPDATE ALBUM SET Album_name='$nome' WHERE Idalbum='$id' ";
+    $sql = "UPDATE album SET Album_name='$nome' WHERE Idalbum='$id' ";
 
     if ($connessione->query($sql) === TRUE) {
 

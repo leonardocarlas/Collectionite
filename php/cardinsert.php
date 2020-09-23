@@ -41,7 +41,7 @@ if(isset($_POST['inserisci-carta'])){
     else{
       
 
-        $sql = "SELECT Idcard FROM CARD WHERE Set_name = '$nome_set' AND Card_name = '$nome_carta'";
+        $sql = "SELECT Idcard FROM card WHERE Set_name = '$nome_set' AND Card_name = '$nome_carta'";
         $result = $connessione->query($sql);
 
         if ($result->num_rows > 0) {
@@ -50,7 +50,7 @@ if(isset($_POST['inserisci-carta'])){
 
             $id_carta = $row['Idcard'];
 
-            $sql = "INSERT INTO POSSESSES (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($connessione);
 
                 echo "4";

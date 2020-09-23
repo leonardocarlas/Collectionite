@@ -98,9 +98,9 @@
             else {
                 echo '<form  action="php/login.php" method="post" class="form-inline">
                         <div class="form-group m-2">
+                            
                             <input type="text" name="username" class="form-control" placeholder="Username">       
                         </div>          
-
                         <div class="form-group m-2">          
                             <input type="password" name="password" class="form-control" placeholder="Password"> 
                             </div>
@@ -116,7 +116,3 @@
     
     </div>
   </nav>
-
-
-
-
