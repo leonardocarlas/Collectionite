@@ -57,9 +57,11 @@
                 <div class="container">
                 <div class="row justify-content-center mb-1">
                     <form action="album.php" method="POST">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="submit" name="selected-min&trend" class="btn btn-warning">Minimum & Trend Prices</button>
-                            <button type="submit" name="selected-evaluation" class="btn btn-warning">Evaluation Prices based on Language & Condition</button>
+                        <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation.</h5>
+                        <br>
+                        <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
+                            <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
+                            <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
                         </div>
                     </form>
                 </div><!-- /.container-fluid -->
@@ -255,14 +257,14 @@
 
 
 
-<br><br><br>
+<br><br><br><br><br><br>
 <?php
     require "footer.php";
 ?>
 
 <?php
 
-function preparation_name(string $card_name){
+function preparation_name($card_name){
     $nome = $card_name;
     if (strpos($nome, ' (V.1)') == true){
         $nome = str_replace(' (V.1)', '', $nome);
@@ -276,7 +278,7 @@ function preparation_name(string $card_name){
 
 <?php
     
-    function li(string $card_name, string $set_name) {
+    function li($card_name,$set_name) {
 
         if(isset($_SESSION['namecollection'])){
             $name_collection = $_SESSION['namecollection'];
@@ -325,7 +327,7 @@ function preparation_name(string $card_name){
 
 
 <?php
-    function avarage_price(int $id, int $lan, string $con){
+    function avarage_price( $id, $lan, $con){
 
         $id_product = $id;
         $language = 5 ;
@@ -494,7 +496,7 @@ function preparation_name(string $card_name){
 <?php
 //1 for English; 2 for French; 3 for German; 4 for Spanish; 5 for Italian; 6 for Simplified Chinese; 7 for Japanese;
 // 8 for Portuguese; 9 for Russian; 10 for Korean; 11 for Traditional Chinese)
-    function lingua(string $l)
+    function lingua($l)
     {
         $id_language = 0;
         if($l == "English")
@@ -548,7 +550,7 @@ function preparation_name(string $card_name){
 
 <?php
 
-    function low_trend(int $idcarta){
+    function low_trend($idcarta){
 
         $id_product = $idcarta;
 

@@ -31,10 +31,12 @@
                     <div class="row  justify-content-center">
                         <div class="col-6">
                             <div class="embed-responsive embed-responsive-16by9">
+
                                 <video class="video-fluid z-depth-1" autoplay loop controls muted>
                                     <source src="immagini/video.mp4" type="video/mp4">
                                     <source src="immagini/video.ogg" type="video/ogg">
-                                </video> 
+                                </video>
+                                
                             </div>
                         </div>
                     </div>

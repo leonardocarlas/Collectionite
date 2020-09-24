@@ -101,66 +101,7 @@ body{
      margin:0px; 
 }
 
-/* menu in orizzontale */
-ul#menuprincipale {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
-    font-size: 20px;
-    margin: 0;
-    padding: 2;
-    list-style: none;
-}
 
-
-ul#menuprincipale li {
-    width: 150px;
-    height: 20px;
-    margin: 0x;
-    left: 20px;
-    float: left; /* elementi su singola riga */
-    
-}
-
-ul#menuprincipale li a {
-
-    line-height: 40px;
-    text-decoration: none;
-    width: 150px;
-    height: 30px;
-    text-align: center;
-    display: block;
-    padding: 1px 1px;
-}
-
-img{
-    position: absolute;
-    left: 0px;
-    width: 50px;
-    height: 50px;
-}
-
-
-/*
-
-
-.button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-  }
-
-
-
-#trelink{
-    position: absolute;
-    left: 40px;
-    padding: 10px;
-}
 
 
 

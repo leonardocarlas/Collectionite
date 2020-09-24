@@ -56,6 +56,12 @@
                   The two passwords are not the same
                 </div>
 <?php             
+        }if($message == "Usernametaken"){     ?>
+            
+          <div class="alert alert-danger" role="alert">
+            This username it's been already taken from another user. Try with another one.
+          </div>
+<?php             
         }
 
     }

@@ -92,33 +92,36 @@ if(isset($_POST['tasto_invia'])){
                                 </text>    
                                     ";
                    
-                    
-                    $mail = new PHPMailer();
-                    $mail->isSMTP();
-                    $mail->SMTPAuth = true ;
-                    $mail->SMTPSecure='ssl';
-
-                    $mail->Host='smtp.gmail.com';
-                    $mail->Port='465';
-                    $mail->isHTML();
-                    
-                    $mail->Username='lio.del.bronx@gmail.com';
-                    $mail->Password='xefeco87';
-
-                    $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
-                    $mail->Subject = $subject;
-                    $mail->Body = $message;
-                    $mail->AddAddress($to);
-                    //$mail->addReplyTo('lio.del.bronx@gmail.com');
-                   
-                    if(!$mail->send()){
-                        echo "Message could not be sent";
-                    }
-                    else{
-                        //PUT THE USER TO THE VERIFICATION PAGE
-                        header("Location: ../verification_page.php?SIGNUP=SUCCESS");
-                        exit();
-                    }
+                        $mail = new PHPMailer(true);
+                        
+                        try {
+                            $mail->isSMTP(true);
+                            $mail->SMTPAuth = true ;
+                            $mail->SMTPSecure='ssl';
+                                
+                            $mail->Host='smtp.gmail.com';
+                            $mail->Port='465';
+                            $mail->isHTML();
+                                                        
+                            $mail->Username='lio.del.bronx@gmail.com';
+                            $mail->Password='xefeco87';
+                                
+                            $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
+                            $mail->Subject = $subject;
+                            $mail->Body = $message;
+                            $mail->AddAddress($to);
+                                
+                            $mail->Send();
+                            //PUT THE USER TO THE VERIFICATION PAGE
+                            header("Location: ../verification_page.php?SIGNUP=SUCCESS");
+                            exit();
+                        } catch (phpmailerException $e) {
+                            echo $e->errorMessage(); //Pretty error messages from PHPMailer
+                        } catch (Exception $e) {
+                            echo $e->getMessage(); //Boring error messages from anything else!
+                        }
+                        
+                 
 
                 }
             }
@@ -129,6 +132,7 @@ if(isset($_POST['tasto_invia'])){
     mysqli_close($connessione);
 }
 else{
+
     echo  "Failure";
 
 }

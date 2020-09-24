@@ -83,7 +83,7 @@
                 </div>
                 <div class="card-body">
 
-                <p class="card-text">Our application is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>.
+                <p class="card-text">Our application is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>. They support us in what we are doing.
                 <p>What can you do with Dragon Collection?</p>
                         <text>
                         First of all, you can create a virtual album where you can put the cards that you possess in real life time.
