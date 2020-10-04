@@ -68,3 +68,12 @@ documentazioni richieste
         Optional
 
 Example Request
+
+
+
+
+
+- 150/200 euro di logo di grafico
+1. logo
+2. server
+3. ads  

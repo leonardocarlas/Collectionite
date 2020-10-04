@@ -46,7 +46,7 @@
                     <a class="btn btn-primary" href="home.php">Back to Select the Album</a>
                 </div>
                 </div><!-- /.container-fluid -->
-            </div>' 
+            </div>
         <div>
     </div>
 
@@ -65,7 +65,7 @@
                         </div>
                     </form>
                 </div><!-- /.container-fluid -->
-            </div>' 
+            </div>
         <div>
     </div>
 
@@ -154,26 +154,26 @@
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                         <thead>
                                             <tr>
-                                                <th>Card Name</th>
-                                                <th>Card Set</th>
-                                                <th>Quantity</th>
-                                                <th>Language</th>
-                                                <th>Extra Values</th>
-                                                <th>Conditions</th>
+                                                <th scope="col">Card Name</th>
+                                                <th scope="col">Card Set</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Language</th>
+                                                <th scope="col">Extra Values</th>
+                                                <th scope="col">Conditions</th>
 
                                             <?php if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){ ?>
 
-                                                <th>Minimum Price</th>
-                                                <th>Trend Price</th>
+                                                <th scope="col">Minimum Price</th>
+                                                <th scope="col">Trend Price</th>
 
                                             <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
 
-                                                <th>Evaluation Price</th> 
+                                                <th scope="col">Evaluation Price</th> 
 
                                             <?php }  ?>
 
-                                                <th>Open it in cardmarket.com</th>                                  
-                                                <th colspan="2">Action</th>
+                                                <th scope="col">Open it in cardmarket.com</th>                                  
+                                                <th  scope="col">Action</th>
                                             </tr>
                                         </thead>
                 
@@ -185,7 +185,7 @@
 
                                 <?php    
                                     while($row = $result->fetch_assoc()) {  ?>
-                                    
+                                <tbody>
                                     <tr>
                                         <td> <?php echo $row['Card_name'] ?></td>
                                         <td> <?php echo $row['Set_name'] ?></td>
@@ -233,7 +233,8 @@
                                         </td>
                                     </tr>
 
-                                <?php   }   ?>  
+                                <?php   }   ?> 
+                        </tbody> 
                     </table> 
                     </div> 
                     </div>
