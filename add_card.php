@@ -559,13 +559,50 @@ else{       ?>
 
         <div class="col-4">
         <div class="form-group">
-            <input class="form-control" type="text" name="set_name"  placeholder="Exact Set name in English">
+            <!-- Doveva esserci name="search"-->
+            <input class="form-control" id="search-set" type="text" name="set_name" placeholder="Exact Set Name in English">
+
+            <div class="list-group" id="show-list">
+                   <!-- Here autocomplete list will be display -->
+            </div>
+            
+            
         </div>
         </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- script per auto completamento-->
+        <script type="text/javascript">
+            $(document).ready( function(){
+                $("#search-set").keyup(function(){
+                    var searchText = $(this).val();
+                    if(searchText != ''){
+                        $.ajax({
+                            url:'php/action.php',
+                            method:'post',
+                            data:{ query:searchText},
+                            success:function(response){
+                                $("#show-list").html(response);
+                            }
+                        });
+                    }
+                    else{
+                        $("#show-list").html('');
+                    }
+                });
+                $(document).on('click','a',function(){
+                    $("#search").val($(this).text());
+                    $("#show-list").html('');
+                });
+
+            });
+        </script>
+
         <div class="col-4">
         <div class="form-group">
+
             <input class="form-control" type="text" name="card_name"  placeholder="Exact Card Name in English">
+
         </div>
         </div>
             
