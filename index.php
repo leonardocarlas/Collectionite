@@ -47,7 +47,7 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Welcome to Dragon Collection!</h1>
+            <h1 class="m-0 text-dark"> Welcome to Collection Sight!</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -79,12 +79,12 @@
           <div class="col">  
           <div class="card card-primary card-outline">
                 <div class="card-header">
-                <h5 class="card-title m-0">What is Dragon Collection</h5>
+                <h5 class="card-title m-0">What is Collection Sight?</h5>
                 </div>
                 <div class="card-body">
 
                 <p class="card-text">Our application is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>. They support us in what we are doing.
-                <p>What can you do with Dragon Collection?</p>
+                <p>What can you do with Collection Sight?</p>
                         <text>
                         First of all, you can create a virtual album where you can put the cards that you possess in real life time.
                         The types of TCGs that are supported by our site are 13:
@@ -106,7 +106,7 @@
                         you only need to pay 2€. After that, your account will be mantained forever in our databases.
                         Try yourself for the first month and enjoy.
                         <br><br><br><br>
-                        The Team of Dragon Collection.
+                        The Team of Collection Sight.
                         </text>
                 </div>
             </div>

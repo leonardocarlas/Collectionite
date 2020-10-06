@@ -22,7 +22,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
-    <title>Dragon Collection</title>
+    <title>Collection Sight</title>
     <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
 
@@ -40,7 +40,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/img2.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="immagini/img2.PNG" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,9 +54,9 @@
           <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "index.php")
-                        echo '<a href="index.php" class="nav-link active">Dragon Collection</a>';
+                        echo '<a href="index.php" class="nav-link active">Collection Sight</a>';
                     else
-                        echo '<a href="index.php" class="nav-link">Dragon Collection</a>';
+                        echo '<a href="index.php" class="nav-link">Collection Sight</a>';
                 ?>
             </li>
 
@@ -64,9 +64,9 @@
             <li class="nav-item">
               <?php
                   if(basename($_SERVER['PHP_SELF']) == "what.php")
-                      echo '<a href="what.php" class="nav-link active">What is Dragon Collection</a>';
+                      echo '<a href="what.php" class="nav-link active">What is Collection Sight</a>';
                   else
-                      echo '<a href="what.php" class="nav-link">What is Dragon Collection</a>';
+                      echo '<a href="what.php" class="nav-link">What is Collection Sight</a>';
               ?>
             </li>
             <li class="nav-item">

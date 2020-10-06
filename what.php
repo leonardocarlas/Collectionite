@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">What Is Dragon Collection</h1>
+            <h1 class="m-0 text-dark">What Is Collection Sight</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <div class="card card-danger card-outline">
                     <div class="card-header">
-                    <h5 class="card-title m-0">What is Dragon Collection</h5>
+                    <h5 class="card-title m-0">What is Collection Sight</h5>
                     </div>
                     <div class="card-body">
                     <div class="row  justify-content-center">
@@ -44,7 +44,7 @@
                     <h3 class="card-title">Some info</h6>
                     <div class="row mt-5">
                         <div class="col-md-8">
-                        <p>What can you do with Dragon Collection?</p>
+                        <p>What can you do with Collection Sight?</p>
                         <text>
                         First of all, you can create a virtual album where you can put the cards that you possess in real life time.
                         The types of TCGs that are supported by our site are 13:
@@ -66,7 +66,7 @@
                         you only need to pay 2€. After that, your account will be mantained forever in our databases.
                         Try yourself for the first month and enjoy.
                         <br><br><br><br>
-                        The Team of Dragon Collection.
+                        The Team of Collection Sight.
                         </text>
             
                         

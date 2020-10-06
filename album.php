@@ -31,6 +31,10 @@
     $id_user = $_SESSION['idusersession'];
 
     $id_album = $_SESSION['idalbum'];
+
+    $total_avarage = 0;
+    $total_trend = 0;
+    $total_min = 0;
 ?>
 
 
@@ -57,7 +61,7 @@
                 <div class="container">
                 <div class="row justify-content-center mb-1">
                     <form action="album.php" method="POST">
-                        <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation.</h5>
+                        <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take a few seconds <br>to update all cards prices. The default option is Min & Trend.</h5>
                         <br>
                         <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
                             <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
@@ -69,6 +73,7 @@
         <div>
     </div>
 
+<br>
 
 <?php
     require "add_card.php";
@@ -132,7 +137,7 @@
 
 
     <?php
-        if(isset($_GET['Carte'])){
+        /* if(isset($_GET['Carte'])){ */
             
             $sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = '$id_user' AND possesses.Idalbum = '$id_album' " ;
             $result = $connessione->query($sql);
@@ -198,8 +203,8 @@
                                             $lo = low_trend($row['Idcard']);
                                                     ?>
 
-                                        <td> <?php echo $lo[1]; ?></td>
-                                        <td> <?php echo $lo[2]; ?>   </td>
+                                        <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
+                                        <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
 
                                     
                                     <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
@@ -208,10 +213,11 @@
                                                     $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
                                                     if($media != 0){
                                                         echo $media;
+                                                        $total_avarage = $total_avarage + $media;
                                                     }
                                                     else
                                                     {
-                                                        echo "For this card there is a problem. Pls contact us about it, meanwhile check it on Minimum & Trend ";
+                                                        echo "For this card there are too few data. Check it on Minimum & Trend option";
                                                     }    
                                         ?></td>
                                     <?php } ?>
@@ -234,7 +240,23 @@
                                     </tr>
 
                                 <?php   }   ?> 
-                        </tbody> 
+                        </tbody>
+                        <tr>
+                            
+                            <?php 
+                                if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){
+                                    echo  '
+                                        <td> Total price of the album: </td> 
+                                        <td> Minimun price: '.$total_min.' </td>
+                                        <td> Trend price: '.$total_trend.' </td>' ; 
+                                } else{
+                                    echo '
+                                        <td> Total price of the album: </td> 
+                                        <td> Estimated price: '.$total_avarage.' </td> ';
+
+                                }
+                            ?> 
+                        </tr>
                     </table> 
                     </div> 
                     </div>
@@ -244,11 +266,11 @@
                     </div>
                     </div>
     <?php           
-            }
+        /*   }
             else {
                 trigger_error('Invalid query: ' . $connessione->error);
             }
-            
+            */
             
         }  
         ?>
@@ -308,6 +330,9 @@ function preparation_name($card_name){
         }
         if (strpos($card_name, '.') == true){
             $card_name =  str_replace('.', '', $card_name);
+        }
+        if (strpos($card_name, ',') == true){
+            $card_name =  str_replace(',', '', $card_name);
         }
         if (strpos($card_name, '☆') == true){
             $card_name =  str_replace('☆', '', $card_name);

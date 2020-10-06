@@ -681,7 +681,9 @@ else{       ?>
         </form>
         </div>
 
-        <?php if(isset($_POST['selected-min&trend']) || isset($_POST['selected-evaluation'])) {  ?>
+        <?php  if(isset($_POST['selected-min&trend']) || isset($_POST['selected-evaluation'])) {  ?>
+
+            <!--
                 <div class="card-footer">
                     <h5><p class="font-weight-bold">3. Third Step.</p> To see your collection click the button below. </h5>
                     
@@ -689,6 +691,7 @@ else{       ?>
                         <input class="btn btn-info" type="submit" name="aggiorna_carte" value="Reload Cards">
                     </form>
                 </div>
+            -->
         <?php  }  ?>
 
     </div>

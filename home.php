@@ -117,7 +117,7 @@ if(isset($col_selected)){
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button class="btn btn-primary" type="submit" name="selected-collection">Conferma</button>
+                        <button class="btn btn-primary" type="submit" name="selected-collection">Confirm</button>
                     </div>
                 </form>
                 </div>
