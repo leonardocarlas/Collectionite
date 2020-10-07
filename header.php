@@ -95,6 +95,7 @@
                       echo '<a href="payments.php" class="nav-link">Subscribe</a>';
               ?>
             </li>
+            
 
           </ul>
 

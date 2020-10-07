@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Dragon Collection: from Piovene Software. CEO: Leonardo Carlassare & Thomas Porro
+      Collection Sight: from Piovene Software. CEO: Leonardo Carlassare & Thomas Porro
     </div>
    
     <!-- Default to the left -->
