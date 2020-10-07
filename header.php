@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -21,7 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+   
     <title>Collection Sight</title>
     <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
@@ -34,13 +34,19 @@
 
 <body class="hold-transition layout-top-nav">
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
   <div class="wrapper">
 
     <nav class="main-header navbar navbar-expand-md navbar-light bg-light navbar-white">
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/img2.PNG" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="immagini/logo.PNG" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8"> <!-- image-circle -->
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,14 +57,18 @@
 
         <ul class="navbar-nav mr-auto">
 
+          <!--
           <li class="nav-item">
                 <?php
+                    /*
                     if(basename($_SERVER['PHP_SELF']) == "index.php")
                         echo '<a href="index.php" class="nav-link active">Collection Sight</a>';
                     else
                         echo '<a href="index.php" class="nav-link">Collection Sight</a>';
+                    */
                 ?>
             </li>
+            -->
 
             
             <li class="nav-item">

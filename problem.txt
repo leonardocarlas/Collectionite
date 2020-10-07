@@ -4,6 +4,15 @@ Issues:
 Parte grafica:
 - header.php. è sballato e il nome utente è un poco spostato rispetto a login
 
+Innovations:
+1. Slider Images: logo, cardmarketlogo ecc...                FATTO
+2. Sistemare navigation bar: logo, apertura in phone devices
+3. Search for a user: barra di ricerca
+4. Autocompletamento nell'inserimento cardmarke
+5. Modalità di aggiornamento migliore (step o automatico??)
+6. Grafico tracciante il valore
+7. Bug su Get Started.
+
 
 
 Example Request

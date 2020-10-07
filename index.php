@@ -57,20 +57,46 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-      <div class="row">
-      <a href="get_started.php" class="btn btn-primary btn-lg mx-auto d-block mb-5">Get started</a>
-        <?php
-                    
-            if(isset($_SESSION['usernamesession'])){
-                $username=$_SESSION['usernamesession'];
+        <div class="row">
+            <a href="get_started.php" class="btn btn-primary btn-lg mx-auto d-block mb-5">Get started</a>
+              <?php
+                          
+                  if(isset($_SESSION['usernamesession'])){
+                      $username=$_SESSION['usernamesession'];
 
-                echo ' <a class="btn btn-primary btn-lg mx-auto d-block mb-5" href="home.php">My Collection</a>
-                      ';
-                    
-            }else{
-                echo '' ;
-            }
-        ?>
+                      echo ' <a class="btn btn-primary btn-lg mx-auto d-block mb-5" href="home.php">My Collection</a>
+                            ';
+                          
+                  }else{
+                      echo '' ;
+                  }
+              ?>
+        </div>
+
+        <!-- SLIDER DI IMMAGINI -->
+        <div class="row justify-content-center">
+          <div class="col-sm-10">
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="3000">
+                  <img src="immagini/logocollection.PNG" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-interval="4000">
+                  <img src="immagini/logocardmarket.PNG" class="d-block w-100" alt="...">
+                </div>
+              
+
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="row mb-5">
@@ -112,6 +138,8 @@
             </div>
           </div>
           </div>
+
+          <!--
           <div class="row justify-content-center">
             <div class="col-5">
                 <img class="img-thumbnail" src="immagini/card.jpg">
@@ -120,6 +148,7 @@
                 <img class="img-thumbnail" src="immagini/img2.jpg">
             </div>
           </div>
+          -->
           <!-- /.col-md-6 -->
         </div>
         <br><br>
