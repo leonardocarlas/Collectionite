@@ -55,6 +55,8 @@
           <br><br><br>
 
           <div class="col-sm-6">
+            <form action="search_page.php">
+                <div class="input-group mb-3 float-right">
 
                   <input type="text" class="form-control" name="user-searched" placeholder="Enter the name of the user to see his collection" aria-label="User collection search item" aria-describedby="button-addon2">
                   <div class="input-group-append">
