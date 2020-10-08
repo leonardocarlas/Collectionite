@@ -5,7 +5,7 @@ Parte grafica:
 - header.php. è sballato e il nome utente è un poco spostato rispetto a login
 
 Innovations:
-1. Slider Images: logo, cardmarketlogo ecc...                FATTO
+1. Slider Images: logo, cardmarketlogo ecc...      FATTO
 
 2. Sistemare navigation bar: logo
 
@@ -16,8 +16,9 @@ Innovations:
             - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php
         - search_user.php (nuovo)
         - get_albums.php (nella search_page.php)
+        - fatto manca da rimandare in modo preciso alla pagina degli album
 
-4. Autocompletamento nell'inserimento cardmarke  ( Link o Inserimento? )
+4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? )
 5. Modalità di aggiornamento migliore (step o automatico??)    DECESIONE 
 6. Grafico tracciante il valore
 7. Bug su Get Started.

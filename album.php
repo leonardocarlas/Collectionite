@@ -298,6 +298,51 @@
     </div>
     </div>
 
+    <!-- 6. GRAFICO -->
+
+    <?php
+        $sql = "SELECT Stat_date, Value FROM statistic WHERE Idalbum = '$id_album' ";
+
+        $result = $connessione->query($sql);
+        
+        if ($result->num_rows > 0) {
+          $chart_data = '';
+          while($row = $result->fetch_assoc()) {
+            $chart_data .= "{ date:'".$row["Stat_date"]."', value:".$row["Value"]."}, ";
+          }
+        } else {
+          echo "This album it's not been registered to be charted";
+        }
+        $connessione->close();
+        
+        $chart_data = substr($chart_data, 0, -2); //elimina },
+        echo $chart_data;
+        
+
+    ?>
+
+    <div class="container" style="width:900px;">
+
+        <h2>Data Chart of the Collection</h2>
+        <br /><br />
+        <div id="chart"></div>
+
+    </div>
+
+    <script>
+        Morris.Area({
+        element : 'chart',
+        data:[<?php echo $chart_data; ?>],
+        xkey:'date',
+        ykeys:['value'], 
+        labels:['Value'],
+        hideHover:'auto',
+        stacked:true
+        });
+    </script>
+
+    <!-- FINE PARTE GRAFICO -->
+
 
 
 <br><br><br><br><br><br>
