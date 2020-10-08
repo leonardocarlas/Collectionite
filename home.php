@@ -5,6 +5,10 @@
 
     $id_user = $_SESSION['idusersession'];
 
+    if(isset($_SESSION['VMODE'])){
+        $_SESSION['VMODE'] = FALSE;
+    }
+
     if(isset($_SESSION['reload-album'])){
         $ricarica = $_SESSION['reload-album'];
     }

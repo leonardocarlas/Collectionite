@@ -131,7 +131,7 @@
                                         }
                                         else{
                                             echo '<tr>
-                                                    <td> This user has no album in his cllection</td>
+                                                    <td> This user has no album in his collection</td>
                                                   </tr>';
                                         }
                                     ?>

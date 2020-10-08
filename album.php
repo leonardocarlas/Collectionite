@@ -23,6 +23,8 @@
     }
 
     if(isset($_GET['OPENida'])){
+        $_SESSION['VMODE'] = TRUE;
+
         $album_corrente = $_GET['na'];
         $user = $_GET['nu'];
         $idcollection = $_GET['idc'];  
@@ -51,7 +53,11 @@
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
-                    <a class="btn btn-primary" href="home.php">Back to Select the Album</a>
+                    <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
+                        <a class="btn btn-primary" href="search_page.php?OPENu='. $id_user.'">Back to Select the Album</a>     <!-- Modificare qui -->
+                    <?php } else { ?>
+                        <a class="btn btn-primary" href="home.php">Back to Select the Album</a>     <!-- Modificare qui -->
+                    <?php } ?>
                 </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -59,28 +65,38 @@
     </div>
 
        <!-- SELECTING THE EVALUATION METHOD -->
+       <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
+                echo'';
+            } else {
+       
+       ?>
 
-       <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container">
-                <div class="row justify-content-center mb-1">
-                    <form action="album.php" method="POST">
-                        <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take a few seconds <br>to update all cards prices. The default option is Min & Trend.</h5>
-                        <br>
-                        <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
-                            <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
-                            <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
-                        </div>
-                    </form>
-                </div><!-- /.container-fluid -->
+            <div class="content-wrapper">
+                    <div class="content-header">
+                        <div class="container">
+                        <div class="row justify-content-center mb-1">
+                            <form action="album.php" method="POST">
+                                <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take a few seconds <br>to update all cards prices. The default option is Min & Trend.</h5>
+                                <br>
+                                <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
+                                    <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
+                                    <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
+                                </div>
+                            </form>
+                        </div><!-- /.container-fluid -->
+                    </div>
+                <div>
             </div>
-        <div>
-    </div>
 
+        <?php  } ?>
 <br>
 
 <?php
-    require "add_card.php";
+    if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
+        echo'';
+    } else {
+        require "add_card.php";
+    }
     require 'php/dbh.php';
 
 ?>
