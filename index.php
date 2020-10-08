@@ -51,15 +51,18 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark"> Welcome to Collection Sight!</h1>
           </div><!-- /.col -->
+
           <br><br><br>
 
           <div class="col-sm-6">
-            <div class="input-group mb-3 float-right">
-              <input type="text" class="form-control" placeholder="Enter the name of the user to see his collection" aria-label="User collection search item" aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-              </div>
-            </div>
+
+                  <input type="text" class="form-control" name="user-searched" placeholder="Enter the name of the user to see his collection" aria-label="User collection search item" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit"  id="button-addon2">Search</button>
+                  </div>
+                </div>
+              </form>
+            
           </div><!-- /.col -->
 
         </div><!-- /.row -->

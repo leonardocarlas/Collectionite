@@ -6,10 +6,19 @@ Parte grafica:
 
 Innovations:
 1. Slider Images: logo, cardmarketlogo ecc...                FATTO
-2. Sistemare navigation bar: logo, apertura in phone devices
-3. Search for a user: barra di ricerca                      
-4. Autocompletamento nell'inserimento cardmarke
-5. Modalità di aggiornamento migliore (step o automatico??)
+
+2. Sistemare navigation bar: logo
+
+3. Search for a user: barra di ricerca
+        -nella pag:
+            - search.
+            - carta per mostrare i risultati degli utenti cercati
+            - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php
+        - search_user.php (nuovo)
+        - get_albums.php (nella search_page.php)
+
+4. Autocompletamento nell'inserimento cardmarke  ( Link o Inserimento? )
+5. Modalità di aggiornamento migliore (step o automatico??)    DECESIONE 
 6. Grafico tracciante il valore
 7. Bug su Get Started.
 
@@ -77,12 +86,4 @@ documentazioni richieste
         Optional
 
 Example Request
-
-
-
-
-
-- 150/200 euro di logo di grafico
-1. logo
-2. server
-3. ads  
+\

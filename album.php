@@ -22,15 +22,19 @@
         $_SESSION['evaluation'] = "lan&cond";
     }
 
-    $album_corrente = $_SESSION['album-selezionato'];
-    
-    $user = $_SESSION['usernamesession'];
-
-    $idcollection = $_SESSION['idcollezione'];  
-
-    $id_user = $_SESSION['idusersession'];
-
-    $id_album = $_SESSION['idalbum'];
+    if(isset($_GET['OPENida'])){
+        $album_corrente = $_GET['na'];
+        $user = $_GET['nu'];
+        $idcollection = $_GET['idc'];  
+        $id_user = $_GET['idu'];
+        $id_album = $_GET['OPENida'] ;
+    } else{
+        $album_corrente = $_SESSION['album-selezionato'];
+        $user = $_SESSION['usernamesession'];
+        $idcollection = $_SESSION['idcollezione'];  
+        $id_user = $_SESSION['idusersession'];
+        $id_album = $_SESSION['idalbum'];
+    }
 
     $total_avarage = 0;
     $total_trend = 0;
