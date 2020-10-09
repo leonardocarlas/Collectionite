@@ -631,9 +631,10 @@ else{       ?>
                 <option>--Extra Values--</option>
                 <option>Normal</option>
                 <option>Foil</option>
-                <option>Holo Reverse</option>
-                <option>Cosmo Holo</option>
+                <option>Signed</option>
+                <option>Playset</option>
                 <option>First Edition</option>
+                <option>Alieved</option>
                 
             </select>
         </div>

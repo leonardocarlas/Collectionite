@@ -22,6 +22,7 @@ Innovations:
 5. Modalità di aggiornamento migliore (step o automatico??)    DECESIONE 
 6. Grafico tracciante il valore
 7. Bug su Get Started.
+8. Le tabelle non sono responsive
 
 
 

@@ -169,7 +169,7 @@
                 <div class="col-12">
                     <div class="card card-info card-outline">
                         <div class="card-header">
-                        <h3 class="card-title">Titolo</h3>
+                            <h3 class="card-title">Titolo</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -278,13 +278,29 @@
                             ?> 
                         </tr>
                     </table> 
-                    </div> 
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+                  </div>
+
+                  <?php  $check = true;
+                        if($check == true) {  
+                  ?>
+
+                    
+                        <div class="card-footer">
+                            <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
+                            
+                            <form method="POST" action="">    
+                                <input class="btn btn-info" type="submit" name="start-track" value="Start Tracking">
+                            </form>
+                        </div>
+                                    
+                    <?php  }  ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <?php           
         /*   }
             else {
@@ -306,31 +322,50 @@
         $result = $connessione->query($sql);
         
         if ($result->num_rows > 0) {
-          $chart_data = '';
-          while($row = $result->fetch_assoc()) {
-            $chart_data .= "{ date:'".$row["Stat_date"]."', value:".$row["Value"]."}, ";
-          }
+
+            $chart_data = '';
+            while($row = $result->fetch_assoc()) {
+                $chart_data .= "{ date:'".$row["Stat_date"]."', value:".$row["Value"]."}, ";
+            }
+            $chart_data = substr($chart_data, 0, -2); //elimina },
+            echo $chart_data;
+
         } else {
           echo "This album it's not been registered to be charted";
         }
         $connessione->close();
         
-        $chart_data = substr($chart_data, 0, -2); //elimina },
-        echo $chart_data;
+        
         
 
     ?>
 
-    <div class="container" style="width:900px;">
+    <div class="row justify-content-center mt-5">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                    <h3 class="card-title">Data Chart of the Album</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
 
-        <h2>Data Chart of the Collection</h2>
-        <br /><br />
-        <div id="chart"></div>
+                            <div class="container" style="width:900px;">
 
+                                <br /><br />
+                                <div id="chart"></div>
+
+                            </div>
+                        </div>
+                <!-- /.card-body -->
+                    </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        Morris.Area({
+        Morris.Bar({
         element : 'chart',
         data:[<?php echo $chart_data; ?>],
         xkey:'date',
@@ -345,7 +380,7 @@
 
 
 
-<br><br><br><br><br><br>
+<br><br><br>
 <?php
     require "footer.php";
 ?>
