@@ -5,7 +5,6 @@ Parte grafica:
 - header.php. è sballato e il nome utente è un poco spostato rispetto a login
 
 Innovations:
-1. Slider Images: logo, cardmarketlogo ecc...      FATTO
 
 2. Sistemare navigation bar: logo
 
@@ -14,14 +13,16 @@ Innovations:
             - search.
             - carta per mostrare i risultati degli utenti cercati
             - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php  (CREATO VMODE)
-        - search_user.php (nuovo)
-        - get_albums.php (nella search_page.php)
         - fatto manca da rimandare in modo preciso alla pagina degli album
 
 4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? ) DECISIONE
+
 5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE 
+
 6. START TRACKING NON SO COME PASSARE L'ALBUM - CONTROLLARE GRAFICO
+
 7. Bug su Get Started, si sposta.
+
 8. Le tabelle non sono responsive
 
 

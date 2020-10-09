@@ -7,13 +7,7 @@
     if(isset($_GET['OPEN'])){
         $_SESSION['album-selezionato'] =  $_GET['OPEN'];
         $id_album = $_GET['ID'];
-        $_SESSION['idalbum'] = $id_album;
-
-        $album_corrente = $_SESSION['album-selezionato'];
-        $user = $_SESSION['usernamesession'];
-        $idcollection = $_SESSION['idcollezione'];  
-        $id_user = $_SESSION['idusersession'];
-        $id_album = $_SESSION['idalbum'];
+        $_SESSION['idalbum'] = $id_album;    
     }
     
     // VIENE SETTATA LA MODALITA' DI VISUALIZZAZIONE DEI PREZZI
@@ -40,7 +34,12 @@
 
     }
     
-    //VARIABILI D'AMBIENTE
+    //VARIABILI GLOBALI
+    $album_corrente = $_SESSION['album-selezionato'];
+    $user = $_SESSION['usernamesession'];
+    $idcollection = $_SESSION['idcollezione'];  
+    $id_user = $_SESSION['idusersession'];
+    $id_album = $_SESSION['idalbum'];
 
     $total_avarage = 0;
     $total_trend = 0;
@@ -80,6 +79,7 @@
             } else {
        
        ?>
+      
 
             <div class="content-wrapper">
                     <div class="content-header">
@@ -327,9 +327,14 @@
                     
                             <div class="card-footer">
                                 <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
-                                <form method="GET" action="album.php" >    
-                                    <button type="submit" class="btn btn-info" name="start-track">Start Tracking</button>
-                                </form>
+                                <!--  <form method="GET" action="" >    -->
+                                    <button type="submit" class="btn btn-info" name="start-track">
+                                        <?php
+                                            $start_track = "php/start_tracking.php?start-track=" . $id_album ;
+                                            echo '<a href="'.$start_track.'">Start Tracking</a> '; 
+                                        ?>
+                                    </button>
+                                <!-- </form>  -->
                             </div>
                                     
                             <?php  }  ?>
