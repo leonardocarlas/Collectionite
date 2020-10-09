@@ -120,6 +120,8 @@
                                                 else if($idcollection==9){
                                                     $name_collection = "Final Fantasy TCG";
                                                 }
+
+                                                
                             
                                                 echo '
                                                         <tr>

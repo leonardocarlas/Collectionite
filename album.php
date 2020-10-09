@@ -1,18 +1,22 @@
 <?php
     require "header.php";
 
-    $col_selected=$_SESSION['collezione-selezionata'];
+    ///////////////////7        ITS VMODE OR NO-VMODE          /////////////////////
 
+    // APERTURA DA HOME.PHP, DOPO AVER SELEZIONATO L'ALBUM   --------   NORMAL MODE
     if(isset($_GET['OPEN'])){
-        
-        $album_corrente = $_GET['OPEN'];
-        $_SESSION['album-selezionato'] = $album_corrente;
-    }
-    if(isset($_GET['ID'])){
-        
+        $_SESSION['album-selezionato'] =  $_GET['OPEN'];
         $id_album = $_GET['ID'];
         $_SESSION['idalbum'] = $id_album;
+
+        $album_corrente = $_SESSION['album-selezionato'];
+        $user = $_SESSION['usernamesession'];
+        $idcollection = $_SESSION['idcollezione'];  
+        $id_user = $_SESSION['idusersession'];
+        $id_album = $_SESSION['idalbum'];
     }
+    
+    // VIENE SETTATA LA MODALITA' DI VISUALIZZAZIONE DEI PREZZI
     if(isset($_POST['selected-min&trend']))
     {
         $_SESSION['evaluation'] = "min&trend";
@@ -22,7 +26,9 @@
         $_SESSION['evaluation'] = "lan&cond";
     }
 
+    // APERTURA DA SEARCHPAGE.PHP, DOPO AVER SELEZIONATO L'ALBUM   ---------    VIEW-MODE
     if(isset($_GET['OPENida'])){
+
         $_SESSION['VMODE'] = TRUE;
 
         $album_corrente = $_GET['na'];
@@ -30,41 +36,44 @@
         $idcollection = $_GET['idc'];  
         $id_user = $_GET['idu'];
         $id_album = $_GET['OPENida'] ;
-    } else{
-        $album_corrente = $_SESSION['album-selezionato'];
-        $user = $_SESSION['usernamesession'];
-        $idcollection = $_SESSION['idcollezione'];  
-        $id_user = $_SESSION['idusersession'];
-        $id_album = $_SESSION['idalbum'];
+
     }
+    
+    //VARIABILI D'AMBIENTE
 
     $total_avarage = 0;
     $total_trend = 0;
     $total_min = 0;
 ?>
 
-
+<!-- 1.E NORMAL & VMODE. BACKE TO THE PREVIOUS PAGE -->
     <div class="content-wrapper">
             <div class="content-header">
                 <div class="container">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"> You are in the album: <?php echo $album_corrente; ?></h1>
+                        <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
+                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $album_corrente; ?></h1>
+                        <?php } else { ?>
+                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $_SESSION['album-selezionato']; ?></h1>
+                        <?php } ?>
+                            
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
                     <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
-                        <a class="btn btn-primary" href="search_page.php?OPENu='. $id_user.'">Back to Select the Album</a>     <!-- Modificare qui -->
+                         <a class="btn btn-primary" href="search_page.php">Back to Select the Album</a>  <!--   Modificare qui -->
                     <?php } else { ?>
-                        <a class="btn btn-primary" href="home.php">Back to Select the Album</a>     <!-- Modificare qui -->
+                        <a class="btn btn-primary" href="home.php">Back to Select the Album</a>    
                     <?php } ?>
                 </div>
                 </div><!-- /.container-fluid -->
             </div>
         <div>
     </div>
+<!-- 1.E FINISH -->
 
-       <!-- SELECTING THE EVALUATION METHOD -->
+<!-- 2.E NORMAL SELECTING THE EVALUATION METHOD -->
        <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
                 echo'';
             } else {
@@ -76,7 +85,7 @@
                         <div class="container">
                         <div class="row justify-content-center mb-1">
                             <form action="album.php" method="POST">
-                                <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take a few seconds <br>to update all cards prices. The default option is Min & Trend.</h5>
+                                <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
                                 <br>
                                 <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
                                     <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
@@ -90,7 +99,9 @@
 
         <?php  } ?>
 <br>
+<!-- 2.E FINISH  -->
 
+<!-- 3.E 1.E NORMAL INSERT NEW CARD -->
 <?php
     if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
         echo'';
@@ -100,7 +111,7 @@
     require 'php/dbh.php';
 
 ?>
-
+<!-- 3.E FINISH -->
 
 
 
@@ -154,7 +165,7 @@
 
 
     
-
+<!-- 4.E NORMAL & VMODE TABLE OF CARDS -->
 
     <?php
         /* if(isset($_GET['Carte'])){ */
@@ -168,14 +179,15 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-12">
                     <div class="card card-info card-outline">
+
                         <div class="card-header">
                             <h3 class="card-title">Titolo</h3>
-                        </div>
-                        <!-- /.card-header -->
+                        </div><!-- /.card-header -->
+                        
                         <div class="card-body">
-                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                            <div class="row">
-                                <div class="col-sm-12">
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                               <div class="row">
+                                    <div class="col-sm-12">
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                         <thead>
                                             <tr>
@@ -197,8 +209,14 @@
 
                                             <?php }  ?>
 
-                                                <th scope="col">Open it in cardmarket.com</th>                                  
+                                                <th scope="col">Open it in cardmarket.com</th>      
+
+                                            <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
+                                            } else {  ?>  
+
                                                 <th  scope="col">Action</th>
+
+                                            <?php }  ?>  
                                             </tr>
                                         </thead>
                 
@@ -252,16 +270,22 @@
 
                                         ?></td>
 
+                                        <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
+                                            } else { ?>
                                         
-                                        <td> <?php 
+                                        <td> <?php
+                                            
                                                 $delete = "php/cardinsert.php?delete=" . $row['Idpossession'] ;
-                                                echo '<a href="'.$delete.'">Delete Card</a> </td> ';  ?> 
+                                                echo '<a href="'.$delete.'">Delete Card</a> </td> '; 
+                                            ?> 
                                         </td>
+
+                                        <?php } ?>
                                     </tr>
 
                                 <?php   }   ?> 
-                        </tbody>
-                        <tr>
+                            </tbody>
+                            <tr>
                             
                             <?php 
                                 if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){
@@ -276,45 +300,51 @@
 
                                 }
                             ?> 
-                        </tr>
-                    </table> 
-                  </div>
+                            </tr>
+                        </table> 
+                    </div><!-- /.col-sm-12 -->
+                </div><!-- /.row -->
+              </div><!-- /.wrapper -->
 
-                  <?php  $check = true;
+              <?php     
+                        //NEED TO DO THE SQL
+                        $check = true;
                         if($check == true) {  
-                  ?>
+                 
 
+                            if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
+                            <!--    <a class="btn btn-primary" href="search_page.php?OPENu='. $id_user .'">Back to Select the Album</a>     Modificare qui -->
+                            <?php } else { ?>
+                           
                     
-                        <div class="card-footer">
-                            <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
+                            <div class="card-footer">
+                                <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
                             
-                            <form method="POST" action="">    
-                                <input class="btn btn-info" type="submit" name="start-track" value="Start Tracking">
-                            </form>
-                        </div>
+                                <form method="POST" action="">    
+                                    <input class="btn btn-info" type="submit" name="start-track" value="Start Tracking">
+                                </form>
+                            </div>
                                     
-                    <?php  }  ?>
+                            <?php  }  ?>
+                <?php } ?>
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <?php           
-        /*   }
-            else {
-                trigger_error('Invalid query: ' . $connessione->error);
-            }
-            */
-            
-        }  
-        ?>
+
+            </div><!-- /.cardbody -->
+          </div><!-- /.card -->
+        </div><!-- /.col-sm-12 -->
+     </div><!-- /.row-->
+    
+<?php     } ?>
 
     </div>
-    </div>
+</div>
 
-    <!-- 6. GRAFICO -->
+<!-- 4.E FINISH  -->     
+
+
+
+
+<!-- 5.E VMODE & NORMAL. GRAFICO-->
 
     <?php
         $sql = "SELECT Stat_date, Value FROM statistic WHERE Idalbum = '$id_album' ";
@@ -328,41 +358,43 @@
                 $chart_data .= "{ date:'".$row["Stat_date"]."', value:".$row["Value"]."}, ";
             }
             $chart_data = substr($chart_data, 0, -2); //elimina },
-            echo $chart_data;
+            $no_data = false;
 
         } else {
-          echo "This album it's not been registered to be charted";
+          $no_data = true;
         }
-        $connessione->close();
-        
-        
-        
+        $connessione->close();   
 
     ?>
 
     <div class="row justify-content-center mt-5">
             <div class="col-6">
+                <?php if( $no_data == true) { ?>
+                        <div class="row justify-content-center">
+                            <h3> This album it's not been registered</h3>
+                        <div><!-- /. div for message "no data"  -->
+                <?php } ?>
                 <div class="card">
-                    <div class="card-header">
-                    <h3 class="card-title">Data Chart of the Album</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <div class="row">
 
-                            <div class="container" style="width:900px;">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Chart of the Album</h3>
+                        </div><!-- /.card-header -->
 
-                                <br /><br />
-                                <div id="chart"></div>
+                        <div class="card-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="container" style="width:900px;">
 
+                                        <br /><br />
+                                        <div id="chart"></div>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                <!-- /.card-body -->
-                    </div>
-            </div>
-        </div>
-    </div>
+                        </div> <!-- /.card-body -->
+                </div> <!-- /.card-->
+        </div><!-- /.col-->
+    </div><!-- /.row-->
 
     <script>
         Morris.Bar({
@@ -376,14 +408,16 @@
         });
     </script>
 
-    <!-- FINE PARTE GRAFICO -->
+<!-- 5.E FINISH-->
 
 
 
 <br><br><br>
+
 <?php
     require "footer.php";
 ?>
+
 
 <?php
 
@@ -405,6 +439,8 @@ function preparation_name($card_name){
 
         if(isset($_SESSION['namecollection'])){
             $name_collection = $_SESSION['namecollection'];
+        } else if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
+            $name_collection = collection($idcollection);
         }
 
         //https://www.cardmarket.com/it/Pokemon/Products/Singles/Darkness-Ablaze/Butterfree-V-Dizzying-Poison-Blasting-Wind
@@ -845,5 +881,55 @@ function preparation_name($card_name){
 }//chiusura funzione
 
 
+?>
+
+<?php
+    function collection($idcollection){
+
+        $name_collection = "";
+                                                //i vari if per la type collection
+                                                if($idcollection==6){
+                                                    $name_collection = "Pokemon";    
+                                                }
+                                                else if($idcollection==3){
+                                                    $name_collection = "Yu-gi-oh!";
+                                                }
+                                                else if($idcollection==1){
+                                                    $name_collection = "Magic: The Gathering";
+                                                }
+                                                else if($idcollection==8){
+                                                    $name_collection = "Vanguard";
+                                                    
+                                                }
+                                                else if($idcollection==7){
+                                                    $name_collection = "Force of Will";
+                                                }
+                                                else if($idcollection==2){
+                                                    $name_collection = "World of Warcraft TCG";
+                                                }
+                                                else if($idcollection==15){
+                                                    $name_collection = "Star Wars: Destiny";
+                                                }
+                                                else if($idcollection==11){
+                                                    $name_collection = "Dragoborne";
+                                                }
+                                                else if($idcollection==12){
+                                                    $name_collection = "My Little Pony CCG";
+                                                }
+                                                else if($idcollection==13){
+                                                    $name_collection = "Dragon Ball Cardgame";
+                                                }
+                                                else if($idcollection==10){
+                                                    $name_collection = "WeiB Swharz";
+                                                }
+                                                else if($idcollection==15){
+                                                    $name_collection = "The Spoils";
+                                                }
+                                                else if($idcollection==9){
+                                                    $name_collection = "Final Fantasy TCG";
+                                                }
+        return $name_collection;
+
+    }
 ?>
 

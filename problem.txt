@@ -13,16 +13,27 @@ Innovations:
         -nella pag:
             - search.
             - carta per mostrare i risultati degli utenti cercati
-            - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php
+            - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php  (CREATO VMODE)
         - search_user.php (nuovo)
         - get_albums.php (nella search_page.php)
         - fatto manca da rimandare in modo preciso alla pagina degli album
 
 4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? )
-5. Modalità di aggiornamento migliore (step o automatico??)    DECESIONE 
+5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE 
 6. Grafico tracciante il valore
-7. Bug su Get Started.
+7. Bug su Get Started, si sposta.
 8. Le tabelle non sono responsive
+
+
+
+
+
+
+
+
+
+
+
 
 
 
