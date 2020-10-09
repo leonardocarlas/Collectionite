@@ -25,6 +25,7 @@
     {
         $_SESSION['evaluation'] = "lan&cond";
     }
+    
 
     // APERTURA DA SEARCHPAGE.PHP, DOPO AVER SELEZIONATO L'ALBUM   ---------    VIEW-MODE
     if(isset($_GET['OPENida'])){
@@ -306,22 +307,28 @@
                 </div><!-- /.row -->
               </div><!-- /.wrapper -->
 
-              <?php     
-                        //NEED TO DO THE SQL
-                        $check = true;
+              <?php     $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = '$id_album' ";
+
+                        $result = $connessione->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            $check = false;
+                        } else {
+                            $check = true;
+                        }
+                        
                         if($check == true) {  
                  
 
                             if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
-                            <!--    <a class="btn btn-primary" href="search_page.php?OPENu='. $id_user .'">Back to Select the Album</a>     Modificare qui -->
+                            
                             <?php } else { ?>
                            
                     
                             <div class="card-footer">
                                 <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
-                            
-                                <form method="POST" action="">    
-                                    <input class="btn btn-info" type="submit" name="start-track" value="Start Tracking">
+                                <form method="GET" action="album.php" >    
+                                    <button type="submit" class="btn btn-info" name="start-track">Start Tracking</button>
                                 </form>
                             </div>
                                     
@@ -336,8 +343,8 @@
     
 <?php     } ?>
 
-    </div>
-</div>
+
+
 
 <!-- 4.E FINISH  -->     
 
@@ -347,7 +354,7 @@
 <!-- 5.E VMODE & NORMAL. GRAFICO-->
 
     <?php
-        $sql = "SELECT Stat_date, Value FROM statistic WHERE Idalbum = '$id_album' ";
+        $sql = "SELECT Stat_date, Trend_value, Min_value FROM statistic WHERE Idalbum = '$id_album' ";
 
         $result = $connessione->query($sql);
         
@@ -355,7 +362,7 @@
 
             $chart_data = '';
             while($row = $result->fetch_assoc()) {
-                $chart_data .= "{ date:'".$row["Stat_date"]."', value:".$row["Value"]."}, ";
+                $chart_data .= "{ date:'".$row["Stat_date"]."', Trend_value:".$row["Trend_value"].",  Min_value:".$row["Min_value"]."}, ";
             }
             $chart_data = substr($chart_data, 0, -2); //elimina },
             $no_data = false;
@@ -369,16 +376,18 @@
 
     <div class="row justify-content-center mt-5">
             <div class="col-6">
-                <?php if( $no_data == true) { ?>
-                        <div class="row justify-content-center">
-                            <h3> This album it's not been registered</h3>
-                        <div><!-- /. div for message "no data"  -->
-                <?php } ?>
                 <div class="card">
 
                         <div class="card-header">
                             <h3 class="card-title">Data Chart of the Album</h3>
                         </div><!-- /.card-header -->
+
+                        <?php if( $no_data == true) { ?>
+                            <br><br>
+                            <div class="row justify-content-center">
+                                <h3> This album it's not been registered</h3>
+                            <div><!-- /. div for message "no data"  -->
+                        <?php } ?>
 
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -397,12 +406,12 @@
     </div><!-- /.row-->
 
     <script>
-        Morris.Bar({
+        Morris.Line({
         element : 'chart',
         data:[<?php echo $chart_data; ?>],
         xkey:'date',
-        ykeys:['value'], 
-        labels:['Value'],
+        ykeys:['Trend_value','Min_value'], 
+        labels:['Trend Value', 'Min Value'],
         hideHover:'auto',
         stacked:true
         });
@@ -411,6 +420,8 @@
 <!-- 5.E FINISH-->
 
 
+    </div>
+</div>
 
 <br><br><br>
 

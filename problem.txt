@@ -18,9 +18,9 @@ Innovations:
         - get_albums.php (nella search_page.php)
         - fatto manca da rimandare in modo preciso alla pagina degli album
 
-4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? )
+4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? ) DECISIONE
 5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE 
-6. Grafico tracciante il valore
+6. START TRACKING NON SO COME PASSARE L'ALBUM - CONTROLLARE GRAFICO
 7. Bug su Get Started, si sposta.
 8. Le tabelle non sono responsive
 
