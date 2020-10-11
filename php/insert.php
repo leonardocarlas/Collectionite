@@ -80,15 +80,17 @@ if(isset($_POST['tasto_invia'])){
                     $message = "<h1> Hi ".$username."! Welcome to the Dragon Collection! </h1>
                                 <br><br>
                                 <text>
-                                    To ultimate your registration procedure be sure to click the button below to confirm your email adress.
+                                    To ultimate your registration procedure be sure to click the link below to confirm your email adress.
                                     <br>
                                     <br>
-                                    <button><a href='http://localhost/Leo%20Collection/verification_page.php?VKey=$verification_key'> Confirm the Account</a></button>
+                                    <<a href='http://localhost/Leo%20Collection/verification_page.php?VKey=$verification_key'> Confirm the Account</a>
                                     <br>
+                                    Collection Sight is a project that wants to expand and get bigger.
+                                    For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2€. After that, your account will be stored forever in our databases. Try yourself for the first month and enjoy.
                                     <br>
                                     Thank you and enjoy your collection!
                                     <br>
-                                    The Team of Dragon Collection
+                                    The Team of Collection Sight.
                                 </text>    
                                     ";
                    

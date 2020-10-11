@@ -33,12 +33,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
     
-    <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+    <link rel="stylesheet" type="text/css" href="css/image.css">
 
 
 </head>
 
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition layout-top-nav" >
+  
+<div class="bg">  <!-- Immagine di sfondo -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -52,7 +54,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/logo.PNG" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8"> <!-- image-circle -->
+          <img src="immagini/logo.png" alt="AdminLTE Logo"  width="190" height="50"> <!-- image-circle -->
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

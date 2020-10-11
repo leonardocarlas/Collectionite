@@ -72,7 +72,7 @@
                         
                         </div>
                         <div class="col-md-4">
-                            <img class="img-thumbnail" src="immagini/img2.jpg">
+                            <img class="img-thumbnail" src="immagini/logofull.png">
                         </div>
                     </div>
                 </div>

@@ -2,28 +2,25 @@ Issues:
 
 
 Parte grafica:
-- header.php. è sballato e il nome utente è un poco spostato rispetto a login
+- header.php. è sballato e il nome utente è un poco spostato rispetto a login (vedere se è troppo lungo lo username)
+
 
 Innovations:
-
+1. Rifare email di conferma
 2. Sistemare navigation bar: logo
-
-3. Search for a user: barra di ricerca
-        -nella pag:
-            - search.
-            - carta per mostrare i risultati degli utenti cercati
-            - carta di visualizzazione degli album dell'utente cercato   --> rimando ad album.php  (CREATO VMODE)
-        - fatto manca da rimandare in modo preciso alla pagina degli album
+3 footer fatti bene
 
 4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? ) DECISIONE
 
 5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE 
 
-6. START TRACKING NON SO COME PASSARE L'ALBUM - CONTROLLARE GRAFICO
+6. START TRACKING ogni settimana - CONTROLLARE GRAFICO
 
-7. Bug su Get Started, si sposta.
+7. Bug su Get Started, si sposta (Lorenzo)
 
-8. Le tabelle non sono responsive
+8. Le tabelle non sono responsive (Lorenzo)
+
+
 
 
 

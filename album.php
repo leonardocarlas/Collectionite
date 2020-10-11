@@ -61,8 +61,10 @@
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
-                    <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
-                         <a class="btn btn-primary" href="search_page.php">Back to Select the Album</a>  <!--   Modificare qui -->
+                    <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
+                        $return_to_search_page = "search_page.php?OPENu=" . $id_user ;
+                        echo '<a class="btn btn-primary" href="'.$return_to_search_page.'">Back to select the Album</a> '; 
+                    ?>
                     <?php } else { ?>
                         <a class="btn btn-primary" href="home.php">Back to Select the Album</a>    
                     <?php } ?>
@@ -317,18 +319,16 @@
                             $check = true;
                         }
                         
-                        if($check == true) {  
-                 
-
+                        if($check == true) {                          
                             if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
-                            
+                                                        
                             <?php } else { ?>
                            
                     
                             <div class="card-footer">
                                 <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
                                 <!--  <form method="GET" action="" >    -->
-                                    <button type="submit" class="btn btn-info" name="start-track">
+                                    <button type="submit" class="btn btn-link" name="start-track">
                                         <?php
                                             $start_track = "php/start_tracking.php?start-track=" . $id_album ;
                                             echo '<a href="'.$start_track.'">Start Tracking</a> '; 
@@ -384,15 +384,13 @@
                 <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title">Data Chart of the Album</h3>
-                        </div><!-- /.card-header -->
-
-                        <?php if( $no_data == true) { ?>
-                            <br><br>
-                            <div class="row justify-content-center">
-                                <h3> This album it's not been registered</h3>
-                            <div><!-- /. div for message "no data"  -->
-                        <?php } ?>
+                            <?php if( $no_data == true) { ?>
+                                <h3 class="card-title">This album it's not been registered</h3>
+                            <?php } else { ?>
+                                <h3 class="card-title">Data Chart of the Album</h3>
+                            <?php } ?>
+                        </div><!-- /.card-header -->                      
+                        
 
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -428,11 +426,22 @@
     </div>
 </div>
 
+
+
+<?php   
+   ////   SCRIPT TO UPLOADS IN THE DATABASE THE VALUES
+
+?>
+
+
+
 <br><br><br>
 
 <?php
     require "footer.php";
 ?>
+
+
 
 
 <?php
