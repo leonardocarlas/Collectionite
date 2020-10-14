@@ -67,54 +67,71 @@
     }
 ?>
 
+ <!-- Main content -->
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
 
-          <div class="row justify-content-center" class="form-group">
-           <table>
-              <form method="POST" action="php/insert.php">
-                <tr>
-                  <td>Name</td>
-                  <td><input type="text" class="form-control" name="nome" placeholder="Name"></td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td><input type="text" class="form-control" name="email" placeholder="Your Email"></td>
-                </tr>
-                <tr>
-                  <td>Username</td>
-                  <td><input type="text" class="form-control" name="username" placeholder="Choose a username"></td>
-                </tr>
-                <tr>
-                  <td>Password</td>
-                  <td><input type="password" class="form-control" name="password" placeholder="Password"></td>
-                </tr>
-                <tr>
-                  <td>Reapeat Password</td>
-                  <td><input type="password" class="form-control" name="pass2" placeholder="Repeat password"></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><button class="btn btn-link"><a href="reset_password.php" > Forgot your password? </a></button></td>
-                </tr>
-                <tr>
-                  <td><input type="submit" class="btn btn-primary" name="tasto_invia" value="Invia i tuoi dati"></td>
-                </tr>
+                    <div class="card-header">
+                        <h5 class="card-title m-0">Register your datas</h5>
+                    </div>
 
-              </form>
-              <?php
-                  if(isset($_GET['newpass'])){
-                      if($_GET['newpass'] == "passwordupdated"){
-                        echo '<p class="signupsuccess"> Your password has benn updated </p>';
-                      }
-                  }
-              ?>
-              
+                    <div class="card-body">
+                      <div class="row justify-content-center" class="form-group">
+                      <table>
+                          <form method="POST" action="php/insert.php">
+                            <tr>
+                              <td>Name</td>
+                              <td><input type="text" class="form-control" name="nome" placeholder="Name"></td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td><input type="text" class="form-control" name="email" placeholder="Your Email"></td>
+                            </tr>
+                            <tr>
+                              <td>Username</td>
+                              <td><input type="text" class="form-control" name="username" placeholder="Choose a username"></td>
+                            </tr>
+                            <tr>
+                              <td>Password</td>
+                              <td><input type="password" class="form-control" name="password" placeholder="Password"></td>
+                            </tr>
+                            <tr>
+                              <td>Reapeat Password</td>
+                              <td><input type="password" class="form-control" name="pass2" placeholder="Repeat password"></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td><button class="btn btn-link"><a href="reset_password.php" > Forgot your password? </a></button></td>
+                            </tr>
+                            <tr>
+                              <td><input type="submit" class="btn btn-primary" name="tasto_invia" value="Send your datas"></td>
+                            </tr>
 
-            </table>
-            </div>
-          
+                          </form>
+                          <?php
+                              if(isset($_GET['newpass'])){
+                                  if($_GET['newpass'] == "passwordupdated"){
+                                    echo '<p class="signupsuccess"> Your password has benn updated </p>';
+                                  }
+                              }
+                          ?>
+                          
+
+                        </table>
+                    </div> <!--.\ card-body -->
+                  <div> <!--.\ card -->
+                </div>  <!--.\ col -->
+              </div>  <!--.\ row -->
+            </div> <!--.\ content -->
+          </div>  <!--.\ container -->
         </section>
 
     </main>
+
+<br><br><br>
 
 <?php
     require "footer.php";

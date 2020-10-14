@@ -37,7 +37,7 @@
       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card card-info card-outline">
+                <div class="card card-primary card-outline">
                     <div class="card-header">
                     <h5 class="card-title m-0">Contact Form</h5>
                     </div>

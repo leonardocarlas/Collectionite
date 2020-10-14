@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card card-danger card-outline">
+                <div class="card card-primary card-outline">
                     <div class="card-header">
                     <h5 class="card-title m-0">What is Collection Sight</h5>
                     </div>

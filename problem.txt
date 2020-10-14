@@ -7,14 +7,14 @@ Parte grafica:
 
 Innovations:
 1. Rifare email di conferma
-2. Sistemare navigation bar: logo
+
 3 footer fatti bene
 
-4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? ) DECISIONE
+4. Autocompletamento nell'inserimento cardmarket  ( Link o Inserimento? ) DECISIONE LEO
 
-5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE 
+5. Modalità di aggiornamento migliore (step o automatico??)    DECiSIONE LEO
 
-6. START TRACKING ogni settimana - CONTROLLARE GRAFICO
+6. START TRACKING ogni settimana - CONTROLLARE GRAFICO  LEO
 
 7. Bug su Get Started, si sposta (Lorenzo)
 
