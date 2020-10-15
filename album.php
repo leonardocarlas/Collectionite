@@ -75,36 +75,7 @@
     </div>
 <!-- 1.E FINISH -->
 
-<!-- 2.E NORMAL SELECTING THE EVALUATION METHOD -->
-       <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
-                echo'';
-            } else {
-       
-       ?>
-      
-
-            <div class="content-wrapper">
-                    <div class="content-header">
-                        <div class="container">
-                        <div class="row justify-content-center mb-1">
-                            <form action="album.php" method="POST">
-                                <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">1. First Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
-                                <br>
-                                <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
-                                    <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
-                                    <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
-                                </div>
-                            </form>
-                        </div><!-- /.container-fluid -->
-                    </div>
-                <div>
-            </div>
-
-        <?php  } ?>
-<br>
-<!-- 2.E FINISH  -->
-
-<!-- 3.E 1.E NORMAL INSERT NEW CARD -->
+<!-- 2.E E NORMAL INSERT NEW CARD -->
 <?php
     if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
         echo'';
@@ -114,7 +85,9 @@
     require 'php/dbh.php';
 
 ?>
-<!-- 3.E FINISH -->
+<!-- 2.E FINISH -->
+
+
 
 
 
@@ -184,7 +157,39 @@
                     <div class="card card-info card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title">Titolo</h3>
+                            <h3 class="card-title">Album:</h3>
+                        </div><!-- /.card-header -->
+
+
+                        <div class="card-header">
+                            <!-- 3.E NORMAL SELECTING THE EVALUATION METHOD -->
+                            <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
+                                            echo'';
+                                        } else {
+                                
+                                ?>
+                                
+
+                                        <div class="content-wrapper">
+                                                <div class="content-header">
+                                                    <div class="container">
+                                                    <div class="row justify-content-center mb-1">
+                                                        <form action="album.php" method="POST">
+                                                            <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
+                                                            <br>
+                                                            <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
+                                                                <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
+                                                                <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
+                                                            </div>
+                                                        </form>
+                                                    </div><!-- /.container-fluid -->
+                                                </div>
+                                            <div>
+                                        </div>
+
+                                    <?php  } ?>
+                            <br>
+                            <!-- 3.E FINISH  -->
                         </div><!-- /.card-header -->
                         
                         <div class="card-body">

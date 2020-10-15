@@ -16,22 +16,26 @@ else{       ?>
     <div class="container">
         <div class="row justify-content-center">
             
-        <label for id="carta-inserimento"><h5><p class="font-weight-bold"> 2. Second Step.</p> If you have to insert a new card follow this procedure:</h5><br>
-        <ul>
-            <li>Open in another page the site of <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Remember that it works only with the english version;  </li>
-            <li>Search out the exact card that you want to insert;</li>
-            <li>Copy the exact name of the cards and of the set from the site, then paste them in the apposites fields.</li>
-            <li>To see an example of the usage, check out our video on Youtube: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
-            
-        </ul>
-        <br><br>
+        
         
         <div class="col-12">
-            <div class="card text-center" id="carta-inserimento">
+            <div class="card" id="carta-inserimento">
 
                 <div class="card-header">
                     <h3 class="card-title">Add cards to your album</h3>
                 </div>
+
+                <div class="card-header">
+                    <p class="font-weight-bold card-text"><h5> 1. First Step.</p> If you have to insert a new card follow this procedure:</h5><br>
+                    <ul>
+                        <li>Open in another page the site of <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Remember that it works only with the english version;  </li>
+                        <li>Search out the exact card that you want to insert;</li>
+                        <li>Copy the exact name of the cards and of the set from the site, then paste them in the apposites fields.</li>
+                        <li>To see an example of the usage, check out our video on Youtube: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
+                        
+                    </ul>
+                </div>
+
 
                 <div class="card-header">
                     
@@ -46,6 +50,7 @@ else{       ?>
                 </div>
 
                 <form method="POST" action="php/cardinsert.php">
+
                 <div class="card-body">
                     <div class="row">
 
