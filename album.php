@@ -963,3 +963,23 @@ function preparation_name($card_name){
     }
 ?>
 
+<?php
+    function manipulationlink($collegamento){
+        //https://www.cardmarket.com/en/Pokemon/Products/Singles/Wizards-Black-Star-Promos/Scizor-Pokemon-League
+        $mystring = $collegamento;
+        $pos = strpos($mystring, 'Singles');
+
+        // Note our use of ===.  Simply == would not work as expected
+        // because the position of 'a' was the 0th (first) character.
+        if ($pos === false) {
+            return 0;
+        } else {
+            $mystring = substr($mystring, $pos + 8, strlen($mystring));
+            echo $mystring;
+        }
+
+
+    }
+
+?>
+
