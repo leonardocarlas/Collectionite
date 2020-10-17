@@ -1,7 +1,15 @@
 <?php
     require "header.php";
 
-    ///////////////////7        ITS VMODE OR NO-VMODE          /////////////////////
+    $total_avarage = 0;
+    $total_trend = 0;
+    $total_min = 0;
+
+    $inserimento_per_link = false;
+    $inserimento_per_set_nome = false;
+    $ricarica_prezzi_min_trend = false;
+    $ricarica_prezzi_lan_cond = false;
+
 
     // APERTURA DA HOME.PHP, DOPO AVER SELEZIONATO L'ALBUM   --------   NORMAL MODE
     if(isset($_GET['OPEN'])){
@@ -9,30 +17,48 @@
         $id_album = $_GET['ID'];
         $_SESSION['idalbum'] = $id_album;    
     }
-    
-    // VIENE SETTATA LA MODALITA' DI VISUALIZZAZIONE DEI PREZZI
-    if(isset($_POST['selected-min&trend']))
-    {
-        $_SESSION['evaluation'] = "min&trend";
-    }
-    if(isset($_POST['selected-evaluation']))
-    {
-        $_SESSION['evaluation'] = "lan&cond";
-    }
+
     
 
-    // APERTURA DA SEARCHPAGE.PHP, DOPO AVER SELEZIONATO L'ALBUM   ---------    VIEW-MODE
-    if(isset($_GET['OPENida'])){
-
-        $_SESSION['VMODE'] = TRUE;
-
-        $album_corrente = $_GET['na'];
-        $user = $_GET['nu'];
-        $idcollection = $_GET['idc'];  
-        $id_user = $_GET['idu'];
-        $id_album = $_GET['OPENida'] ;
-
+    if( isset( $_POST['EV']) AND $_POST['EV']=="Minimum & Trend Prices"){
+        $ricarica_prezzi_min_trend = TRUE;
     }
+    if( isset( $_POST['EV']) AND $_POST['EV']=="Evaluation Prices based on Language & Condition"){
+        $ricarica_prezzi_lan_cond = TRUE;
+    }
+    if(isset( $_POST['INS']) AND $_POST['INS']=="Set & Name"){
+        $inserimento_per_set_nome = TRUE;
+        $_SESSION['ONLY-LINK'] = FALSE;
+    }
+    if(isset( $_POST['INS']) AND $_POST['INS']=="Only Link"){
+        $inserimento_per_link = TRUE;
+        $_SESSION['ONLY-LINK'] = TRUE;
+    }
+
+
+
+
+/*
+
+    if(isset($_GET['INS'])){
+
+        if ($_GET['INS'] == "L") {
+            $inserimento_per_link = true;
+        }
+        elseif ($_GET['INS'] == "SN") {
+            $inserimento_per_set_nome = true;
+        }
+    }
+    if(isset($_POST['EV'])){
+       ;
+        if ($_POST['EV'] == "LC") {
+            
+        }
+        elseif ($_POST['EV'] == "MT") {
+           
+        }
+    }
+*/
     
     //VARIABILI GLOBALI
     $album_corrente = $_SESSION['album-selezionato'];
@@ -41,9 +67,6 @@
     $id_user = $_SESSION['idusersession'];
     $id_album = $_SESSION['idalbum'];
 
-    $total_avarage = 0;
-    $total_trend = 0;
-    $total_min = 0;
 ?>
 
 <!-- 1.E NORMAL & VMODE. BACKE TO THE PREVIOUS PAGE -->
@@ -52,22 +75,11 @@
                 <div class="container">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
-                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $album_corrente; ?></h1>
-                        <?php } else { ?>
-                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $_SESSION['album-selezionato']; ?></h1>
-                        <?php } ?>
-                            
+                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $_SESSION['album-selezionato']; ?></h1>                           
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
-                    <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
-                        $return_to_search_page = "search_page.php?OPENu=" . $id_user ;
-                        echo '<a class="btn btn-primary" href="'.$return_to_search_page.'">Back to select the Album</a> '; 
-                    ?>
-                    <?php } else { ?>
                         <a class="btn btn-primary" href="home.php">Back to Select the Album</a>    
-                    <?php } ?>
                 </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -77,11 +89,8 @@
 
 <!-- 2.E E NORMAL INSERT NEW CARD -->
 <?php
-    if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
-        echo'';
-    } else {
-        require "add_card.php";
-    }
+
+    require "add_card.php";
     require 'php/dbh.php';
 
 ?>
@@ -157,37 +166,34 @@
                     <div class="card card-info card-outline">
 
                         <div class="card-header">
-                            <h3 class="card-title">Album:</h3>
+                            <h3 class="card-title">Album: <?php echo $album_corrente; ?> </h3>
                         </div><!-- /.card-header -->
 
 
                         <div class="card-header">
-                            <!-- 3.E NORMAL SELECTING THE EVALUATION METHOD -->
-                            <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
-                                            echo'';
-                                        } else {
-                                
-                                ?>
-                                
+                            <!-- 3.E NORMAL SELECTING THE EVALUATION METHOD -->                               
 
                                         <div class="content-wrapper">
                                                 <div class="content-header">
                                                     <div class="container">
                                                     <div class="row justify-content-center mb-1">
-                                                        <form action="album.php" method="POST">
+                                                        
                                                             <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
                                                             <br>
                                                             <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
-                                                                <button type="submit" name="selected-min&trend" class="btn btn-primary">Minimum & Trend Prices</button>
-                                                                <button type="submit" name="selected-evaluation" class="btn btn-primary">Evaluation Prices based on Language & Condition</button>
+                                                                <form action="album.php" method="POST">
+                                                                    <input type="submit" name="EV" class="btn btn-primary" value="Minimum & Trend Prices">
+                                                                </form>
+                                                                <form action="album.php" method="POST">
+                                                                    <input type="submit" name="EV" class="btn btn-primary" value="Evaluation Prices based on Language & Condition">
+                                                                </form>
                                                             </div>
-                                                        </form>
+                                                        
                                                     </div><!-- /.container-fluid -->
                                                 </div>
                                             <div>
                                         </div>
 
-                                    <?php  } ?>
                             <br>
                             <!-- 3.E FINISH  -->
                         </div><!-- /.card-header -->
@@ -206,144 +212,125 @@
                                                 <th scope="col">Extra Values</th>
                                                 <th scope="col">Conditions</th>
 
-                                            <?php if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){ ?>
+                                            <?php if( $ricarica_prezzi_min_trend == TRUE){ ?>
 
                                                 <th scope="col">Minimum Price</th>
                                                 <th scope="col">Trend Price</th>
 
-                                            <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
+                                            <?php } else if($ricarica_prezzi_lan_cond == TRUE) { ?>
 
                                                 <th scope="col">Evaluation Price</th> 
 
                                             <?php }  ?>
 
                                                 <th scope="col">Open it in cardmarket.com</th>      
-
-                                            <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
-                                            } else {  ?>  
-
                                                 <th  scope="col">Action</th>
 
-                                            <?php }  ?>  
                                             </tr>
                                         </thead>
-                
-                                <!--
-                                    //print_r($carte);  echo count($carte);
-                                    //<td> <a href="php/cardinsert.php?edit='. $row['CardName'].'">Edit Name</a> </td>
-                                    $_SESSION['evaluation'] = "min&trend";
-                                --> 
 
-                                <?php    
-                                    while($row = $result->fetch_assoc()) {  ?>
-                                <tbody>
-                                    <tr>
-                                        <td> <?php echo $row['Card_name'] ?></td>
-                                        <td> <?php echo $row['Set_name'] ?></td>
-                                        <td> <?php echo $row['Quantity'] ?></td>
-                                        <td> <?php echo $row['Language'] ?></td>
-                                        <td> <?php echo $row['ExtraValues'] ?></td>
-                                        <td> <?php echo $row['Conditions'] ?></td>
 
-                                    <?php if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){ 
-                                            $lo = low_trend($row['Idcard']);
-                                                    ?>
+                                        <?php    
+                                            while($row = $result->fetch_assoc()) {  ?>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"> <?php echo $row['Card_name'] ?></td>
+                                                <td> <?php echo $row['Set_name'] ?></td>
+                                                <td> <?php echo $row['Quantity'] ?></td>
+                                                <td> <?php echo $row['Language'] ?></td>
+                                                <td> <?php echo $row['ExtraValues'] ?></td>
+                                                <td> <?php echo $row['Conditions'] ?></td>
 
-                                        <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
-                                        <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
+                                            <?php if( $ricarica_prezzi_min_trend === TRUE ){ 
+                                                    $lo = low_trend($row['Idcard']);
+                                            ?>
 
-                                    
-                                    <?php } else if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "lan&cond") { ?>
+                                                <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
+                                                <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
 
-                                        <td> <?php 
-                                                    $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
-                                                    if($media != 0){
-                                                        echo $media;
-                                                        $total_avarage = $total_avarage + $media;
-                                                    }
-                                                    else
-                                                    {
-                                                        echo "For this card there are too few data. Check it on Minimum & Trend option";
-                                                    }    
-                                        ?></td>
-                                    <?php } ?>
-
-                                        <td> <?php  
-                                            if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){
-                                                    $link = $lo[0];
-                                            }else{
-                                                    $link = li($row['Card_name'],$row['Set_name']);
-                                            }
-                                                    echo '<a href="'.$link.'">link<a>';
-
-                                        ?></td>
-
-                                        <?php if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { 
-                                            } else { ?>
-                                        
-                                        <td> <?php
                                             
-                                                $delete = "php/cardinsert.php?delete=" . $row['Idpossession'] ;
-                                                echo '<a href="'.$delete.'">Delete Card</a> </td> '; 
-                                            ?> 
-                                        </td>
+                                            <?php } else if($ricarica_prezzi_lan_cond === TRUE) { ?>
 
-                                        <?php } ?>
-                                    </tr>
+                                                <td> <?php 
+                                                            $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
+                                                            if($media != 0){
+                                                                echo $media;
+                                                                $total_avarage = $total_avarage + $media;
+                                                            }
+                                                            else
+                                                            {
+                                                                echo "For this card there are too few data. Check it on Minimum & Trend option";
+                                                            }    
+                                                        ?>
+                                                </td>
+                                                <?php } ?>
 
-                                <?php   }   ?> 
-                            </tbody>
-                            <tr>
-                            
-                            <?php 
-                                if(isset($_SESSION['evaluation']) && $_SESSION['evaluation'] == "min&trend"){
-                                    echo  '
-                                        <td> Total price of the album: </td> 
-                                        <td> Minimun price: '.$total_min.' </td>
-                                        <td> Trend price: '.$total_trend.' </td>' ; 
-                                } else{
-                                    echo '
-                                        <td> Total price of the album: </td> 
-                                        <td> Estimated price: '.$total_avarage.' </td> ';
+                                                    <td> <?php  
+                                                        if( $ricarica_prezzi_min_trend === TRUE ){
+                                                                $link = $lo[0];
+                                                        }else{
+                                                                $link = li($row['Card_name'],$row['Set_name']);
+                                                        }
+                                                                echo '<a href="'.$link.'">link<a>';
 
-                                }
-                            ?> 
-                            </tr>
-                        </table> 
-                    </div><!-- /.col-sm-12 -->
-                </div><!-- /.row -->
-              </div><!-- /.wrapper -->
-
-              <?php     $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = '$id_album' ";
-
-                        $result = $connessione->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            $check = false;
-                        } else {
-                            $check = true;
-                        }
-                        
-                        if($check == true) {                          
-                            if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE) { ?>
+                                                        ?>
+                                                    </td>
+                                                    <td> <?php
                                                         
-                            <?php } else { ?>
-                           
-                    
-                            <div class="card-footer">
-                                <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
-                                <!--  <form method="GET" action="" >    -->
-                                    <button type="submit" class="btn btn-link" name="start-track">
-                                        <?php
-                                            $start_track = "php/start_tracking.php?start-track=" . $id_album ;
-                                            echo '<a href="'.$start_track.'">Start Tracking</a> '; 
-                                        ?>
-                                    </button>
-                                <!-- </form>  -->
-                            </div>
+                                                            $delete = "php/cardinsert.php?delete=" . $row['Idpossession'] ;
+                                                            echo '<a href="'.$delete.'">Delete Card</a> </td> '; 
+                                                        ?> 
+                                                    </td>
+                                                </tr>
+
+                                                <?php   }   ?>
+
+                                            </tbody>
+                                            <tr>
+                                                <?php 
+                                                    if( $ricarica_prezzi_min_trend === TRUE){
+                                                        echo  '
+                                                            <td> Total price of the album: </td> 
+                                                            <td> Minimun price: '.$total_min.' </td>
+                                                            <td> Trend price: '.$total_trend.' </td>' ; 
+                                                    } else{
+                                                        echo '
+                                                            <td> Total price of the album: </td> 
+                                                            <td> Estimated price: '.$total_avarage.' </td> ';
+
+                                                    }
+                                                ?> 
+                                            </tr>
+                                        </table> 
+                                    </div><!-- /.col-sm-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.wrapper -->
+
+                        <?php     $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = '$id_album' ";
+
+                                    $result = $connessione->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        $check = false;
+                                    } else {
+                                        $check = true;
+                                    }
                                     
-                            <?php  }  ?>
-                <?php } ?>
+                                    if($check == true) {     ?>                                   
+                                
+                                        <div class="card-footer">
+                                            <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
+                                            <!--  <form method="GET" action="" >    -->
+                                                <button type="submit" class="btn btn-link" name="start-track">
+                                                    <?php
+                                                        $start_track = "php/start_tracking.php?start-track=" . $id_album ;
+                                                        echo '<a href="'.$start_track.'">Start Tracking</a> '; 
+                                                    ?>
+                                                </button>
+                                            <!-- </form>  -->
+                                        </div>
+                
+                            <?php } ?>
 
 
             </div><!-- /.cardbody -->

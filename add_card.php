@@ -41,10 +41,14 @@ else{       ?>
                     
                     <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="">Set & Name</a>
+                        <form action="album.php" method="POST">
+                            <a class="nav-link active"><input class="btn btn-primary" type="submit" name="INS" value="Set & Name"></a>
+                        </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Only Link</a>
+                        <form action="album.php" method="POST">
+                            <a class="nav-link active"><input class="btn btn-primary" type="submit" name="INS" value="Only Link"></a>
+                        </form>
                     </li>
                     </ul>
                 </div>
@@ -54,55 +58,77 @@ else{       ?>
                 <div class="card-body">
                     <div class="row">
 
+                    <?php
+                        if(isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == TRUE)
+                        {
+                    ?>
+                        <div class="col-8">
+                            <div class="form-group">
 
-                    <div class="col-4">
-                    <div class="form-group">
-                        <!-- Doveva esserci name="search"-->
-                        <input class="form-control" id="search-set" type="text" name="set_name" placeholder="Exact Set Name in English">
+                                <input class="form-control" type="text" name="link_card"  placeholder="Exact Link from Cardmarket">
 
-                        <div class="list-group" id="show-list">
-                            <!-- Here autocomplete list will be display -->
+                            </div>
                         </div>
-                        
-                        
-                    </div>
-                    </div>
 
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                    <!-- script per auto completamento-->
-                    <script type="text/javascript">
-                        $(document).ready( function(){
-                            $("#search-set").keyup(function(){
-                                var searchText = $(this).val();
-                                if(searchText != ''){
-                                    $.ajax({
-                                        url:'php/action.php',
-                                        method:'post',
-                                        data:{ query:searchText},
-                                        success:function(response){
-                                            $("#show-list").html(response);
+                    <?php
+                        }
+                        else 
+                        {
+                    ?>
+                        
+                            <div class="col-4">
+                            <div class="form-group">
+                                <!-- Doveva esserci name="search"-->
+                                <input class="form-control" id="search-set" type="text" name="set_name" placeholder="Exact Set Name in English">
+
+                                <div class="list-group" id="show-list">
+                                    <!-- Here autocomplete list will be display -->
+                                </div>
+                                
+                                
+                            </div>
+                            </div>
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                            <!-- script per auto completamento-->
+                            <script type="text/javascript">
+                                $(document).ready( function(){
+                                    $("#search-set").keyup(function(){
+                                        var searchText = $(this).val();
+                                        if(searchText != ''){
+                                            $.ajax({
+                                                url:'php/action.php',
+                                                method:'post',
+                                                data:{ query:searchText},
+                                                success:function(response){
+                                                    $("#show-list").html(response);
+                                                }
+                                            });
+                                        }
+                                        else{
+                                            $("#show-list").html('');
                                         }
                                     });
-                                }
-                                else{
-                                    $("#show-list").html('');
-                                }
-                            });
-                            $(document).on('click','a',function(){
-                                $("#search").val($(this).text());
-                                $("#show-list").html('');
-                            });
+                                    $(document).on('click','a',function(){
+                                        $("#search").val($(this).text());
+                                        $("#show-list").html('');
+                                    });
 
-                        });
-                    </script>
+                                });
+                            </script>
 
-                    <div class="col-4">
-                    <div class="form-group">
+                            <div class="col-4">
+                            <div class="form-group">
 
-                        <input class="form-control" type="text" name="card_name"  placeholder="Exact Card Name in English">
+                                <input class="form-control" type="text" name="card_name"  placeholder="Exact Card Name in English">
 
-                    </div>
-                    </div>
+                            </div>
+                            </div>
+                        
+                    <?php 
+                        }
+
+                    ?>
                         
                         
 
