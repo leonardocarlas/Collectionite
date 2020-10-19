@@ -276,7 +276,7 @@
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                <div class="row">
                                     <div class="col-sm-12">
-                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                                    <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Card Name</th>
@@ -319,6 +319,7 @@
                                 <?php   }   ?>
 
                             </tbody>
+                            <tfoot>
                                 <tr>
                                 
                                 <?php 
@@ -329,11 +330,17 @@
                                     }
                                 ?> 
                                 </tr>
+                            </tfoot>
                         </table> 
                     </div><!-- /.col-sm-12 -->
                 </div><!-- /.row -->
               </div><!-- /.wrapper -->
 
+              <script>
+                    $(document).ready(function() {
+                    $('#example').DataTable();
+                } );
+                </script>
 
 
 

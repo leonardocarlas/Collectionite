@@ -77,53 +77,92 @@ else{       ?>
                     ?>
                         
                             <div class="col-4">
-                            <div class="form-group">
-                                <!-- Doveva esserci name="search"-->
-                                <input class="form-control" id="search-set" type="text" name="set_name" placeholder="Exact Set Name in English">
+                                <div class="form-group">
+                                    <!-- Doveva esserci name="search"-->
+                                    <input class="form-control" id="set_name" type="text" name="set_name" placeholder="Exact Set Name in English">
 
-                                <div class="list-group" id="show-list">
-                                    <!-- Here autocomplete list will be display -->
+                                    <div class="list-group" id="show-list">
+                                        <!-- Here autocomplete list will be display -->
+                                    </div>
+                                        <!-- country = set_name, countryList = show-list  -->
                                 </div>
-                                
-                                
-                            </div>
                             </div>
 
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                            <!-- script per auto completamento-->
-                            <script type="text/javascript">
+                            <!-- script per auto completamento   query = searchText-->
+                            <script>
                                 $(document).ready( function(){
-                                    $("#search-set").keyup(function(){
+                                    $("#set_name").keyup(function(){
                                         var searchText = $(this).val();
-                                        if(searchText != ''){
+                                        if(searchText != '')
+                                        {
                                             $.ajax({
                                                 url:'php/action.php',
-                                                method:'post',
-                                                data:{ query:searchText},
-                                                success:function(response){
-                                                    $("#show-list").html(response);
+                                                method:'POST',
+                                                data:{query_set:searchText},
+                                                success:function(data)
+                                                {
+                                                    $("#show-list").fadeIn();
+                                                    $("#show-list").html(data);
                                                 }
                                             });
                                         }
                                         else{
+                                            $("#show-list").fadeOut();
                                             $("#show-list").html('');
                                         }
                                     });
-                                    $(document).on('click','a',function(){
-                                        $("#search").val($(this).text());
-                                        $("#show-list").html('');
+                                    $(document).on('click','li',function(){
+                                        $("#set_name").val($(this).text());
+                                        $("#show-list").fadeOut();
                                     });
 
                                 });
                             </script>
 
+                            <!--   <a href='#' class='list-group-item list-group-item-action'>   -->
+
                             <div class="col-4">
                             <div class="form-group">
 
-                                <input class="form-control" type="text" name="card_name"  placeholder="Exact Card Name in English">
+                                <input class="form-control" type="text" id="card_name" name="card_name"  placeholder="Exact Card Name in English">
+                                
+                                <div class="list-group" id="show-list-card">
+                                    <!-- Here autocomplete list will be display -->
+                                </div>
 
                             </div>
                             </div>
+
+                            <!-- script per auto completamento   query = searchText-->
+                            <script>
+                                $(document).ready( function(){
+                                    $("#card_name").keyup(function(){
+                                        var searchText = $(this).val();
+                                        if(searchText != '')
+                                        {
+                                            $.ajax({
+                                                url:'php/action.php',
+                                                method:'POST',
+                                                data:{query_card:searchText},
+                                                success:function(data)
+                                                {
+                                                    $("#show-list-card").fadeIn();
+                                                    $("#show-list-card").html(data);
+                                                }
+                                            });
+                                        }
+                                        else{
+                                            $("#show-list-card").fadeOut();
+                                            $("#show-list-card").html('');
+                                        }
+                                    });
+                                    $(document).on('click','li',function(){
+                                        $("#card_name").val($(this).text());
+                                        $("#show-list-card").fadeOut();
+                                    });
+
+                                });
+                            </script>
                         
                     <?php 
                         }

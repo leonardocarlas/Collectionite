@@ -4,7 +4,7 @@
 
 
 
-if(isset($_POST['tasto_invia'])){
+if(isset($_POST['nome'])){
 
     require 'dbh.php';
 
@@ -76,22 +76,29 @@ if(isset($_POST['tasto_invia'])){
 
                     //SEND EMAIL
                     $to = $email;
-                    $subject = "Email Verification: Welcome to Dragon Collection!";
-                    $message = "<h1> Hi ".$username."! Welcome to the Dragon Collection! </h1>
+                    $subject = "Email Verification: Welcome to Collection Sight!";
+                    $message = "<h1> Hi ".$username."! Welcome to the Collection Sight! </h1>
                                 <br><br>
+                                <center>
                                 <text>
                                     To ultimate your registration procedure be sure to click the link below to confirm your email adress.
                                     <br>
                                     <br>
-                                    <<a href='http://localhost/Leo%20Collection/verification_page.php?VKey=$verification_key'> Confirm the Account</a>
+                                    <a href='http://localhost/Leo%20Collection/verification_page.php?VKey=$verification_key'> Confirm the Account</a>
                                     <br>
+                                    <br><br>
+                                </center> 
                                     Collection Sight is a project that wants to expand and get bigger.
                                     For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2€. After that, your account will be stored forever in our databases. Try yourself for the first month and enjoy.
                                     <br>
+                                    <br><br>
+                                <center>
                                     Thank you and enjoy your collection!
                                     <br>
                                     The Team of Collection Sight.
-                                </text>    
+                                </text>
+                                <img src='cid:logo' class='d-block w-100'>
+                                </center>    
                                     ";
                    
                         $mail = new PHPMailer(true);
@@ -108,10 +115,11 @@ if(isset($_POST['tasto_invia'])){
                             $mail->Username='lio.del.bronx@gmail.com';
                             $mail->Password='xefeco87';
                                 
-                            $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
+                            $mail->SetFrom('lio.del.bronx@gmail.com','Collection Sight');
                             $mail->Subject = $subject;
                             $mail->Body = $message;
                             $mail->AddAddress($to);
+                            $mail->AddEmbeddedImage('immagini/logocollection.PNG', 'logo');
                                 
                             $mail->Send();
                             //PUT THE USER TO THE VERIFICATION PAGE

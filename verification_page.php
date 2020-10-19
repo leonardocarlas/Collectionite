@@ -27,10 +27,10 @@ if(isset($_GET['VKey'])){
                       
                         <div class="card card-primary card-outline">
                             <div class="card-body">
-                                <p class="card-text"><h1>The account it's been verified correctly . Please back to the Home Page</h1></p>
+                                <p class="card-text"><h1>The account it's been verified correctly . Please back to the Home Page and login.</h1></p>
 
                                 <div class ="row justify-content-center">
-                                    <imgrc="immagini/img2.jpg"> 
+                                    <imgrc="immagini/logofull.png"> 
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@ if(isset($_GET['VKey'])){
                         <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
 
                         <div class ="row justify-content-center">
-                            <imgrc="immagini/img2.jpg"> 
+                            <imgrc="immagini/logofull.png"> 
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@ if(isset($_GET['SIGNUP'])){
         <link rel="stylesheet" href="dist/css/adminlte.min.css">
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        <title>Leo Collection</title>
+        <title>Collection Sight</title>
         <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
     </head>
@@ -110,12 +110,12 @@ if(isset($_GET['SIGNUP'])){
                             <br>
         
                             <div class="row justify-content-center">
-                                <img src="immagini/img2.jpg"> 
+                                <img src="immagini/logofull.png" width="900" height="1000"> 
                             </div>
 
                             <br>
 
-                            <p class="card-text" ><h3>Sincerily, The Team of Dragon Collection</h3></p>
+                            <p class="card-text" ><h3>Sincerily, The Team of Collection Sight.</h3></p>
                         </div>
 
                     
