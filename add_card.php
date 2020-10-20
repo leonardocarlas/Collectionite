@@ -42,12 +42,12 @@ else{       ?>
                     <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                         <form action="album.php" method="POST">
-                            <a class="nav-link active"><input class="btn btn-primary" type="submit" name="INS" value="Set & Name"></a>
+                            <a class="nav-link active"><input class="btn text-white" style="background-color: #5401a7;" type="submit" name="INS" value="Set & Name"></a>
                         </form>
                     </li>
                     <li class="nav-item">
                         <form action="album.php" method="POST">
-                            <a class="nav-link active"><input class="btn btn-primary" type="submit" name="INS" value="Only Link"></a>
+                            <a class="nav-link active"><input class="btn text-white" style="background-color: #5401a7;" type="submit" name="INS" value="Only Link"></a>
                         </form>
                     </li>
                     </ul>
@@ -238,7 +238,7 @@ else{       ?>
                     </div>
                     <div class="row justify-content-center mt-2">
                         <div class="col-3">
-                            <input class="btn btn-primary btn-block" type="submit" name="inserisci-carta" value="Insert Card">
+                            <input class="btn text-white btn-block" style="background-color: #5401a7;" type="submit" name="inserisci-carta" value="Insert Card">
                         </div>
                     </div>
                         

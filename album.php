@@ -36,30 +36,6 @@
     }
 
 
-
-
-/*
-
-    if(isset($_GET['INS'])){
-
-        if ($_GET['INS'] == "L") {
-            $inserimento_per_link = true;
-        }
-        elseif ($_GET['INS'] == "SN") {
-            $inserimento_per_set_nome = true;
-        }
-    }
-    if(isset($_POST['EV'])){
-       ;
-        if ($_POST['EV'] == "LC") {
-            
-        }
-        elseif ($_POST['EV'] == "MT") {
-           
-        }
-    }
-*/
-    
     //VARIABILI GLOBALI
     $album_corrente = $_SESSION['album-selezionato'];
     $user = $_SESSION['usernamesession'];
@@ -79,7 +55,7 @@
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
-                        <a class="btn btn-primary" href="home.php">Back to Select the Album</a>    
+                        <a class="btn text-white" style="background-color: #5401a7;" href="home.php">Back to Select the Album</a>    
                 </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -163,7 +139,7 @@
             ?>
             <div class="row justify-content-center mt-5">
                 <div class="col-12">
-                    <div class="card card-info card-outline">
+                    <div class="card card-primary card-outline">
 
                         <div class="card-header">
                             <h3 class="card-title">Album: <?php echo $album_corrente; ?> </h3>
@@ -182,10 +158,10 @@
                                                             <br>
                                                             <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
                                                                 <form action="album.php" method="POST">
-                                                                    <input type="submit" name="EV" class="btn btn-primary" value="Minimum & Trend Prices">
+                                                                    <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Minimum & Trend Prices">
                                                                 </form>
                                                                 <form action="album.php" method="POST">
-                                                                    <input type="submit" name="EV" class="btn btn-primary" value="Evaluation Prices based on Language & Condition">
+                                                                    <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Evaluation Prices based on Language & Condition">
                                                                 </form>
                                                             </div>
                                                         
@@ -201,7 +177,7 @@
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 table-responsive">
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                         <thead>
                                             <tr>
@@ -359,7 +335,9 @@
 
             $chart_data = '';
             while($row = $result->fetch_assoc()) {
-                $chart_data .= "{ date:'".$row["Stat_date"]."', Trend_value:".$row["Trend_value"].",  Min_value:".$row["Min_value"]."}, ";
+                $ora_in_breve = $row["Stat_date"];
+                $ora_in_breve = substr($ora_in_breve, 0, 10); 
+                $chart_data .= "{ date:'". $ora_in_breve ."', Trend_value:".$row["Trend_value"].",  Min_value:".$row["Min_value"]."}, ";
             }
             $chart_data = substr($chart_data, 0, -2); //elimina },
             $no_data = false;

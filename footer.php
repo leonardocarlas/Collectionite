@@ -3,7 +3,7 @@
     <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark">
 
-<div style="background-color: #d9ccff;">
+<div style="background-color: #5401a7;">
   <div class="container">
 
     <!-- Grid row-->
@@ -11,7 +11,7 @@
 
       <!-- Grid column -->
       <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-        <h6 class="mb-0">Get connected with us on social networks!</h6>
+        <h6 class="mb-0 text-white">Stay connected with us on social networks!</h6>
       </div>
       <!-- Grid column -->
 
@@ -19,11 +19,11 @@
       <div class="col-md-6 col-lg-7 text-center text-md-right">
 
         <!-- Facebook -->
-        <a href="#" class="fb-ic">
+        <a href="#" class="fb-ic text-white">
           <i class="fa fa-facebook-official" style="font-size:36px"></i>
         </a>
         <!-- Youtube -->
-        <a href="#" class="tw-ic">
+        <a href="#" class="tw-ic text-white">
           <i class="fa fa-youtube" style="font-size:36px"></i>
         </a>
         
@@ -36,7 +36,7 @@
           <i class="fab fa-linkedin-in white-text mr-4"> </i>
         </a> -->
         <!--Instagram-->
-        <a href="#" class="ins-ic">
+        <a href="#" class="ins-ic text-white">
           <i class="fa fa-instagram" style="font-size:36px"></i>
         </a>
 
@@ -130,6 +130,12 @@
 
   </div>
   <!-- Grid row -->
+
+  <div class="row justify-content-center"> 
+      
+        <img src="immagini/logofull.png" width="120" height="140">
+
+  </div>
 
 </div>
 <!-- Footer Links -->

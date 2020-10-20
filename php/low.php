@@ -95,6 +95,8 @@
             // output data of each row
             while($row = $result->fetch_assoc()) {
                echo "Carta: " . $row["Card_name"] . " Set: ". $row["Set_Name"] . "<br>";
+
+                     ///////////   punto definitivo   //////////
             }
             } else {
             echo "0 results";

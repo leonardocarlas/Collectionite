@@ -115,7 +115,7 @@ if(isset($col_selected)){
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button class="btn btn-primary" type="submit" name="selected-collection">Confirm</button>
+                        <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="selected-collection">Confirm</button>
                     </div>
                 </form>
                 </div>
@@ -182,7 +182,7 @@ if(isset($col_selected)){
                 </div>
                 <div class="row mb-5">
                     <form method="POST" action="php/change_collection.php">
-                        <button class="btn btn-primary" type="submit" name="change-collection">Change Collection</button> 
+                        <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="change-collection">Change Collection</button> 
                     </form>
                 </div>
                 </div><!-- /.container-fluid -->
@@ -269,7 +269,7 @@ if(isset($col_selected)){
             <div class="row justify-content-center"> 
                 <form method="POST" action="php/albuminsert.php?E='.$id .'" class="form-inline">
                     <div class="form-group">
-                        <label for="old_album_name">Modifica titolo album</label>
+                        <label for="old_album_name">Modify album title</label>
                     </div>
                     <div class="form-group mx-sm-3">
                         <input type="text" class="form-control" name="old_album_name"  value='.$album_to_edit.'>
@@ -297,7 +297,7 @@ if(isset($col_selected)){
                 <div class="form-group mx-sm-3">
                     <input  id="inputalbum" type="text" name="album_name" class="form-control"  placeholder="Album Name">
                 </div>  
-                <button type="submit" class="btn btn-primary" name="aggiungi_album" value="Add Album">Add</button>
+                <button type="submit" style="background-color: #5401a7;" class="btn text-white" name="aggiungi_album" value="Add Album">Add</button>
             </form>
             </div>
             </div>

@@ -69,7 +69,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/onlylogo.png" alt="AdminLTE Logo"  width="90" height="50"> <!-- image-circle -->
+          <img src="immagini/onlylogo.png" alt="AdminLTE Logo"  width="80" height="50"> <!-- image-circle -->
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -136,13 +136,18 @@
                             <ul class="navbar-nav">
                               <li class="nav-item">
                                 <div class="form-group  m-2">
-                                  <h4><span class="badge badge-dark">'.$user.'</span></h4>
+                                  <i class="fa fa-user" style="font-size:20px;" aria-hidden="true"></i>
+                                </div>
+                              </li>
+                              <li class="nav-item">
+                                <div class="form-group  m-2">
+                                  <h4><span style="text-transform: uppercase;">'.$user.'</span></h4>
                                 </div>
                               </li>
                               
                               <li class="nav-item">
                                 <div class="form-group  m-2"> 
-                                  <button class="btn btn-primary" type="submit" name="logout-submit">Logout</button>
+                                  <button class="btn text-white" type="submit" style="background-color: #5401a7;" name="logout-submit">Logout</button>
                                 </div>
                               </li>
 
@@ -169,7 +174,7 @@
                           </li>
 
                           <li class="nav-item">
-                            <button class="btn btn-dark m-2" type="submit" name="login-submit">Login</button>
+                            <button class="btn m-2 text-white" type="submit" style="background-color: #5401a7;" name="login-submit">Login</button>
                           </li>
 
                          

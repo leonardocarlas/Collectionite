@@ -236,7 +236,7 @@
                         <div class="row mb-2">
                             <?php 
                                 $return_to_search_page = "search_page.php?OPENu=" . $id_user ;
-                                echo '<a class="btn btn-primary" href="'.$return_to_search_page.'">Back to select the Album</a> '; 
+                                echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$return_to_search_page.'">Back to select the Album</a> '; 
                             ?>
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -275,7 +275,7 @@
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 table-responsive">
                                     <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
                                         <thead>
                                             <tr>

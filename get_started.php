@@ -107,7 +107,7 @@
                               <td><button class="btn btn-link"><a href="reset_password.php" > Forgot your password? </a></button></td>
                             </tr>
                             <tr>
-                              <td><input type="submit" class="btn btn-primary" value="Send your datas"></td>
+                              <td><input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Send your datas"></td>
                             </tr>
 
                           </form>

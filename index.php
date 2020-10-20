@@ -80,13 +80,13 @@
     <div class="content">
       <div class="container">
         <div class="row">
-            <a href="get_started.php" class="btn btn-primary btn-lg mx-auto d-block mb-5">Get started</a>
+            <a href="get_started.php" style="background-color: #5401a7;" class="btn text-white btn-lg mx-auto d-block mb-5">Get started</a>
               <?php
                           
                   if(isset($_SESSION['usernamesession'])){
                       $username=$_SESSION['usernamesession'];
 
-                      echo ' <a class="btn btn-primary btn-lg mx-auto d-block mb-5" href="home.php">My Collection</a>
+                      echo ' <a class="btn text-white btn-lg mx-auto d-block mb-5" style="background-color: #5401a7;" href="home.php">My Collection</a>
                             ';
                           
                   }else{

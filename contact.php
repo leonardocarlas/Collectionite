@@ -58,7 +58,7 @@
                          </div>
                         </div>
                         <div class="card-footer">
-                        <button type="submit"  name="invia-problema" class="btn btn-primary">Send</button>
+                        <button type="submit"  name="invia-problema" style="background-color: #5401a7;" class="btn text-white">Send</button>
                         </div>
                     </form>
                 </div>
