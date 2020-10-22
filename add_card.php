@@ -29,8 +29,9 @@ else{       ?>
                     <p class="font-weight-bold card-text"><h5> 1. First Step.</p> If you have to insert a new card follow this procedure:</h5><br>
                     <ul>
                         <li>Open in another page the site of <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Remember that it works only with the english version;  </li>
-                        <li>Search out the exact card that you want to insert;</li>
+                        <li>Search out the exact card that you want to insert. For example <img src="immagini/crob.PNG" width="120"> from the set <img src="immagini/set.PNG" width="70">; </li>
                         <li>Copy the exact name of the cards and of the set from the site, then paste them in the apposites fields.</li>
+                        <li>Otherwise, (We advise you this option) copy and paste the link of the card page directly from the CardMarket site. For example: <BR> https://www.cardmarket.com/en/Pokemon/Products/Singles/Platinum/Crobat-G-Lv44 ;</li>
                         <li>To see an example of the usage, check out our video on Youtube: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
                         
                     </ul>
@@ -111,7 +112,7 @@ else{       ?>
                                             $("#show-list").html('');
                                         }
                                     });
-                                    $(document).on('click','li',function(){
+                                    $("#show-list").on('click','li',function(){
                                         $("#set_name").val($(this).text());
                                         $("#show-list").fadeOut();
                                     });
@@ -156,7 +157,7 @@ else{       ?>
                                             $("#show-list-card").html('');
                                         }
                                     });
-                                    $(document).on('click','li',function(){
+                                    $("#show-list-card").on('click','li',function(){
                                         $("#card_name").val($(this).text());
                                         $("#show-list-card").fadeOut();
                                     });

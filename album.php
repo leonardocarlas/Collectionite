@@ -148,12 +148,12 @@
 
                         <div class="card-header">
                             <!-- 3.E NORMAL SELECTING THE EVALUATION METHOD -->                               
-
+                            
                                         <div class="content-wrapper">
                                                 <div class="content-header">
                                                     <div class="container">
                                                     <div class="row justify-content-center mb-1">
-                                                        
+                                                        <div class="col-sm-4">
                                                             <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
                                                             <br>
                                                             <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
@@ -164,13 +164,14 @@
                                                                     <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Evaluation Prices based on Language & Condition">
                                                                 </form>
                                                             </div>
-                                                        
+                                                        </div>
                                                     </div><!-- /.container-fluid -->
                                                 </div>
                                             <div>
                                         </div>
 
                             <br>
+                            
                             <!-- 3.E FINISH  -->
                         </div><!-- /.card-header -->
                         
