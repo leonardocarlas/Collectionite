@@ -15,7 +15,7 @@ if(isset($_POST['aggiorna_carte']) or isset($_GET['Deleted']))
 
     //if (mysqli_num_rows($result) > 0) {
     
-        header("Location: ../album.php?Carte=PRESENTI");
+        header("Location: ../album.php?Deleted=True");
         exit();
 
     //} else {

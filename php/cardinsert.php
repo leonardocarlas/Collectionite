@@ -16,7 +16,8 @@
 
 //////  FROM: add_card.php (album.php) ---  INSERIMENTO NEL DB DI UNA CARTA TRAMITE SET E NAME   //////////
 
-if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == FALSE){
+if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == FALSE)
+{
 
     $nome_set = $_POST['set_name'];
     $nome_carta = $_POST['card_name'];
@@ -107,7 +108,8 @@ if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESS
 
 //////  FROM: add_card.php (album.php) ---  INSERIMENTO NEL DB DI UNA CARTA TRAMITE LINK   //////////
 
-else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == TRUE){
+else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == TRUE)
+{
 
     $link = $_POST['link_card'];
     $conditions = $_POST['conditions'];
@@ -207,7 +209,8 @@ else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND 
 
 ////////////   FROM: add_card.php (album.php) --- CANCELLAMENTO DI UNA CARTA DAL DB  ////////////
 
-else if(isset($_GET['delete'])){
+else if(isset($_GET['delete']))
+{
 
     $id_possession = $_GET['delete'];
 
@@ -564,6 +567,20 @@ else if(isset($_GET['delete'])){
             $id_exp = $row['idExpansion'];
 
             $sql = "INSERT INTO CARD (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
+            $stmt = mysqli_stmt_init($connessione);
+
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("Location: ../add_card.php?error=sqlerror");
+                exit();
+            }else{    
+                mysqli_stmt_bind_param($stmt, "iiss", $id_carta, $id_exp, $c_name, $exp_name);
+                mysqli_stmt_execute($stmt);
+
+                //INSERIMENTO RIUSCITO
+            }
+            //INSERIMENTO NELLA TABELLA NEW CARDS, UTILE PER UANDO LA TABELLA CARDS VIENE AGGIORNATA
+
+            $sql = "INSERT INTO NEWCARDS (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
             $stmt = mysqli_stmt_init($connessione);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
