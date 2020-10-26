@@ -69,7 +69,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/onlylogo.png" alt="AdminLTE Logo"  width="380" height="50"> <!-- image-circle -->
+          <img src="immagini/onlylogo.png" alt="AdminLTE Logo"  width="80" height="50"> <!-- image-circle -->
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

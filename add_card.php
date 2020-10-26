@@ -29,9 +29,9 @@ else{       ?>
                     <p class="font-weight-bold card-text"><h5> 1. First Step.</p> If you have to insert a new card follow this procedure:</h5><br>
                     <ul>
                         <li>Open in another page the site of <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Remember that it works only with the english version;  </li>
-                        <li>Search out the exact card that you want to insert. For example <img src="immagini/crob.PNG" width="120"> from the set <img src="immagini/set.PNG" width="70">; </li>
+                        <li>Search out the exact card that you want to insert. For example <img src="immagini/crob.PNG" width="120"> from the set <img src="immagini/set.PNG" width="70">. If it appears "Card not found" in the card field but you have copied it correctly from the site then try anyway;</li>
                         <li>Copy the exact name of the cards and of the set from the site, then paste them in the apposites fields.</li>
-                        <li>Otherwise, (We advise you this option) copy and paste the link of the card page directly from the CardMarket site. For example: <BR> https://www.cardmarket.com/en/Pokemon/Products/Singles/Platinum/Crobat-G-Lv44 ;</li>
+                        <li>Otherwise,<b> (We advise you this option) </b> copy and paste the link of the card page directly from the CardMarket site. For example: <BR> https://www.cardmarket.com/en/Pokemon/Products/Singles/Platinum/Crobat-G-Lv44 ;</li>
                         <li>To see an example of the usage, check out our video on Youtube: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
                         
                     </ul>
