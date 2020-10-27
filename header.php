@@ -112,10 +112,13 @@
             </li>
             <li class="nav-item">
               <?php
+              
+              if(isset($_SESSION['usernamesession'])){
                   if(basename($_SERVER['PHP_SELF']) == "payments.php")
                       echo '<a href="payments.php" class="nav-link active">Subscribe</a>';
                   else
                       echo '<a href="payments.php" class="nav-link">Subscribe</a>';
+              }
               ?>
             </li>
             

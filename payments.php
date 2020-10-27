@@ -40,7 +40,7 @@
                     <div class="col-md-8">
 
                         <div id="paypal-button-container"></div>
-                        <script src="https://www.paypal.com/sdk/js?client-id=ATaeq_M12RICGMFIYdeHED_rKYc5o0UUT7BxGfTOBlgtmE0cDStu0KMSUfX7YzAloMOZMqE1yu0h7rZN&currency=EUR" data-sdk-integration-source="button-factory"></script>
+                        <script src="https://www.paypal.com/sdk/js?client-id=AUiQObjWwMGD1n6r8V5Ha27R3ijRQk-Mcmt4iP5rQaDh57ralkj0EakZzUdnb9BWyqU2ucJO5RAUYzDi&currency=EUR" data-sdk-integration-source="button-factory"></script>
                         <script>
                         paypal.Buttons({
                             style: {

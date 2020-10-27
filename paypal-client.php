@@ -27,8 +27,8 @@ class PayPalClient
      */
     public static function environment()
     {
-        $clientId = getenv("CLIENT_ID") ?: "ATaeq_M12RICGMFIYdeHED_rKYc5o0UUT7BxGfTOBlgtmE0cDStu0KMSUfX7YzAloMOZMqE1yu0h7rZN";
-        $clientSecret = getenv("CLIENT_SECRET") ?: "EIrudUEUuRrX7bbUzeIhHc6kRP-xiBKC2sAOttNuDslpIjMcxZuXfBqHDD3SYq-SyVITmEVc8Sbc1s3Y";
+        $clientId = getenv("CLIENT_ID") ?: "AUiQObjWwMGD1n6r8V5Ha27R3ijRQk-Mcmt4iP5rQaDh57ralkj0EakZzUdnb9BWyqU2ucJO5RAUYzDi";
+        $clientSecret = getenv("CLIENT_SECRET") ?: "EKIQuJJEwdsp0cASooThAyKhJW14iCDc7pe31abpH5AFPlrk-x26-POBZGhosw2yO9Q1VRw8pYeoSDBz";
         return new ProductionEnvironment($clientId, $clientSecret);
     }
 }
