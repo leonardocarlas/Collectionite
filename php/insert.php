@@ -84,7 +84,7 @@ if(isset($_POST['nome'])){
                                     To ultimate your registration procedure be sure to click the link below to confirm your email adress.
                                     <br>
                                     <br>
-                                    <a href='http://localhost/Leo%20Collection/verification_page.php?VKey=$verification_key'> Confirm the Account</a>
+                                    <a href='https://collectionsight.com/verification_page.php?VKey=$verification_key'> Confirm the Account</a>
                                     <br>
                                     <br><br>
                                 </center> 
@@ -112,14 +112,14 @@ if(isset($_POST['nome'])){
                             $mail->Port='465';
                             $mail->isHTML();
                                                         
-                            $mail->Username='lio.del.bronx@gmail.com';
+                            $mail->Username='collectionsight@gmail.com';
                             $mail->Password='xefeco87';
                                 
-                            $mail->SetFrom('lio.del.bronx@gmail.com','Collection Sight');
+                            $mail->SetFrom('collectionsight@gmail.com','Collection Sight');
                             $mail->Subject = $subject;
                             $mail->Body = $message;
                             $mail->AddAddress($to);
-                            $mail->AddEmbeddedImage('immagini/logocollection.PNG', 'logo');
+                            $mail->AddEmbeddedImage('immagini/logocollection.png', 'logo');
                                 
                             $mail->Send();
                             //PUT THE USER TO THE VERIFICATION PAGE
