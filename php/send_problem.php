@@ -12,7 +12,7 @@ if(isset($_POST['invia-problema'])){
     $subject = $_POST['subject-problem'];
     $message = "";
     $txt = $_POST['mail-problem'];
-    $to = "lio.del.bronx@gmail.com";
+    $to = "collectionsight@gmail.com";
 
 
     $headers = "From: $sender" . "\r\n" ;
@@ -30,10 +30,10 @@ if(isset($_POST['invia-problema'])){
         $mail->Port='465';
         $mail->isHTML();
                         
-        $mail->Username='lio.del.bronx@gmail.com';
+        $mail->Username='collectionsight@gmail.com';
         $mail->Password='xefeco87';
 
-        $mail->SetFrom('lio.del.bronx@gmail.com','Dragon Collection');
+        $mail->SetFrom('collectionsight@gmail.com','Collection Sight');
         $mail->Subject = $subject;
         $mail->Body = $message;
         $mail->AddAddress($to);
