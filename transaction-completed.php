@@ -25,7 +25,7 @@ class GetOrder
 
     include("php/dbh.php");
 
-    $stmt = $connessione->prepare("UPDATE user SET Payed=1, Payment_date=NOW() WHERE Iduser=?");
+    $stmt = $connessione->prepare("UPDATE user SET Payed = 1, Payment_date = NOW() WHERE Iduser=?");
     $stmt->bind_param("i",$_POST['userID']);
     $stmt->execute();
     if($stmt)

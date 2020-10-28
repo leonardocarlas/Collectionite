@@ -23,7 +23,7 @@
           <i class="fa fa-facebook-official" style="font-size:36px"></i>
         </a>
         <!-- Youtube -->
-        <a href="#" class="tw-ic text-white">
+        <a href="https://www.youtube.com/channel/UCSD5eiY8e_JyDjCRByjQDOg" class="tw-ic text-white">
           <i class="fa fa-youtube" style="font-size:36px"></i>
         </a>
         
@@ -100,6 +100,9 @@
       <p>
         <a href="index.php">Your Collection</a>
       </p>
+      <p>
+        <a href="https://www.termsandconditionsgenerator.com/live.php?token=QuhdCIOQXVqNjxtIqKKzmc33L7mX6tWG">Terms & Conditions</a>
+      </p>
 <!--
       <p>
         <a href="affilate.php">Become an ambassador</a>
@@ -121,7 +124,7 @@
       <p>
         <!--<i class="fas fa-home mr-3"></i>--> Piovene Rocchette, Vi 36013, IT</p>
       <p>
-        <!--<i class="fas fa-envelope mr-3"></i>--> info@collectionsight.com</p>
+        <!--<i class="fas fa-envelope mr-3"></i>--> collectionsight@gmail.com</p>
       <p>
         <!--<i class="fas fa-phone mr-3"></i>--> + 39 345 875 3375</p>
 
@@ -142,7 +145,9 @@
 
 <!-- Copyright -->
 <div class="footer-copyright text-center py-3">© 2020 Copyright:
-  <a href="#"> collectionsight.com </a>
+  <a href="https://collectionsight.com/index.php"> collectionsight.com </a>
+  <br>
+  CF: CRLLRD97T30L157X
 </div>
 <!-- Copyright -->
 

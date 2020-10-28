@@ -113,15 +113,42 @@
               ?>
             </li>
             <li class="nav-item">
-              <?php
-              
-              if(isset($_SESSION['usernamesession'])){
-                  if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                      echo '<a href="payments.php" class="nav-link active">Subscribe</a>';
-                  else
-                      echo '<a href="payments.php" class="nav-link">Subscribe</a>';
-              }
-              ?>
+                <?php
+                
+
+                if(isset($_SESSION['usernamesession'])){
+                  require "php/dbh.php";
+                  $id_user = $_SESSION['idusersession'];
+                  $sql = "SELECT Payed FROM user WHERE Iduser='$id_user' LIMIT 1 ";
+                  $result = $connessione->query($sql);
+                  
+                  if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        if($row['Payed'] == 0){
+                          $PAGATO = FALSE;
+                        }
+                        elseif($row['Payed'] == 1){
+                          $PAGATO = TRUE;
+                        }
+                    }
+                  } else {
+                      header("Location: index.php");
+                      exit();
+                  }
+                  $connessione->close();
+
+                  if($PAGATO == FALSE){
+                    if(basename($_SERVER['PHP_SELF']) == "payments.php")
+                        echo '<a href="payments.php" class="nav-link active">Subscribe</a>';
+                    else
+                        echo '<a href="payments.php" class="nav-link">Subscribe</a>';
+                  }elseif ($PAGATO == TRUE) {
+                    echo '';
+                  }
+                }
+
+                ?>
             </li>
             
 
