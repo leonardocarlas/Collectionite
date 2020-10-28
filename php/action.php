@@ -3,11 +3,16 @@
 
 require "dbh.php";
 
+if(isset($_SESSION['idcollezione'])){
+    $idcollection = $_SESSION['idcollezione'];
+}
+
+
 if(isset($_POST['query_set'])){
 
     $input_text = $_POST['query_set'];
     
-    $sql = "SELECT DISTINCT Set_name FROM card WHERE Set_name LIKE '%$input_text%' ";
+    $sql = "SELECT DISTINCT Set_name FROM card WHERE Set_name LIKE '%$input_text%' AND idCollection='$idcollection' ";
 
     $result = $connessione->query($sql);
 
@@ -34,7 +39,7 @@ if(isset($_POST['query_card'])){
 
     $input_text = $_POST['query_card'];
     
-    $sql = "SELECT DISTINCT Card_name FROM card WHERE Card_name LIKE '%$input_text%' ";
+    $sql = "SELECT DISTINCT Card_name FROM card WHERE Card_name LIKE '%$input_text%' AND idCollection='$idcollection' ";
 
     $result = $connessione->query($sql);
 

@@ -53,7 +53,7 @@
         ?>
 
         <div class="row justify-content-center mt-5">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                     <h3 class="card-title">Album from the Collection of user</h3>
@@ -62,7 +62,7 @@
                     <div class="card-body">
                     <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 table-responsive">
                                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                     <thead>
                                         <tr role="row">
@@ -161,7 +161,7 @@
         ?>
 
         <div class="row justify-content-center mt-5">
-            <div class="col-6">
+            <div class="col-10">
                 <div class="card">
                     <div class="card-header">
                     <h3 class="card-title">Users:</h3>
