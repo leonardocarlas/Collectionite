@@ -145,39 +145,32 @@
                             <h3 class="card-title">Album: <?php echo $album_corrente; ?> </h3>
                         </div><!-- /.card-header -->
 
+                        <br>
 
                         <div class="card-header">
-                            <!-- 3.E NORMAL SELECTING THE EVALUATION METHOD -->                               
-                            
-                                        <div class="content-wrapper">
-                                                <div class="content-header">
-                                                    <div class="container">
-                                                    <div class="row justify-content-center mb-1">
-                                                        <div class="col-sm-4">
-                                                            <label for id="contenitore-pulsanti"><h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
-                                                            <br>
-                                                            <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
-                                                                <form action="album.php" method="POST">
-                                                                    <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Minimum & Trend Prices">
-                                                                </form>
-                                                                <form action="album.php" method="POST">
-                                                                    <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Evaluation Prices based on Language & Condition">
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- /.container-fluid -->
-                                                </div>
-                                            <div>
-                                        </div>
+                                    <text>
+                                        <h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
+                             
+                                    <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
+                                        <form action="album.php" method="POST">
+                                            <div class="form-group">
+                                                <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Minimum & Trend Prices">
+                                            </div>
+                                        </form>
+                                        <form action="album.php" method="POST">
+                                            <div class="form-group">
+                                                <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Evaluation Prices based on Language & Condition">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                        </div>
 
-                            <br>
-                            
-                            <!-- 3.E FINISH  -->
-                        </div><!-- /.card-header -->
+                        <br>
                         
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                               <div class="row">
+                                <div class="row">
                                     <div class="col-sm-12 table-responsive">
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                         <thead>
@@ -351,7 +344,7 @@
     ?>
 
     <div class="row justify-content-center mt-5">
-            <div class="col-6">
+            <div class="col-10">
                 <div class="card">
 
                         <div class="card-header">

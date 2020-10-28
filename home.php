@@ -84,7 +84,7 @@ if(isset($col_selected)){
     <div class="content">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-10">
                 <div class="card card-primary card-outline">
                 <div class="card-header">
                     <h3 class="card-title">First, select a Card Collection</h3>
@@ -124,7 +124,7 @@ if(isset($col_selected)){
       <!-- /.row -->
     </div><!-- /.container-fluid -->
     <div class="row justify-content-center mt-5">
-        <div class="col-6">
+        <div class="col-10">
             <div class="card">
                 <div class="card-header">
                 <h3 class="card-title">Titolo</h3>
@@ -294,10 +294,18 @@ if(isset($col_selected)){
                 <div class="form-group">
                     <label for="inputalbum">Add a new Album</label>  
                 </div>
-                <div class="form-group mx-sm-3">
-                    <input  id="inputalbum" type="text" name="album_name" class="form-control"  placeholder="Album Name">
-                </div>  
-                <button type="submit" style="background-color: #5401a7;" class="btn text-white" name="aggiungi_album" value="Add Album">Add</button>
+                <!--<div class="form-group mx-sm-3">  -->
+                <table>
+                    <tr>
+                        <td>
+                            <input  id="inputalbum" type="text" name="album_name" class="form-control"  placeholder="Album Name">
+                        </td>
+                        <!--</div>  -->
+                        <td>
+                            <button type="submit" style="background-color: #5401a7;" class="btn text-white" name="aggiungi_album" value="Add Album">Add</button>
+                        </td>
+                    </tr>
+                </table>
             </form>
             </div>
             </div>
