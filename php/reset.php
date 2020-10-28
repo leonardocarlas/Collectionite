@@ -51,9 +51,9 @@ if(isset($_POST['reset-request-submit'])){
     mysqli_close($connessione);
 
     $to = $user_mail;
-    $subject = "Reset password fo Dragon Collection";
+    $subject = "Reset password for Collection Sight";
 
-    $message = '<p> We received a password reset request. The link to reset your password is right below in this mil. If you did not any request, please ignore this email.</p>
+    $message = '<p> We received a password-reset request. The link to reset your password is right below in this mail. If you did not any request, please ignore this email.</p>
                 
                 
                 <br><br>
@@ -66,10 +66,10 @@ if(isset($_POST['reset-request-submit'])){
                                     <br>
                                     Thank you and enjoy your collection!
                                     <br>
-                                    The Team of Dragon Collection
+                                    The Team of Collection Sight.
                                 </text> ';
 
-    $headers = "From: Dragon Collection\r\n";
+    $headers = "From: Collection Sight\r\n";
 
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -79,12 +79,12 @@ if(isset($_POST['reset-request-submit'])){
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='ssl';
 
-    $mail->Username='lio.del.bronx@gmail.com';
+    $mail->Username='collectionsight@gmail.com';
     $mail->Password='xefeco87';
 
-    $mail->setFrom('lio.del.bronx@gmail.com','Dragon Collection');
+    $mail->setFrom('collectionsight@gmail.com','Collection Sight');
     $mail->AddAddress($to);
-    //$mail->addReplyTo('lio.del.bronx@gmail.com');
+    $mail->addReplyTo('collectionsight@gmail.com');
 
     $mail->isHTML(TRUE);
     $mail->Subject = $subject;

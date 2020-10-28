@@ -48,7 +48,7 @@ if(isset($_POST['reset-password-submit'])){
 
                 $token_email = $row['Emailreset'];
 
-                $sql = "SELECT * FROM user WHERE USER.Email = ?";
+                $sql = "SELECT * FROM user WHERE user.Email = ?";
                 $stmt = mysqli_stmt_init($connessione);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){

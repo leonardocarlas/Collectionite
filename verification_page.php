@@ -11,71 +11,88 @@ if(isset($_GET['VKey'])){
     $verification_key = $_GET['VKey'];
 
     
-    $sql = "SELECT Verified, Verification_key FROM USER WHERE Verified = 0 AND Verification_key = '$verification_key' LIMIT 1";
+    $sql = "SELECT Verified, Verification_key FROM user WHERE Verified = 0 AND Verification_key = '$verification_key' LIMIT 1";
     $result = $connessione->query($sql);
 
-    if ($result->num_rows == 1) {
+    if ($result->num_rows == 1)
+    {
         
-        $sql_update = "UPDATE USER SET Verified = 1 WHERE Verification_key = '$verification_key' LIMIT 1";
+        $sql_update = "UPDATE user SET Verified = 1 WHERE Verification_key = '$verification_key' LIMIT 1";
 
-        if ($connessione->query($sql_update) === TRUE) {  ?>
+                if ($connessione->query($sql_update) === TRUE) 
+                {  
+?>
+                
+                <div class="content">
+                    <div class="container">
+
+                        <div class="row justify-content-center">
+                            
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body">
+                                        <p class="card-text"><h1>The account it's been verified correctly . Please back to the Home Page and login.</h1></p>
+
+                                        <div class ="row justify-content-center">
+                                            <imgrc="immagini/logofull.png"> 
+                                        </div>
+                                    </div>
+
+                                
+
+                                </div>
+                        </div>
+                                
+                    </div>
+                </div>
+<?php
+                } 
+                else 
+                {
+                    echo "Error updating record: " . $connessione->error;
+                }
+    }
+    else //ELSE DELL'IF PRINCIPALE
+    {
+            echo '<div class="content">
+                    <div class="container">
         
-        <div class="content">
-            <div class="container">
-
-                <div class="row justify-content-center">
+                        <div class="row justify-content-center">
                       
                         <div class="card card-primary card-outline">
                             <div class="card-body">
-                                <p class="card-text"><h1>The account it's been verified correctly . Please back to the Home Page and login.</h1></p>
-
+                                <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
+        
                                 <div class ="row justify-content-center">
                                     <imgrc="immagini/logofull.png"> 
                                 </div>
                             </div>
-
+        
                         
-
+        
                         </div>
                 </div>
                            
             </div>
-        </div>
+        </div>';
+    }
+    $connessione->close();
+    
+}
+?>
+
+
+
+    
+
+
+
+
+
+
+
 
 <?php
 
-        } else {
-        echo "Error updating record: " . $connessione->error;
-        }
-    
-    
-    } else {
-    echo '<div class="content">
-            <div class="container">
-
-                <div class="row justify-content-center">
-              
-                <div class="card card-primary card-outline">
-                    <div class="card-body">
-                        <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
-
-                        <div class ="row justify-content-center">
-                            <imgrc="immagini/logofull.png"> 
-                        </div>
-                    </div>
-
-                
-
-                </div>
-        </div>
-                   
-    </div>
-</div>';
-    }
-    $connessione->close();
-
-
-}
 if(isset($_GET['SIGNUP'])){  
 
     

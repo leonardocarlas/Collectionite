@@ -36,11 +36,11 @@ if(isset($_POST['nome'])){
 
     }
     else {
-        $sql= "SELECT Username FROM USER WHERE Username=?";
+        $sql= "SELECT Username FROM user WHERE Username=?";
         $stmt = mysqli_stmt_init($connessione);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../get_started.php?error=sqlerror");
+            header("Location: ../get_started.php?error=sqlerrorusername");
             exit();
         }
         else{
@@ -61,7 +61,7 @@ if(isset($_POST['nome'])){
                 $verification_key = md5( time().$username );
 
 
-                $sql = "INSERT INTO USER ( Username, Email, Real_name, Hashed_password, Verification_key) VALUES (?,?,?,?,?)";
+                $sql = "INSERT INTO user ( Username, Email, Real_name, Hashed_password, Verification_key) VALUES (?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($connessione);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     header("Location: ../get_started.php?error=sqlerror");
