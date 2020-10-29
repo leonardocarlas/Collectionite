@@ -281,9 +281,9 @@
                                     $result = $connessione->query($sql);
 
                                     if ($result->num_rows > 0) {
-                                        $check = false;
+                                        $check = false; //l'album è già registrato
                                     } else {
-                                        $check = true;
+                                        $check = true; //l'album non è registrato
                                     }
                                     
                                     if($check == true) {     ?>                                   
@@ -300,7 +300,25 @@
                                             <!-- </form>  -->
                                         </div>
                 
-                            <?php } ?>
+                                    <?php } 
+                                    if($check == false && $ricarica_prezzi_min_trend === TRUE ){   ?>
+
+                                        <div class="card-footer">
+                                            <h5><p class="font-weight-bold">Register the total (minimum & trend) values.</p> We advise you to do it one time per week(for example, the boring monday). </h5>
+                                                <button type="submit" class="btn btn-link" name="register-total">
+                                                    <?php
+                                                        $register_values = "php/update_statistic.php?register=true&trend=".$total_trend."&min=".$total_min."&album=".$id_album;
+                                                        echo '<a href="'.$register_values.'">Register new values</a> '; 
+                                                    ?>
+                                                </button>
+                                            <!-- </form>  -->
+                                        </div>
+
+                                    <?php
+                                    }
+                                    ?>
+
+
 
 
             </div><!-- /.cardbody -->
