@@ -125,8 +125,7 @@
         <!--<i class="fas fa-home mr-3"></i>--> Piovene Rocchette, Vi 36013, IT</p>
       <p>
         <!--<i class="fas fa-envelope mr-3"></i>--> collectionsight@gmail.com</p>
-      <p>
-        <!--<i class="fas fa-phone mr-3"></i>--> + 39 345 875 3375</p>
+
 
     </div>
     <!-- Grid column -->

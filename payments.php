@@ -25,7 +25,7 @@
                     <div class="col-mb-8">
                         <p>Collection Sight is a project that wants to expand and get bigger. </p>
                         <text>
-                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2€. 
+                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2.99 €. 
                         After that, your account will be mantained forever in our databases. Try yourself for the first month and enjoy. <br><br> <p>The Team of Collection Sight.</p>
                         </text>
                         
@@ -54,7 +54,7 @@
                                 return actions.order.create({
                                     purchase_units: [{
                                         amount: {
-                                            value: '2'
+                                            value: '2.99'
                                         }
                                     }]
                                 });

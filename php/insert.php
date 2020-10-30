@@ -89,7 +89,7 @@ if(isset($_POST['nome'])){
                                     <br><br>
                                 </center> 
                                     Collection Sight is a project that wants to expand and get bigger.
-                                    For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2€. After that, your account will be stored forever in our databases. Try yourself for the first month and enjoy.
+                                    For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2.99 €. After that, your account will be stored forever in our databases. Try yourself for the first month and enjoy.
                                     <br>
                                     <br><br>
                                 <center>
