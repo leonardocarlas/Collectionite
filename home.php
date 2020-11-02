@@ -355,9 +355,12 @@ elseif($ban_temporaneo == 1){
                                                            
                             
                     </div>
+            
+         
+
                 </div>
             </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
     
                     ';
 
@@ -365,6 +368,8 @@ elseif($ban_temporaneo == 1){
 }
 
 ?>
+
+<br><br><br><br><br><br><br><br><br><br>
 
 
 <?php
