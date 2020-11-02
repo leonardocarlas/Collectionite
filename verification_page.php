@@ -8,7 +8,7 @@ if(isset($_GET['VKey'])){
     
     require "header.php";
 
-    $verification_key = $_GET['VKey'];
+    $verification_key =  mysqli_real_escape_string($connessione, $_GET['VKey']);
 
     
     $sql = "SELECT Verified, Verification_key FROM user WHERE Verified = 0 AND Verification_key = '$verification_key' LIMIT 1";

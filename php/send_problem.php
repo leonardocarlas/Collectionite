@@ -8,8 +8,8 @@ if(isset($_POST['invia-problema'])){
 
     require_once('../mail/phpmailer/PHPMailerAutoload.php');
 
-    $sender = $_POST['sender-email'];
-    $subject = $_POST['subject-problem'];
+    $sender = mysqli_real_escape_string($connessione, $_POST['sender-email']);
+    $subject = mysqli_real_escape_string($connessione, $_POST['subject-problem']);
     $message = "";
     $txt = $_POST['mail-problem'];
     $to = "collectionsight@gmail.com";

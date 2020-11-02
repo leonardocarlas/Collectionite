@@ -8,11 +8,11 @@ if(isset($_POST['nome'])){
 
     require 'dbh.php';
 
-    $name=$_POST['nome'];
-    $email=$_POST['email'];
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $pass2=$_POST['pass2'];
+    $name=mysqli_real_escape_string($connessione, $_POST['nome']);
+    $email=mysqli_real_escape_string($connessione, $_POST['email']);
+    $username=mysqli_real_escape_string($connessione, $_POST['username']);
+    $password=mysqli_real_escape_string($connessione, $_POST['password']);
+    $pass2=mysqli_real_escape_string($connessione, $_POST['pass2']);
 
     if(empty($username) || empty($email) || empty($username) || empty($password) || empty($pass2)){
         header("Location: ../get_started.php?error=emptyfields&nome=".$username."&email=".$email);

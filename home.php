@@ -59,7 +59,7 @@
         if($error == "nocolletionsel"){  ?>
         <script type="text/javascript">
             Swal.fire(
-            'Error in the databse, please contact the administrator',
+            'Error in the database, please contact the administrator',
             '',
             'error'
             );
@@ -265,8 +265,8 @@ if($ban_temporaneo == 0){
         }else{
 
             if(isset($_GET['Edit'])){
-                $album_to_edit = $_GET['Edit'];
-                $id = $_GET['ID'];
+                $album_to_edit = mysqli_real_escape_string($connessione, $_GET['Edit']);
+                $id = mysqli_real_escape_string($connessione, $_GET['ID']);
                 
 
                 echo'  

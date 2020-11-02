@@ -9,7 +9,7 @@
 <?php 
     /////////   GESTIONE MESSAGGI   ///////
     if(isset($_GET['error'])){
-        $message = $_GET['error'];
+        $message = mysqli_real_escape_string($connessione, $_GET['error']);
         if($message == "emptyfields"){  ?>
             
                 <div class="alert alert-danger" role="alert">

@@ -1,9 +1,10 @@
 <?php  
 
 if(isset($_GET['start-track'])){
-    $id_album = $_GET['start-track'];
 
     require "dbh.php";
+
+    $id_album = mysqli_real_escape_string($connessione, $_GET['start-track']);
 
     $sql = "INSERT INTO statistic (Idalbum) VALUES ('$id_album')";
 

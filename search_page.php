@@ -48,7 +48,7 @@
         <!-- 2. VISUALIZZAZIONE DEGLI ALBUM DELL'UTENTE X   -->
         <?php if(isset($_GET['OPENu'])) { 
         
-        $id_user = $_GET['OPENu'];
+        $id_user =  mysqli_real_escape_string($connessione, $_GET['OPENu']);
         
         ?>
 
@@ -157,7 +157,7 @@
         <?php if(isset($_GET['user-searched'])) { ?>
 
         <?php 
-            $user_searched = $_GET['user-searched'];
+            $user_searched =  mysqli_real_escape_string($connessione,$_GET['user-searched']);
         ?>
 
         <div class="row justify-content-center mt-5">
@@ -218,11 +218,11 @@
 
         <!-- 4. Page for showing the album-->
         <?php if(isset($_GET['OPENida'])) {   
-            $album_corrente = $_GET['na'];
-            $user = $_GET['nu'];
-            $idcollection = $_GET['idc'];  
-            $id_user = $_GET['idu'];
-            $id_album = $_GET['OPENida'] ;
+            $album_corrente =  mysqli_real_escape_string($connessione, $_GET['na']);
+            $user =  mysqli_real_escape_string($connessione, $_GET['nu']);
+            $idcollection =  mysqli_real_escape_string($connessione, $_GET['idc']);  
+            $id_user =  mysqli_real_escape_string($connessione, $_GET['idu']);
+            $id_album =  mysqli_real_escape_string($connessione, $_GET['OPENida']) ;
         ?>
 
         <div class="content-wrapper">

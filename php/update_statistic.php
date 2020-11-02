@@ -4,9 +4,9 @@ require "dbh.php";
 
 
 if(isset($_GET['register'])){
-    $min = $_GET['min'];
-    $trend = $_GET['trend'];
-    $idalbum = $_GET['album'];
+    $min = mysqli_real_escape_string($connessione, $_GET['min']);
+    $trend = mysqli_real_escape_string($connessione, $_GET['trend']);
+    $idalbum = mysqli_real_escape_string($connessione, $_GET['album']);
 
     $sql = "INSERT INTO statistic (Trend_value, Min_Value, Idalbum) VALUES (?,?,?)";
     $stmt = mysqli_stmt_init($connessione);

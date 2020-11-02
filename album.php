@@ -1,5 +1,6 @@
 <?php
     require "header.php";
+    require 'php/dbh.php';
 
     $total_avarage = 0;
     $total_trend = 0;
@@ -13,8 +14,8 @@
 
     // APERTURA DA HOME.PHP, DOPO AVER SELEZIONATO L'ALBUM   --------   NORMAL MODE
     if(isset($_GET['OPEN'])){
-        $_SESSION['album-selezionato'] =  $_GET['OPEN'];
-        $id_album = $_GET['ID'];
+        $_SESSION['album-selezionato'] =  mysqli_real_escape_string($connessione, $_GET['OPEN']);
+        $id_album = mysqli_real_escape_string($connessione, $_GET['ID']);
         $_SESSION['idalbum'] = $id_album;    
     }
 
@@ -67,7 +68,7 @@
 <?php
 
     require "add_card.php";
-    require 'php/dbh.php';
+    
 
 ?>
 <!-- 2.E FINISH -->
@@ -428,7 +429,8 @@
 
 <?php
 
-function preparation_name($card_name){
+function preparation_name($card_name)
+{
     $nome = $card_name;
     if (strpos($nome, ' (V.1)') == true){
         $nome = str_replace(' (V.1)', '', $nome);

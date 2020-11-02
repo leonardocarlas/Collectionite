@@ -9,24 +9,11 @@
 
 if(isset($_POST['aggiorna_carte']) or isset($_GET['Deleted']))
 {
-    
-    //$sql = "SELECT Idcard FROM POSSESSES WHERE POSSESSES.Iduser = '$id_user'  AND ALBUM.Idcollection='$idcollection' AND POSSESSES.Idalbum='$id_album' ";
-    //$result = mysqli_query($connessione, $sql);
-
-    //if (mysqli_num_rows($result) > 0) {
-    
         header("Location: ../album.php?Deleted=True");
         exit();
-
-    //} else {
-    //    header("Location: ../album.php?error=NOCARDS4U");
-    //    exit();
-
-    //}
-
-    //mysqli_close($connessione);
 }
-else{
+else
+{
     header("Location: ../album.php?CARD=INSERTED");
     exit();
 }

@@ -9,8 +9,8 @@
             <section class="section-default">
 
                 <?php
-                    $selector = $_GET['selector'];
-                    $validator = $_GET['validator'];
+                    $selector = mysqli_real_escape_string($connessione, $_GET['selector']);
+                    $validator = mysqli_real_escape_string($connessione, $_GET['validator']);
 
                     if(empty($selector) || empty($validator)){
                         echo "Could not validate you request";

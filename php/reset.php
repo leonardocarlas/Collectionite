@@ -1,8 +1,5 @@
 <?php
 
-    
-
-
 if(isset($_POST['reset-request-submit'])){
 
     require "dbh.php";
@@ -11,11 +8,11 @@ if(isset($_POST['reset-request-submit'])){
     $token = random_bytes(32);
 
 
-    $url = "www.dragoncollection.it/forgottenpwd/create_new_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+    $url = "https://collectionsight.com/create_new_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
 
     $expires = date("U") + 1800;
 
-    $user_mail = $_POST['email'];
+    $user_mail = mysqli_real_escape_string($connessione, $_POST['email']);
 
     $sql = "DELETE FROM passwordreset WHERE Emailreset=?";
     $stmt = mysqli_stmt_init($connessione);

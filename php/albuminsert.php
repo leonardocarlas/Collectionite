@@ -13,7 +13,7 @@
 if(isset($_POST['aggiungi_album'])){
 
 
-    $albumname=$_POST['album_name'];
+    $albumname = mysqli_real_escape_string($connessione, $_POST['album_name']);
     
     if(empty($albumname)){
         header("Location: ../home.php?error=emptyfield");
@@ -53,8 +53,7 @@ if(isset($_POST['aggiungi_album'])){
  
 else if(isset($_GET['delete'])){
 
-    $id = $_GET['delete'];
-    
+    $id = mysqli_real_escape_string($connessione, $_GET['delete']);
     // sql to delete a record
     $sql = "DELETE FROM album WHERE Idalbum = '$id' ";
 
@@ -82,7 +81,7 @@ else if(isset($_GET['delete'])){
 
 elseif(isset ($_GET['edit'])) {
 
-    $id = $_GET['edit'];
+    $id = mysqli_real_escape_string($connessione, $_GET['edit']);
 
     $sql = "SELECT Album_name, Idalbum FROM album WHERE Idalbum = '$id' ";
     $result = mysqli_query($connessione, $sql);
@@ -105,8 +104,8 @@ elseif(isset ($_GET['edit'])) {
 
 elseif(isset($_POST['update_album'])){
 
-    $nome= $_POST['old_album_name'];
-    $id = $_GET['E'];
+    $nome= mysqli_real_escape_string($connessione, $_POST['old_album_name']);
+    $id = mysqli_real_escape_string($connessione,$_GET['E']);
     
     $sql = "UPDATE album SET Album_name='$nome' WHERE Idalbum='$id' ";
 

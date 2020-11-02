@@ -19,12 +19,12 @@
 if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == FALSE)
 {
 
-    $nome_set = $_POST['set_name'];
-    $nome_carta = $_POST['card_name'];
-    $conditions = $_POST['conditions'];
-    $languages = $_POST['languages'];
-    $quantity = $_POST['quantities'];
-    $extravalues = $_POST['extravalues'];
+    $nome_set = mysqli_real_escape_string($connessione,$_POST['set_name']);
+    $nome_carta = mysqli_real_escape_string($connessione,$_POST['card_name']);
+    $conditions = mysqli_real_escape_string($connessione,$_POST['conditions']);
+    $languages = mysqli_real_escape_string($connessione,$_POST['languages']);
+    $quantity = mysqli_real_escape_string($connessione,$_POST['quantities']);
+    $extravalues = mysqli_real_escape_string($connessione,$_POST['extravalues']);
 
     $nome_carta = preparation_name($nome_carta);
     $nome_set = preparation_set($nome_set);
@@ -111,11 +111,11 @@ if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESS
 else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == TRUE)
 {
 
-    $link = $_POST['link_card'];
-    $conditions = $_POST['conditions'];
-    $languages = $_POST['languages'];
-    $quantity = $_POST['quantities'];
-    $extravalues = $_POST['extravalues'];  
+    $link = mysqli_real_escape_string($connessione,$_POST['link_card']);
+    $conditions = mysqli_real_escape_string($connessione,$_POST['conditions']);
+    $languages = mysqli_real_escape_string($connessione,$_POST['languages']);
+    $quantity = mysqli_real_escape_string($connessione,$_POST['quantities']);
+    $extravalues = mysqli_real_escape_string($connessione,$_POST['extravalues']);  
    
     ////////  Gestire errori //////////
     if(empty($link)){
@@ -212,7 +212,7 @@ else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND 
 else if(isset($_GET['delete']))
 {
 
-    $id_possession = $_GET['delete'];
+    $id_possession = mysqli_real_escape_string($connessione,$_GET['delete']);
 
     // sql to delete a record
     $sql = "DELETE FROM possesses WHERE Idpossession = '$id_possession' ";

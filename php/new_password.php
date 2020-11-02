@@ -2,10 +2,10 @@
 
 if(isset($_POST['reset-password-submit'])){
 
-    $selector = $_POST['selector'];
-    $validator = $_POST['validator'];
-    $password = $_POST['pass'];
-    $password_repeat = $_POST['pass-repeat'];
+    $selector = mysqli_real_escape_string($connessione, $_POST['selector']);
+    $validator = mysqli_real_escape_string($connessione, $_POST['validator']);
+    $password = mysqli_real_escape_string($connessione, $_POST['pass']);
+    $password_repeat = mysqli_real_escape_string($connessione, $_POST['pass-repeat']);
 
     if(empty($password) || empty($password_repeat)){
         header("Location: ../create_new_password.php?newpwd=empty");
@@ -76,7 +76,7 @@ if(isset($_POST['reset-password-submit'])){
 
                         } else {
                             $new_hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                            mysqli_stmt_bind_param($stmt, "sS",  $new_hashed_password, $token_email);
+                            mysqli_stmt_bind_param($stmt, "ss",  $new_hashed_password, $token_email);
                             mysqli_stmt_execute($stmt); 
 
                             $sql = "DELETE FROM passwordreset WHERE Emailreset=?";

@@ -9,8 +9,8 @@ if(isset($_POST['login-submit']))
 {
     require 'dbh.php';
 
-    $username=$_POST['username'];
-    $password=$_POST['password'];
+    $username = mysqli_real_escape_string($connessione, $_POST['username']);
+    $password = mysqli_real_escape_string($connessione, $_POST['password']);
 
     if(empty($username) || empty($password)){
         header("Location: ../index.php?error=emptyfields");
@@ -80,10 +80,6 @@ else{
     header("Location: ../index.php");
     exit(); 
 }
-
-
-
-
 
 
 
