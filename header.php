@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    
     <title>Collection Sight</title>
-    <link rel="icon" type="image/x-icon" href="immagini/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="immagini/icona.png">
 
     <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
