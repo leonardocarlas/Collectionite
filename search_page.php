@@ -44,10 +44,13 @@
             </div><!-- /.col -->
         </div>
         <!-- 1. FINISH  -->
+
+
         
-        <!-- 2. VISUALIZZAZIONE DEGLI ALBUM DELL'UTENTE X   -->
-        <?php if(isset($_GET['OPENu'])) { 
-        
+<!-- 2. VISUALIZZAZIONE DEGLI ALBUM DELL'UTENTE X   -->
+<?php 
+if(isset($_GET['OPENu'])) { 
+    require "php/dbh.php";
         $id_user =  mysqli_real_escape_string($connessione, $_GET['OPENu']);
         
         ?>
@@ -74,71 +77,83 @@
                                     <tbody>
 
                                     <?php 
-                                        $sql = "SELECT * FROM album WHERE Iduser='$id_user'; ";
-                                        $result = $connessione->query($sql);
-                                        if ($result->num_rows > 0) {
-
-                                            while($row = $result->fetch_assoc()) {
-
-                                                $idcollection = $row["Idcollection"];
-                                                $name_collection = "";
-                                                //i vari if per la type collection
-                                                if($idcollection==6){
-                                                    $name_collection = "Pokemon";    
-                                                }
-                                                else if($idcollection==3){
-                                                    $name_collection = "Yu-gi-oh!";
-                                                }
-                                                else if($idcollection==1){
-                                                    $name_collection = "Magic: The Gathering";
-                                                }
-                                                else if($idcollection==8){
-                                                    $name_collection = "Vanguard";
-                                                    
-                                                }
-                                                else if($idcollection==7){
-                                                    $name_collection = "Force of Will";
-                                                }
-                                                else if($idcollection==2){
-                                                    $name_collection = "World of Warcraft TCG";
-                                                }
-                                                else if($idcollection==15){
-                                                    $name_collection = "Star Wars: Destiny";
-                                                }
-                                                else if($idcollection==11){
-                                                    $name_collection = "Dragoborne";
-                                                }
-                                                else if($idcollection==12){
-                                                    $name_collection = "My Little Pony CCG";
-                                                }
-                                                else if($idcollection==13){
-                                                    $name_collection = "Dragon Ball Cardgame";
-                                                }
-                                                else if($idcollection==10){
-                                                    $name_collection = "WeiB Swharz";
-                                                }
-                                                else if($idcollection==15){
-                                                    $name_collection = "The Spoils";
-                                                }
-                                                else if($idcollection==9){
-                                                    $name_collection = "Final Fantasy TCG";
-                                                }
-
-                                                
-                            
-                                                echo '
-                                                        <tr>
-                                                            <td> '.$row["Album_name"].' </td>
-                                                            <td> '.$name_collection.' </td>
-                                                            <td> <a href="search_page.php?OPENida='. $row["Idalbum"].'&idu='.$id_user .'&idc='.$idcollection .'&na='.$row["Album_name"].'&nu=si">View Album</a> </td>
-                                                        </tr>';
-                                            }
+                                        $sql = "SELECT * FROM album WHERE Iduser=?; ";
+                                        $stmt = mysqli_stmt_init($connessione);
+                                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                                            echo "Error in the database";
                                         }
                                         else{
-                                            echo '<tr>
-                                                    <td> This user has no album in his collection</td>
-                                                  </tr>';
-                                        }
+                                            mysqli_stmt_bind_param($stmt, "i", $id_user);
+                                            mysqli_stmt_execute($stmt);
+                                            $result = mysqli_stmt_get_result($stmt);
+
+                                            if ($result->num_rows > 0) {
+
+                                                while($row = $result->fetch_assoc()) {
+    
+                                                    $idcollection = $row["Idcollection"];
+                                                    $name_collection = "";
+                                                    //i vari if per la type collection
+                                                    if($idcollection==6){
+                                                        $name_collection = "Pokemon";    
+                                                    }
+                                                    else if($idcollection==3){
+                                                        $name_collection = "Yu-gi-oh!";
+                                                    }
+                                                    else if($idcollection==1){
+                                                        $name_collection = "Magic: The Gathering";
+                                                    }
+                                                    else if($idcollection==8){
+                                                        $name_collection = "Vanguard";
+                                                        
+                                                    }
+                                                    else if($idcollection==7){
+                                                        $name_collection = "Force of Will";
+                                                    }
+                                                    else if($idcollection==2){
+                                                        $name_collection = "World of Warcraft TCG";
+                                                    }
+                                                    else if($idcollection==15){
+                                                        $name_collection = "Star Wars: Destiny";
+                                                    }
+                                                    else if($idcollection==11){
+                                                        $name_collection = "Dragoborne";
+                                                    }
+                                                    else if($idcollection==12){
+                                                        $name_collection = "My Little Pony CCG";
+                                                    }
+                                                    else if($idcollection==13){
+                                                        $name_collection = "Dragon Ball Cardgame";
+                                                    }
+                                                    else if($idcollection==10){
+                                                        $name_collection = "WeiB Swharz";
+                                                    }
+                                                    else if($idcollection==15){
+                                                        $name_collection = "The Spoils";
+                                                    }
+                                                    else if($idcollection==9){
+                                                        $name_collection = "Final Fantasy TCG";
+                                                    }
+    
+                                                    
+                                
+                                                    echo '
+                                                            <tr>
+                                                                <td> '.$row["Album_name"].' </td>
+                                                                <td> '.$name_collection.' </td>
+                                                                <td> <a href="search_page.php?OPENida='. $row["Idalbum"].'&idu='.$id_user .'&idc='.$idcollection .'&na='.$row["Album_name"].'&nu=si">View Album</a> </td>
+                                                            </tr>';
+                                                }
+                                            }
+                                            else{
+                                                echo '<tr>
+                                                        <td> This user has no album in his collection</td>
+                                                      </tr>';
+                                            }
+                                        
+                                        } 
+                                                                            
+                                        
                                     ?>
 
                                     </tbody>
@@ -151,14 +166,19 @@
             </div>
         </div>
         <!-- 2. FINISH -->
-        <?php  }  ?>
+<?php  
+}
+?>
 
-        <!-- 3. VISUALIZZAZIONE DEGLI UTENTI TROVATI DAL SEARCH FIELD   -->
-        <?php if(isset($_GET['user-searched'])) { ?>
 
-        <?php 
-            $user_searched =  mysqli_real_escape_string($connessione,$_GET['user-searched']);
-        ?>
+
+
+
+<!-- 3. VISUALIZZAZIONE DEGLI UTENTI TROVATI DAL SEARCH FIELD   -->
+<?php if(isset($_GET['user-searched'])) { 
+    require "php/dbh.php";
+    $user_searched = mysqli_real_escape_string($connessione, $_GET['user-searched']);
+?>
 
         <div class="row justify-content-center mt-5">
             <div class="col-10">
@@ -182,24 +202,35 @@
                                     <tbody>
 
                                     <?php 
-                                        $sql = "SELECT Iduser,Username FROM user WHERE Username LIKE '%$user_searched%' ; ";
-                                        $result = $connessione->query($sql);
-                                        if ($result->num_rows > 0) {
-
-                                            while($row = $result->fetch_assoc()) {
-                            
-                                                echo '
-                                                        <tr>
-                                                            <td> '.$row["Username"].' </td>
-                                                            <td> <a href="search_page.php?OPENu='. $row["Iduser"].'">View Collection</a> </td>
-                                                        </tr>';
-                                            }
+                                        $sql = "SELECT Iduser,Username FROM user WHERE Username LIKE ? ";
+                                        $stmt = mysqli_stmt_init($connessione);
+                                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                                            echo "Error in the database";
+                                            echo("Error description: " . $connessione -> error);
                                         }
                                         else{
-                                            echo '<tr>
-                                                    <td> There are no user with this username</td>
-                                                  </tr>';
+                                            mysqli_stmt_bind_param($stmt, "s", $user_searched);
+                                            mysqli_stmt_execute($stmt);
+                                            $result = mysqli_stmt_get_result($stmt);
+
+                                            if ($result->num_rows > 0) {
+
+                                                while($row = $result->fetch_assoc()) {
+                                
+                                                    echo '
+                                                            <tr>
+                                                                <td> '.$row["Username"].' </td>
+                                                                <td> <a href="search_page.php?OPENu='. $row["Iduser"].'">View Collection</a> </td>
+                                                            </tr>';
+                                                }
+                                            }
+                                            else{
+                                                echo '<tr>
+                                                        <td> There are no user with this username</td>
+                                                    </tr>';
+                                            }
                                         }
+      
                                     ?>
 
                                     </tbody>
@@ -211,13 +242,16 @@
                 </div>
             </div>
         </div>
-        <!-- 3. FINISH -->
+<!-- 3. FINISH -->
+<?php
+}
+?>
 
-        <?php  }  ?>
 
-
-        <!-- 4. Page for showing the album-->
-        <?php if(isset($_GET['OPENida'])) {   
+<!-- 4. Page for showing the album-->
+<?php 
+if(isset($_GET['OPENida'])) {
+    require "php/dbh.php";
             $album_corrente =  mysqli_real_escape_string($connessione, $_GET['na']);
             $user =  mysqli_real_escape_string($connessione, $_GET['nu']);
             $idcollection =  mysqli_real_escape_string($connessione, $_GET['idc']);  
@@ -250,85 +284,96 @@
         <?php
         
             
-        $sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = '$id_user' AND possesses.Idalbum = '$id_album' " ;
-        $result = $connessione->query($sql);
+        $sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = ? AND possesses.Idalbum = ? " ;
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo "Error in the database";
+        }
+        else{
+            mysqli_stmt_bind_param($stmt, "ii",$id_user, $id_album );
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            
 
-        if ($result->num_rows > 0) {
+            if ($result->num_rows > 0) {
 
-        ?>
+            ?>
 
-        <div class="row justify-content-center mt-5">
-            <div class="col-12">
-                <div class="card card-info card-outline">
+            <div class="row justify-content-center mt-5">
+                <div class="col-12">
+                    <div class="card card-info card-outline">
 
-                    <div class="card-header">
-                        <h3 class="card-title">Album:</h3>
-                    </div><!-- /.card-header -->
+                        <div class="card-header">
+                            <h3 class="card-title">Album:</h3>
+                        </div><!-- /.card-header -->
 
 
-                    <div class="card-header">
-                            
-                    <br>
-                            
-                    </div><!-- /.card-header -->
-                        
-                        <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                               <div class="row">
-                                    <div class="col-sm-12 table-responsive">
-                                    <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Card Name</th>
-                                                <th scope="col">Card Set</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Language</th>
-                                                <th scope="col">Extra Values</th>
-                                                <th scope="col">Conditions</th>
-                                                <th scope="col">Minimum Price</th>
-                                                <th scope="col">Trend Price</th>
-                                                <th scope="col">Open it in cardmarket.com</th>        
-                                            </tr>
-                                        </thead>
-
-                                <?php    
-                                    while($row = $result->fetch_assoc()) {  ?>
-                                <tbody>
-                                    <tr>
-                                        <td> <?php echo $row['Card_name'] ?></td>
-                                        <td> <?php echo $row['Set_name'] ?></td>
-                                        <td> <?php echo $row['Quantity'] ?></td>
-                                        <td> <?php echo $row['Language'] ?></td>
-                                        <td> <?php echo $row['ExtraValues'] ?></td>
-                                        <td> <?php echo $row['Conditions'] ?></td>
-
-                                    <?php
-                                            $lo = low_trend($row['Idcard']);
-                                    ?>
-
-                                        <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
-                                        <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
-                                        <td> <?php  
-                                                    $link = $lo[0];
-                                                    echo '<a href="'.$link.'">link<a>';
-
-                                        ?>
-                                        </td>
-                                    </tr>
-
-                                <?php   }   ?>
-
-                            </tbody>
-                            <tfoot>
-                                <tr>
+                        <div class="card-header">
                                 
-                                <?php 
-                                        echo  '
-                                            <td> Total price of the album: </td> 
-                                            <td> Minimun price: '.$total_min.' </td>
-                                            <td> Trend price: '.$total_trend.' </td>' ; 
-                                    }
-                                ?> 
+                        <br>
+                                
+                        </div><!-- /.card-header -->
+                            
+                            <div class="card-body">
+                                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                        <div class="col-sm-12 table-responsive">
+                                        <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Card Name</th>
+                                                    <th scope="col">Card Set</th>
+                                                    <th scope="col">Quantity</th>
+                                                    <th scope="col">Language</th>
+                                                    <th scope="col">Extra Values</th>
+                                                    <th scope="col">Conditions</th>
+                                                    <th scope="col">Minimum Price</th>
+                                                    <th scope="col">Trend Price</th>
+                                                    <th scope="col">Open it in cardmarket.com</th>        
+                                                </tr>
+                                            </thead>
+
+                                    <?php    
+                                        while($row = $result->fetch_assoc()) {  ?>
+                                    <tbody>
+                                        <tr>
+                                            <td> <?php echo $row['Card_name'] ?></td>
+                                            <td> <?php echo $row['Set_name'] ?></td>
+                                            <td> <?php echo $row['Quantity'] ?></td>
+                                            <td> <?php echo $row['Language'] ?></td>
+                                            <td> <?php echo $row['ExtraValues'] ?></td>
+                                            <td> <?php echo $row['Conditions'] ?></td>
+
+                                        <?php
+                                                $lo = low_trend($row['Idcard']);
+                                        ?>
+
+                                            <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
+                                            <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
+                                            <td> <?php  
+                                                        $link = $lo[0];
+                                                        echo '<a href="'.$link.'">link<a>';
+
+                                            ?>
+                                            </td>
+                                        </tr>
+
+                                    <?php   }   ?>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                    
+                                    <?php 
+                                            echo  '
+                                                <td> Total price of the album: </td> 
+                                                <td> Minimun price: '.$total_min.' </td>
+                                                <td> Trend price: '.$total_trend.' </td>' ; 
+            }//chiusura if result
+        }//chiusura else
+
+
+                            ?> 
                                 </tr>
                             </tfoot>
                         </table> 
@@ -349,7 +394,10 @@
         </div><!-- /.col-sm-12 -->
      </div><!-- /.row-->
     
-<?php     } ?>
+
+<?php     
+}
+?>
         
         <!-- 4. FINISH -->
 
@@ -548,25 +596,6 @@ function low_trend($idcarta){
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

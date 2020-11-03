@@ -119,24 +119,37 @@
                 if(isset($_SESSION['usernamesession'])){
                   require "php/dbh.php";
                   $id_user = $_SESSION['idusersession'];
-                  $sql = "SELECT Payed FROM user WHERE Iduser='$id_user' LIMIT 1 ";
-                  $result = $connessione->query($sql);
-                  
-                  if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        if($row['Payed'] == 0){
-                          $PAGATO = FALSE;
-                        }
-                        elseif($row['Payed'] == 1){
-                          $PAGATO = TRUE;
-                        }
-                    }
-                  } else {
-                      header("Location: index.php");
-                      exit();
+                  $sql = "SELECT Payed FROM user WHERE Iduser=? LIMIT 1 ";
+                  $stmt = mysqli_stmt_init($connessione);
+                  if(!mysqli_stmt_prepare($stmt, $sql)){
+                      echo "Error in the database";
                   }
-                  $connessione->close();
+                  else
+                  {
+                      mysqli_stmt_bind_param($stmt, "i", $id_user);
+                      mysqli_stmt_execute($stmt);
+                      $result = mysqli_stmt_get_result($stmt);
+
+                      if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            if($row['Payed'] == 0){
+                              $PAGATO = FALSE;
+                            }
+                            elseif($row['Payed'] == 1){
+                              $PAGATO = TRUE;
+                            }
+                        }
+                      } 
+                      else {
+                          header("Location: index.php");
+                          exit();
+                      }
+                    
+                  }
+        
+                  mysqli_stmt_close($stmt);
+                  mysqli_close($connessione);
 
                   if($PAGATO == FALSE){
                     if(basename($_SERVER['PHP_SELF']) == "payments.php")

@@ -11,15 +11,21 @@ if(isset($_GET['VKey'])){
     $verification_key =  mysqli_real_escape_string($connessione, $_GET['VKey']);
 
     
-    $sql = "SELECT Verified, Verification_key FROM user WHERE Verified = 0 AND Verification_key = '$verification_key' LIMIT 1";
-    $result = $connessione->query($sql);
+    $sql = "SELECT Verified, Verification_key FROM user WHERE Verified = 0 AND Verification_key = ? LIMIT 1";
+    $stmt = mysqli_stmt_init($connessione);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "Error in the database";
+    }
+    else{
+        mysqli_stmt_bind_param($stmt, "s", $verification_key);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-    if ($result->num_rows == 1)
-    {
+        if ($result->num_rows == 1)
+        {
         
-        $sql_update = "UPDATE user SET Verified = 1 WHERE Verification_key = '$verification_key' LIMIT 1";
-
-                if ($connessione->query($sql_update) === TRUE) 
+            $sql_update = "UPDATE user SET Verified = 1 WHERE Verification_key = '$verification_key' LIMIT 1";
+            if ($connessione->query($sql_update) === TRUE) 
                 {  
 ?>
                 
@@ -50,43 +56,42 @@ if(isset($_GET['VKey'])){
                 {
                     echo "Error updating record: " . $connessione->error;
                 }
-    }
-    else //ELSE DELL'IF PRINCIPALE
-    {
-            echo '<div class="content">
-                    <div class="container">
-        
-                        <div class="row justify-content-center">
-                      
-                        <div class="card card-primary card-outline">
-                            <div class="card-body">
-                                <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
-        
-                                <div class ="row justify-content-center">
-                                    <imgrc="immagini/logofull.png"> 
-                                </div>
-                            </div>
-        
+        }
+        else //ELSE DELL'IF PRINCIPALE
+        {
+                echo '<div class="content">
+                        <div class="container">
+            
+                            <div class="row justify-content-center">
                         
-        
-                        </div>
+                            <div class="card card-primary card-outline">
+                                <div class="card-body">
+                                    <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
+            
+                                    <div class ="row justify-content-center">
+                                        <imgrc="immagini/logofull.png"> 
+                                    </div>
+                                </div>
+            
+                            
+            
+                            </div>
+                    </div>
+                            
                 </div>
-                           
-            </div>
-        </div>';
+            </div>';
+        }
+    
     }
+
+
+
+
+    
     $connessione->close();
     
 }
 ?>
-
-
-
-    
-
-
-
-
 
 
 

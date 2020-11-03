@@ -129,16 +129,23 @@
     
 <!-- 4.E NORMAL & VMODE TABLE OF CARDS -->
 
-    <?php
-        /* if(isset($_GET['Carte'])){ */
+<?php
             
-            $sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = '$id_user' AND possesses.Idalbum = '$id_album' " ;
-            $result = $connessione->query($sql);
+$sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = ? AND possesses.Idalbum =? " ;
+$stmt = mysqli_stmt_init($connessione);
+if(!mysqli_stmt_prepare($stmt, $sql)){
+    echo "SQL error";
+}
+else{
+        mysqli_stmt_bind_param($stmt, "ii", $id_user, $id_album);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-            if ($result->num_rows > 0) {
+            if ($result->num_rows > 0) 
+            {
                 // output data of each row
-            ?>
-            <div class="row justify-content-center mt-5">
+                ?>
+                <div class="row justify-content-center mt-5">
                 <div class="col-12">
                     <div class="card card-primary card-outline">
 
@@ -277,17 +284,25 @@
                                 </div><!-- /.row -->
                             </div><!-- /.wrapper -->
 
-                        <?php     $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = '$id_album' ";
+                        <?php   $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = ? ";
+                                $stmt = mysqli_stmt_init($connessione);
+                                if(!mysqli_stmt_prepare($stmt, $sql)){
+                                    echo "SQL error";
+                                }
+                                else{
 
-                                    $result = $connessione->query($sql);
+                                    mysqli_stmt_bind_param($stmt, "i", $id_album);
+                                    mysqli_stmt_execute($stmt);
+                                    $result = mysqli_stmt_get_result($stmt);
 
                                     if ($result->num_rows > 0) {
                                         $check = false; //l'album è già registrato
                                     } else {
                                         $check = true; //l'album non è registrato
                                     }
+                                }
                                     
-                                    if($check == true) {     ?>                                   
+                                if($check == true) {  ?>                                   
                                 
                                         <div class="card-footer">
                                             <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
@@ -301,11 +316,11 @@
                                             <!-- </form>  -->
                                         </div>
                 
-                                    <?php } 
-                                    if($check == false && $ricarica_prezzi_min_trend === TRUE ){   ?>
+                                <?php } 
+                                if($check == false && $ricarica_prezzi_min_trend === TRUE ){   ?>
 
                                         <div class="card-footer">
-                                            <h5><p class="font-weight-bold">Register the total (minimum & trend) values.</p> We advise you to do it one time per week(for example, the boring monday). </h5>
+                                            <h5><p class="font-weight-bold">Register the total (minimum & trend) values.</p> We advise you to do it one time per week (for example, the boring monday). </h5>
                                                 <button type="submit" class="btn btn-link" name="register-total">
                                                     <?php
                                                         $register_values = "php/update_statistic.php?register=true&trend=".$total_trend."&min=".$total_min."&album=".$id_album;
@@ -315,9 +330,9 @@
                                             <!-- </form>  -->
                                         </div>
 
-                                    <?php
-                                    }
-                                    ?>
+                                <?php
+                                }
+                                ?>
 
 
 
@@ -327,7 +342,13 @@
         </div><!-- /.col-sm-12 -->
      </div><!-- /.row-->
     
-<?php     } ?>
+<?php 
+
+
+
+    } // chiusure if result
+}//chiusura primo if/else gigante
+?>
 
 
 
@@ -339,11 +360,18 @@
 
 <!-- 5.E VMODE & NORMAL. GRAFICO-->
 
-    <?php
-        $sql = "SELECT Stat_date, Trend_value, Min_value FROM statistic WHERE Idalbum = '$id_album' ";
+<?php
 
-        $result = $connessione->query($sql);
-        
+$sql = "SELECT Stat_date, Trend_value, Min_value FROM statistic WHERE Idalbum = ? ";
+$stmt = mysqli_stmt_init($connessione);
+if(!mysqli_stmt_prepare($stmt, $sql)){
+     echo "Error in the database";
+}
+else{
+        mysqli_stmt_bind_param($stmt, "i", $id_album);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt); 
+
         if ($result->num_rows > 0) {
 
             $chart_data = '';
@@ -358,9 +386,13 @@
         } else {
           $no_data = true;
         }
-        $connessione->close();   
 
-    ?>
+}
+mysqli_stmt_close($stmt);
+mysqli_close($connessione);
+
+
+?>
 
     <div class="row justify-content-center mt-5">
             <div class="col-10">

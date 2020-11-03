@@ -195,59 +195,67 @@ if($ban_temporaneo == 0){
 
             
 
-            $sql = "SELECT Album_name, Idalbum FROM album WHERE Iduser='$id_user' AND Idcollection='$idcollection' ; ";
-            
-            $result = $connessione->query($sql);
-
-            if ($result->num_rows > 0) {
-            // output data of each row
-                echo'
-                <div class="content">
-                <div class="container">
-                <div class="row justify-content-center mt-2">
-                    <div class="col-10">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                            <h3 class="card-title">Your albums</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <table style="cursor:pointer" id="example2" class="table table-bordered table-hover dataTable" role="grid">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th>Album</th>
-                                                    <th colspan="2">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>';           
-                
-                    
-                            while($row = $result->fetch_assoc()) {
-                                
-                                echo '
-                                        <tr onclick="location.href=\'album.php?OPEN='.$row["Album_name"]."&ID=".$row["Idalbum"].'\'">
-                                            <td> '.$row["Album_name"].' </td>
-                                            <td> <a href="php/albuminsert.php?edit='. $row["Idalbum"].'">Edit</a> </td>
-                                            <td> <a href="php/albuminsert.php?delete='. $row["Idalbum"] .'">Delete</a> </td>
-                                        </tr>';
-                            }
-
-                            echo '       
-                                    </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        <!-- /.card-body --> 
-                        </div>
-                        </div>';  
-                
-            } else {
-                echo '';
+            $sql = "SELECT Album_name, Idalbum FROM album WHERE Iduser=? AND Idcollection=? ; ";
+            $stmt = mysqli_stmt_init($connessione);
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                echo "Error in the database";
             }
-            $connessione->close();
+            else{
+                mysqli_stmt_bind_param($stmt, "ii", $id_user, $idcollection);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt); 
+
+                if ($result->num_rows > 0) {
+                // output data of each row
+                    echo'
+                    <div class="content">
+                    <div class="container">
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-10">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                <h3 class="card-title">Your albums</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table style="cursor:pointer" id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th>Album</th>
+                                                        <th colspan="2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>';           
+                    
+                        
+                                while($row = $result->fetch_assoc()) {
+                                    
+                                    echo '
+                                            <tr onclick="location.href=\'album.php?OPEN='.$row["Album_name"]."&ID=".$row["Idalbum"].'\'">
+                                                <td> '.$row["Album_name"].' </td>
+                                                <td> <a href="php/albuminsert.php?edit='. $row["Idalbum"].'">Edit</a> </td>
+                                                <td> <a href="php/albuminsert.php?delete='. $row["Idalbum"] .'">Delete</a> </td>
+                                            </tr>';
+                                }
+
+                                echo '       
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            <!-- /.card-body --> 
+                            </div>
+                            </div>';  
+                    
+                } else {
+                    echo '';
+                }
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($connessione);
             
         }
             
@@ -385,22 +393,33 @@ function verify_if_is_payed($id_user)
 
     $ban_temporaneo = false;
 
-    $sql = "SELECT Create_date, Payed, Payment_date FROM user WHERE Iduser='$id_user' LIMIT 1";
-    $result = $connessione->query($sql);
+    $sql = "SELECT Create_date, Payed, Payment_date FROM user WHERE Iduser=? LIMIT 1";
+    $stmt = mysqli_stmt_init($connessione);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "Error in the database";
+    }
+    else{
+        mysqli_stmt_bind_param($stmt, "i", $id_user);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt); 
 
-    if ($result->num_rows > 0)
-    {
+        if ($result->num_rows > 0)
+        {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $data_creazione = $row['Create_date'];
             $pagato = $row['Payed'];
             $data_pagamento = $row['Payment_date'];
 
+            }
+        } 
+        else {
+             echo "0 results";
         }
-    } else {
-        echo "0 results";
     }
-    $connessione->close();
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 
     $ora_attuale = date("Y-m-d H:i:s");
 
