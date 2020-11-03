@@ -265,8 +265,8 @@ if($ban_temporaneo == 0){
         }else{
 
             if(isset($_GET['Edit'])){
-                $album_to_edit = mysqli_real_escape_string($connessione, $_GET['Edit']);
-                $id = mysqli_real_escape_string($connessione, $_GET['ID']);
+                $album_to_edit = $_GET['Edit'];
+                $id = $_GET['ID'];
                 
 
                 echo'  

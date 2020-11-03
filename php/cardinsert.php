@@ -19,12 +19,12 @@
 if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESSION['ONLY-LINK'] == FALSE)
 {
 
-    $nome_set = mysqli_real_escape_string($connessione,$_POST['set_name']);
-    $nome_carta = mysqli_real_escape_string($connessione,$_POST['card_name']);
-    $conditions = mysqli_real_escape_string($connessione,$_POST['conditions']);
-    $languages = mysqli_real_escape_string($connessione,$_POST['languages']);
-    $quantity = mysqli_real_escape_string($connessione,$_POST['quantities']);
-    $extravalues = mysqli_real_escape_string($connessione,$_POST['extravalues']);
+    $nome_set = mysqli_real_escape_string($connessione, $_POST['set_name']);
+    $nome_carta = mysqli_real_escape_string($connessione, $_POST['card_name']);
+    $conditions = mysqli_real_escape_string($connessione, $_POST['conditions']);
+    $languages = mysqli_real_escape_string($connessione, $_POST['languages']);
+    $quantity = mysqli_real_escape_string($connessione, $_POST['quantities']);
+    $extravalues = mysqli_real_escape_string($connessione, $_POST['extravalues']);
 
     $nome_carta = preparation_name($nome_carta);
     $nome_set = preparation_set($nome_set);
@@ -45,64 +45,78 @@ if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESS
     else{
       
 
-        $sql = "SELECT Idcard FROM card WHERE Set_name = '$nome_set' AND Card_name = '$nome_carta'";
-        $result = $connessione->query($sql);
+        $sql = "SELECT Idcard FROM card WHERE Set_name = ? AND Card_name = ?";
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            //echo "Error updating record nel prepare: " . $connessione->error;
+            header("Location: ../album.php?error=sqlerror");
+            exit();
+        }
+        else{
+            mysqli_stmt_bind_param($stmt, "ss", $nome_set, $nome_carta );
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
 
-        if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-
-                $id_carta = $row['Idcard'];
-
-                $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($connessione);
-
-                if(!mysqli_stmt_prepare($stmt, $sql)){
-                    header("Location: ../add_card.php?error=sqlerror");
-                    exit();
-                }else{    ////////modificareeee
-                    mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
-                    mysqli_stmt_execute($stmt);
-
-
-                header("Location: get_cards.php?CARD=INSERTED");
-                exit();
-
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+        
+                        $id_carta = $row['Idcard'];
+        
+                        $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
+                        $stmt = mysqli_stmt_init($connessione);
+        
+                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                            header("Location: ../add_card.php?error=sqlerroradd");
+                            exit();
+                        }else{    ////////modificareeee
+                            mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_close($stmt);
+        
+                            header("Location: get_cards.php?CARD=INSERTED");
+                            exit();
+        
+                        }
+                }
+                } else {
+                    //prova con la ricerca per nome e set e prendere l'id  
+                    //conenuto array: idProduct, Link della carta da completare, Nome Set, NOME CARTA IN ENGLISH
+                    $nome_carta = modify_name($nome_carta);
+                    $array_containing_id = array();
+                    $array_containing_id = search_for_name($nome_carta, $nome_set, $id_collezione);
+        
+                    if(count($array_containing_id)>0){
+                        //sql insert into Table Possession
+                        $id_carta = $array_containing_id[0];
+                                        
+                        $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
+                        $stmt = mysqli_stmt_init($connessione);
+        
+                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                            header("Location: ../add_card.php?error=sqlerror");
+                            exit();
+                        }else{    
+                            mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_close($stmt);
+                            header("Location: get_cards.php?CARD=INSERTED");
+                            exit();
+                        }
+                        
+        
+                    }
+                    else{
+                        header("Location: ../album.php?error=SQL_CardNotInDB");
+                        exit();
+                    }
+        
                 }
         }
-        } else {
-            //prova con la ricerca per nome e set e prendere l'id  
-            //conenuto array: idProduct, Link della carta da completare, Nome Set, NOME CARTA IN ENGLISH
-            $nome_carta = modify_name($nome_carta);
-            $array_containing_id = array();
-            $array_containing_id = search_for_name($nome_carta, $nome_set, $id_collezione);
 
-            if(count($array_containing_id)>0){
-                //sql insert into Table Possession
-                $id_carta = $array_containing_id[0];
-                                
-                $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($connessione);
+       
+        mysqli_close($connessione); 
 
-                if(!mysqli_stmt_prepare($stmt, $sql)){
-                    header("Location: ../add_card.php?error=sqlerror");
-                    exit();
-                }else{    
-                    mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
-                    mysqli_stmt_execute($stmt);
-                    header("Location: get_cards.php?CARD=INSERTED");
-                    exit();
-                }
-                
-
-            }
-            else{
-                header("Location: ../album.php?error=SQL_CardNotInDB");
-                exit();
-            }
-
-        }
-        $connessione->close();
     }
 }
 
@@ -136,73 +150,89 @@ else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND 
             header("Location: ../album.php?error=problemIntheLink");
             exit();
         }
-        else{
+        else
+        {
 
             $nome_carta = $a[0];
             $nome_set = $a[1];
 
-            $sql = "SELECT Idcard FROM card WHERE Set_name = '$nome_set' AND Card_name = '$nome_carta'";
-            $result = $connessione->query($sql);
+            $sql = "SELECT Idcard FROM card WHERE Set_name =? AND Card_name =? ";
+            $stmt = mysqli_stmt_init($connessione);
 
-            if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("Location: ../album.php?error=sqlerror");
+                exit();
+            }else{
+                mysqli_stmt_bind_param($stmt, "ss", $nome_set, $nome_carta);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
 
-                    $id_carta = $row['Idcard'];
-
-                    $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
-                    $stmt = mysqli_stmt_init($connessione);
-
-                    if(!mysqli_stmt_prepare($stmt, $sql)){
-                        header("Location: ../add_card.php?error=sqlerror");
-                        exit();
-                    }else{    ////////modificareeee
-                        mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
-                        mysqli_stmt_execute($stmt);
-
-
-                        header("Location: get_cards.php?CARD=INSERTED");
-                        exit();
-
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+        
+                            $id_carta = $row['Idcard'];
+        
+                            $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
+                            $stmt = mysqli_stmt_init($connessione);
+        
+                            if(!mysqli_stmt_prepare($stmt, $sql)){
+                                header("Location: ../add_card.php?error=sqlerror");
+                                exit();
+                            }else{    ////////modificareeee
+                                mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
+                                mysqli_stmt_execute($stmt);
+                                mysqli_stmt_close($stmt);
+        
+                                header("Location: get_cards.php?CARD=INSERTED");
+                                exit();
+        
+                            }
+        
                     }
+                } else {
+                        /// RICHIESTA PER NOME
+                        //prova con la ricerca per nome e set e prendere l'id  
+                        //conenuto array: idProduct, Link della carta da completare, Nome Set, NOME CARTA IN ENGLISH
+                        $array_containing_id = array();
+                        $array_containing_id = search_for_name($nome_carta, $nome_set, $id_collezione);
+        
+                        if(count($array_containing_id)>0){
+                            //sql insert into Table Possession
+                            $id_carta = $array_containing_id[0];
+                                            
+                            $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
+                            $stmt = mysqli_stmt_init($connessione);
+        
+                            if(!mysqli_stmt_prepare($stmt, $sql)){
+                                header("Location: ../add_card.php?error=sqlerror");
+                                exit();
+                            }else{    
+                                mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
+                                mysqli_stmt_execute($stmt);
+                                mysqli_stmt_close($stmt);
+                                header("Location: get_cards.php?CARD=INSERTED");
+                                exit();
+                                
+                            }
+                            
+        
+                        }
+                        else{
+                            header("Location: ../album.php?error=SQL_CardNotInDB");
+                            exit();
+                        }
+        
+                }
+                
 
             }
-            } else {
-                /// RICHIESTA PER NOME
-                //prova con la ricerca per nome e set e prendere l'id  
-                //conenuto array: idProduct, Link della carta da completare, Nome Set, NOME CARTA IN ENGLISH
-                $array_containing_id = array();
-                $array_containing_id = search_for_name($nome_carta, $nome_set, $id_collezione);
+           
+            mysqli_close($connessione);
 
-                if(count($array_containing_id)>0){
-                    //sql insert into Table Possession
-                    $id_carta = $array_containing_id[0];
-                                    
-                    $sql = "INSERT INTO possesses (Iduser, Idcard, Idalbum, Quantity, Language, ExtraValues, Conditions) VALUES (?,?,?,?,?,?,?)";
-                    $stmt = mysqli_stmt_init($connessione);
-
-                    if(!mysqli_stmt_prepare($stmt, $sql)){
-                        header("Location: ../add_card.php?error=sqlerror");
-                        exit();
-                    }else{    
-                        mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
-                        mysqli_stmt_execute($stmt);
-                        header("Location: get_cards.php?CARD=INSERTED");
-                        exit();
-                    }
-                    
-
-                }
-                else{
-                    header("Location: ../album.php?error=SQL_CardNotInDB");
-                    exit();
-                }
-
-            }
-        }
-        $connessione->close();
     }
 
+}
 }
 
 
@@ -212,23 +242,25 @@ else if( isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND 
 else if(isset($_GET['delete']))
 {
 
-    $id_possession = mysqli_real_escape_string($connessione,$_GET['delete']);
+    $id_possession = mysqli_real_escape_string($connessione, $_GET['delete']);
 
     // sql to delete a record
-    $sql = "DELETE FROM possesses WHERE Idpossession = '$id_possession' ";
+    $sql = "DELETE FROM possesses WHERE Idpossession = ? ";
+    $stmt = mysqli_stmt_init($connessione);
 
-    if ($connessione->query($sql) === TRUE) {
-
-       
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("Location: ../album.php?error=sqlerror");
+        exit();
+    }else{
+        mysqli_stmt_bind_param($stmt, "i", $id_possession);
+        mysqli_stmt_execute($stmt);
         header("Location: get_cards.php?Deleted=True");
         exit();
-        //header a get_card con ? = deleted
+        
 
-    } else {
-    echo "Error deleting record: " . $connessione->error;
     }
-
-    $connessione->close();
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 
 
 }
@@ -554,50 +586,64 @@ else if(isset($_GET['delete']))
 
         require "dbh.php";
 
-        $sql = "SELECT idExpansion FROM card,texp WHERE card.Set_name = texp.nameExpansion AND texp.nameExpansion = '$possessione[1]'";
-        $result = $connessione->query($sql);
-
-        if ($result->num_rows > 0) {
-        // output data of each row
-            while($row = $result->fetch_assoc()) {
-
-            $id_carta = $possessione[0];
-            $exp_name = $possessione[1];
-            $c_name = $possessione[2];
-            $id_exp = $row['idExpansion'];
-
-            $sql = "INSERT INTO CARD (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
-            $stmt = mysqli_stmt_init($connessione);
-
-            if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../add_card.php?error=sqlerror");
-                exit();
-            }else{    
-                mysqli_stmt_bind_param($stmt, "iiss", $id_carta, $id_exp, $c_name, $exp_name);
-                mysqli_stmt_execute($stmt);
-
-                //INSERIMENTO RIUSCITO
-            }
-            //INSERIMENTO NELLA TABELLA NEW CARDS, UTILE PER UANDO LA TABELLA CARDS VIENE AGGIORNATA
-
-            $sql = "INSERT INTO NEWCARDS (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
-            $stmt = mysqli_stmt_init($connessione);
-
-            if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../add_card.php?error=sqlerror");
-                exit();
-            }else{    
-                mysqli_stmt_bind_param($stmt, "iiss", $id_carta, $id_exp, $c_name, $exp_name);
-                mysqli_stmt_execute($stmt);
-
-                //INSERIMENTO RIUSCITO
-            }
-
-            }
-        } else {
-            header("Location: ../album.php?error=SQL_CardNotInDB");
-            exit();
+        $sql = "SELECT idExpansion FROM card,texp WHERE card.Set_name = texp.nameExpansion AND texp.nameExpansion = ?";
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_init($stmt, $sql)){
+            echo "SQL error";
         }
+        else{
+            mysqli_stmt_bind_param($stmt, "s", $possessione[1] );
+            mysqli_stmt_execute($stmt);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                    while($row = $result->fetch_assoc()) {
+        
+                    $id_carta = $possessione[0];
+                    $exp_name = $possessione[1];
+                    $c_name = $possessione[2];
+                    $id_exp = $row['idExpansion'];
+        
+                    $sql = "INSERT INTO card (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
+                    $stmt = mysqli_stmt_init($connessione);
+        
+                    if(!mysqli_stmt_prepare($stmt, $sql)){
+                        header("Location: ../add_card.php?error=sqlerror");
+                        exit();
+                    }else{    
+                        mysqli_stmt_bind_param($stmt, "iiss", $id_carta, $id_exp, $c_name, $exp_name);
+                        mysqli_stmt_execute($stmt);
+        
+                        //INSERIMENTO RIUSCITO
+                    }
+                    //INSERIMENTO NELLA TABELLA NEW CARDS, UTILE PER UANDO LA TABELLA CARDS VIENE AGGIORNATA
+        
+                    $sql = "INSERT INTO newcards (Idcard, Idset, Card_name, Set_name) VALUES (?,?,?,?)";
+                    $stmt = mysqli_stmt_init($connessione);
+        
+                    if(!mysqli_stmt_prepare($stmt, $sql)){
+                        header("Location: ../add_card.php?error=sqlerror");
+                        exit();
+                    }else{    
+                        mysqli_stmt_bind_param($stmt, "iiss", $id_carta, $id_exp, $c_name, $exp_name);
+                        mysqli_stmt_execute($stmt);
+        
+                        //INSERIMENTO RIUSCITO
+                    }
+        
+                    }
+                } else {
+                    header("Location: ../album.php?error=SQL_CardNotInDB");
+                    exit();
+                }
+
+
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+
+        
 
 
 

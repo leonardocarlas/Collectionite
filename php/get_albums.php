@@ -17,7 +17,7 @@ if(isset($_POST['selected-collection']))
 {
     
     //prende il tipo di collezione
-    $name_collection=mysqli_real_escape_string($connessione,$_POST['collection-type']);
+    $name_collection=mysqli_real_escape_string($connessione, $_POST['collection-type']);
     //ci associa l'id
     $idcollection=0;
     if($name_collection == "Pokemon"){

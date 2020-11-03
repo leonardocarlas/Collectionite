@@ -55,9 +55,15 @@ else if(isset($_GET['delete'])){
 
     $id = mysqli_real_escape_string($connessione, $_GET['delete']);
     // sql to delete a record
-    $sql = "DELETE FROM album WHERE Idalbum = '$id' ";
+    $sql = "DELETE FROM album WHERE Idalbum = ? ";
+    $stmt = mysqli_stmt_init($connessione);
 
-    if ($connessione->query($sql) === TRUE) {
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("Location: ../home.php?error=sqlerror");
+        exit();
+    }else{
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
 
         $_SESSION['reload-album'] = true;
         $_SESSION['MESSAGE'] = "Album has been deleted!";
@@ -66,11 +72,9 @@ else if(isset($_GET['delete'])){
         header("Location: ../home.php?DELETED=CORRECTLY");
         exit();
 
-    } else {
-    echo "Error deleting record: " . $connessione->error;
     }
-
-    $connessione->close();
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 }
 
 
@@ -83,16 +87,28 @@ elseif(isset ($_GET['edit'])) {
 
     $id = mysqli_real_escape_string($connessione, $_GET['edit']);
 
-    $sql = "SELECT Album_name, Idalbum FROM album WHERE Idalbum = '$id' ";
-    $result = mysqli_query($connessione, $sql);
+    $sql = "SELECT Album_name, Idalbum FROM album WHERE Idalbum = ? LIMIT 1";
+    $stmt = mysqli_stmt_init($connessione);
 
-    if (count($result)==1) {
-        $row = $result->fetch_array();
-        $name = $row['Album_name'];
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../home.php?error=sqlerror");
+            exit();
+        }else{
+            mysqli_stmt_bind_param($stmt, "i", $id );
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            while($row = mysqli_fetch_assoc($result)){
+                    $name = $row['Album_name'];
+            }
+                
+            header("Location: ../home.php?Edit=".$name."&ID=".$id);
+            exit();
 
-        header("Location: ../home.php?Edit=".$name."&ID=".$id);
-        exit();
-    }
+        }
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
+
+   
     
 }
 
@@ -107,19 +123,22 @@ elseif(isset($_POST['update_album'])){
     $nome= mysqli_real_escape_string($connessione, $_POST['old_album_name']);
     $id = mysqli_real_escape_string($connessione,$_GET['E']);
     
-    $sql = "UPDATE album SET Album_name='$nome' WHERE Idalbum='$id' ";
-
-    if ($connessione->query($sql) === TRUE) {
-
+    $sql = "UPDATE album SET Album_name=? WHERE Idalbum=?";
+    $stmt = mysqli_stmt_init($connessione);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "Error updating record: " . $connessione->error;
+    }
+    else{
+        mysqli_stmt_bind_param($stmt, "si", $nome, $id );
+        mysqli_stmt_execute($stmt);
         $_SESSION['reload-album'] = true;
         header("Location: ../home.php?MODIFIED=SUCCESS");
         exit();
 
-    } else {
-    echo "Error updating record: " . $connessione->error;
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione); 
 
-    $connessione->close();
 }
 
 

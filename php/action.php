@@ -36,6 +36,8 @@ if(isset($_POST['query_set'])){
 
 
     }    
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 
 }
 
@@ -68,7 +70,9 @@ if(isset($_POST['query_card'])){
         echo $output;
 
 
-    } 
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 
 
 }

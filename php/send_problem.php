@@ -1,8 +1,5 @@
 <?php
 
-    
-
-
 
 if(isset($_POST['invia-problema'])){
 
@@ -49,17 +46,7 @@ if(isset($_POST['invia-problema'])){
       echo $e->getMessage(); //Boring error messages from anything else!
     }
 
-   
-                   
-    
-    //else{
-        //PUT THE USER TO THE VERIFICATION PAGE
-    //header("Location: ../contact.php?Email=SENT");
-        //exit();
-    //}
 
-    
-    
 
 
 
