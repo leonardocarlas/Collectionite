@@ -26,7 +26,7 @@ if(isset($_GET['VKey'])){
         
             $sql_update = "UPDATE user SET Verified = 1 WHERE Verification_key = '$verification_key' LIMIT 1";
             if ($connessione->query($sql_update) === TRUE) 
-                {  
+                {
 ?>
                 
                 <div class="content">
@@ -103,54 +103,54 @@ if(isset($_GET['SIGNUP'])){
     
    echo '
     
-    <!DOCTYPE html>
-    <head>
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="dist/css/adminlte.min.css">
-        <!-- Google Font: Source Sans Pro -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        <title>Collection Sight</title>
-        <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
-        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
-    </head>
-    </body>
+    
+   <!DOCTYPE html>
+   <head>
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+   </head>
+   <body>
+   
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-        <div class="content">
-        <div class="container">
+       <div class="content">
+       <div class="container">
 
-            <div class="row justify-content-center">
-                    
-                    <div class="card card-primary card-outline">
-                        <div class="card-body">
-                            <div col=4>
-                                <p class="card-text"><h1>Thank you for your registration.</h1></p>
-                                <p class="card-text">We have sent you an email to confirm the account. Go and Check it. Also, you can close this page.</p>
-                            </div>
+           <div class="row justify-content-center">
+                   
+                   <div class="card card-primary card-outline">
+                       <div class="card-body">
+                           <div col=4>
+                               <p class="card-text"><h1>Thank you for your registration.</h1></p>
+                               <p class="card-text">We have sent you an email to confirm the account. Go and Check it. Also, you can close this page.</p>
+                           </div>
 
-                            <br>
-        
-                            <div class="row justify-content-center">
-                                <img src="immagini/logofull.png" width="900" height="1000"> 
-                            </div>
+                           <br>
+       
+                           <div class="row justify-content-center">
+                               <img src="immagini/logofull.png" width="500" height="600"> 
+                           </div>
 
-                            <br>
+                           <br>
 
-                            <p class="card-text" ><h3>Sincerily, The Team of Collection Sight.</h3></p>
-                        </div>
+                           <p class="card-text" ><h3>Sincerily, The Team of Collection Sight.</h3></p>
+                       </div>
 
-                    
+                   
 
-                    </div>
-            </div>
-                        
-        </div>
-        </div>
+                   </div>
+           </div>
+                       
+       </div>
+       </div>
 
-    </body>
-    </html>
-    ';
+   </body>
+   </html>
+   ';
 }
 
     
