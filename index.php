@@ -97,11 +97,22 @@
           <div class="col-sm-10">
             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active" data-interval="3000">
+                <div class="carousel-item active" data-interval="4000">
+                  <img src="immagini/alltcg.png" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h4 class="text-dark bg-white">We track the cards prices of your collection</h4>
+                    <p class="text-dark bg-white">With 13 types of TCGs covered, our cards database is directly related to that one of CardMarket</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-interval="3000">
                   <img src="immagini/logocollection.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item" data-interval="4000">
                   <img src="immagini/logocardmarket.png" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-dark">We are in collaboration with CardMarket</h5>
+                    <p class="text-dark">They support us in what we are doing</p>
+                  </div>
                 </div>
               
 
@@ -117,6 +128,35 @@
             </div>
           </div>
         </div>
+
+        <br><br><br>
+
+
+        <div class="card-group">
+          <div class="card">
+            <img class="card-img-top" src="immagini/addalbum.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Create your Virtual Album</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="immagini/zardprices.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Refresh the Cards Prices</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="immagini/grafico.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Watch the Price Trend over Time </h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+          </div>
+        </div>
+
+        <br><br><br>
 
         <div class="row mb-5">
         </div>
@@ -156,6 +196,17 @@
                 </div>
             </div>
           </div>
+          </div>
+                
+          <br><br><br>
+                
+          <div class="card mb-3">
+            <img class="card-img-top" src="immagini/news.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">News and updates</h5>
+              <p class="card-text"><b>4/11/2020</b>: Official launch of the website.</p>
+              <p class="card-text"><small class="text-muted">Last updated 14/11/2020</small></p>
+            </div>
           </div>
 
           <!--
