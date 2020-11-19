@@ -11,7 +11,7 @@
 
       <!-- Grid column -->
       <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-        <h6 class="mb-0 text-white">Stay connected with us on social networks!</h6>
+        <h6 class="mb-0 text-white">Resta connesso con noi sui social!</h6>
       </div>
       <!-- Grid column -->
 
@@ -19,7 +19,7 @@
       <div class="col-md-6 col-lg-7 text-center text-md-right">
 
         <!-- Facebook -->
-        <a href="#" class="fb-ic text-white">
+        <a href="https://www.facebook.com/Collection-Sight-114005480519669/" class="fb-ic text-white">
           <i class="fa fa-facebook-official" style="font-size:36px"></i>
         </a>
         <!-- Youtube -->
@@ -36,7 +36,7 @@
           <i class="fab fa-linkedin-in white-text mr-4"> </i>
         </a> -->
         <!--Instagram-->
-        <a href="#" class="ins-ic text-white">
+        <a href="https://www.instagram.com/collectionsight/" class="ins-ic text-white">
           <i class="fa fa-instagram" style="font-size:36px"></i>
         </a>
 
@@ -61,7 +61,7 @@
       <!-- Content -->
       <h6 class="text-uppercase font-weight-bold">Collection Sight</h6>
       <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-      <p>You can create a virtual album where you can put the cards that you possess in real life time. The types of TCGs that are supported by our site are 13:
+      <p>Crea il tuo Album virtuale. Mantieni aggiornati i prezzi delle carte. Tieni tracciati i prezzi delle carte nel tempo. I tipi di TGC supportati sono 13:
       Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG and Weiß Schwarz.</p>
 
     </div>
@@ -71,10 +71,10 @@
     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
       <!-- Links -->
-      <h6 class="text-uppercase font-weight-bold">Subscribe to our program</h6>
+      <h6 class="text-uppercase font-weight-bold">Iscriviti:</h6>
       <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
-        <a href="payments.php">Validate your account</a>
+        <a href="payments.php">Registra per sempre il tuo account</a>
       </p>
 <!--
       <p>
@@ -95,13 +95,13 @@
     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
       <!-- Links -->
-      <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+      <h6 class="text-uppercase font-weight-bold">Link utili</h6>
       <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
-        <a href="index.php">Your Collection</a>
+        <a href="index.php">La tua collezione</a>
       </p>
       <p>
-        <a href="https://www.termsandconditionsgenerator.com/live.php?token=QuhdCIOQXVqNjxtIqKKzmc33L7mX6tWG">Terms & Conditions</a>
+        <a href="https://www.termsandconditionsgenerator.com/live.php?token=QuhdCIOQXVqNjxtIqKKzmc33L7mX6tWG">Termini & Condizioni</a>
       </p>
 <!--
       <p>
@@ -109,7 +109,7 @@
       </p>
 -->
       <p>
-        <a href="contact.php">Help</a>
+        <a href="contact.php">Assistenza</a>
       </p>
 
     </div>
@@ -119,7 +119,7 @@
     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
       <!-- Links -->
-      <h6 class="text-uppercase font-weight-bold">Contact</h6>
+      <h6 class="text-uppercase font-weight-bold">Contatti</h6>
       <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
         <!--<i class="fas fa-home mr-3"></i>--> Piovene Rocchette, Vi 36013, IT</p>
@@ -146,7 +146,7 @@
 <div class="footer-copyright text-center py-3">© 2020 Copyright:
   <a href="https://collectionsight.com/index.php"> collectionsight.com </a>
   <br>
-  CF: CRLLRD97T30L157X
+  CF: CRLLRD97T30L157X di Leonardo Carlassare
 </div>
 <!-- Copyright -->
 

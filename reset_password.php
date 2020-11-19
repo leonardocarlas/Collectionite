@@ -15,15 +15,15 @@
                         <div class="card card-primary card-outline">
                             <div class="card-body">
         
-                                <h1>Reset your password </h1>
-                                <p>An email will be send to you with instructions on how to reset your password. </p>
+                                <h1>Resetta la tua password </h1>
+                                <p>Un e-mail ti verrà inviata alla tua casella di posta con le istruzioni su come procedere. </p>
                                     
                                 <form action="php/reset.php" method="POST">
 
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="email" placeholder="Enter your e-mail address" aria-label="Enter your e-mail address" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control" name="email" placeholder="Inserisci la tua e-mail" aria-label="Inserisci la tua e-mail" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" name="reset-request-submit" type="submit"> Receive new passwrod by e-mail</button>
+                                            <button class="btn btn-outline-secondary" name="reset-request-submit" type="submit">Ricevi la nuava password per e-mail</button>
                                         </div>
                                 </div>
                                 </form>
@@ -32,7 +32,7 @@
 
                                     if(isset($_GET['reset'])){
                                         if($_GET['reset'] == "success"){
-                                            echo '<p class"signupsuccess">Check your e-mail account</p>';
+                                            echo '<p class"signupsuccess">Controlla il tuo account e-mail</p>';
                                         }
                                     }
 

@@ -18,7 +18,7 @@
                     <div class="card card-success card-outline">
 
                     <div class="card-header">
-                        <h5 class="card-title m-0">The transaction has been succesffull</h5>
+                        <h5 class="card-title m-0">La transazione è andata a buon fine</h5>
                     </div>
                     <div class="card-body">
 
@@ -28,7 +28,7 @@
                             <div class="col-mb-8">
                             <center>
                             <text>
-                                The Team of Collection Sight thank you. Starting from now, your datas will be stored forever in our databases.
+                                Il Team di Collection Sight ti ringrazia molto. A partire da ora i tuoi dati saranno per sempre salvati nel nostro database.
                             </text>
                             </center>                                   
                             </div>
@@ -42,7 +42,7 @@
                     echo '<div class="card card-danger card-outline">
 
                     <div class="card-header">
-                        <h5 class="card-title m-0">An error occurs in the transaction</h5>
+                        <h5 class="card-title m-0">E\' occorso un errore durante la transazione</h5>
                     </div>
                     <div class="card-body">
 
@@ -52,8 +52,8 @@
                             <div class="col-mb-8">
                             <center>
                             <text>
-                                This error occurs in the attempt of the transaction: '.$_GET["error"].'
-                                Please contact the PayPal Support Service.
+                                L\'errore è nato nel tentativo della transazione: '.$_GET["error"].'
+                                Ti consigliamo di contattare il Servizio di Assistenza di PayPal e di verificare la connessione ad internet.
                             </text>
                             </center>                                   
                             </div>

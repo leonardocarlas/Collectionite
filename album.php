@@ -52,11 +52,11 @@
                 <div class="container">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> You are in the album: <?php echo $_SESSION['album-selezionato']; ?></h1>                           
+                            <h1 class="m-0 text-dark"> Sei nell'album: <?php echo $_SESSION['album-selezionato']; ?></h1>                           
                     </div><!-- /.col -->
                 </div>
                 <div class="row mb-2">
-                        <a class="btn text-white" style="background-color: #5401a7;" href="home.php">Back to Select the Album</a>    
+                        <a class="btn text-white" style="background-color: #5401a7;" href="home.php">Torna a selezionare gli album</a>    
                 </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -103,21 +103,21 @@
             
             <?php  if($_GET['error'] == "emptyfields"){ ?>
                 <div class="alert alert-danger" role="alert" >
-                    Pay attention: you forgot to insert the card name or the set name.
+                    Attento: hai dimenticato di inserire il nome del set o il nome della carta.
                 </div>
 
             <?php }?>
             
             <?php if($_GET['error'] == "features-not-selected"){  ?>
                 <div class="alert alert-danger" role="alert">
-                    Pay attention: you forgot to select the features of the cards.
+                    Attento: hai dimenticato di inserire le caratteristiche della carta.
                 </div>
 
             <?php } ?>
 
             <?php if($_GET['error'] == "SQL_CardNotInDB"){  ?>
                 <div class="alert alert-danger" role="alert">
-                    There is a problem. Or you have wrongly inserted the card name &/or set or the site has a probelm. Retry. If the problem still exists, contact us in the spot for that.
+                    L'inserimento non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
                 </div>
 
             <?php } ?>
@@ -157,7 +157,7 @@ else{
 
                         <div class="card-header">
                                     <text>
-                                        <h5><p class="font-weight-bold">2. Second Step.</p> Select the type of card evaluation. The site will take<br> a few seconds to update all cards prices.</h5>
+                                        <h5><p class="font-weight-bold">2. Secondo step.</p> Seleziona il tipo di valutazione delle carte. Il sito impiegherà <br> pochi secondi per aggiornare tutti i prezzi delle carte.</h5>
                              
                                     <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
                                         <form action="album.php" method="POST">
@@ -183,26 +183,26 @@ else{
                                     <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Card Name</th>
-                                                <th scope="col">Card Set</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Language</th>
-                                                <th scope="col">Extra Values</th>
-                                                <th scope="col">Conditions</th>
+                                                <th scope="col">Nome della carta</th>
+                                                <th scope="col">Nome del Set</th>
+                                                <th scope="col">Quantità</th>
+                                                <th scope="col">Lingua</th>
+                                                <th scope="col">Valori Extra</th>
+                                                <th scope="col">Condizioni</th>
 
                                             <?php if( $ricarica_prezzi_min_trend == TRUE){ ?>
 
-                                                <th scope="col">Minimum Price</th>
-                                                <th scope="col">Trend Price</th>
+                                                <th scope="col">Prezzo minimo</th>
+                                                <th scope="col">Tendenza di prezzo</th>
 
                                             <?php } else if($ricarica_prezzi_lan_cond == TRUE) { ?>
 
-                                                <th scope="col">Evaluation Price</th> 
+                                                <th scope="col">Prezzo di valutazione</th> 
 
                                             <?php }  ?>
 
-                                                <th scope="col">Open it in cardmarket.com</th>      
-                                                <th  scope="col">Action</th>
+                                                <th scope="col">Aprilo su cardmarket.com</th>      
+                                                <th  scope="col">Azioni</th>
 
                                             </tr>
                                         </thead>
@@ -256,7 +256,7 @@ else{
                                                     <td> <?php
                                                         
                                                             $delete = "php/cardinsert.php?delete=" . $row['Idpossession'] ;
-                                                            echo '<a href="'.$delete.'">Delete Card</a> </td> '; 
+                                                            echo '<a href="'.$delete.'">Elimina carta</a> </td> '; 
                                                         ?> 
                                                     </td>
                                                 </tr>
@@ -268,13 +268,13 @@ else{
                                                 <?php 
                                                     if( $ricarica_prezzi_min_trend === TRUE){
                                                         echo  '
-                                                            <td> Total price of the album: </td> 
-                                                            <td> Minimun price: '.$total_min.' </td>
-                                                            <td> Trend price: '.$total_trend.' </td>' ; 
+                                                            <td> Prezzo totale dell\'album: </td> 
+                                                            <td> Prezzo minimo: '.$total_min.' </td>
+                                                            <td> Prezzo di tendenza: '.$total_trend.' </td>' ; 
                                                     } else{
                                                         echo '
-                                                            <td> Total price of the album: </td> 
-                                                            <td> Estimated price: '.$total_avarage.' </td> ';
+                                                            <td> Prezzo totale dell\'album: </td> 
+                                                            <td> Prezzo di valutazione: '.$total_avarage.' </td> ';
 
                                                     }
                                                 ?> 
@@ -305,7 +305,7 @@ else{
                                 if($check == true) {  ?>                                   
                                 
                                         <div class="card-footer">
-                                            <h5><p class="font-weight-bold">Start track your album.</p> We advise you to click the button if and only if your Album is complete and you will not add cards to it for a while. In this way we can chart the datas of the album below. </h5>
+                                            <h5><p class="font-weight-bold">Comincia a tracciare il tuo album.</p> Ti consigliamo di cliccare il bottone se e solo se il tuo Album è completo e per un periodo di tempo non dovrai aggiungere altre carte. In questo modo il sito potrà disegnare un grafico davvero indicativo dell'andamento dei prezzi del tuo album. </h5>
                                             <!--  <form method="GET" action="" >    -->
                                                 <button type="submit" class="btn btn-link" name="start-track">
                                                     <?php
@@ -320,7 +320,7 @@ else{
                                 if($check == false && $ricarica_prezzi_min_trend === TRUE ){   ?>
 
                                         <div class="card-footer">
-                                            <h5><p class="font-weight-bold">Register the total (minimum & trend) values.</p> We advise you to do it one time per week (for example, the boring monday). </h5>
+                                            <h5><p class="font-weight-bold">Resgistra il valore totale dell'album (prezzo minimo e di tendenza).</p>Ti consigliamo di farlo una volta a settimana (per esempio, il noiosissimo lunedì). </h5>
                                                 <button type="submit" class="btn btn-link" name="register-total">
                                                     <?php
                                                         $register_values = "php/update_statistic.php?register=true&trend=".$total_trend."&min=".$total_min."&album=".$id_album;
@@ -400,9 +400,9 @@ mysqli_close($connessione);
 
                         <div class="card-header">
                             <?php if( $no_data == true) { ?>
-                                <h3 class="card-title">This album it's not been registered</h3>
+                                <h3 class="card-title">L'album non è ancora stato registrato</h3>
                             <?php } else { ?>
-                                <h3 class="card-title">Data Chart of the Album</h3>
+                                <h3 class="card-title">Dati dell'album</h3>
                             <?php } ?>
                         </div><!-- /.card-header -->                      
                         

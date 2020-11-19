@@ -36,7 +36,7 @@ if(isset($_GET['VKey'])){
                             
                                 <div class="card card-primary card-outline">
                                     <div class="card-body">
-                                        <p class="card-text"><h1>The account it's been verified correctly . Please back to the Home Page and login.</h1></p>
+                                        <p class="card-text"><h1>Questo account è stato verificato correttamente. Ritorna alla home page ed effettua il login.</h1></p>
 
                                         <div class ="row justify-content-center">
                                             <imgrc="immagini/logofull.png"> 
@@ -66,10 +66,10 @@ if(isset($_GET['VKey'])){
                         
                             <div class="card card-primary card-outline">
                                 <div class="card-body">
-                                    <p class="card-text"><h1>The account is already verified. You can log in</h1></p>
+                                    <p class="card-text"><h1>Questo account è già stato verificato. Puoi effettuare il login.</h1></p>
             
                                     <div class ="row justify-content-center">
-                                        <imgrc="immagini/logofull.png"> 
+                                        <imgrc="immagini/logofull.png" width="500" height="600"> 
                                     </div>
                                 </div>
             
@@ -125,8 +125,8 @@ if(isset($_GET['SIGNUP'])){
                    <div class="card card-primary card-outline">
                        <div class="card-body">
                            <div col=4>
-                               <p class="card-text"><h1>Thank you for your registration.</h1></p>
-                               <p class="card-text">We have sent you an email to confirm the account. Go and Check it. Also, you can close this page.</p>
+                               <p class="card-text"><h1>Grazie per esserti registrato.</h1></p>
+                               <p class="card-text">Abbiamo mandato una e-mail al tuo indirizzo di posta per confermare l\'account. Vai a controllare! Puoi pure chiudere questa pagina.</p>
                            </div>
 
                            <br>
@@ -137,7 +137,7 @@ if(isset($_GET['SIGNUP'])){
 
                            <br>
 
-                           <p class="card-text" ><h3>Sincerily, The Team of Collection Sight.</h3></p>
+                           <p class="card-text" ><h3>Il Team di Collection Sight.</h3></p>
                        </div>
 
                    

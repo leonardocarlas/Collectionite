@@ -114,17 +114,17 @@
             <li class="nav-item">
               <?php
                   if(basename($_SERVER['PHP_SELF']) == "what.php")
-                      echo '<a href="what.php" class="nav-link active">What is Collection Sight</a>';
+                      echo '<a href="what.php" class="nav-link active">Cos\'è Collection Sight</a>';
                   else
-                      echo '<a href="what.php" class="nav-link">What is Collection Sight</a>';
+                      echo '<a href="what.php" class="nav-link">Cos\'è Collection Sight</a>';
               ?>
             </li>
             <li class="nav-item">
               <?php
                   if(basename($_SERVER['PHP_SELF']) == "contact.php")
-                      echo '<a href="contact.php" class="nav-link active">Contact Us</a>';
+                      echo '<a href="contact.php" class="nav-link active">Contattaci</a>';
                   else
-                      echo '<a href="contact.php" class="nav-link">Contact Us</a>';
+                      echo '<a href="contact.php" class="nav-link">Contattaci</a>';
               ?>
             </li>
             <li class="nav-item">
@@ -168,9 +168,9 @@
 
                   if($PAGATO == FALSE){
                     if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                        echo '<a href="payments.php" class="nav-link active">Subscribe</a>';
+                        echo '<a href="payments.php" class="nav-link active">Iscriviti</a>';
                     else
-                        echo '<a href="payments.php" class="nav-link">Subscribe</a>';
+                        echo '<a href="payments.php" class="nav-link">Iscriviti</a>';
                   }elseif ($PAGATO == TRUE) {
                     echo '';
                   }

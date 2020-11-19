@@ -10,7 +10,7 @@
                 <div class="container">
                   <div class="row mb-3">
                       <div class="col-sm-6">
-                      <h1 class="m-0 text-dark"> Get Started</h1>
+                      <h1 class="m-0 text-dark">Iniziamo!</h1>
                       </div><!-- /.col -->
                   </div>
                 
@@ -26,40 +26,39 @@
         if($message == "emptyfields"){  ?>
             
                 <div class="alert alert-danger" role="alert">
-                    No username or password have been inserted
+                    Nessun username o password sono stati inseriti
                 </div>
             
 <?php   }
         if($message == "invalidemailusername"){    ?>
             
                 <div class="alert alert-danger" role="alert">
-                    Special characters are not allowed in the Username.
-                    This Main and This Username are not allowed
+                Non sono ammessi caratteri speciali nel nome utente. Questo Username non è consentito.
                 </div>
             
 <?php   }
         if($message == "invalidemail"){     ?>
             
                 <div class="alert alert-danger" role="alert">
-                  This Mail is not allowed
+                  Questa Email non è ammessa.
                 </div>
 <?php   }
         if($message == "invalidusername"){     ?>
             
                 <div class="alert alert-danger" role="alert">
-                  This Username is not allowed
+                  Questo Username non è consentito.
                 </div>
 <?php   }
         if($message == "passwordcheck"){     ?>
             
                 <div class="alert alert-danger" role="alert">
-                  The two passwords are not the same
+                  Le due password sono diverse.
                 </div>
 <?php             
         }if($message == "Usernametaken"){     ?>
             
           <div class="alert alert-danger" role="alert">
-            This username it's been already taken from another user. Try with another one.
+            Questo Username è già stato preso da un altro utente. Prova con un altro.
           </div>
 <?php             
         }
@@ -75,7 +74,7 @@
                 <div class="card card-primary card-outline">
 
                     <div class="card-header">
-                        <h5 class="card-title m-0">Register your datas</h5>
+                        <h5 class="card-title m-0">Registra i tuoi dati</h5>
                     </div>
 
                     <div class="card-body">
@@ -83,31 +82,31 @@
                       <table>
                           <form method="POST" action="php/insert.php">
                             <tr>
-                              <td>Name</td>
+                              <td>Nome</td>
                               <td><input type="text" class="form-control" name="nome" placeholder="Name"></td>
                             </tr>
                             <tr>
                               <td>Email</td>
-                              <td><input type="text" class="form-control" name="email" placeholder="Your Email"></td>
+                              <td><input type="text" class="form-control" name="email" placeholder="Email"></td>
                             </tr>
                             <tr>
                               <td>Username</td>
-                              <td><input type="text" class="form-control" name="username" placeholder="Choose a username"></td>
+                              <td><input type="text" class="form-control" name="username" placeholder="Scegli un nome utente"></td>
                             </tr>
                             <tr>
                               <td>Password</td>
                               <td><input type="password" class="form-control" name="password" placeholder="Password"></td>
                             </tr>
                             <tr>
-                              <td>Reapeat Password</td>
-                              <td><input type="password" class="form-control" name="pass2" placeholder="Repeat password"></td>
+                              <td>Ripeti la Password</td>
+                              <td><input type="password" class="form-control" name="pass2" placeholder="Ripeti la password"></td>
                             </tr>
                             <tr>
                               <td></td>
-                              <td><button class="btn btn-link"><a href="reset_password.php" > Forgot your password? </a></button></td>
+                              <td><button class="btn btn-link"><a href="reset_password.php" > Hai dimenticato la tua password? </a></button></td>
                             </tr>
                             <tr>
-                              <td><input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Send your datas"></td>
+                              <td><input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Invia i tuoi dati"></td>
                             </tr>
 
                           </form>

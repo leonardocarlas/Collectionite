@@ -34,7 +34,7 @@
     if(isset($_GET['DELETED'])){ ?>
     <script type="text/javascript">
         Swal.fire(
-        'Deleted Album!',
+        'Album Eliminato!',
         '',
         'success'
         );
@@ -45,7 +45,7 @@
     if(isset($_GET['MODIFIED'])){ ?>
     <script type="text/javascript">
         Swal.fire(
-        'The album it s been succesfully modified',
+        'Questo album è stato modificato correttamente',
         '',
         'success'
         );
@@ -59,7 +59,7 @@
         if($error == "nocolletionsel"){  ?>
         <script type="text/javascript">
             Swal.fire(
-            'Error in the database, please contact the administrator',
+            'Errore nel database, contatta l\'assistenza',
             '',
             'error'
             );
@@ -81,7 +81,7 @@ if($ban_temporaneo == 0){
             <div class="container">
             <div class="row mb-5">
                 <div class="col-sm-6">
-                <h1 class="m-0 text-dark"> Welcome back '.$_SESSION['usernamesession'].'!</h1>
+                <h1 class="m-0 text-dark"> Ben tornato '.$_SESSION['usernamesession'].'!</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -92,7 +92,7 @@ if($ban_temporaneo == 0){
                 <div class="col-10">
                     <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">First, select a Card Collection</h3>
+                        <h3 class="card-title">Prima di tutto, seleziona un tipo di Collezione</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -120,7 +120,7 @@ if($ban_temporaneo == 0){
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="selected-collection">Confirm</button>
+                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="selected-collection">Conferma</button>
                         </div>
                     </form>
                     </div>
@@ -143,7 +143,7 @@ if($ban_temporaneo == 0){
                                     <thead>
                                         <tr role="row">
                                             <th>Album</th>
-                                            <th>Action</th>
+                                            <th>Azione</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -182,12 +182,12 @@ if($ban_temporaneo == 0){
                     <div class="container">
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"> Collection type: '. $name_collection .'</h1>
+                        <h1 class="m-0 text-dark"> Tipo di collezione: '. $name_collection .'</h1>
                         </div><!-- /.col -->
                     </div>
                     <div class="row mb-5">
                         <form method="POST" action="php/change_collection.php">
-                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="change-collection">Change Collection</button> 
+                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="change-collection">Cambia Collezione</button> 
                         </form>
                     </div>
                     </div><!-- /.container-fluid -->
@@ -214,7 +214,7 @@ if($ban_temporaneo == 0){
                         <div class="col-10">
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
-                                <h3 class="card-title">Your albums</h3>
+                                <h3 class="card-title">I tuoi album</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -225,7 +225,7 @@ if($ban_temporaneo == 0){
                                                 <thead>
                                                     <tr role="row">
                                                         <th>Album</th>
-                                                        <th colspan="2">Action</th>
+                                                        <th colspan="2">Azione</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>';           
@@ -236,8 +236,8 @@ if($ban_temporaneo == 0){
                                     echo '
                                             <tr onclick="location.href=\'album.php?OPEN='.$row["Album_name"]."&ID=".$row["Idalbum"].'\'">
                                                 <td> '.$row["Album_name"].' </td>
-                                                <td> <a href="php/albuminsert.php?edit='. $row["Idalbum"].'">Edit</a> </td>
-                                                <td> <a href="php/albuminsert.php?delete='. $row["Idalbum"] .'">Delete</a> </td>
+                                                <td> <a href="php/albuminsert.php?edit='. $row["Idalbum"].'">Modifica</a> </td>
+                                                <td> <a href="php/albuminsert.php?delete='. $row["Idalbum"] .'">Elimina</a> </td>
                                             </tr>';
                                 }
 
@@ -282,12 +282,12 @@ if($ban_temporaneo == 0){
                 <div class="row justify-content-center"> 
                     <form method="POST" action="php/albuminsert.php?E='.$id .'" class="form-inline">
                         <div class="form-group">
-                            <label for="old_album_name">Modify album title</label>
+                            <label for="old_album_name">Modifica il titolo dell\'album</label>
                         </div>
                         <div class="form-group mx-sm-3">
                             <input type="text" class="form-control" name="old_album_name"  value='.$album_to_edit.'>
                         </div>
-                        <input type="submit" class="btn btn-info" name="update_album" value="Update" >
+                        <input type="submit" class="btn btn-info" name="update_album" value="Aggiorna" >
                     </form>
                     </div>
                     </div>
@@ -305,17 +305,17 @@ if($ban_temporaneo == 0){
                 <div class="row justify-content-center"> 
                 <form method="POST" action="php/albuminsert.php" class="form-inline">
                     <div class="form-group">
-                        <label for="inputalbum">Add a new Album</label>  
+                        <label for="inputalbum">Aggiungi un nuovo album</label>  
                     </div>
                     <!--<div class="form-group mx-sm-3">  -->
                     <table>
                         <tr>
                             <td>
-                                <input  id="inputalbum" type="text" name="album_name" class="form-control"  placeholder="Album Name">
+                                <input  id="inputalbum" type="text" name="album_name" class="form-control"  placeholder="Nome dell\'album">
                             </td>
                             <!--</div>  -->
                             <td>
-                                <button type="submit" style="background-color: #5401a7;" class="btn text-white" name="aggiungi_album" value="Add Album">Add</button>
+                                <button type="submit" style="background-color: #5401a7;" class="btn text-white" name="aggiungi_album" value="Aggiungi Album">Add</button>
                             </td>
                         </tr>
                     </table>
@@ -344,7 +344,7 @@ elseif($ban_temporaneo == 1){
                     <div class="card card-danger card-outline">
 
                     <div class="card-header">
-                        <h5 class="card-title m-0">The free trial period is expired</h5>
+                        <h5 class="card-title m-0">Il periodo di prova dei 30 giorni è terminato.</h5>
                     </div>
                     <div class="card-body">
 
@@ -353,11 +353,11 @@ elseif($ban_temporaneo == 1){
                         
                             <center>
                             <text>
-                                The 30 days free trial expired, but we would like you to continue to use our platform. <br>
-                                To do so, simply go to the <a href="https://collectionsight.com/payments.php">Subscribe page</a> and pay the one-time-only 2.99 € using the PayPal Services, <br>
-                                after which, your datas will be stored in our servers.
+                                La prova gratuita di 30 giorni è scaduta, ma vorremmo che continuaste ad utilizzare la nostra piattaforma. <br>
+                                Per farlo, è sufficiente andare alla pagina <a href="https://collectionsight.com/payments.php">Iscriviti</a> e pagare una e una sola volta 2.99 € utilizzando i Servizi Paypal, <br>
+                                dopodiché, i tuoi dati saranno memorizzati nei nostri server.
                                 <br><br><br>
-                                The Team of Collection Sight.
+                                Il team di Collection Sight.
                             </text>
                             </center>
                                                            

@@ -14,7 +14,7 @@
             <div class="card card-primary card-outline">
 
             <div class="card-header">
-                <h5 class="card-title m-0">Subscribe to our program</h5>
+                <h5 class="card-title m-0">Iscriviti al nostro programma</h5>
             </div>
 
             <div class="card-body">
@@ -23,10 +23,11 @@
 
                 <div class="row justify-content-center" >
                     <div class="col-mb-8">
-                        <p>Collection Sight is a project that wants to expand and get bigger. </p>
+                        <p>Collection Sight è un progetto che vuole espandersi e offrire più strumenti per i collezionisti. </p>
                         <text>
-                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), you only need to pay 2.99 €. 
-                        After that, your account will be mantained forever in our databases. Try yourself for the first month and enjoy. <br><br> <p>The Team of Collection Sight.</p>
+                        Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
+                        viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
+                        Provalo tu stesso per i primi 30 giorni e divertiti! <br><br> <p>Il Team di Collection Sight.</p>
                         </text>
                         
                         

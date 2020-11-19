@@ -16,7 +16,7 @@
         <div class="row mb-5">
 
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Search for a User's Collection</h1>
+            <h1 class="m-0 text-dark">Ricerca la collezione di un utente</h1>
           </div><!-- /.col -->
         </div>
         </div>
@@ -34,9 +34,9 @@
                 <form action="search_page.php">
                     <div class="input-group mb-3 float-right">
 
-                        <input type="text" name="user-searched" class="form-control" placeholder="Enter the name of the user to see his collection" aria-label="User collection search item" aria-describedby="button-addon2">
+                        <input type="text" name="user-searched" class="form-control" placeholder="Inserisci l'username di un utente per vedere la sua collezione" aria-label="User collection search item" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cerca</button>
                         </div>
                     </div>
                 </form>
@@ -59,7 +59,7 @@ if(isset($_GET['OPENu'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                    <h3 class="card-title">Album from the Collection of user</h3>
+                    <h3 class="card-title">Album dalla collezione dell'utente</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -70,8 +70,8 @@ if(isset($_GET['OPENu'])) {
                                     <thead>
                                         <tr role="row">
                                             <th>Album</th>
-                                            <th>Type of Collection</th>
-                                            <th>Actions</th>
+                                            <th>Tipo di collezione</th>
+                                            <th>Azioni</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -141,13 +141,13 @@ if(isset($_GET['OPENu'])) {
                                                             <tr>
                                                                 <td> '.$row["Album_name"].' </td>
                                                                 <td> '.$name_collection.' </td>
-                                                                <td> <a href="search_page.php?OPENida='. $row["Idalbum"].'&idu='.$id_user .'&idc='.$idcollection .'&na='.$row["Album_name"].'&nu=si">View Album</a> </td>
+                                                                <td> <a href="search_page.php?OPENida='. $row["Idalbum"].'&idu='.$id_user .'&idc='.$idcollection .'&na='.$row["Album_name"].'&nu=si">Apri Album</a> </td>
                                                             </tr>';
                                                 }
                                             }
                                             else{
                                                 echo '<tr>
-                                                        <td> This user has no album in his collection</td>
+                                                        <td> Questo utente non ha album nella sua collezione</td>
                                                       </tr>';
                                             }
                                         
@@ -184,7 +184,7 @@ if(isset($_GET['OPENu'])) {
             <div class="col-10">
                 <div class="card">
                     <div class="card-header">
-                    <h3 class="card-title">Users:</h3>
+                    <h3 class="card-title">Utenti:</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -195,7 +195,7 @@ if(isset($_GET['OPENu'])) {
                                     <thead>
                                         <tr role="row">
                                             <th>Username:</th>
-                                            <th>Actions:</th>
+                                            <th>Azioni:</th>
                                             
                                         </tr>
                                     </thead>
@@ -220,13 +220,13 @@ if(isset($_GET['OPENu'])) {
                                                     echo '
                                                             <tr>
                                                                 <td> '.$row["Username"].' </td>
-                                                                <td> <a href="search_page.php?OPENu='. $row["Iduser"].'">View Collection</a> </td>
+                                                                <td> <a href="search_page.php?OPENu='. $row["Iduser"].'">Vedi Collezione</a> </td>
                                                             </tr>';
                                                 }
                                             }
                                             else{
                                                 echo '<tr>
-                                                        <td> There are no user with this username</td>
+                                                        <td> Non ci sono utenti con questo username</td>
                                                     </tr>';
                                             }
                                         }
@@ -264,13 +264,13 @@ if(isset($_GET['OPENida'])) {
                 <div class="container">
                     <div class="row mb-2">
                             <div class="col-sm-6">
-                                    <h1 class="m-0 text-dark"> You are in the album: <?php echo $album_corrente; ?></h1>                                                                   
+                                    <h1 class="m-0 text-dark"> Sei all'iterno dell'album: <?php echo $album_corrente; ?></h1>                                                                   
                             </div><!-- /.col -->
                     </div><!-- /.row -->
                         <div class="row mb-2">
                             <?php 
                                 $return_to_search_page = "search_page.php?OPENu=" . $id_user ;
-                                echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$return_to_search_page.'">Back to select the Album</a> '; 
+                                echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$return_to_search_page.'">Torna a selezionare gli Album</a> '; 
                             ?>
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->

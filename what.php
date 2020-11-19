@@ -6,17 +6,7 @@
 ?>
 
 <div class="content-wrapper" style="min-height: 636.763px;">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">What Is Collection Sight</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    
 
     <!-- Main content -->
     <div class="content">
@@ -25,7 +15,7 @@
             <div class="col-md-12">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                    <h5 class="card-title m-0">What is Collection Sight</h5>
+                    <h5 class="card-title m-0">Cos'è Collection Sight</h5>
                     </div>
                     <div class="card-body">
                     <div class="row  justify-content-center">
@@ -41,32 +31,33 @@
                         </div>
                     </div>
                     <div class="row mt-5"></div>
-                    <h3 class="card-title">Some info</h6>
+                    <h3 class="card-title">Alcune informazioni su di noi</h6>
                     <div class="row mt-5">
                         <div class="col-md-8">
-                        <p>What can you do with Collection Sight?</p>
+                        <p class="card-text">La nostra applicazione è direttamente collegata al server di CardMarket: <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>. Abbiamo il loro supporto al nostro progetto.
+                        <p>Cosa puoi fare con Collection Sight?</p>
                         <text>
-                        First of all, you can create a virtual album where you can put the cards that you possess in real life time.
-                        The types of TCGs that are supported by our site are 13:
+                        In primo luogo, puoi creare un album virtuale in cui inserire le stesse carte che possiedi nella tua vera collezione a casa. I tipi di TCG supportati dal nostro sito sono 13:
                         </text>
                         
-                        <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG, Weiß Schwarz</p>
+                        <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG and Weiß Schwarz.</p>
                         <text>
-                        For all this cards, our site will be able to connect to the servers of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>, access to the datas of the cards
-                        and retrieve for you some useful informations like: </text>
+                        Per tutte le carte, il nostro sito sarà in grado di connettersi ai server di cardmarket.com, accedere ai dati delle carte
+                        e recuperare alcune informazioni molto utili come: </text>
                         <ul>
-                            <li> minimum price  </li>
-                            <li> trend price    </li>
-                            <li> an evalution price based on 2 features, the condition and the language of the card  </li>
+                            <li><b> prezzo minimo</b>;  </li>
+                            <li><b> prezzo di tendenza</b>;  </li>
+                            <li><b> prezzo di valutazione basato su due caratteristiche</b>, la <b>condizione</b> e la <b>lingua della carta</b>, facendo poi la media delle prime cinque inserzioni degli utenti di carmarket con quelle esatte caratteristiche della carta.  </li>
                         </ul>
                         <text>
-                        You can also share your collections with your friends.
+                        Inoltre, puoi condividire i tuoi album con i tuoi amici o compratori semplicemente dicendo loro il tuo username.
                         <br>
-                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), 
-                        you only need to pay 2.99 €. After that, your account will be mantained forever in our databases.
-                        Try yourself for the first month and enjoy.
+                        Collection Sight è stato un progetto sviluppato in diversi mesi da due studenti unirsitari, Leonardo e Thomas.
+                        Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
+                        viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
+                        Provalo tu stesso per i primi 30 giorni e divertiti!
                         <br><br><br><br>
-                        The Team of Collection Sight.
+                        Il Team di Collection Sight.
                         </text>
             
                         

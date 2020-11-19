@@ -22,17 +22,17 @@ else{       ?>
             <div class="card" id="carta-inserimento">
 
                 <div class="card-header">
-                    <h3 class="card-title">Add cards to your album</h3>
+                    <h3 class="card-title">Aggiungi le carte al tuo album</h3>
                 </div>
 
                 <div class="card-header">
-                    <p class="font-weight-bold card-text"><h5> 1. First Step.</p> If you have to insert a new card follow this procedure:</h5><br>
+                    <p class="font-weight-bold card-text"><h5> 1. Primo Step.</p>Se devi inserire una nuova carta segui questa procedura:</h5><br>
                     <ul>
-                        <li>Open in another page the site of <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Remember that it works only with the english version;  </li>
-                        <li>Search out the exact card that you want to insert. For example <img src="immagini/crob.PNG" width="120"> from the set <img src="immagini/set.PNG" width="70">. If it appears "Card not found" in the card field but you have copied it correctly from the site then try anyway;</li>
-                        <li>Copy the exact name of the cards and of the set from the site, then paste them in the apposites fields.</li>
-                        <li>Otherwise,<b> (We advise you this option) </b> copy and paste the link of the card page directly from the CardMarket site. For example: <BR> https://www.cardmarket.com/en/Pokemon/Products/Singles/Platinum/Crobat-G-Lv44 ;</li>
-                        <li>To see an example of the usage, check out our video on Youtube: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
+                        <li>Apri in un altra pagina il sito di <a href="https://www.cardmarket.com/en/">https://www.cardmarket.com/en/</a>. Ricordati che funziona solamente con la <b>versione inglese</b>;  </li>
+                        <li>Cerca nel sito di cardmarket la pagina della carta che vuoi inserire. Mettiamo caso che io voglia inserire <img src="immagini/crob.PNG" width="120"> del set <img src="immagini/set.PNG" width="70">;</li>
+                        <li>Copia dalla pagina della carta di cardmarket il nome esatto della carta e del nome del set e incollali nei campi appositi di questa pagina. Altrimenti, se li sai a memoria, puoi direttamente digitarli.</li>
+                        <li>Un altro modo,<b> (Ti consigliamo questa opzione) </b> copia e incolla il link della pagina della carta cercata su cardmarket nella sezione "Only link" di questa pagina. Per esembio: <BR> https://www.cardmarket.com/en/Pokemon/Products/Singles/Platinum/Crobat-G-Lv44 ;</li>
+                        <li>Per vedere un tutorial delle opzioni consentite visita: <a href="https://www.youtube.com/watch?v=Zw6OeYv-cKw">https://www.youtube.com/watch?v=Zw6OeYv-cKw</a>      </li>
                         
                     </ul>
                 </div>
@@ -66,7 +66,7 @@ else{       ?>
                         <div class="col-8">
                             <div class="form-group">
 
-                                <input class="form-control" type="text" name="link_card"  placeholder="Exact Link from Cardmarket">
+                                <input class="form-control" type="text" name="link_card"  placeholder="Link esatto da Cardmarket">
 
                             </div>
                         </div>
@@ -80,7 +80,7 @@ else{       ?>
                             <div class="col-4">
                                 <div class="form-group">
                                     <!-- Doveva esserci name="search"-->
-                                    <input class="form-control" id="set_name" type="text" name="set_name" placeholder="Exact Set Name in English">
+                                    <input class="form-control" id="set_name" type="text" name="set_name" placeholder="Nome del Set in inglese">
 
                                     <div class="list-group" id="show-list">
                                         <!-- Here autocomplete list will be display -->
@@ -125,7 +125,7 @@ else{       ?>
                             <div class="col-4">
                             <div class="form-group">
 
-                                <input class="form-control" type="text" id="card_name" name="card_name"  placeholder="Exact Card Name in English">
+                                <input class="form-control" type="text" id="card_name" name="card_name"  placeholder="Nome della Carta in inglese">
                                 
                                 <div class="list-group" id="show-list-card">
                                     <!-- Here autocomplete list will be display -->
@@ -239,7 +239,7 @@ else{       ?>
                     </div>
                     <div class="row justify-content-center mt-2">
                         <div class="col-3">
-                            <input class="btn text-white btn-block" style="background-color: #5401a7;" type="submit" name="inserisci-carta" value="Insert Card">
+                            <input class="btn text-white btn-block" style="background-color: #5401a7;" type="submit" name="inserisci-carta" value="Inserisci carta">
                         </div>
                     </div>
                         

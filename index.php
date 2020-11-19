@@ -43,17 +43,17 @@
 
 <div class="content-wrapper" style="min-height: 636.763px;">
 
-<br>
+<!-- Introduction -->
+<div class="intro" style="background-color: #5401a7;">
 
     <!-- Content Header (Page header) -->
-<div class="content-header">
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col">
-        <h1 class="m-0 text-dark"> Welcome to Collection Sight!</h1>
-      </div>
+    
+    <div class="row justify-content-center">
+        <br>
+        <h1 class="m-0 text-white mt-2">Benvenuto su Collection Sight</h1>
     </div><!-- row -->
-    <br>
+
+    <!-- SPOSTARE DI POSIZIONE        
     <div class="row ml-1">
       <div class="col-sm-6 ml-auto mr-3">
         <form action="search_page.php">
@@ -65,32 +65,46 @@
           </div>
         </form>
       </div>
-    </div><!-- row -->
-  </div><!-- /.container -->
-</div><!-- /.content-header -->
+    </div>row -->
+    <!-- RICORDARSI DEL SEARCH ---->
+    
+
 
 
 <br><br>
- 
 
+
+          <div class="row justify-content-center">
+            <h4 class="text-white"><b>Tracciamo per te i prezzi della tua collezione di carte</b></h4>
+          </div>
+          <div class="row justify-content-center">
+            <p class="text-white">Con 13 tipi di TCG disponibili, il nostro database di carte è direttamente collegato a quello di CardMarket</p>            
+          </div>
+          <br>
+          <div class="row">
+            <a href="get_started.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
+                <?php
+                            
+                    if(isset($_SESSION['usernamesession'])){
+                        $username=$_SESSION['usernamesession'];
+
+                        echo ' <a class="btn text-white btn-lg mx-auto d-block mb-5" style="background-color: #5401a7;" href="home.php">My Collection</a>
+                              ';
+                            
+                    }else{
+                        echo '' ;
+                    }
+                ?>
+          </div>
+        </div> <!-- div intro -->
+<!-- fine introduction --->
+
+
+
+<br><br>
     <!-- Main content -->
     <div class="content">
       <div class="container">
-        <div class="row">
-            <a href="get_started.php" style="background-color: #5401a7;" class="btn text-white btn-lg mx-auto d-block mb-5">Get started</a>
-              <?php
-                          
-                  if(isset($_SESSION['usernamesession'])){
-                      $username=$_SESSION['usernamesession'];
-
-                      echo ' <a class="btn text-white btn-lg mx-auto d-block mb-5" style="background-color: #5401a7;" href="home.php">My Collection</a>
-                            ';
-                          
-                  }else{
-                      echo '' ;
-                  }
-              ?>
-        </div>
 
         <!-- SLIDER DI IMMAGINI -->
         <div class="row justify-content-center">
@@ -99,10 +113,7 @@
               <div class="carousel-inner">
                 <div class="carousel-item active" data-interval="4000">
                   <img src="immagini/alltcg.png" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h4 class="text-dark bg-white">We track the cards prices of your collection</h4>
-                    <p class="text-dark bg-white">With 13 types of TCGs covered, our cards database is directly related to that one of CardMarket</p>
-                  </div>
+                  
                 </div>
                 <div class="carousel-item" data-interval="3000">
                   <img src="immagini/logocollection.png" class="d-block w-100" alt="...">
@@ -110,8 +121,8 @@
                 <div class="carousel-item" data-interval="4000">
                   <img src="immagini/logocardmarket.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-dark">We are in collaboration with CardMarket</h5>
-                    <p class="text-dark">They support us in what we are doing</p>
+                    <h5 class="text-dark">Siamo in collaborazione con CardMarket</h5>
+                    <p class="text-dark">Abbiamo il loro supporto al nostro progetto</p>
                   </div>
                 </div>
               
@@ -134,24 +145,24 @@
 
         <div class="card-group">
           <div class="card">
-            <img class="card-img-top" src="immagini/addalbum.png" alt="Card image cap">
+            <img class="card-img-top" src="immagini/album.png" alt="Card image cap" width="297" height="180">
             <div class="card-body">
-              <h5 class="card-title">Create your Virtual Album</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title"><b>Crea il tuo Album virtuale</b></h5>
+              <p class="card-text">Un album virtuale ti permette di inserirvi all'interno tutte le carte che possiedi nella realtà, salvando i parametri che la distinguono: nome della carta, nome del set, lingua, condizioni e valori</p>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="immagini/zardprices.png" alt="Card image cap">
+            <img class="card-img-top" src="immagini/zard.png" alt="Card image cap"  width="297" height="180">
             <div class="card-body">
-              <h5 class="card-title">Refresh the Cards Prices</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <h5 class="card-title"><b>Mantieni aggiornati i prezzi delle carte</b></h5>
+              <p class="card-text">Utilizzando lo strumento apposito, i prezzi delle tue carte verranno aggiornati al secondo, facendo una richiesta direttamente al server di CardMarket.</p>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="immagini/grafico.png" alt="Card image cap">
+            <img class="card-img-top" src="immagini/graph.png" alt="Card image cap" width="297" height="180">
             <div class="card-body">
-              <h5 class="card-title">Watch the Price Trend over Time </h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <h5 class="card-title"><b>Tieni tracciati i prezzi delle carte nel tempo</b></h5>
+              <p class="card-text">Nel nostro sito è presente un'opzione per creare un grafico che tenga tracciato due parametri: il prezzo minimo dell'album ed il suo prezzo di tendenza. Questi due valori sono in grado di descrivere l'andamento dei prezzi della tua collezione.</p>
             </div>
           </div>
         </div>
@@ -164,34 +175,34 @@
           <div class="col">  
           <div class="card card-primary card-outline">
                 <div class="card-header">
-                <h5 class="card-title m-0">What is Collection Sight?</h5>
+                <h5 class="card-title m-0">Cos'è Collection Sight?</h5>
                 </div>
                 <div class="card-body">
 
-                <p class="card-text">Our application is directly linked to the server of <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>. They support us in what we are doing.
-                <p>What can you do with Collection Sight?</p>
+                <p class="card-text">La nostra applicazione è direttamente collegata al server di CardMarket: <a href="https://www.cardmarket.com/">https://www.cardmarket.com/</a>. Abbiamo il loro supporto al nostro progetto.
+                <p>Cosa puoi fare con Collection Sight?</p>
                         <text>
-                        First of all, you can create a virtual album where you can put the cards that you possess in real life time.
-                        The types of TCGs that are supported by our site are 13:
+                        In primo luogo, puoi creare un album virtuale in cui inserire le stesse carte che possiedi nella tua vera collezione a casa. I tipi di TCG supportati dal nostro sito sono 13:
                         </text>
                         
                         <p>Magic: The Gathering, Yu-gi-oh!, Pokémon, Force of Will, Vanguard, World of Warcraft TCG, Star Wars: Destiny, My Little Pony CCG, Dragon Ball Cardgame, The Spoils, Final Fantasy TCG and Weiß Schwarz.</p>
                         <text>
-                        For all this cards, our site will be able to connect to the servers of cardmarket.com, access to the datas of the cards
-                        and retrieve for you some useful informations like: </text>
+                        Per tutte le carte, il nostro sito sarà in grado di connettersi ai server di cardmarket.com, accedere ai dati delle carte
+                        e recuperare alcune informazioni molto utili come: </text>
                         <ul>
-                            <li> minimum price;  </li>
-                            <li> trend price;    </li>
-                            <li> an evalution price based on 2 features, the condition and the language of the card, using the selling prices of the users of cardmarket.  </li>
+                            <li><b> prezzo minimo</b>;  </li>
+                            <li><b> prezzo di tendenza</b>;  </li>
+                            <li><b> prezzo di valutazione basato su due caratteristiche</b>, la <b>condizione</b> e la <b>lingua della carta</b>, facendo poi la media delle prime cinque inserzioni degli utenti di carmarket con quelle esatte caratteristiche della carta.  </li>
                         </ul>
                         <text>
-                        You can also share your collections with your friends.
+                        Inoltre, puoi condividire i tuoi album con i tuoi amici o compratori semplicemente dicendo loro il tuo username.
                         <br>
-                        For the first month the use of this platform is free. To mantain your data for a long time (life-long), 
-                        you only need to pay 2.99 €. After that, your account will be mantained forever in our databases.
-                        Try yourself for the first month and enjoy.
+                        Collection Sight è stato un progetto sviluppato in diversi mesi da due studenti unirsitari, Leonardo e Thomas.
+                        Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
+                        viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
+                        Provalo tu stesso per i primi 30 giorni e divertiti!
                         <br><br><br><br>
-                        The Team of Collection Sight.
+                        Il Team di Collection Sight.
                         </text>
                 </div>
             </div>
@@ -203,9 +214,10 @@
           <div class="card mb-3">
             <img class="card-img-top" src="immagini/news.png" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">News and updates</h5>
-              <p class="card-text"><b>4/11/2020</b>: Official launch of the website.</p>
-              <p class="card-text"><small class="text-muted">Last updated 14/11/2020</small></p>
+              <h5 class="card-title">News e aggiornamenti</h5>
+              <p class="card-text"><b>19/11/2020</b>: Nuovo re-styling del sito.</p>
+              <p class="card-text"><b>4/11/2020</b>: Lancio ufficiale del sito.</p>
+              <p class="card-text"><small class="text-muted">Ultimo aggiornamentoo 19/11/2020</small></p>
             </div>
           </div>
 
