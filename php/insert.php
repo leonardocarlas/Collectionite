@@ -76,8 +76,8 @@ if(isset($_POST['nome'])){
 
                     //SEND EMAIL
                     $to = $email;
-                    $subject = "Email Verification: Welcome to Collection Sight!";
-                    $message = "<h1> Hi ".$username."! Welcome to the Collection Sight! </h1>
+                    $subject = "Verifica Email: Benvenuto su Collection Sight!";
+                    $message = "<h1> Ciao ".$username."! Benvenuto Collection Sight! </h1>
                                 <br><br>
                                 <center>
                                 <text>

@@ -79,21 +79,17 @@
 
 <!--  GESTIONE ERRORI    -->
 
-<?php   if(isset($_GET['Carte'])){  ?>
+<?php   if(isset($_GET['CARD'])){  ?>
 
-        <script type="text/javascript">
-            Swal.fire(
-            'Cards list is going to be ready. Please wait a few seconds',
-            '',
-            'success'
-            );
-        </script>
+        <div class="alert alert-success" role="alert" >
+            La carta è stata inserita correttamente.
+        </div>
 
 <?php } if(isset($_GET['Deleted'])){   ?>
 
         <script type="text/javascript">
             Swal.fire(
-            'Deleted Card Succesfully',
+            'La carta è stata rimossa dall\'album',
             '',
             'success'
             );
@@ -117,7 +113,21 @@
 
             <?php if($_GET['error'] == "SQL_CardNotInDB"){  ?>
                 <div class="alert alert-danger" role="alert">
-                    L'inserimento non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
+                    L'inserimento della carta non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
+                </div>
+
+            <?php } ?>
+
+            <?php if($_GET['error'] == "strangeerror"){  ?>
+                <div class="alert alert-danger" role="alert">
+                    L'inserimento della carta non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
+                </div>
+
+            <?php } ?>
+
+            <?php if($_GET['error'] == "problemIntheLink"){  ?>
+                <div class="alert alert-danger" role="alert">
+                    Sembra che il link di cardmarket non sia stato copiato correttamente. Ricontrolla e riprova.
                 </div>
 
             <?php } ?>
@@ -156,6 +166,8 @@ else{
                         <br>
 
                         <div class="card-header">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-auto">
                                     <text>
                                         <h5><p class="font-weight-bold">2. Secondo step.</p> Seleziona il tipo di valutazione delle carte. Il sito impiegherà <br> pochi secondi per aggiornare tutti i prezzi delle carte.</h5>
                              
@@ -171,6 +183,8 @@ else{
                                             </div>
                                         </form>
                                     </div>
+                                </div>
+                            </div>
                                     
                         </div>
 

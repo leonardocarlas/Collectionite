@@ -67,7 +67,7 @@ if(isset($_POST['inserisci-carta']) AND isset($_SESSION['ONLY-LINK']) AND $_SESS
                         $stmt = mysqli_stmt_init($connessione);
         
                         if(!mysqli_stmt_prepare($stmt, $sql)){
-                            header("Location: ../add_card.php?error=sqlerroradd");
+                            header("Location: ../add_card.php?error=sqlerror");
                             exit();
                         }else{    ////////modificareeee
                             mysqli_stmt_bind_param($stmt, "iiiisss", $id_user, $id_carta, $id_album, $quantity, $languages, $extravalues, $conditions );
@@ -263,6 +263,10 @@ else if(isset($_GET['delete']))
     mysqli_close($connessione);
 
 
+}
+else{
+    header("Location: ../album.php?error=strangeerror");
+    exit();
 }
 
 
