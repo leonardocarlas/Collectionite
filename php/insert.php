@@ -77,7 +77,7 @@ if(isset($_POST['nome'])){
                     //SEND EMAIL
                     $to = $email;
                     $subject = "Verifica Email: Benvenuto su Collection Sight!";
-                    $message = "<h1> Ciao ".$username."! Benvenuto Collection Sight! </h1>
+                    $message = "<h1> Ciao ".$username."! Benvenuto su Collection Sight! </h1>
                                 <br><br>
                                 <center>
                                 <text>
@@ -111,19 +111,23 @@ if(isset($_POST['nome'])){
                             $mail->isSMTP(true);
                             $mail->SMTPAuth = true ;
                             $mail->SMTPSecure='ssl';
-                                
+                            $mail->Username='collectionsight@gmail.com';
+                            $mail->Password='xefeco87';
                             $mail->Host='smtp.gmail.com';
                             $mail->Port='465';
                             $mail->isHTML();
                                                         
-                            $mail->Username='collectionsight@gmail.com';
-                            $mail->Password='xefeco87';
+                            
                                 
                             $mail->SetFrom('collectionsight@gmail.com','Collection Sight');
+                            $mail->addReplyTo('collectionsight@gmail.com','Collection Sight');
+                            $mail->AddAddress($to);
                             $mail->Subject = $subject;
                             $mail->Body = $message;
-                            $mail->AddAddress($to);
-                            $mail->AddEmbeddedImage('immagini/logocollection.png', 'logo');
+                            
+                            //$mail->AddEmbeddedImage('immagini/logocollection.png', 'logo');
+                            
+
                                 
                             $mail->Send();
                             //PUT THE USER TO THE VERIFICATION PAGE

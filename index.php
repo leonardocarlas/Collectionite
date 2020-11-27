@@ -41,20 +41,6 @@
 <?php }?>
 
 
-<div class="content-wrapper" style="min-height: 636.763px;">
-
-<!-- Introduction -->
-<div class="intro" style="background-color: #5401a7;">
-
-    <!-- Content Header (Page header) -->
-    
-    <div class="row justify-content-center">
-      <div class="col-sm-auto">
-        <br>
-        <h1 class="m-0 text-white mt-2">Benvenuto su Collection Sight!</h1>
-      </div>
-    </div><!-- row -->
-
     <!-- SPOSTARE DI POSIZIONE        
     <div class="row ml-1">
       <div class="col-sm-6 ml-auto mr-3">
@@ -69,41 +55,56 @@
       </div>
     </div>row -->
     <!-- RICORDARSI DEL SEARCH ---->
-    
 
 
+<div class="content-wrapper" style="min-height: 636.763px;">
 
-<br><br>
+  <!-- Introduction -->
+  <div style="background-color: #5401a7;">
 
-
-          <div class="row justify-content-center">
-            <div class="col-sm-auto">
-              <h4 class="text-white"><b>Tracciamo per te i prezzi della tua collezione di carte.</b></h4>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-sm-auto">
-              <p class="text-white">Con 13 tipi di TCG disponibili, il nostro database di carte è direttamente collegato a quello di CardMarket.</p>
-            </div>            
-          </div>
+      <!-- Content Header (Page header) -->
+      
+      <div class="row justify-content-center">
+        <div class="col-sm-auto">
           <br>
-          <div class="row">
-            <a href="get_started.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
-                <?php
-                            
-                    if(isset($_SESSION['usernamesession'])){
-                        $username=$_SESSION['usernamesession'];
+          <h1 class="m-0 text-white mt-2">Benvenuto su Collection Sight!</h1>
+        </div>
+      </div><!-- row -->
 
-                        echo ' <a class="btn text-dark btn-lg mx-auto d-block mb-5" style="background-color: #FFFFFF;" href="home.php">My Collection</a>
-                              ';
-                            
-                    }else{
-                        echo '' ;
-                    }
-                ?>
-          </div>
-        </div> <!-- div intro -->
-<!-- fine introduction --->
+      <br><br>
+      
+      <div class="row justify-content-center">
+        <div class="col-sm-auto">
+          <h4 class="text-white"><b>Tracciamo per te i prezzi della tua collezione di carte.</b></h4>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-sm-auto">
+          <p class="text-white">Con 13 tipi di TCG disponibili, il nostro database di carte è direttamente collegato a quello di CardMarket.</p>
+        </div>            
+      </div>
+
+      <br>
+
+      <div class="row">
+        <a href="get_started.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
+            <?php
+                        
+                if(isset($_SESSION['usernamesession'])){
+                    $username=$_SESSION['usernamesession'];
+
+                    echo ' <a class="btn text-dark btn-lg mx-auto d-block mb-5" style="background-color: #FFFFFF;" href="home.php">My Collection</a>
+                          ';
+                        
+                }else{
+                    echo '' ;
+                }
+            ?>
+      </div>
+
+</div> <!-- row -->
+  <!-- fine introduction --->
 
 
 
