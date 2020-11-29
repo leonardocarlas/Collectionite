@@ -81,7 +81,7 @@ else{       ?>
                                 <div class="form-group">
                                     <!-- Doveva esserci name="search"-->
                                     <input class="form-control" id="set_name" type="text" name="set_name" placeholder="Nome del Set in inglese">
-
+                                    
                                     <div class="list-group" id="show-list">
                                         <!-- Here autocomplete list will be display -->
                                     </div>
