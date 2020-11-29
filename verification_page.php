@@ -126,7 +126,7 @@ if(isset($_GET['SIGNUP'])){
                        <div class="card-body">
                            <div col=4>
                                <p class="card-text"><h1>Grazie per esserti registrato.</h1></p>
-                               <p class="card-text">Abbiamo mandato una e-mail al tuo indirizzo di posta per confermare l\'account. Vai a controllare! Puoi pure chiudere questa pagina.</p>
+                               <p class="card-text">Abbiamo mandato una e-mail al tuo indirizzo di posta per confermare l\'account. Dato che siamo nuovi, i filtri delle mail la potrebbero collocare sullo SPAM. Vai a controllare! Puoi pure chiudere questa pagina.</p>
                            </div>
 
                            <br>

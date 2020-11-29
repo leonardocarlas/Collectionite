@@ -77,31 +77,20 @@ if(isset($_POST['nome'])){
                     //SEND EMAIL
                     $to = $email;
                     $subject = "Verifica Email: Benvenuto su Collection Sight!";
-                    $message = "<h1> Ciao ".$username."! Benvenuto su Collection Sight! </h1>
-                                <br><br>
-                                <center>
-                                <text>
-                                    Per completare la procedura di registrazione clicca il link sottostante per confermare il tuo indirizzo email.
-                                    <br>
-                                    <br>
-                                    <a href='https://collectionsight.com/verification_page.php?VKey=$verification_key'> Conferma Account</a>
-                                    <br>
-                                    <br><br>
-                                </center> 
-                                Collection Sight è un progetto che vuole espandersi e offrire più strumenti per i collezionisti.
-                                Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
-                                viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
-                                Provalo tu stesso per i primi 30 giorni e divertiti!
-                                    <br>
-                                    <br><br>
-                                <center>
-                                    Siamo davvero lieti di averti nella nostra community.
-                                    <br>
-                                    Il Team di Collection Sight:
-                                </text>
-                                <img src='cid:logo' class='d-block w-100'>
-                                </center>    
-                                    ";
+                    $message = "Ciao ".$username."! Benvenuto su Collection Sight!
+
+    Per completare la procedura di registrazione clicca il link sottostante per confermare il tuo indirizzo email.
+
+    https://collectionsight.com/verification_page.php?VKey=$verification_key
+    Collection Sight e' un progetto che vuole espandersi e offrire piu' strumenti per i collezionisti.
+    Il primo mese di utilizzo della piattaforma e' in prova gratuita. Per mantenere i dati per sempre nel database, 
+    viene chiesto all'utente di pagare una e una sola volta 2.99 euro, assicurandosi in questo modo l'account a vita.
+    Provalo tu stesso per i primi 30 giorni e divertiti!
+
+    Siamo davvero lieti di averti nella nostra community.
+
+    Il Team di Collection Sight.    
+        ";
 
                                     
                    
@@ -109,19 +98,21 @@ if(isset($_POST['nome'])){
                         
                         try {
                             $mail->isSMTP(true);
+                            
                             $mail->SMTPAuth = true ;
+                            $mail->SMTPKeepAlive = true;
                             $mail->SMTPSecure='ssl';
                             $mail->Username='collectionsight@gmail.com';
                             $mail->Password='xefeco87';
                             $mail->Host='smtp.gmail.com';
                             $mail->Port='465';
-                            $mail->isHTML();
+                            
                                                         
                             
                                 
                             $mail->SetFrom('collectionsight@gmail.com','Collection Sight');
                             $mail->addReplyTo('collectionsight@gmail.com','Collection Sight');
-                            $mail->AddAddress($to);
+                            $mail->addAddress($to);
                             $mail->Subject = $subject;
                             $mail->Body = $message;
                             

@@ -66,11 +66,20 @@
 
 <!-- 2.E E NORMAL INSERT NEW CARD -->
 <?php
-
+/*
     require "add_card.php";
-    
-
+*/
 ?>
+<br><br>
+<div class="row justify-content-center">
+    <div class="col-auto-sm">
+        <a class="btn text-white" href="new_add_card.php" style="background-color: #5401a7;">
+        <h4>Aggiungi nuove carte all'album</h4>
+        <img src="immagini/tre_carte.png" width="30" height="30">
+        </a>
+    </div>
+</div>
+
 <!-- 2.E FINISH -->
 
 
