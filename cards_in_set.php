@@ -1,34 +1,78 @@
 <?php
-    require "header.php";
-
-
-if(isset($_GET['EXP'])){
-    
-    $id_espansione = $_GET['EXP'];
-    $returned_cards = cards_in_the_set($id_espansione);
-
-    for($i=0; $i<count($returned_cards); $i=$i+3){
-        
-            echo "Nome della carta: ". $returned_cards[$i+1]." Id carta: ".$returned_cards[$i]. " <img src='".$returned_cards[$i+2]."' alt='alternatetext' width = '10' height = '15'> <br>";
-            
-
-        
-    }
-
-}
-
-
-
-
-
-
+require "header.php";
 ?>
 
+<br><br>
+
+<?php
+if(isset($_GET['EXP']))
+{
+    $id_espansione = $_GET['EXP'];
+                                        ?>
+    
+    <div class="card card-info card-outline">
+        <div class="card-header">
+            <h3 class="card-title">Carte presenti nel Set</h3>
+        </div><!-- /.card-header -->
+        
+        <div class="card-body">
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <div class="row">
+                <div class="col-sm-12 table-responsive">
+
+                    <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Card Number</th>
+                                <th scope="col">Card Name</th>
+                                <th scope="col">Expansion</th>
+                                <th scope="col">Action</th>   
+                            </tr>
+                        </thead>        
+                        <tbody>
+                            
+                                <?php  
+                                
+                                $returned_cards = cards_in_the_set($id_espansione);
+                                $contatore_carte = count($returned_cards)/3;
+
+                                for($i=0; $i<count($returned_cards); $i=$i+3)
+                                {
+                                    echo '<tr>';
+                                    echo '<td><img src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"></td>';
+                                    echo '<td>'.intdiv($i, 3).' su '.$contatore_carte.'</td>';
+                                    echo '<td>'.$returned_cards[$i+1].'</td>';
+                                    echo '<td>Espansione</td>';
+                                    $link_for_adding = 'php/cardinsert.php?INSERTCARD='.$returned_cards[$i];
+                                    echo '<td><a href='.$link_for_adding.'>Aggiungi Carta</td>';
+                                    echo '</tr>';
+                                    //echo "Nome della carta: ". $returned_cards[$i+1]." Id carta: ".$returned_cards[$i]. " <img src='".$returned_cards[$i+2]."' alt='alternatetext' width = '10' height = '15'> <br>";                            
+                                }
+
+                                ?>
+                            
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table> 
+                </div><!-- /.col-sm-12 -->
+            </div><!-- /.row -->
+            </div><!-- /.wrapper -->
+
+            <script>
+            $(document).ready(function() {
+            $('#example').DataTable();
+            } );
+            </script>
+
+        </div><!-- /.cardbody -->
+    </div><!-- /.card -->
 
 
-
-
-
+<?php
+}
+?>
 
 
 
@@ -62,7 +106,8 @@ if(isset($_GET['EXP'])){
 
 <?php
 
-   function cards_in_the_set($id_set){
+function cards_in_the_set($id_set)
+{
 
         //GET https://api.cardmarket.com/ws/v2.0/expansions/1469/singles
 
