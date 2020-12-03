@@ -2,17 +2,34 @@
 require "header.php";
 ?>
 
+<br>
+
+<!-- Content Header (Page header) -->
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container">
+            <div class="row mb-2">
+                
+                    <a class="btn text-white" style="background-color: #5401a7;" href="new_add_card.php">Torna indietro</a>    
+                
+            </div>
+        </div>
+    <div>
+</div>
+<!-- FINE Content Header  -->
 <br><br>
 
 <?php
 if(isset($_GET['EXP']))
 {
     $id_espansione = $_GET['EXP'];
+    $double_arr = cards_in_the_set($id_espansione);
+    $nome_set = $double_arr[0];
                                         ?>
     
     <div class="card card-info card-outline">
         <div class="card-header">
-            <h3 class="card-title">Carte presenti nel Set</h3>
+            <h3 class="card-title">Carte presenti nel set <?php echo $nome_set; ?></h3>
         </div><!-- /.card-header -->
         
         <div class="card-body">
@@ -34,16 +51,18 @@ if(isset($_GET['EXP']))
                             
                                 <?php  
                                 
-                                $returned_cards = cards_in_the_set($id_espansione);
+                                $returned_cards = $double_arr[1];
+                                 
                                 $contatore_carte = count($returned_cards)/3;
 
                                 for($i=0; $i<count($returned_cards); $i=$i+3)
                                 {
+                                    $numero_carta = intdiv($i, 3) + 1;
                                     echo '<tr>';
                                     echo '<td><img src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"></td>';
-                                    echo '<td>'.intdiv($i, 3).' su '.$contatore_carte.'</td>';
+                                    echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
                                     echo '<td>'.$returned_cards[$i+1].'</td>';
-                                    echo '<td>Espansione</td>';
+                                    echo '<td>'.$nome_set.'</td>';
                                     $link_for_adding = 'php/cardinsert.php?INSERTCARD='.$returned_cards[$i];
                                     echo '<td><a href='.$link_for_adding.'>Aggiungi Carta</td>';
                                     echo '</tr>';
@@ -82,7 +101,11 @@ if(isset($_GET['EXP']))
 
 
 
+<br><br><br>
 
+<?php 
+    require "footer.php";
+?>
 
 
 
@@ -286,8 +309,10 @@ function cards_in_the_set($id_set)
         // CARTE
         // 1. idCarta (inserire se non c'è)  2. enName_carta  3. link_image_card (inserire assolutamente)
         $primo = array_shift($aaa);
-        $secondo = array_shift($aaa);
-        return $aaa;
+        $enName_Exp = array_shift($aaa);
+        $double_array = array($enName_Exp, $aaa);
+
+        return $double_array;
 
         /*
         for($i=0; $i<count($aaa); $i++){

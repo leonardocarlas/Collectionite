@@ -16,7 +16,7 @@
 
           <div class="col-sm-8">
             <h4 class="m-0 text-dark">Aggiungi nuove carte all'album <?php echo $album_corrente; ?></h4> <br>
-            <h7>Attenzione: CardMarket ci ha fornito solamente 1/3 del database delle carte visualizzabili sulla barra di ricerca. Se non la trovi li, ci riuscirai sicuramente tra i Set in basso. </h7> <br>
+            <h7><b>Attenzione</b>: CardMarket ci ha fornito solamente 1/3 del database delle carte visualizzabili sulla barra di ricerca. Se non la trovi li, ci riuscirai sicuramente tra i Set in basso. </h7> <br>
             <h6>Le carte aggiunte in questa seziona saranno di default EX, English e Normal. Uqesti parametri potranno essere poi modificati nell'album.
           </div><!-- /.col -->
         </div>
@@ -100,7 +100,7 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-8">
         <h4>Altrimenti cercala tra i Set:</h4>
     </div>
 <div>
@@ -122,22 +122,58 @@ else{
     $result = mysqli_stmt_get_result($stmt); 
 
     if ($result->num_rows > 0) {
-        $i=0;
+        //$i=0;
+        //$array_indice_data = array();
+        //$array_di_date = array();
+        //1900, 3; 1993 = 25; ... 
+
         $array_di_date = array();
+        $i=1;
         while($row = $result->fetch_assoc()) {
+
             $data_in_anno = substr($row['releaseDate'],0,4);
+           // $array_indice_data[] = $data_in_anno;
+
             if (in_array($data_in_anno, $array_di_date) == false) {
                 array_push($array_di_date, $data_in_anno);
-                echo "<br><br>" . "Anno: " . $data_in_anno . "<br><br>";
+                echo '<br><div class="row"> 
+                        Anno: ' . $data_in_anno . 
+                    '</div> <br>';
             }
-            echo '<a href="cards_in_set.php?EXP='.$row['idExpansion'].'">Set: '.$row['nameExpansion'].'</a>';
+            if($i > 5)
+                $i = 1;
+            if($i == 1)
+                echo '<div class="row justify-content-center">';
+            
+                echo '<div class="col" id="'.$i.'"><a href="cards_in_set.php?EXP='.$row['idExpansion'].'">'.$row['nameExpansion'].'</a></div>';
+            if($i == 5)
+                echo '</div>'; //CHIUSURA DELLA ROW
+            $i = $i + 1;
+        }    
+            
+        //$data_contatore = array_count_values($array_indice_data);
+        //print_r($data_contatore);
+        
+        
+        /*
+        while($row = $result->fetch_assoc()) {
+
+            $data_in_anno = substr($row['releaseDate'],0,4);
+            
+            if (in_array($data_in_anno, $array_di_date) == false) {
+                array_push($array_di_date, $data_in_anno);
+                echo '<div class="row"> 
+                    Anno: ' . $data_in_anno . 
+                '</div>';
+            }
+            //echo '<a href="cards_in_set.php?EXP='.$row['idExpansion'].'">Set: '.$row['nameExpansion'].'</a>';
             //<a class="btn text-white" href="" style="background-color: #5401a7;">'.$row["nameExpansion"].'</a>
             $i=$i+1;
             if($i%5==0)
                 echo '<br>';
             
         }
-  
+        */
         
     } else {
         echo '';
@@ -148,39 +184,3 @@ mysqli_close($connessione);
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
