@@ -192,7 +192,8 @@ $stmt = mysqli_stmt_init($connessione);
                         <div class="col"><b>Anno:  '
                             .$data. 
                         '</b></div>
-                    </div>';
+                    </div>
+                    <br>';
 
             echo '<br>';
             $k = 0;
@@ -228,12 +229,12 @@ $stmt = mysqli_stmt_init($connessione);
             echo '<div class="row justify-content-center">';
             for ($i = 0; $i < $riporto; $i++) {
             echo '
-                                    <div class="col">
-                                    '. $set_array[count($set_array) - ($i + 1)] .'
-                                    </div>';
+                    <div class="col">
+                    '. $set_array[count($set_array) - ($i + 1)] .'
+                    </div>';
             }
             echo '</div>';
-            echo '<br>';
+            echo '<br><br><br>';
             
         }
         echo '</div>'; //container   
@@ -251,156 +252,19 @@ mysqli_close($connessione);
 
 
 
-/*
-        // 0.DATA 1.ID 2.NOME
-        //ARRAY DI ARRAY
-        
-        $array_di_date = array();
-        for($i=0; $i<count($array_data_id_nome_espansione);$i=$i+3)
-        {
-            $array_di_date[] = $array_data_id_nome_espansione[$i] ;
-        }
 
-        $array_date_contate = array_count_values($array_di_date);
-        //print_r($array_date_contate);
-        $array_data_righe_riporto = array();
-        echo '<br>';
-        foreach ($array_date_contate as $data => $contatore) {
-            $righe_giuste = intdiv($contatore, 5);
-            $riporto = $contatore%5;
-            $array_righe_riporto['Righe Giuste'] =  $righe_giuste;
-            $array_righe_riporto['Riporto'] = $riporto;
-            $array_data_righe_riporto[$data] = $array_righe_riporto;
-            
-        }
-        print_r($array_data_id_nome_espansione);
-        echo '<br>';
-        print_r($array_data_righe_riporto);
-
-        //VOGLIO UN ARRAY ANCHE CON INFORMAZIONI RIPETUTE IN O(MN) 
-        //CHE ABBIA 0.DATA 1.RIGHE 2.RIPORTO 3.NOME 4.ID
-        //Nome array finale
-
-        $array_finale = array();
-
-        for($i=0; $i<count($array_data_id_nome_espansione);$i=$i+3)
-        {
-            
-            $data = $array_data_id_nome_espansione[$i];
-            $array_r_r = $array_data_righe_riporto[$data];
-            $righe = $array_r_r['Righe Giuste'];
-            $riporto = $array_r_r['Riporto'];
-            $id = $array_data_id_nome_espansione[$i+1];
-            $nome = $array_data_id_nome_espansione[$i+2];
-            $array_finale = array();
-
-        }
-
-
-
-
-
-        //print_r($array_data_righe_riporto);
-        echo '<div class="container">';
-        foreach ($array_data_righe_riporto as $data => $array){
-            $righe = $array['Righe Giuste'];
-            $riporto = $array['Riporto'];
-
-            echo '
-                    <div class="row">
-                        <div class="col"><b>Anno:  '
-                            .$data. 
-                        '</b></div>
-                    </div>';
-
-            echo '<br>';
-
-            for($i=0; $i<$righe; $i++)
-            {
-                echo '
-                
-                    <div class="row">
-                        <div class="col">
-                            Set
-                        </div>
-
-                        <div class="col">
-                            Set
-                        </div>
-
-                        <div class="col">
-                            Set
-                        </div>
-
-                        <div class="col">
-                            Set
-                        </div>
-
-                        <div class="col">
-                        Set
-                        </div>
-                    </div>';
-                    echo '<br>';
-            }
-
-            if($riporto == 1)
-            {
-                echo '
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            Set
-                        </div>
-                    </div> ';
-            }
-            if($riporto == 2)
-            {
-                echo '
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                    </div> ';
-            }
-            if($riporto == 3)
-            {
-                echo '
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                    </div> ';
-            }
-            if($riporto == 4)
-            {
-                echo '
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                        <div class="col">
-                            Set
-                        </div>
-                    </div> ';
-            }
-            echo '<br>';
-            
-        }
-        echo '</div>'; //container
-            
-        */
 ?>
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br>
+<?php
+    require "footer.php";
