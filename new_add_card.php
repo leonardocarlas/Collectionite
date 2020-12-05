@@ -98,11 +98,12 @@
 
 
 
-
-<div class="row justify-content-center">
-    <div class="col-8">
-        <h4>Altrimenti cercala tra i Set:</h4>
-    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h4>Altrimenti cercala tra i Set:</h4>
+        </div>
+    <div>
 <div>
 
 
@@ -113,67 +114,131 @@
 require 'php/dbh.php';
 $sql = "SELECT nameExpansion, idExpansion, releaseDate FROM texp WHERE idCollection=? ORDER BY releaseDate DESC; ";
 $stmt = mysqli_stmt_init($connessione);
-if(!mysqli_stmt_prepare($stmt, $sql)){
+ if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo "Error in the database";
-}
-else{
+ }else{
     mysqli_stmt_bind_param($stmt, "i", $idcollection);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt); 
 
     if ($result->num_rows > 0) {
-        //$i=0;
-        //$array_indice_data = array();
-        //$array_di_date = array();
-        //1900, 3; 1993 = 25; ... 
+        $array_data_id_nome_espansione = array();
+        $array_vuoto = array();
+        while($row = $result->fetch_assoc()) {
+
+            $data_in_anno = substr($row['releaseDate'],0,4);
+            
+            array_push($array_data_id_nome_espansione, $data_in_anno);
+            array_push($array_data_id_nome_espansione, $row['idExpansion']);
+            array_push($array_data_id_nome_espansione, $row['nameExpansion']);
+            $id = $row['idExpansion'];
+            $set = $row['nameExpansion'];
+
+            if (array_key_exists($data_in_anno, $array_vuoto)) {
+                array_push($array_vuoto[$data_in_anno]["Set"], $set);
+                array_push($array_vuoto[$data_in_anno]["Id"], $id);
+            } else {
+                $array_vuoto[$data_in_anno] = array( 'Set' => array(), 'Id' => array());
+                array_push($array_vuoto[$data_in_anno]["Set"], $set);
+                array_push($array_vuoto[$data_in_anno]["Id"], $id);
+            }
+        }
 
         $array_di_date = array();
-        $i=1;
-        while($row = $result->fetch_assoc()) {
+        for ($i=0; $i<count($array_data_id_nome_espansione); $i = $i + 3) {
+            $array_di_date[] = $array_data_id_nome_espansione[$i] ;
+        }
 
-            $data_in_anno = substr($row['releaseDate'],0,4);
-           // $array_indice_data[] = $data_in_anno;
-
-            if (in_array($data_in_anno, $array_di_date) == false) {
-                array_push($array_di_date, $data_in_anno);
-                echo '<br><div class="row"> 
-                        Anno: ' . $data_in_anno . 
-                    '</div> <br>';
-            }
-            if($i > 5)
-                $i = 1;
-            if($i == 1)
-                echo '<div class="row justify-content-center">';
-            
-                echo '<div class="col" id="'.$i.'"><a href="cards_in_set.php?EXP='.$row['idExpansion'].'">'.$row['nameExpansion'].'</a></div>';
-            if($i == 5)
-                echo '</div>'; //CHIUSURA DELLA ROW
-            $i = $i + 1;
-        }    
-            
-        //$data_contatore = array_count_values($array_indice_data);
-        //print_r($data_contatore);
-        
-        
-        /*
-        while($row = $result->fetch_assoc()) {
-
-            $data_in_anno = substr($row['releaseDate'],0,4);
-            
-            if (in_array($data_in_anno, $array_di_date) == false) {
-                array_push($array_di_date, $data_in_anno);
-                echo '<div class="row"> 
-                    Anno: ' . $data_in_anno . 
-                '</div>';
-            }
-            //echo '<a href="cards_in_set.php?EXP='.$row['idExpansion'].'">Set: '.$row['nameExpansion'].'</a>';
-            //<a class="btn text-white" href="" style="background-color: #5401a7;">'.$row["nameExpansion"].'</a>
-            $i=$i+1;
-            if($i%5==0)
-                echo '<br>';
+        $array_date_contate = array_count_values($array_di_date);
+        $array_data_righe_riporto = array();
+        echo '<br>';
+        foreach ($array_date_contate as $data => $contatore) {
+            $righe_giuste = intdiv($contatore, 5);
+            $riporto = $contatore % 5;
+            $array_righe_riporto['RigheGiuste'] = $righe_giuste;
+            $array_righe_riporto['Riporto'] = $riporto;
+            $array_data_righe_riporto[$data] = $array_righe_riporto;
             
         }
-        */
+        //print_r($array_data_id_nome_espansione);
+        //echo '<br>';
+        //print_r($array_data_righe_riporto);
+        //Array ( [2020] => Array ( [RigheGiuste] => 5 [Riporto] => 0 )
+        //print_r($array_vuoto);
+        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
+        foreach($array_data_righe_riporto as $data => $array){
+            $righe_giuste = $array['RigheGiuste'];
+            $riporto = $array['Riporto'];
+            $array_vuoto[$data]['Righe'] = $righe_giuste;
+            $array_vuoto[$data]['Riporto'] = $riporto; 
+        }
+
+        //print_r($array_vuoto);
+
+
+
+
+        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
+        //print_r($array_data_righe_riporto);
+        echo '<div class="container">';
+        foreach ($array_vuoto as $data => $array){
+            $righe = $array['Righe'];
+            $riporto = $array['Riporto'];
+            $set_array = $array['Set'];
+            $id_array = $array['Id'];
+
+            echo '
+                    <div class="row">
+                        <div class="col"><b>Anno:  '
+                            .$data. 
+                        '</b></div>
+                    </div>';
+
+            echo '<br>';
+            $k = 0;
+            for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 5) //27
+            {
+                
+                echo '
+                
+                    <div class="row">
+                        <div class="col"> '
+                           . $set_array[$k] .
+                        '</div>
+
+                        <div class="col">'
+                        . $set_array[$k+1] .
+                        '</div>
+
+                        <div class="col">'
+                        . $set_array[$k+2] .
+                        '</div>
+
+                        <div class="col">'
+                        . $set_array[$k+3] .
+                        '</div>
+
+                        <div class="col">'
+                        . $set_array[$k+4] .
+                        '</div>
+                    </div>';
+                    echo '<br>';
+            }
+
+            echo '<div class="row justify-content-center">';
+            for ($i = 0; $i < $riporto; $i++) {
+            echo '
+                                    <div class="col">
+                                    '. $set_array[count($set_array) - ($i + 1)] .'
+                                    </div>';
+            }
+            echo '</div>';
+            echo '<br>';
+            
+        }
+        echo '</div>'; //container   
+           
+         
         
     } else {
         echo '';
@@ -183,4 +248,159 @@ mysqli_stmt_close($stmt);
 mysqli_close($connessione);
 
 
+
+
+
+/*
+        // 0.DATA 1.ID 2.NOME
+        //ARRAY DI ARRAY
+        
+        $array_di_date = array();
+        for($i=0; $i<count($array_data_id_nome_espansione);$i=$i+3)
+        {
+            $array_di_date[] = $array_data_id_nome_espansione[$i] ;
+        }
+
+        $array_date_contate = array_count_values($array_di_date);
+        //print_r($array_date_contate);
+        $array_data_righe_riporto = array();
+        echo '<br>';
+        foreach ($array_date_contate as $data => $contatore) {
+            $righe_giuste = intdiv($contatore, 5);
+            $riporto = $contatore%5;
+            $array_righe_riporto['Righe Giuste'] =  $righe_giuste;
+            $array_righe_riporto['Riporto'] = $riporto;
+            $array_data_righe_riporto[$data] = $array_righe_riporto;
+            
+        }
+        print_r($array_data_id_nome_espansione);
+        echo '<br>';
+        print_r($array_data_righe_riporto);
+
+        //VOGLIO UN ARRAY ANCHE CON INFORMAZIONI RIPETUTE IN O(MN) 
+        //CHE ABBIA 0.DATA 1.RIGHE 2.RIPORTO 3.NOME 4.ID
+        //Nome array finale
+
+        $array_finale = array();
+
+        for($i=0; $i<count($array_data_id_nome_espansione);$i=$i+3)
+        {
+            
+            $data = $array_data_id_nome_espansione[$i];
+            $array_r_r = $array_data_righe_riporto[$data];
+            $righe = $array_r_r['Righe Giuste'];
+            $riporto = $array_r_r['Riporto'];
+            $id = $array_data_id_nome_espansione[$i+1];
+            $nome = $array_data_id_nome_espansione[$i+2];
+            $array_finale = array();
+
+        }
+
+
+
+
+
+        //print_r($array_data_righe_riporto);
+        echo '<div class="container">';
+        foreach ($array_data_righe_riporto as $data => $array){
+            $righe = $array['Righe Giuste'];
+            $riporto = $array['Riporto'];
+
+            echo '
+                    <div class="row">
+                        <div class="col"><b>Anno:  '
+                            .$data. 
+                        '</b></div>
+                    </div>';
+
+            echo '<br>';
+
+            for($i=0; $i<$righe; $i++)
+            {
+                echo '
+                
+                    <div class="row">
+                        <div class="col">
+                            Set
+                        </div>
+
+                        <div class="col">
+                            Set
+                        </div>
+
+                        <div class="col">
+                            Set
+                        </div>
+
+                        <div class="col">
+                            Set
+                        </div>
+
+                        <div class="col">
+                        Set
+                        </div>
+                    </div>';
+                    echo '<br>';
+            }
+
+            if($riporto == 1)
+            {
+                echo '
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            Set
+                        </div>
+                    </div> ';
+            }
+            if($riporto == 2)
+            {
+                echo '
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                    </div> ';
+            }
+            if($riporto == 3)
+            {
+                echo '
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                    </div> ';
+            }
+            if($riporto == 4)
+            {
+                echo '
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                        <div class="col">
+                            Set
+                        </div>
+                    </div> ';
+            }
+            echo '<br>';
+            
+        }
+        echo '</div>'; //container
+            
+        */
 ?>
