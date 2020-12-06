@@ -1,7 +1,7 @@
 <?php
     require "header.php";
     $album_corrente = $_SESSION['album-selezionato'];
-    $idcollection = 1;
+    $idcollection = $_SESSION['idcollezione'];
 ?>
 
 
@@ -180,7 +180,7 @@ $stmt = mysqli_stmt_init($connessione);
 
         // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
         //print_r($array_data_righe_riporto);
-        echo '<div class="container">';
+       
         foreach ($array_vuoto as $data => $array){
             $righe = $array['Righe'];
             $riporto = $array['Riporto'];
@@ -203,25 +203,25 @@ $stmt = mysqli_stmt_init($connessione);
                 echo '
                 
                     <div class="row">
-                        <div class="col"> '
-                           . $set_array[$k] .
-                        '</div>
+                        <div class="col"> 
+                           <a href="cards_in_set.php?EXP='.$id_array[$k].'">'. $set_array[$k] .'</a>
+                        </div>
 
-                        <div class="col">'
-                        . $set_array[$k+1] .
-                        '</div>
+                        <div class="col">
+                            <a href="cards_in_set.php?EXP='.$id_array[$k+1].'">'. $set_array[$k+1] .'</a>
+                        </div>
 
-                        <div class="col">'
-                        . $set_array[$k+2] .
-                        '</div>
+                        <div class="col">
+                            <a href="cards_in_set.php?EXP='.$id_array[$k+2].'">'. $set_array[$k+2] .'</a>
+                        </div>
 
-                        <div class="col">'
-                        . $set_array[$k+3] .
-                        '</div>
+                        <div class="col">
+                            <a href="cards_in_set.php?EXP='.$id_array[$k+3].'">'. $set_array[$k+3] .'</a>
+                        </div>
 
-                        <div class="col">'
-                        . $set_array[$k+4] .
-                        '</div>
+                        <div class="col">
+                            <a href="cards_in_set.php?EXP='.$id_array[$k+4].'">'. $set_array[$k+4] .'</a>
+                        </div>
                     </div>';
                     echo '<br>';
             }
@@ -230,14 +230,14 @@ $stmt = mysqli_stmt_init($connessione);
             for ($i = 0; $i < $riporto; $i++) {
             echo '
                     <div class="col">
-                    '. $set_array[count($set_array) - ($i + 1)] .'
+                        <a href="cards_in_set.php?EXP='.$id_array[count($id_array) - ($i + 1)].'">'.$set_array[count($set_array) - ($i + 1)] .'</a>
                     </div>';
             }
             echo '</div>';
             echo '<br><br><br>';
             
         }
-        echo '</div>'; //container   
+          
            
          
         
@@ -254,7 +254,6 @@ mysqli_close($connessione);
 
 
 ?>
-
 
 
 

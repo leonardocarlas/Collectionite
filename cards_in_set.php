@@ -59,7 +59,10 @@ if(isset($_GET['EXP']))
                                 {
                                     $numero_carta = intdiv($i, 3) + 1;
                                     echo '<tr>';
-                                    echo '<td><img src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"></td>';
+                                    echo '<td><img 
+                                                    alt="'.$returned_cards[$i+1].'"
+                                                    src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
+                                              ></td>';
                                     echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
                                     echo '<td>'.$returned_cards[$i+1].'</td>';
                                     echo '<td>'.$nome_set.'</td>';
@@ -84,6 +87,8 @@ if(isset($_GET['EXP']))
             $('#example').DataTable();
             } );
             </script>
+
+            <script src="javascript/popup.js"></script>
 
         </div><!-- /.cardbody -->
     </div><!-- /.card -->
