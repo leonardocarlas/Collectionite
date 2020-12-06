@@ -3,3 +3,31 @@ body, html {
         height: 100%;
 }
 
+#appear_image_div{
+        width: 100px;
+        height: 200px;
+        position: absolute;
+        z-index: 10;
+        opacity: 0.7;
+        background-color: blueviolet;
+}
+
+#appear_image{
+        display: block;
+        margin: auto;
+        position: relative;
+        z-index: 11;
+        top: 20px;
+}
+
+#close_image{
+        position: fixed;
+        z-index: 12;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+}
+
+#close_image:hover{
+        opacity: 0.7
+}

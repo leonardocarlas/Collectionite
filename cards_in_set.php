@@ -60,6 +60,7 @@ if(isset($_GET['EXP']))
                                     $numero_carta = intdiv($i, 3) + 1;
                                     echo '<tr>';
                                     echo '<td><img 
+                                                    class="carta_pokemon"
                                                     alt="'.$returned_cards[$i+1].'"
                                                     src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
                                               ></td>';
@@ -88,7 +89,24 @@ if(isset($_GET['EXP']))
             } );
             </script>
 
-            <script src="javascript/popup.js"></script>
+            <script type="text/javascript">
+                jQuery(function($){
+                    $('.carta_pokemon').click(function(){
+                        var img = $(this).attr("src");
+                        var appear_image = "<div class='appear_image_div' onClick='closeImage()'></div>";
+                        appear_image = appear_image.concat("<img id='appear_image' src='"+img+"' /> ");
+                        appear_image = appear_image.concat("<img id='close_image' src='close.png' onClick='closeImage()' />");
+                        $('body').append(appear_image);
+                    });
+                });
+                function closeImage(){
+                    $('#appear_image_div').remove();
+                    $('#appear_image').remove();
+                    $('#close_image').remove();
+
+
+                }
+            </script>
 
         </div><!-- /.cardbody -->
     </div><!-- /.card -->
