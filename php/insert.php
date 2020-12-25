@@ -78,18 +78,15 @@ if(isset($_POST['nome'])){
                     $to = $email;
                     $subject = "Verifica Email: Benvenuto su Collection Sight!";
                     $message = "Ciao ".$username."! Benvenuto su Collection Sight!
+Per completare la procedura di registrazione clicca il link sottostante per confermare il tuo indirizzo email.
 
-    Per completare la procedura di registrazione clicca il link sottostante per confermare il tuo indirizzo email.
+https://collectionsight.com/verification_page.php?VKey=$verification_key
 
-    https://collectionsight.com/verification_page.php?VKey=$verification_key
-    Collection Sight e' un progetto che vuole espandersi e offrire piu' strumenti per i collezionisti.
-    Il primo mese di utilizzo della piattaforma e' in prova gratuita. Per mantenere i dati per sempre nel database, 
-    viene chiesto all'utente di pagare una e una sola volta 2.99 euro, assicurandosi in questo modo l'account a vita.
-    Provalo tu stesso per i primi 30 giorni e divertiti!
+Collection Sight e' un progetto che vuole espandersi e offrire sempre piu' strumenti per i collezionisti.
 
-    Siamo davvero lieti di averti nella nostra community.
+Siamo davvero lieti di averti nella nostra community.
 
-    Il Team di Collection Sight.    
+Il Team di Collection Sight.    
         ";
 
                                     
