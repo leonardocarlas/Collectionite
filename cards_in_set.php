@@ -103,8 +103,6 @@ if(isset($_GET['EXP']))
                     $('#appear_image_div').remove();
                     $('#appear_image').remove();
                     $('#close_image').remove();
-
-
                 }
             </script>
 

@@ -5,7 +5,7 @@
 
     $id_user = $_SESSION['idusersession'];
 
-    $ban_temporaneo = verify_if_is_payed($id_user);
+    //$ban_temporaneo = verify_if_is_payed($id_user);
 
     if(isset($_SESSION['reload-album'])){
         $ricarica = $_SESSION['reload-album'];
@@ -68,7 +68,7 @@
 
 
 <?php
-if($ban_temporaneo == 0){
+//if($ban_temporaneo == 0){
 
 
     if(isset($col_selected)){
@@ -333,8 +333,9 @@ if($ban_temporaneo == 0){
             
         }
         }
-} // fine if del ban == 0
+//} // fine if del ban == 0
 
+/*
 elseif($ban_temporaneo == 1){
 
     echo '
@@ -374,6 +375,7 @@ elseif($ban_temporaneo == 1){
 
 
 }
+*/
 
 ?>
 
@@ -386,7 +388,7 @@ elseif($ban_temporaneo == 1){
 
 
 <?php
-
+/*
 function verify_if_is_payed($id_user)
 {
     require "php/dbh.php";
@@ -439,3 +441,4 @@ function verify_if_is_payed($id_user)
 
 }
 
+*/

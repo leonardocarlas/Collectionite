@@ -129,53 +129,10 @@
             </li>
             <li class="nav-item">
                 <?php
-                
-
-                if(isset($_SESSION['usernamesession'])){
-                  require "php/dbh.php";
-                  $id_user = $_SESSION['idusersession'];
-                  $sql = "SELECT Payed FROM user WHERE Iduser=? LIMIT 1 ";
-                  $stmt = mysqli_stmt_init($connessione);
-                  if(!mysqli_stmt_prepare($stmt, $sql)){
-                      echo "Error in the database";
-                  }
-                  else
-                  {
-                      mysqli_stmt_bind_param($stmt, "i", $id_user);
-                      mysqli_stmt_execute($stmt);
-                      $result = mysqli_stmt_get_result($stmt);
-
-                      if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            if($row['Payed'] == 0){
-                              $PAGATO = FALSE;
-                            }
-                            elseif($row['Payed'] == 1){
-                              $PAGATO = TRUE;
-                            }
-                        }
-                      } 
-                      else {
-                          header("Location: index.php");
-                          exit();
-                      }
-                    
-                  }
-        
-                  mysqli_stmt_close($stmt);
-                  mysqli_close($connessione);
-
-                  if($PAGATO == FALSE){
                     if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                        echo '<a href="payments.php" class="nav-link active">Iscriviti</a>';
+                        echo '<a href="payments.php" class="nav-link active">Dona</a>';
                     else
-                        echo '<a href="payments.php" class="nav-link">Iscriviti</a>';
-                  }elseif ($PAGATO == TRUE) {
-                    echo '';
-                  }
-                }
-
+                        echo '<a href="payments.php" class="nav-link">Dona</a>';
                 ?>
             </li>
             

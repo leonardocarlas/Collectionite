@@ -53,9 +53,7 @@
                         Inoltre, puoi condividire i tuoi album con i tuoi amici o compratori semplicemente dicendo loro il tuo username.
                         <br>
                         Collection Sight è stato un progetto sviluppato in diversi mesi da due studenti unirsitari, Leonardo e Thomas.
-                        Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
-                        viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
-                        Provalo tu stesso per i primi 30 giorni e divertiti!
+                        Provalo tu stesso e divertiti!
                         <br><br><br><br>
                         Il Team di Collection Sight.
                         </text>

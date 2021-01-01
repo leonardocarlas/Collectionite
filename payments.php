@@ -14,7 +14,7 @@
             <div class="card card-primary card-outline">
 
             <div class="card-header">
-                <h5 class="card-title m-0">Iscriviti al nostro programma</h5>
+                <h5 class="card-title m-0">Dona 2.99 € per supportare il progetto</h5>
             </div>
 
             <div class="card-body">
@@ -25,9 +25,8 @@
                     <div class="col-mb-8">
                         <p>Collection Sight è un progetto che vuole espandersi e offrire più strumenti per i collezionisti. </p>
                         <text>
-                        Il primo mese di utilizzo della piattaforma è in prova gratuita. Per mantenere i dati per sempre nel database, 
-                        viene chiesto all'utente di pagare una e una sola volta 2.99 €, assicurandosi in questo modo l'ACCOUNT A VITA.
-                        Provalo tu stesso per i primi 30 giorni e divertiti! <br><br> <p>Il Team di Collection Sight.</p>
+                        Descrivici come vorresti migliorare il sito, dona 2.99 € ai programmatori e divertiti! <br><br> 
+                        <p>Il Team di Collection Sight.</p>
                         </text>
                         
                         
