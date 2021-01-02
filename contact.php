@@ -5,21 +5,8 @@
     
 ?>
 
-<?php 
 
-    if(isset($_GET['Email'])){ ?>
-    <script type="text/javascript">
-        Swal.fire(
-        'Email Sent Succefully. We will reply you in a few period',
-        '',
-        'success'
-        );
-    </script>
-<?php } ?>
-
-
-
-<div class="content-wrapper" style="min-height: 636.763px;">
+<div class="content-wrapper" style="min-height: 536.763px;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container">
@@ -32,6 +19,8 @@
     </div>
     <!-- /.content-header -->
 
+    <br><br><br>
+
     <!-- Main content -->
     <div class="content">
       <div class="container">
@@ -39,28 +28,21 @@
             <div class="col-md-8">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                    <h5 class="card-title m-0">Descrivi il tuo problema o le tue impressioni</h5>
+                      <h5 class="card-title m-0">Descrivi il tuo problema o le tue impressioni</h5>
                     </div>
-                    <form role="form" method="POST" action="php/send_problem.php">
-                        <div class="card-body">
-                        <div class="form-group" data-children-count="1">
-                            <label for="email">Email</label>
-                            <input type="email" name="sender-email" class="form-control" id="email" placeholder="Inserisci la tua email" data-kwimpalastatus="alive" data-kwimpalaid="1596293785065-3">
-                        </div>
-                        <div class="form-group" data-children-count="1">
-                            <label for="subject">Soggetto</label>
-                            <input type="text" name="subject-problem" class="form-control" id="subject" placeholder="Soggetto" data-kwimpalastatus="alive" data-kwimpalaid="1596293785065-3">
-                        </div>
-                            <!-- /.card-body -->
-                        <div class="form-group" data-children-count="1">
-                        <label>Mail body</label>
-                        <textarea class="form-control" name="mail-problem" rows="3" placeholder="Mail body"></textarea>
-                         </div>
-                        </div>
-                        <div class="card-footer">
-                        <button type="submit"  name="invia-problema" style="background-color: #5401a7;" class="btn text-white">Invia</button>
-                        </div>
-                    </form>
+                    
+                    <div class="card-body">
+                      <div class="row justify-content-center">
+                        <text>
+                        Per qualsiasi suggerimento o per descriverci un problema, non esitare a contattarci a questa e-mail:
+                        <br><br>
+                        <b>collectionsight@gmail.com</b>
+                        <br><br>
+                        Il Team di Collection Sight.
+                        </text>
+                      </div>
+                    </div>
+                    
                 </div>
             </div>
           </div>

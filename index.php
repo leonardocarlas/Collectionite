@@ -103,6 +103,16 @@
             ?>
       </div>
 
+      <div class="row justify-content-center">
+        <div class="col-sm-auto">
+          <p class="text-white">Per ora siamo in <?php 
+                                                    $numero_utenti = count_users();
+                                                    echo $numero_utenti; 
+                                                ?>
+            utenti. Complimenti! Sei un pioniere.</p>
+        </div>            
+      </div>
+
 </div> <!-- row -->
   <!-- fine introduction --->
 
@@ -246,4 +256,42 @@
 
 <?php
     require "footer.php";
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php  
+
+function count_users(){
+  require "php/dbh.php";
+  $numero_utenti = 0;
+  //SELECT COUNT(DISTINCT productId) from  table_name WHERE keyword='$keyword'
+  $sql = "SELECT COUNT(DISTINCT Username) AS num_users FROM user";
+  $stmt = mysqli_stmt_init($connessione);
+  if(!mysqli_stmt_prepare($stmt, $sql)){
+      echo "Error in the database";
+  }
+  else{
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt); 
+      $row = $result->fetch_assoc();
+      $numero_utenti = $row['num_users'];
+
+
+
+  }    
+  mysqli_stmt_close($stmt);
+  mysqli_close($connessione);
+
+  return $numero_utenti;
+}
+
 ?>
