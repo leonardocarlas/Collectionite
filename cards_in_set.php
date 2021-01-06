@@ -27,6 +27,11 @@ if(isset($_GET['EXP']))
     $nome_set = $double_arr[0];
                                         ?>
     
+    <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+    </div>
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">Carte presenti nel set <?php echo $nome_set; ?></h3>
@@ -46,24 +51,24 @@ if(isset($_GET['EXP']))
                                 <th scope="col">Expansion</th>
                                 <th scope="col">Action</th>   
                             </tr>
-                        </thead>        
-                        <tbody>
-                            
-                                <?php  
+                        </thead>
                                 
+                        <tbody>  
+                                <?php
                                 $returned_cards = $double_arr[1];
-                                 
                                 $contatore_carte = count($returned_cards)/3;
-
                                 for($i=0; $i<count($returned_cards); $i=$i+3)
                                 {
                                     $numero_carta = intdiv($i, 3) + 1;
+                                    $imgId = 'myImg'.$numero_carta;
                                     echo '<tr>';
-                                    echo '<td><img 
-                                                    class="carta_pokemon"
+                                    echo '<td><img                                                     class="carta_pokemon"
                                                     alt="'.$returned_cards[$i+1].'"
                                                     src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
+                                                    class="myImg"
+                                                    id="'.$imgId.'"
                                               ></td>';
+                                    echo '</td>';
                                     echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
                                     echo '<td>'.$returned_cards[$i+1].'</td>';
                                     echo '<td>'.$nome_set.'</td>';
@@ -74,7 +79,6 @@ if(isset($_GET['EXP']))
                                 }
 
                                 ?>
-                            
                         </tbody>
                         <tfoot>
                         </tfoot>
@@ -82,31 +86,29 @@ if(isset($_GET['EXP']))
                 </div><!-- /.col-sm-12 -->
             </div><!-- /.row -->
             </div><!-- /.wrapper -->
-
-            <script>
-            $(document).ready(function() {
-            $('#example').DataTable();
-            } );
-            </script>
-
-            <script type="text/javascript">
-                jQuery(function($){
-                    $('.carta_pokemon').click(function(){
-                        var img = $(this).attr("src");
-                        var appear_image = "<div class='appear_image_div' onClick='closeImage()'></div>";
-                        appear_image = appear_image.concat("<img id='appear_image' src='"+img+"' /> ");
-                        appear_image = appear_image.concat("<img id='close_image' src='close.png' onClick='closeImage()' />");
-                        $('body').append(appear_image);
-                    });
-                });
-                function closeImage(){
-                    $('#appear_image_div').remove();
-                    $('#appear_image').remove();
-                    $('#close_image').remove();
-                }
-            </script>
-
         </div><!-- /.cardbody -->
+        <script>
+                        // Get the modal
+                        var modalImg = document.getElementById("img01");
+                        var captionText = document.getElementById("caption");
+                        var modal = document.getElementById("myModal");
+                        for (i = 1; i < 40; i++) {
+                            var img = document.getElementById("myImg" + i);
+                        
+                          img.onclick = function() {
+                            modal.style.display = "block";
+                            modalImg.src = this.src;
+                            captionText.innerHTML = this.alt;
+                            var span = document.getElementsByClassName("close")[0];
+                            span.onclick = function() { 
+                            modal.style.display = "none";
+                            }
+                          }
+                          // Get the <span> element that closes the modal
+                        }
+                        // When the user clicks on <span> (x), close the modal
+
+        </script>
     </div><!-- /.card -->
 
 
@@ -363,6 +365,3 @@ function cards_in_the_set($id_set)
 
 
 ?>
-
-
-

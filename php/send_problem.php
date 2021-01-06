@@ -51,3 +51,11 @@ if(isset($_POST['invia-problema'])){
 
 
 }
+
+
+
+
+/*
+ALTER TABLE album 
+ADD Sharable BINARY  DEFAULT 0;
+*/

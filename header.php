@@ -57,7 +57,7 @@
     
 
     
-    <link rel="stylesheet" type="text/css" href="css/image.css">
+    <link rel="stylesheet" type="text/css" href="css/image.scss">
 
 
 </head>

@@ -71,10 +71,10 @@
     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
       <!-- Links -->
-      <h6 class="text-uppercase font-weight-bold">Iscriviti:</h6>
+      <h6 class="text-uppercase font-weight-bold">Donazioni:</h6>
       <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
       <p>
-        <a href="payments.php">Registra per sempre il tuo account</a>
+        <a href="payments.php">Dona e supporta il progetto</a>
       </p>
 <!--
       <p>
