@@ -58,6 +58,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="css/image.scss">
+    <link rel="stylesheet" type="text/css" href="css/image.css">
 
 
 </head>

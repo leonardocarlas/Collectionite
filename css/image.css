@@ -3,31 +3,24 @@ body, html {
         height: 100%;
 }
 
-#appear_image_div{
-        width: 100px;
-        height: 200px;
-        position: absolute;
-        z-index: 10;
-        opacity: 0.7;
-        background-color: blueviolet;
-}
-
-#appear_image{
-        display: block;
-        margin: auto;
-        position: relative;
-        z-index: 11;
-        top: 20px;
-}
-
-#close_image{
+.cookie-container {
         position: fixed;
-        z-index: 12;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background: #5401a7;
+        color: white;
+        padding: 0 32px;
+        box-shadow: #5401a77c;
+
+        transition: 400ms;
 }
 
-#close_image:hover{
-        opacity: 0.7
+.cookie-container.active{
+        bottom: 0;
 }
+
+.cookie-container a {
+        color: white;
+}
+

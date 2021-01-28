@@ -92,7 +92,7 @@ if(isset($_GET['EXP']))
                         var modalImg = document.getElementById("img01");
                         var captionText = document.getElementById("caption");
                         var modal = document.getElementById("myModal");
-                        for (i = 1; i < 40; i++) {
+                        for (i = 1; i < 100; i++) {
                             var img = document.getElementById("myImg" + i);
                         
                           img.onclick = function() {

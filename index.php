@@ -65,7 +65,7 @@
       <!-- Content Header (Page header) -->
       
       <div class="row justify-content-center">
-        <div class="col-sm-auto">
+        <div class="col text-center">
           <br>
           <h1 class="m-0 text-white mt-2">Benvenuto su Collection Sight!</h1>
         </div>
@@ -74,13 +74,13 @@
       <br><br>
       
       <div class="row justify-content-center">
-        <div class="col-sm-auto">
+        <div class="col text-center">
           <h4 class="text-white"><b>Tracciamo per te i prezzi della tua collezione di carte.</b></h4>
         </div>
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-sm-auto">
+        <div class="col text-center">
           <p class="text-white">Con 13 tipi di TCG disponibili, il nostro database di carte è direttamente collegato a quello di CardMarket.</p>
         </div>            
       </div>
@@ -104,12 +104,12 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-sm-auto">
-          <p class="text-white">Per ora siamo in <?php 
+        <div class="col d-flex justify-content-center">
+          <p class="text-white">Per ora la nostra community conta <?php 
                                                     $numero_utenti = count_users();
                                                     echo $numero_utenti; 
                                                 ?>
-            utenti. Complimenti! Sei un pioniere.</p>
+            utenti. Siamo in BETA.</p>
         </div>            
       </div>
 
@@ -253,6 +253,38 @@
     </div>
     <!-- /.content -->
   </div>
+
+  <div class="cookie-container">
+      <p class="m-0 text-white mt-2">
+      Nel nostro sito utilizziamo una privacy ed una cookie policy per garantire una migliore esperienza di navigazione all'utente.
+      Puoi andare a consultarle ai seguenti link: <a href=""><u>privacy policy</u></a> e <a href=""><u>cookie policy</u></a>.
+      </p>
+      <button class="cookie-btn" style="background-color: #FFFFFF; cursor: pointer; border-radius: 8px; margin-bottom: 16px;"  class="btn text-dark btn-lg mx-auto d-block mb-5">Ok</button>
+  </div>
+
+  <script>
+    const cookieContainer = document.querySelector(".cookie-container");
+    const cookieButton = document.querySelector(".cookie-btn");
+
+    cookieButton.addEventListener("click", () => {
+      cookieContainer.classList.remove("active");
+      localStorage.setItem("cookieBannerDisplayed", "true");
+    });
+
+    setTimeout(() => {
+      if(!localStorage.getItem("cookieBannerDisplayed"))
+      {
+        cookieContainer.classList.add("active");
+      }
+      
+    }, 2000);
+
+
+
+  </script>
+
+
+
 
 <?php
     require "footer.php";
