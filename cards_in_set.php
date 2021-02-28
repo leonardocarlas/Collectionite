@@ -62,7 +62,7 @@ if(isset($_GET['EXP']))
                                     $numero_carta = intdiv($i, 3) + 1;
                                     $imgId = 'myImg'.$numero_carta;
                                     echo '<tr>';
-                                    echo '<td><img                                                     class="carta_pokemon"
+                                    echo '<td><img class="carta_pokemon"
                                                     alt="'.$returned_cards[$i+1].'"
                                                     src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
                                                     class="myImg"

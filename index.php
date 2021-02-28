@@ -104,7 +104,7 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col d-flex justify-content-center">
+        <div class="col text-center">
           <p class="text-white">Per ora la nostra community conta <?php 
                                                     $numero_utenti = count_users();
                                                     echo $numero_utenti; 
@@ -254,10 +254,12 @@
     <!-- /.content -->
   </div>
 
+
+
   <div class="cookie-container">
       <p class="m-0 text-white mt-2">
       Nel nostro sito utilizziamo una privacy ed una cookie policy per garantire una migliore esperienza di navigazione all'utente.
-      Puoi andare a consultarle ai seguenti link: <a href=""><u>privacy policy</u></a> e <a href=""><u>cookie policy</u></a>.
+      Puoi andare a consultarle ai seguenti link: <a href="policy.php"><u>privacy policy</u></a> e <a href="policy.php"><u>cookie policy</u></a>.
       </p>
       <button class="cookie-btn" style="background-color: #FFFFFF; cursor: pointer; border-radius: 8px; margin-bottom: 16px;"  class="btn text-dark btn-lg mx-auto d-block mb-5">Ok</button>
   </div>
