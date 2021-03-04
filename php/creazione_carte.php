@@ -2,76 +2,75 @@
 
     require "dbh.php";
 
-    $id_espansioni = array();
-    //Bisogna aggiornare la tabella delle espansioni TEXP
-    $sql = "SELECT DISTINCT idExpansion FROM texp";  
-    $stmt = mysqli_stmt_init($connessione);
+    set_time_limit(100000000000000);
 
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("Location: ../index.php?error=sqlerror");
-        exit();
+    //crea un array di espansioni
 
-    }
-    else{
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        
-        if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $id_corrente = $row['idExpansion'];
-                array_push($id_espansioni, $id_corrente);
-            }
+    $id_espansioni = get_all_expansions();
 
-        }
-    } 
-
-    print_r($id_espansioni);
-
-
-    for( $j = 0; $j < count($id_espansioni); $j++){
+    for($j = 0; $j < count($id_espansioni); $j++){
 
         $id_espansione = $id_espansioni[$j];
         $double_arr = cards_in_the_set($id_espansione);
         $nome_set = $double_arr[0];
-        $returned_cards = $double_arr[1];
-        //print_r($returned_cards);
 
-        //   ORDINE CREATO:
-        //   0. IdExpansion 1. enName of Expansion 
-        //   CARTE
-        //   1. idCarta (inserire se non c'è)  2. enName_carta  3. link_image_card (inserire assolutamente)
-        //   $primo = array_shift($aaa);
-        //   $enName_Exp = array_shift($aaa);
-        //   $double_array = array($enName_Exp, $aaa);
+        if($nome_set == "NO CARDS") {
+            echo "NO CARDS". "<br>";
+        }
+        else {
+            $returned_cards = $double_arr[1];
+            
+            for($i=0; $i<count($returned_cards); $i=$i+3){
+                $id_carta = $returned_cards[$i];
+                $en_name_carta = $returned_cards[$i+1];
+                $link_image_card = $returned_cards[$i+2];
+                echo "Id espansione:  ". $id_espansione ." Id carta: " . $id_carta . " en name: " . $en_name_carta . " link: " . $link_image_card . "<br>";
 
-        
-        for($i=0; $i<count($returned_cards); $i=$i+3){
-            $id_carta = $returned_cards[$i];
-            $en_name_carta = $returned_cards[$i+1];
-            $link_image_card = $returned_cards[$i+2];
-            echo "Id espansione:  ". $id_espansione ." Id carta: " . $id_carta . " en name: " . $en_name_carta . " link: " . $link_image_card . "<br>";
+                $sql = "INSERT INTO all_cards (Idcard, Idset, Card_name, Set_name, Image_link) VALUES (?,?,?,?,?)";
+                $stmt = mysqli_stmt_init($connessione);
 
-            $sql = "INSERT INTO all_cards (Idcard, Idset, Card_name, Set_name, Image_link) VALUES (?,?,?,?,?)";
-            $stmt = mysqli_stmt_init($connessione);
+                if(!mysqli_stmt_prepare($stmt, $sql)){
+                    header("Location: ../index.php?error=sqlerror");
+                    exit();
+                }else{    ////////modificareeee
+                    mysqli_stmt_bind_param($stmt, "iisss", $id_carta, $id_espansione, $en_name_carta, $nome_set, $link_image_card);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_close($stmt);
 
-            if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../index.php?error=sqlerror");
-                exit();
-            }else{    ////////modificareeee
-                mysqli_stmt_bind_param($stmt, "iisss", $id_carta, $id_espansione, $en_name_carta, $nome_set, $link_image_card);
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_close($stmt);
-
+                }
             }
         }
+    } 
 
+    
+    
+
+
+    function get_all_expansions() {
+        require "dbh.php";
+        $id_espansioni = array();
+        $sql = "SELECT DISTINCT idExpansion FROM texp";  
+        $stmt = mysqli_stmt_init($connessione);
+    
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../index.php?error=sqlerror");
+            exit();
+    
+        }
+        else{
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $id_corrente = $row['idExpansion'];
+                    array_push($id_espansioni, $id_corrente);
+                }
+    
+            }
+            return $id_espansioni;
+        }
     }
-
-    
-    
-
-
-
 
 
 
@@ -229,77 +228,58 @@
             
             //$decoded            = simplexml_load_string($content);
     
-            //echo "Contenuto  ". $content;
+            //echo "Contenuto". $content."Otta";
+            //echo gettype($content);
             //echo "Informazioni  ";
             //print_r($info );
-    
-    
-    
-            $jsonIterator = new RecursiveIteratorIterator(
-            new RecursiveArrayIterator(json_decode($content, TRUE)),
-            RecursiveIteratorIterator::SELF_FIRST);
-    
             
-            $aaa = array();
-    
-            foreach ($jsonIterator as $key => $val) {
-                if(is_array($val)) {
-                    /*echo "$key:\n";
-                    echo "<br>";
-                    echo "<br>"; */
-                } else {
-                    //echo "$key => $val\n";
-                    //echo "<br>";
-                    
-                    if( $key == "idProduct"){
-                        array_push($aaa, $val);
+            if(!($content === '')) {
+                /* Caso in cui il set contiene carte*/
+
+                $jsonIterator = new RecursiveIteratorIterator(
+                new RecursiveArrayIterator(json_decode($content, TRUE)),
+                RecursiveIteratorIterator::SELF_FIRST);
+        
+                
+                $aaa = array();
+        
+                foreach ($jsonIterator as $key => $val) {
+                    if(is_array($val)) {
+                        /* NON VIENE FATTO NULLA*/
+                    } else {
+                        /* Per ogni carta inserisce nell'array aaa idProduct, idExpansion, image, enName*/
+                        
+                        if( $key == "idProduct"){
+                            array_push($aaa, $val);
+                        }
+                        if( $key == "idExpansion"){
+                            array_push($aaa, $val);
+                        }
+                        if( $key == "image"){
+                            array_push($aaa, $val);
+                        }
+                        if( $key == "enName"){
+                            array_push($aaa, $val);
+                        }
+                        
                     }
-                    if( $key == "idExpansion"){
-                        array_push($aaa, $val);
-                    }
-                    if( $key == "image"){
-                        array_push($aaa, $val);
-                    }
-                    if( $key == "enName"){
-                        array_push($aaa, $val);
-                    }
-                    
                 }
+                
+                /* Toglie il primo elemento da aaa, che è inutile*/
+                $primo = array_shift($aaa);
+                /* Toglie il nuovo primo elemento da aaa, che è il nome inglese del set*/
+                $enName_Exp = array_shift($aaa);
+                $double_array = array($enName_Exp, $aaa);
+        
+                return $double_array;
             }
-            
-            
-            
-    
-            // ORDINE CREATO:
-            // 0. IdExpansion 1. enName of Expansion 
-            // CARTE
-            // 1. idCarta (inserire se non c'è)  2. enName_carta  3. link_image_card (inserire assolutamente)
-            $primo = array_shift($aaa);
-            $enName_Exp = array_shift($aaa);
-            $double_array = array($enName_Exp, $aaa);
-    
-            return $double_array;
-    
-            /*
-            for($i=0; $i<count($aaa); $i++){
-                if($aaa[$i] == $set_carta){
-                    array_push($possessione, $aaa[$i-3]);
-                    array_push($possessione, $aaa[$i]);
-                    array_push($possessione, $aaa[$i-2]);
-    
-                }
-            }
-            */
-            //sql di inserimento di tutte le carte
-    
-    
-            //sql di inserimento della possessione
-    
-    
-            //print_r( $possessione );
-            //conenuto array: idProduct, Link della carta da completare, Nome Set, 
-         
-            
-            
+            else {
+                /* Caso in cui il set non contiene carte al suo interno*/
+                $vuoto =  array();
+                $enName_Exp = "NO CARDS";
+                $double_array = array($enName_Exp, $vuoto);
+
+                return $double_array;
+            }      
     
     }//chiusura funzione

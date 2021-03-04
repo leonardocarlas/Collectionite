@@ -168,7 +168,6 @@
                                   <button class="btn text-white" type="submit" style="background-color: #5401a7;" name="logout-submit">Logout</button>
                                 </div>
                               </li>
-
                               </ul>  
                           
                       </form>
@@ -178,23 +177,19 @@
                   echo '
                     <ul class="navbar-nav"> 
                         <form  action="php/login.php" method="post" class="form-inline">
-
                           <li class="nav-item">
                             <div class="form-group m-2 ">
                                 <input type="text" name="username" class="form-control" placeholder="Username">       
                             </div> 
                           </li>
-
                           <li class="nav-item">
                             <div class="form-group m-2">          
                                 <input type="password" name="password" class="form-control" placeholder="Password"> 
                             </div>
                           </li>
-
                           <li class="nav-item">
                             <button class="btn m-2 text-white" type="submit" style="background-color: #5401a7;" name="login-submit">Login</button>
                           </li>
-
                          
                         </form>
                       </ul>';
@@ -210,9 +205,3 @@
 
 
 </body>
-
-
-
-
-
-
