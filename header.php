@@ -115,9 +115,9 @@
             <li class="nav-item">
               <?php
                   if(basename($_SERVER['PHP_SELF']) == "what.php")
-                      echo '<a href="what.php" class="nav-link active">Cos\'è Collection Sight</a>';
+                      echo '<a href="what.php" class="nav-link active">About Us</a>';
                   else
-                      echo '<a href="what.php" class="nav-link">Cos\'è Collection Sight</a>';
+                      echo '<a href="what.php" class="nav-link">About Us</a>';
               ?>
             </li>
             <li class="nav-item">
@@ -175,7 +175,8 @@
               }
               else {
                   echo '
-                    <ul class="navbar-nav"> 
+                    <ul class="navbar-nav">
+                        <!--
                         <form  action="php/login.php" method="post" class="form-inline">
                           <li class="nav-item">
                             <div class="form-group m-2 ">
@@ -187,11 +188,18 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password"> 
                             </div>
                           </li>
+                          -->
+
                           <li class="nav-item">
-                            <button class="btn m-2 text-white" type="submit" style="background-color: #5401a7;" name="login-submit">Login</button>
+                            <a href = "get_started.php?Action=Register" class="btn m-2 text-dark" >Register</a>
                           </li>
-                         
+                          <li class="nav-item">
+                            <a href = "get_started.php?Action=Login" class="btn m-2 text-white" style="background-color: #5401a7;"> Login </a>
+                          </li>
+
+                        <!--
                         </form>
+                            -->
                       </ul>';
               }
           ?>

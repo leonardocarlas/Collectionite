@@ -4,20 +4,21 @@
 
 
     <main>
-
+    <!--
     <div class="content-wrapper">
             <div class="content-header">
                 <div class="container">
                   <div class="row mb-3">
                       <div class="col-sm-6">
                       <h1 class="m-0 text-dark">Iniziamo!</h1>
-                      </div><!-- /.col -->
+                      </div>
                   </div>
                 
-                </div><!-- /.container-fluid -->
+                </div>
             </div> 
         <div>
     </div>
+    -->
 
 <?php 
     /////////   GESTIONE MESSAGGI   ///////
@@ -66,18 +67,44 @@
     }
 ?>
 
+<br><br>
+
+<?php 
+if( isset($_GET['Action']) ) {
+  if( $_GET['Action'] == 'Register' ) {
+?>
+
  <!-- Main content -->
 <div class="content">
     <div class="container">
+
+      <div class = "row justify-content-center">
+        <h3>Registra i tuoi dati</h3>
+      </div>
+
+      <br>
+
+      <div class = "row justify-content-center">
+        <input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Sign Up with Google">
+      </div>
+
+      <br>
+
+      <div class = "row justify-content-center">
+          <p>------------- or -------------</p>
+      </div>
+      
+      <br>
+
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card card-primary card-outline">
+                <!--<div class="card card-primary card-outline">
 
-                    <div class="card-header">
+                     <div class="card-header">
                         <h5 class="card-title m-0">Registra i tuoi dati</h5>
-                    </div>
+                    </div> -->
 
-                    <div class="card-body">
+                    <!--<div class="card-body"> -->
                       <div class="row justify-content-center" class="form-group">
                       <table>
                           <form method="POST" action="php/insert.php">
@@ -102,8 +129,7 @@
                               <td><input type="password" class="form-control" name="pass2" placeholder="Ripeti la password"></td>
                             </tr>
                             <tr>
-                              <td></td>
-                              <td><button class="btn btn-link"><a href="reset_password.php" > Hai dimenticato la tua password? </a></button></td>
+                              <td><input type="checkbox" id="privacy_checker" name="privacy_checker" value="OK"> <label for="privacy_checker">Ho letto le <a href = #>privacy policy</a></label><br></td>
                             </tr>
                             <tr>
                               <td><input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Invia i tuoi dati"></td>
@@ -120,17 +146,93 @@
                           
 
                         </table>
-                    </div> <!--.\ card-body -->
-                  <div> <!--.\ card -->
-                </div>  <!--.\ col -->
-              </div>  <!--.\ row -->
+                     <!-- </div>.\ card-body -->
+                  <!-- <div> .\ card -->
+                <!--</div> .\ col -->
+              </div>  <!--.\ row -->          
+
+              
+
             </div> <!--.\ content -->
           </div>  <!--.\ container -->
-        </section>
+        
 
-    </main>
+<?php 
+  }
+}
+?>
 
-<br><br><br>
+<?php 
+if( isset($_GET['Action']) ) {
+  if( $_GET['Action'] == 'Login' ) {
+?>
+
+ <!-- Main content -->
+ <div class="content">
+    <div class="container">
+
+      <div class = "row justify-content-center">
+        <h3>Effettua il Login</h3>
+      </div>
+
+      <br>
+
+      <div class = "row justify-content-center">
+        <input type="submit" class="btn text-white" style="background-color: #5401a7;" value="Accedi tramite Google">
+      </div>
+
+      <br>
+
+      <div class = "row justify-content-center">
+          <p>------------- or -------------</p>
+      </div>
+      
+      <br>
+
+        <div class="row justify-content-center">
+            <form  action="php/login.php" method="post" class="form-inline">
+              <table>
+                <tr>
+                  <td>Username</td>
+                  <td><input type="text" name="username" class="form-control" placeholder="Username"> </td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td><input type="password" name="password" class="form-control" placeholder="Password"> </td>
+                </tr>
+              </table>                  
+        </div>  <!--.\ row -->
+
+            <br>
+
+            <div class = "row justify-content-center">
+              <button class="btn m-2 text-white" type="submit" style="background-color: #5401a7;" name="login-submit">Login</button>
+            </div>
+
+            </form>
+            
+            <br>
+
+            <div class = "row justify-content-center">
+              <button class="btn btn-link"><a href="reset_password.php" > Hai dimenticato la tua password? </a></button>
+            </div>
+
+          </div> <!--.\ content -->
+        </div>  <!--.\ container -->
+
+
+<?php 
+  }
+}
+?>
+
+
+  </section>
+</main>
+
+
+
+<br><br><br><br><br>
 
 <?php
     require "footer.php";

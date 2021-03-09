@@ -13,7 +13,7 @@ if(isset($_POST['login-submit']))
     $password = mysqli_real_escape_string($connessione, $_POST['password']);
 
     if(empty($username) || empty($password)){
-        header("Location: ../index.php?error=emptyfields");
+        header("Location: ../get_started.php?error=emptyfields");
         exit();
     }
     else{
@@ -22,7 +22,7 @@ if(isset($_POST['login-submit']))
         $stmt = mysqli_stmt_init($connessione);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../index.php?error=sqlerror");
+            header("Location: ../get_started.php?error=sqlerror");
             exit();
 
         }
@@ -38,11 +38,11 @@ if(isset($_POST['login-submit']))
                 $pwdcheck = password_verify($password, $row['Hashed_password']); 
                                 
                 if($pwdcheck == false){
-                    header("Location: ../index.php?error=wrongpassword");
+                    header("Location: ../get_started.php?error=wrongpassword");
                     exit();
                 }
                 if($row['Verified'] == 0){
-                    header("Location: ../index.php?error=accountNOTVERIFIED");
+                    header("Location: ../get_started.php?error=accountNOTVERIFIED");
                     exit();
                 }
                 else if($pwdcheck == true){
@@ -57,7 +57,7 @@ if(isset($_POST['login-submit']))
                     exit();
                 }
                 else{
-                    header("Location: ../index.php?error=wrongvalueofpwdcheck");
+                    header("Location: ../get_started.php?error=wrongvalueofpwdcheck");
                     exit();
                 }
                 
@@ -65,7 +65,7 @@ if(isset($_POST['login-submit']))
 
             }
             else{
-                header("Location: ../index.php?error=nouserinthedatabase");
+                header("Location: ../get_started.php?error=nouserinthedatabase");
                 exit();
             }
         }
@@ -77,7 +77,7 @@ if(isset($_POST['login-submit']))
 }
 
 else{
-    header("Location: ../index.php");
+    header("Location: ../get_started.php");
     exit(); 
 }
 

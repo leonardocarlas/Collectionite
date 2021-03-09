@@ -88,7 +88,7 @@
       <br>
 
       <div class="row">
-        <a href="get_started.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
+        <a href="home.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
             <?php
                         
                 if(isset($_SESSION['usernamesession'])){

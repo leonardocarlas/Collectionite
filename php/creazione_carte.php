@@ -4,13 +4,16 @@
 
     set_time_limit(100000000000000);
 
+    echo "ciao";
+
     //crea un array di espansioni
 
     $id_espansioni = get_all_expansions();
 
-    for($j = 0; $j < count($id_espansioni); $j++){
+    for($j = 0; $j < 1; $j++){
 
         $id_espansione = $id_espansioni[$j];
+        echo $id_espansione. "<br>";
         $double_arr = cards_in_the_set($id_espansione);
         $nome_set = $double_arr[0];
 
@@ -24,8 +27,8 @@
                 $id_carta = $returned_cards[$i];
                 $en_name_carta = $returned_cards[$i+1];
                 $link_image_card = $returned_cards[$i+2];
-                echo "Id espansione:  ". $id_espansione ." Id carta: " . $id_carta . " en name: " . $en_name_carta . " link: " . $link_image_card . "<br>";
-
+                //echo "Id espansione:  ". $id_espansione ." Id carta: " . $id_carta . " en name: " . $en_name_carta . " link: " . $link_image_card . "<br>";
+                /*
                 $sql = "INSERT INTO all_cards (Idcard, Idset, Card_name, Set_name, Image_link) VALUES (?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($connessione);
 
@@ -38,8 +41,11 @@
                     mysqli_stmt_close($stmt);
 
                 }
+                */
             }
         }
+        //sleep(60);
+        
     } 
 
     
@@ -71,22 +77,6 @@
             return $id_espansioni;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -228,50 +218,43 @@
             
             //$decoded            = simplexml_load_string($content);
     
-            //echo "Contenuto". $content."Otta";
+            //echo "Contenuto". $content;
             //echo gettype($content);
             //echo "Informazioni  ";
             //print_r($info );
             
-            if(!($content === '')) {
+            
+            if(!($content === '') || !($content === NULL)) {
                 /* Caso in cui il set contiene carte*/
-
-                $jsonIterator = new RecursiveIteratorIterator(
-                new RecursiveArrayIterator(json_decode($content, TRUE)),
-                RecursiveIteratorIterator::SELF_FIRST);
-        
-                
-                $aaa = array();
-        
-                foreach ($jsonIterator as $key => $val) {
-                    if(is_array($val)) {
-                        /* NON VIENE FATTO NULLA*/
-                    } else {
-                        /* Per ogni carta inserisce nell'array aaa idProduct, idExpansion, image, enName*/
-                        
-                        if( $key == "idProduct"){
-                            array_push($aaa, $val);
-                        }
-                        if( $key == "idExpansion"){
-                            array_push($aaa, $val);
-                        }
-                        if( $key == "image"){
-                            array_push($aaa, $val);
-                        }
-                        if( $key == "enName"){
-                            array_push($aaa, $val);
-                        }
+                $expansion_json = json_decode($content, TRUE);
+                if ($expansion_json === NULL)
+                {
+                    echo "Si è rotto";
+                    return cards_in_the_set($id_set);;
+                }
+                else{
+                    $jsonIterator = new RecursiveIteratorIterator(
+                    new RecursiveArrayIterator( $expansion_json ),
+                    RecursiveIteratorIterator::SELF_FIRST);
+            
+                    
+                    $aaa = array();
+            
+                    foreach ($jsonIterator as $key => $val) {
+                        echo "Key: ".$key;
+                        echo "Value: ".$val . "<br>";
                         
                     }
+                    /* Toglie il primo elemento da aaa, che è inutile*/
+                    $primo = array_shift($aaa);
+                    /* Toglie il nuovo primo elemento da aaa, che è il nome inglese del set*/
+                    $enName_Exp = array_shift($aaa);
+                    $double_array = array($enName_Exp, $aaa);
+            
+                    return $double_array;
                 }
                 
-                /* Toglie il primo elemento da aaa, che è inutile*/
-                $primo = array_shift($aaa);
-                /* Toglie il nuovo primo elemento da aaa, che è il nome inglese del set*/
-                $enName_Exp = array_shift($aaa);
-                $double_array = array($enName_Exp, $aaa);
-        
-                return $double_array;
+                
             }
             else {
                 /* Caso in cui il set non contiene carte al suo interno*/
