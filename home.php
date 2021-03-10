@@ -1,6 +1,10 @@
 <?php
     require "header.php";
-    $col_selected = $_SESSION['collezione-selezionata'];
+    if (isset($_SESSION['idcollezione'])){
+        $col_selected = $_SESSION['idcollezione'];
+        echo "Collezione id: ". $col_selected;
+    }
+    
     $id_user = $_SESSION['idusersession'];
 ?>
 
@@ -60,20 +64,19 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(1," . $id_user . ")";?>  >Magic: The Gathering</button>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(1," . $id_user . ")"; ?>  >Magic: The Gathering</button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link btn_load_screen">Pokémon</a>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(6," . $id_user . ")";?>  > Pokémon </button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link btn_load_screen">Yu-gi-oh!</a>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(3," . $id_user . ")";?>  >Yu-gi-oh!</button>
                 </li>
             </ul>
             
@@ -84,34 +87,34 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Force of Will</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(7," . $id_user . ")";?>  >Force of Will</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cardfight! Vanguard</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(8," . $id_user . ")";?>  >Cardfight! Vanguard</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Final Fantasy</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(9," . $id_user . ")";?>  >Final Fantasy</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Star Wars</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(15," . $id_user . ")";?>  >Star Wars</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dragonball Z</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(13," . $id_user . ")";?>  >Dragonball Super</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dragoborne</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(11," . $id_user . ")";?>  >Dragoborne</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">World of Warcraft</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(2," . $id_user . ")";?>  >World of Warcraft</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Spoils</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(5," . $id_user . ")";?>  >The Spoils</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Weib Schwarz</a>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(10," . $id_user . ")";?>  >Weiss Schwarz</button>
                     </li>
                     <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(13," . $id_user . ")";?> > My Little Pony </button>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(12," . $id_user . ")";?> > My Little Pony </button>
                     </li>
                 </ul>
             </div>
@@ -119,133 +122,43 @@
 
 
       
-
+<!-- in questo div vengono ritornati gli album a seconda della collezione selezionata -->
 <div id = "album_ritornati">
+
+
 
 </div>
 
 
 
+<?php
+/*   
+    if(isset($_GET['Edit'])){
+        $album_to_edit = $_GET['Edit'];
+        $id = $_GET['ID'];
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--
-        <div class="content">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-10">
-                    <div class="card card-primary card-outline">
-                    <div class="card-header">
-                        <h3 class="card-title">Prima di tutto, seleziona un tipo di Collezione</h3>
-                    </div>
-                    
-                   
-                    <form method="POST" action="php/get_albums.php" role="form">
-                        <div class="card-body">
-                        <div class="form-group" data-children-count="1">
-                        <select name="collection-type" class="form-control">
-                            <option>--Choose the collection--</option>
-                            <option>Pokemon</option>
-                            <option>Yu-gi-oh!</option>
-                            <option>Magic: The Gathering</option>
-                            <option>Vanguard</option>
-                            <option>Force of Will</option>
-                            <option>World of Warcraft TCG</option>
-                            <option>Star Wars: Destiny</option>
-                            <option>Dragoborne</option>
-                            <option>My Little Pony CCG</option>
-                            <option>Dragon Ball Cardgame</option>
-                            <option>WeiB Swharz</option>
-                            <option>The Spoils</option>
-                            <option>Final Fantasy TCG</option>
-                            </select>
-                        </div>
-                        </div>
-                        
-
-                        <div class="card-footer">
-                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="selected-collection">Conferma</button>
-                        </div>
-                    </form>
-                    </div>
+        echo'  
+        
+        <div class="row justify-content-center"> 
+            <form method="POST" action="php/albuminsert.php?E='.$id .'" class="form-inline">
+                <div class="form-group">
+                    <label for="old_album_name">Modifica il titolo dell\'album</label>
                 </div>
-            </div>
-        </div>
-        -->
-
-<!-- 
-        <div class="row justify-content-center mt-5">
-            <div class="col-10">
-                <div class="card">
-                    <div class="card-header">
-                    <h3 class="card-title">Titolo</h3>
-                    </div>
-                    
-                    <div class="card-body">
-                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
-                                    <thead>
-                                        <tr role="row">
-                                            <th>Album</th>
-                                            <th>Azione</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                   
-                                        <tr role="row" class="even">
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    
-                    </div>
+                <div class="form-group mx-sm-3">
+                    <input type="text" class="form-control" name="old_album_name"  value='.$album_to_edit.'>
                 </div>
-            </div>
+                <input type="submit" class="btn btn-info" name="update_album" value="Aggiorna" >
+            </form>
         </div>
-        </div>
-        </div>
-        </div>
+        
+        ';
+    }
+*/
+?>
 
 
 
-
-                <div class="content-wrapper">
-                <div class="content-header">
-                    <div class="container">
-                    <div class="row mb-3">
-                        <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"> Tipo di collezione: '. $name_collection .'</h1>
-                        </div> 
-                    </div>
-                    <div class="row mb-5">
-                        <form method="POST" action="php/change_collection.php">
-                            <button class="btn text-white" style="background-color: #5401a7;" type="submit" name="change-collection">Cambia Collezione</button> 
-                        </form>
-                    </div>
-                    </div>
-                </div>
-            
--->
 
 
 <br><br><br><br><br><br><br><br><br>
@@ -299,9 +212,5 @@ function get_albums($id_user, $id_collection) {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($connessione);
-
-}
-
-function get_new_url () {
 
 }
