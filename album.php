@@ -13,8 +13,8 @@
 
 
     // APERTURA DA HOME.PHP, DOPO AVER SELEZIONATO L'ALBUM   --------   NORMAL MODE
-    if(isset($_GET['OPEN'])){
-        $_SESSION['album-selezionato'] =  mysqli_real_escape_string($connessione, $_GET['OPEN']);
+    if(isset($_GET['ID']) && isset($_GET['NAME']) ){
+        $_SESSION['album-selezionato'] =  mysqli_real_escape_string($connessione, $_GET['NAME']);
         $id_album = mysqli_real_escape_string($connessione, $_GET['ID']);
         $_SESSION['idalbum'] = $id_album;    
     }
@@ -46,23 +46,17 @@
 
 ?>
 
-<!-- 1.E NORMAL & VMODE. BACKE TO THE PREVIOUS PAGE -->
-    <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Sei nell'album: <?php echo $_SESSION['album-selezionato']; ?></h1>                           
-                    </div><!-- /.col -->
-                </div>
-                <div class="row mb-2">
-                        <a class="btn text-white" style="background-color: #5401a7;" href="home.php">Torna a selezionare gli album</a>    
-                </div>
-                </div><!-- /.container-fluid -->
-            </div>
-        <div>
+<!-- 1. Time Line -->
+
+    <div class="row mb-2">
+        <div class = "col">
+            <h5><a href= "home.php" >My collection </a></h5> <p> ></p> <h5 >Album: <?php echo $_SESSION['album-selezionato']; ?></h5> 
+        </div>   
     </div>
+            
 <!-- 1.E FINISH -->
+
+
 
 <!-- 2.E E NORMAL INSERT NEW CARD -->
 <?php
@@ -482,72 +476,7 @@ mysqli_close($connessione);
 
 
 
-<?php
 
-function preparation_name($card_name)
-{
-    $nome = $card_name;
-    if (strpos($nome, ' (V.1)') == true){
-        $nome = str_replace(' (V.1)', '', $nome);
-    }
-    if (strpos($nome, ' (V.2)') == true){
-        $nome = str_replace(' (V.2)', '', $nome);
-    }
-    return $nome;
-}
-?>
-
-<?php
-    
-    function li($card_name,$set_name) {
-
-        if(isset($_SESSION['namecollection'])){
-            $name_collection = $_SESSION['namecollection'];
-        } else if(isset($_SESSION['VMODE']) && $_SESSION['VMODE']==TRUE){
-            $name_collection = collection($idcollection);
-        }
-
-        //https://www.cardmarket.com/it/Pokemon/Products/Singles/Darkness-Ablaze/Butterfree-V-Dizzying-Poison-Blasting-Wind
-        $li = "https://www.cardmarket.com/en/";
-        
-        if (strpos($card_name, ' δ') == true){
-            $card_name =  str_replace(' δ', '', $card_name);
-        }
-        if (strpos($card_name, ']') == true){
-            $card_name =  str_replace(']', '', $card_name);
-        }
-        if (strpos($card_name, '[') == true){
-            $card_name =  str_replace('[', '', $card_name);
-        }
-        if (strpos($card_name, '|') == true){
-            $card_name =  str_replace('|', '', $card_name);
-        }
-        if (strpos($card_name, ')') == true){
-            $card_name =  str_replace(')', '', $card_name);
-        }
-        if (strpos($card_name, '(') == true){
-            $card_name =  str_replace('(', '', $card_name);
-        }
-        if (strpos($card_name, '.') == true){
-            $card_name =  str_replace('.', '', $card_name);
-        }
-        if (strpos($card_name, ',') == true){
-            $card_name =  str_replace(',', '', $card_name);
-        }
-        if (strpos($card_name, '☆') == true){
-            $card_name =  str_replace('☆', '', $card_name);
-        } 
-
-        
-
-        $card_name= preg_replace('/\s+/', '-', $card_name);
-        $set_name= preg_replace('/\s+/', '-', $set_name);
-
-        $li = $li.$name_collection."/Products/Singles/".$set_name."/".$card_name;
-        
-        return $li;
-    }
-?>
 
 
 

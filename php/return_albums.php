@@ -30,17 +30,24 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
             for ($i = 0; $i < count ($array_album); $i = $i + 2){
                 echo '
                     <div class = "row justify-content-center">
-                        <a href = "album.php?ID='.$array_album[$i+1].'" >
-                            <div>
-                                <div class = "row justify-content-center">
-                                    <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                        <div class = "col">
+                            <a href = "album.php?ID='.$array_album[$i+1].'&NAME='.$array_album[$i].'" >
+                                <div>
+                                    <div class = "row justify-content-center">
+                                        <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                    </div>
+                                    <div class = "row justify-content-center">
+                                        <p> '.$array_album[$i].' </p>
+                                    </div>
                                 </div>
-                                <div class = "row justify-content-center">
-                                    <p> '.$array_album[$i].' </p>
-                                </div>
+                            </a>
+                            <div class = "row justify-content-center">
+                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/albuminsert.php?delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
                             </div>
-                        </a>
+                        </div>
                     </div> 
+
+                    <br>
                     ';
             } 
 
@@ -117,3 +124,36 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
 }
 
 
+
+?>
+
+<script type = "text/javascript">
+    function modify_name(id_album) {
+
+        Swal.fire({
+        title: 'Cambia il nome dell\'album',
+        input: 'text',
+        showCancelButton: true,
+        confirmButtonText: 'Conferma',
+        }).then((result) => {
+                
+            if(result.value){
+                update_album( id_album , result.value);
+                
+            }
+                
+        })
+    }   
+</script>
+
+
+
+<script type ="text/javascript">
+    //data è echo
+    function update_album(id_album, new_album_name){
+        $.post("php/albuminsert.php",{"id_album":id_album, "new_album_name":new_album_name},function(data){
+            $("#").html(data);
+            });
+    }
+
+</script>

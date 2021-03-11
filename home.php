@@ -1,10 +1,10 @@
 <?php
     require "header.php";
-    if (isset($_SESSION['idcollezione'])){
-        $col_selected = $_SESSION['idcollezione'];
-        echo "Collezione id: ". $col_selected;
-    }
     
+    if (isset($_SESSION['idcollezione'])){
+        $id_collection = $_SESSION['idcollezione'];
+        echo "Collezione id: ". $id_collection;
+    }
     $id_user = $_SESSION['idusersession'];
 ?>
 
@@ -64,19 +64,19 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(1," . $id_user . ")"; ?>  >Magic: The Gathering</button>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(1," . $id_user . ")"; ?>  type="button" class="btn btn-outline-primary" >Magic: The Gathering</button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(6," . $id_user . ")";?>  > Pokémon </button>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(6," . $id_user . ")";?>  type="button" class="btn btn-outline-primary"> Pokémon </button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(3," . $id_user . ")";?>  >Yu-gi-oh!</button>
+                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(3," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Yu-gi-oh!</button>
                 </li>
             </ul>
             
@@ -87,35 +87,37 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(7," . $id_user . ")";?>  >Force of Will</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(7," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Force of Will</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(8," . $id_user . ")";?>  >Cardfight! Vanguard</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(8," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Cardfight! Vanguard</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(9," . $id_user . ")";?>  >Final Fantasy</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(9," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Final Fantasy</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(15," . $id_user . ")";?>  >Star Wars</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(15," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Star Wars</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(13," . $id_user . ")";?>  >Dragonball Super</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(13," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Dragonball Super</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(11," . $id_user . ")";?>  >Dragoborne</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(11," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Dragoborne</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(2," . $id_user . ")";?>  >World of Warcraft</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(2," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">World of Warcraft</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(5," . $id_user . ")";?>  >The Spoils</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(5," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">The Spoils</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(10," . $id_user . ")";?>  >Weiss Schwarz</button>
+                        <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(10," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button>
                     </li>
+                    <!--
                     <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(12," . $id_user . ")";?> > My Little Pony </button>
+                    <button class="nav-link btn_load_screen" onClick = <?php // echo "return_albums(12," . $id_user . ")";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
                     </li>
+                    -->
                 </ul>
             </div>
         </nav>
@@ -129,33 +131,6 @@
 
 </div>
 
-
-
-<?php
-/*   
-    if(isset($_GET['Edit'])){
-        $album_to_edit = $_GET['Edit'];
-        $id = $_GET['ID'];
-        
-
-        echo'  
-        
-        <div class="row justify-content-center"> 
-            <form method="POST" action="php/albuminsert.php?E='.$id .'" class="form-inline">
-                <div class="form-group">
-                    <label for="old_album_name">Modifica il titolo dell\'album</label>
-                </div>
-                <div class="form-group mx-sm-3">
-                    <input type="text" class="form-control" name="old_album_name"  value='.$album_to_edit.'>
-                </div>
-                <input type="submit" class="btn btn-info" name="update_album" value="Aggiorna" >
-            </form>
-        </div>
-        
-        ';
-    }
-*/
-?>
 
 
 
@@ -180,37 +155,6 @@
 </script>
 
 
-<?php
 
-function get_albums($id_user, $id_collection) {
 
-    require "php/dbh.php";
-    $array_album = array();
-    $sql = "SELECT Album_name, Idalbum FROM album WHERE Iduser=? AND Idcollection=? ; ";
-    $stmt = mysqli_stmt_init($connessione);
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-    echo "Error in the database";
-    }
-    else{
-    mysqli_stmt_bind_param($stmt, "ii", $id_user, $idcollection);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt); 
 
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-         
-            echo ' Album : '. $row['Album_name'].' ID : '.$row['Idalbum']. '<br>';
-            array_push($array_album,  $row['Album_name']);
-            array_push($array_album,  $row['Idalbum']);
-        }
-        return $array_album; 
-    } else {
-        array_push($array_album,  "NO ALBUM");
-        return $array_album;
-    }
-
-    }
-    mysqli_stmt_close($stmt);
-    mysqli_close($connessione);
-
-}
