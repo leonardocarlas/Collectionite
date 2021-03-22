@@ -98,279 +98,94 @@
             );
         </script>
 
-<?php  } if(isset($_GET['error'])){  ?>
-            
-            <?php  if($_GET['error'] == "emptyfields"){ ?>
-                <div class="alert alert-danger" role="alert" >
-                    Attento: hai dimenticato di inserire il nome del set o il nome della carta.
-                </div>
-
-            <?php }?>
-            
-            <?php if($_GET['error'] == "features-not-selected"){  ?>
-                <div class="alert alert-danger" role="alert">
-                    Attento: hai dimenticato di inserire le caratteristiche della carta.
-                </div>
-
-            <?php } ?>
-
-            <?php if($_GET['error'] == "SQL_CardNotInDB"){  ?>
-                <div class="alert alert-danger" role="alert">
-                    L'inserimento della carta non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
-                </div>
-
-            <?php } ?>
-
-            <?php if($_GET['error'] == "strangeerror"){  ?>
-                <div class="alert alert-danger" role="alert">
-                    L'inserimento della carta non è andato a buon fine. Se hai provato l'opzione "Only Link" prova ora "Set & Name" o viceversa. Se il problema persiste, contattaci attraverso la pagina "Contattaci".
-                </div>
-
-            <?php } ?>
-
-            <?php if($_GET['error'] == "problemIntheLink"){  ?>
-                <div class="alert alert-danger" role="alert">
-                    Sembra che il link di cardmarket non sia stato copiato correttamente. Ricontrolla e riprova.
-                </div>
-
-            <?php } ?>
-
-
 <?php } ?>
 
 
-    
-<!-- 4.E NORMAL & VMODE TABLE OF CARDS -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Tabella delle carte. Vengono mostrati tutti i dati delle carte contenute dall'utente in quell'album -->
 
 <?php
+
+    $array_carte = get_cards_for_the_album($id_user, $id_album);
+
+    if (empty($array_carte)) {
+
+        // Non ci sono carte, mostro solamente la tabella all'utente e spiego che non sono presenti
+
+        echo "<br><br>" . "Non hai ancora inserito carte per questo album". "<br>";
+    }
+    else {
+
+        // Sono già state inserite delle carte, le mostro nella tabella
             
-$sql = "SELECT Idpossession, card.Idcard, Card_name, Set_name, Quantity, Language, ExtraValues, Conditions FROM possesses JOIN card ON possesses.Idcard = card.Idcard WHERE possesses.Iduser = ? AND possesses.Idalbum =? " ;
-$stmt = mysqli_stmt_init($connessione);
-if(!mysqli_stmt_prepare($stmt, $sql)){
-    echo "SQL error";
-}
-else{
-        mysqli_stmt_bind_param($stmt, "ii", $id_user, $id_album);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+?>
 
-            if ($result->num_rows > 0) 
-            {
-                // output data of each row
-                ?>
-                <div class="row justify-content-center mt-5">
-                <div class="col-12">
-                    <div class="card card-primary card-outline">
+    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 table-responsive">
+                <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Carta</th>
+                            <th scope="col">Espansione</th>
+                            <th scope="col">Min Price</th>
+                            <th scope="col">Trend Price</th>
+                            <th scope="col">Quantità</th>
+                            <th scope="col">Lingua</th>
+                            <th scope="col">Valori Extra</th>
+                            <th scope="col">Condizioni</th>
+                            <th scope="col">Evaluation Price</th> 
+                            <th scope="col">Link</th>      
+                            <th scope="col">Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'] ); -->
+                        <?php for($i = 0; $i < count($array_carte); $i = $i + 10) { ?>
+                            <tr>
+                                <td> <?php echo $i/10 ?></td>
+                                <td> <?php echo $array_carte[$i] ?></td>
+                                <td> <?php echo $array_carte[$i+1] ?></td>
+                                <td> <?php echo $array_carte[$i+3] ?></td>
+                                <td> <?php echo $array_carte[$i+4] ?></td>
+                                <td> <?php echo $array_carte[$i+5] ?></td>
+                                <td> <?php echo $array_carte[$i+6] ?></td>
+                                <td> <?php echo $array_carte[$i+7] ?></td>
+                                <td> <?php echo $array_carte[$i+8] ?></td>
+                                <td> <?php echo " - "?></td>
+                                <td> <?php $link = "https://www.cardmarket.com" . $array_carte[$i+9];  echo '<a href="'.$link.'"> link </a>'; ?></td>
+                                <td> <?php echo 'Elimina - Modifica ' ?></td>
+                            
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table> 
+            </div><!-- /.col-sm-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.wrapper -->
 
-                        <div class="card-header">
-                            <h3 class="card-title">Album: <?php echo $album_corrente; ?> </h3>
-                        </div><!-- /.card-header -->
-
-                        <br>
-
-                        <div class="card-header">
-                            <div class="row justify-content-center">
-                                <div class="col-sm-auto">
-                                    <text>
-                                        <h5><p class="font-weight-bold">2. Secondo step.</p> Seleziona il tipo di valutazione delle carte. Il sito impiegherà <br> pochi secondi per aggiornare tutti i prezzi delle carte.</h5>
-                             
-                                    <div class="btn-group" role="group" aria-label="Basic example" id="contenitore-pulsanti">
-                                        <form action="album.php" method="POST">
-                                            <div class="form-group">
-                                                <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Minimum & Trend Prices">
-                                            </div>
-                                        </form>
-                                        <form action="album.php" method="POST">
-                                            <div class="form-group">
-                                                <input type="submit" name="EV" class="btn text-white" style="background-color: #5401a7;" value="Evaluation Prices based on Language & Condition">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                                    
-                        </div>
-
-                        <br>
-                        
-                        <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                <div class="row">
-                                    <div class="col-sm-12 table-responsive">
-                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nome della carta</th>
-                                                <th scope="col">Nome del Set</th>
-                                                <th scope="col">Quantità</th>
-                                                <th scope="col">Lingua</th>
-                                                <th scope="col">Valori Extra</th>
-                                                <th scope="col">Condizioni</th>
-
-                                            <?php if( $ricarica_prezzi_min_trend == TRUE){ ?>
-
-                                                <th scope="col">Prezzo minimo</th>
-                                                <th scope="col">Tendenza di prezzo</th>
-
-                                            <?php } else if($ricarica_prezzi_lan_cond == TRUE) { ?>
-
-                                                <th scope="col">Prezzo di valutazione</th> 
-
-                                            <?php }  ?>
-
-                                                <th scope="col">Aprilo su cardmarket.com</th>      
-                                                <th  scope="col">Azioni</th>
-
-                                            </tr>
-                                        </thead>
-
-
-                                        <?php    
-                                            while($row = $result->fetch_assoc()) {  ?>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row"> <?php echo $row['Card_name'] ?></td>
-                                                <td> <?php echo $row['Set_name'] ?></td>
-                                                <td> <?php echo $row['Quantity'] ?></td>
-                                                <td> <?php echo $row['Language'] ?></td>
-                                                <td> <?php echo $row['ExtraValues'] ?></td>
-                                                <td> <?php echo $row['Conditions'] ?></td>
-
-                                            <?php if( $ricarica_prezzi_min_trend === TRUE ){ 
-                                                    $lo = low_trend($row['Idcard']);
-                                            ?>
-
-                                                <td> <?php echo $lo[1]; $total_min = $total_min + $lo[1]; ?></td>
-                                                <td> <?php echo $lo[2]; $total_trend = $total_trend + $lo[2]; ?>   </td>
-
-                                            
-                                            <?php } else if($ricarica_prezzi_lan_cond === TRUE) { ?>
-
-                                                <td> <?php 
-                                                            $media = avarage_price($row['Idcard'], lingua($row['Language']), $row['Conditions']);
-                                                            if($media != 0){
-                                                                echo $media;
-                                                                $total_avarage = $total_avarage + $media;
-                                                            }
-                                                            else
-                                                            {
-                                                                echo "For this card there are too few data. Check it on Minimum & Trend option";
-                                                            }    
-                                                        ?>
-                                                </td>
-                                                <?php } ?>
-
-                                                    <td> <?php  
-                                                        if( $ricarica_prezzi_min_trend === TRUE ){
-                                                                $link = $lo[0];
-                                                        }else{
-                                                                $link = li($row['Card_name'],$row['Set_name']);
-                                                        }
-                                                                echo '<a href="'.$link.'">link<a>';
-
-                                                        ?>
-                                                    </td>
-                                                    <td> <?php
-                                                        
-                                                            $delete = "php/cardinsert.php?delete=" . $row['Idpossession'] ;
-                                                            echo '<a href="'.$delete.'">Elimina carta</a> </td> '; 
-                                                        ?> 
-                                                    </td>
-                                                </tr>
-
-                                                <?php   }   ?>
-
-                                            </tbody>
-                                            <tr>
-                                                <?php 
-                                                    if( $ricarica_prezzi_min_trend === TRUE){
-                                                        echo  '
-                                                            <td> Prezzo totale dell\'album: </td> 
-                                                            <td> Prezzo minimo: '.$total_min.' </td>
-                                                            <td> Prezzo di tendenza: '.$total_trend.' </td>' ; 
-                                                    } else{
-                                                        echo '
-                                                            <td> Prezzo totale dell\'album: </td> 
-                                                            <td> Prezzo di valutazione: '.$total_avarage.' </td> ';
-
-                                                    }
-                                                ?> 
-                                            </tr>
-                                        </table> 
-                                    </div><!-- /.col-sm-12 -->
-                                </div><!-- /.row -->
-                            </div><!-- /.wrapper -->
-
-                        <?php   $sql = "SELECT Idalbum FROM statistic WHERE Idalbum = ? ";
-                                $stmt = mysqli_stmt_init($connessione);
-                                if(!mysqli_stmt_prepare($stmt, $sql)){
-                                    echo "SQL error";
-                                }
-                                else{
-
-                                    mysqli_stmt_bind_param($stmt, "i", $id_album);
-                                    mysqli_stmt_execute($stmt);
-                                    $result = mysqli_stmt_get_result($stmt);
-
-                                    if ($result->num_rows > 0) {
-                                        $check = false; //l'album è già registrato
-                                    } else {
-                                        $check = true; //l'album non è registrato
-                                    }
-                                }
-                                    
-                                if($check == true) {  ?>                                   
-                                
-                                        <div class="card-footer">
-                                            <h5><p class="font-weight-bold">Comincia a tracciare il tuo album.</p> Ti consigliamo di cliccare il bottone se e solo se il tuo Album è completo e per un periodo di tempo non dovrai aggiungere altre carte. In questo modo il sito potrà disegnare un grafico davvero indicativo dell'andamento dei prezzi del tuo album. </h5>
-                                            <!--  <form method="GET" action="" >    -->
-                                                <button type="submit" class="btn btn-link" name="start-track">
-                                                    <?php
-                                                        $start_track = "php/start_tracking.php?start-track=" . $id_album ;
-                                                        echo '<a href="'.$start_track.'">Start Tracking</a> '; 
-                                                    ?>
-                                                </button>
-                                            <!-- </form>  -->
-                                        </div>
-                
-                                <?php } 
-                                if($check == false && $ricarica_prezzi_min_trend === TRUE ){   ?>
-
-                                        <div class="card-footer">
-                                            <h5><p class="font-weight-bold">Resgistra il valore totale dell'album (prezzo minimo e di tendenza).</p>Ti consigliamo di farlo una volta a settimana (per esempio, il noiosissimo lunedì). </h5>
-                                                <button type="submit" class="btn btn-link" name="register-total">
-                                                    <?php
-                                                        $register_values = "php/update_statistic.php?register=true&trend=".$total_trend."&min=".$total_min."&album=".$id_album;
-                                                        echo '<a href="'.$register_values.'">Register new values</a> '; 
-                                                    ?>
-                                                </button>
-                                            <!-- </form>  -->
-                                        </div>
-
-                                <?php
-                                }
-                                ?>
-
-
-
-
-            </div><!-- /.cardbody -->
-          </div><!-- /.card -->
-        </div><!-- /.col-sm-12 -->
-     </div><!-- /.row-->
     
 <?php 
+    } 
 
-
-
-    } // chiusure if result
-}//chiusura primo if/else gigante
 ?>
 
 
 
 
-<!-- 4.E FINISH  -->     
+
 
 
 
@@ -471,6 +286,52 @@ mysqli_close($connessione);
 
 <?php
     require "footer.php";
+?>
+
+
+
+
+
+<?php
+    function get_cards_for_the_album($id_user, $id_album){
+
+        require "php/dbh.php";
+        $sql = "SELECT Idpossession, cards.Idcard, Idset, Quantity, 
+        Language, ExtraValues, Conditions, cards.Website, cards.Image_link, prices.Min_value, prices.Trend_Value
+        FROM possesses 
+        INNER JOIN cards ON possesses.Idcard = cards.Idcard
+        INNER JOIN prices ON prices.Idcard = possesses.Idcard 
+        WHERE possesses.Iduser = ? AND possesses.Idalbum = ?
+        GROUP BY possesses.Idcard; " ;
+
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo "Error in the database";
+        }
+        else{
+                mysqli_stmt_bind_param($stmt, "ii", $id_user, $id_album);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt); 
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+
+                        $dati_tabella = array();
+                        array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'] );
+                    }
+                    return $dati_tabella;
+                }
+                else{
+                    $vuoto = array();
+                    return $vuoto;
+                }
+
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+
+         
+    }
 ?>
 
 
@@ -876,55 +737,7 @@ mysqli_close($connessione);
 
 ?>
 
-<?php
-    function collection($idcollection){
 
-        $name_collection = "";
-                                                //i vari if per la type collection
-                                                if($idcollection==6){
-                                                    $name_collection = "Pokemon";    
-                                                }
-                                                else if($idcollection==3){
-                                                    $name_collection = "Yu-gi-oh!";
-                                                }
-                                                else if($idcollection==1){
-                                                    $name_collection = "Magic: The Gathering";
-                                                }
-                                                else if($idcollection==8){
-                                                    $name_collection = "Vanguard";
-                                                    
-                                                }
-                                                else if($idcollection==7){
-                                                    $name_collection = "Force of Will";
-                                                }
-                                                else if($idcollection==2){
-                                                    $name_collection = "World of Warcraft TCG";
-                                                }
-                                                else if($idcollection==15){
-                                                    $name_collection = "Star Wars: Destiny";
-                                                }
-                                                else if($idcollection==11){
-                                                    $name_collection = "Dragoborne";
-                                                }
-                                                else if($idcollection==12){
-                                                    $name_collection = "My Little Pony CCG";
-                                                }
-                                                else if($idcollection==13){
-                                                    $name_collection = "Dragon Ball Cardgame";
-                                                }
-                                                else if($idcollection==10){
-                                                    $name_collection = "WeiB Swharz";
-                                                }
-                                                else if($idcollection==15){
-                                                    $name_collection = "The Spoils";
-                                                }
-                                                else if($idcollection==9){
-                                                    $name_collection = "Final Fantasy TCG";
-                                                }
-        return $name_collection;
-
-    }
-?>
 
 <?php
     function manipulationlink($collegamento){

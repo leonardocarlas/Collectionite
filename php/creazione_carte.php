@@ -8,10 +8,10 @@
 
 
 
-    //for($j = 0; $j < 1; $j++){
+    //for($j = 0; $j < count($id_espansioni); $j++){
 
         //$id_espansione = $id_espansioni[$j];
-        $id_espansione = 1530;
+        $id_espansione = 1574;
         echo $id_espansione. "<br>";
         $double_array_espansione_carte = cards_in_the_set($id_espansione);
 
@@ -23,6 +23,7 @@
             $array_carte = $double_array_espansione_carte[1];
             
             fill_expansion_table($id_espansione, $array_espansione[1], $array_espansione[2], $array_espansione[3], $array_espansione[4]);
+            echo count($array_carte).'<br>';
             
             for($i=0; $i<count($array_carte); $i=$i+10){
 
@@ -40,7 +41,7 @@
                 $italian_card_name = $array_carte[$i+9]; //9
 
                 fill_cards_table($id_carta, $id_espansione, $english_card_name, $french_card_name, $german_card_name, $spanish_card_name, $italian_card_name, $count_articles, $count_foils, $website, $image_link);
-                echo "ok carta";
+                echo $id_carta.'<br>';
             }
             
         }
@@ -53,7 +54,7 @@
 function fill_expansion_table($id_espansione, $nome_francese, $nome_tedesco, $nome_spagnolo, $nome_italiano ){
     
     require "dbh.php";
-    $sql = "UPDATE expansion SET French_set_name = '$nome_francese', German_set_name = '$nome_tedesco', Spanish_set_name = '$nome_spagnolo', Italian_set_name= '$nome_italiano' WHERE Idset = '$id_espansione'";
+    $sql = "UPDATE expansion SET French_set_name = '$nome_francese', German_set_name = '$nome_tedesco', Spanish_set_name = '$nome_spagnolo', Italian_set_name= '$nome_italiano' WHERE Idset = $id_espansione";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -68,7 +69,7 @@ function fill_expansion_table($id_espansione, $nome_francese, $nome_tedesco, $no
 function fill_cards_table($idcard, $idset, $english_card_name, $french_card_name, $german_card_name, $spanish_card_name, $italian_card_name, $count_articles, $count_foils, $website, $image_link){
     
     require "dbh.php";
-    $sql = "INSERT INTO nigga_card (Idcard, Idset, English_card_name, French_card_name, German_card_name, Spanish_card_name, Italian_card_name, Count_articles, Count_foils, Website, Image_link) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO cards (Idcard, Idset, English_card_name, French_card_name, German_card_name, Spanish_card_name, Italian_card_name, Count_articles, Count_foils, Website, Image_link) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -241,6 +242,8 @@ function cards_in_the_set($id_set)
         $info               = curl_getinfo($curlHandle);
         curl_close($curlHandle);
 
+        print_r($info);
+        echo '<br>';
 
         //$decoded            = json_decode($content);
         
@@ -257,6 +260,7 @@ function cards_in_the_set($id_set)
             
             $expansion_json = json_decode($content);
             
+            // Il json_decode restituisce un elemento nullo
             if ($expansion_json === NULL)
             {
                 echo "Si è rotto". '<br>';

@@ -3,7 +3,6 @@
     
     if (isset($_SESSION['idcollezione'])){
         $id_collection = $_SESSION['idcollezione'];
-        echo "Collezione id: ". $id_collection;
     }
     $id_user = $_SESSION['idusersession'];
 ?>

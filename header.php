@@ -101,33 +101,79 @@
           
           <li class="nav-item">
                 <?php
-                    
                     if(basename($_SERVER['PHP_SELF']) == "index.php")
                         echo '<a href="index.php" class="nav-link active">Collection Sight</a>';
                     else
                         echo '<a href="index.php" class="nav-link">Collection Sight</a>';
-                    
                 ?>
-            </li>
+          </li>
+
+          <li class="nav-item">
+              <?php
+                  if(basename($_SERVER['PHP_SELF']) == "wallstreet.php")
+                      echo '<a href="wallstreet.php" class="nav-link active">Wall Street</a>';
+                  else
+                      echo '<a href="wallstreet.php" class="nav-link">Wall Street</a>';
+              ?>
+          </li>
+          <li class="nav-item">
+              <?php 
+                  if(basename($_SERVER['PHP_SELF']) == "reddsight.php")
+                      echo '<a href="reddsight.php" class="nav-link active">Redd Sight</a>';
+                  else
+                      echo '<a href="reddsight.php" class="nav-link">Redd Sight</a>';
+              ?>
+          </li>
+          <li class="nav-item">
+              <?php 
+                  if(basename($_SERVER['PHP_SELF']) == "wantedlist.php")
+                      echo '<a href="wantedlist.php" class="nav-link active">Wanted List</a>';
+                  else
+                      echo '<a href="wantedlist.php" class="nav-link">Wanted List</a>';
+              ?>
+          </li>
+          <li class="nav-item">
+              <?php 
+                  if(basename($_SERVER['PHP_SELF']) == "cinema.php")
+                      echo '<a href="cinema.php" class="nav-link active">Cinema Mode</a>';
+                  else
+                      echo '<a href="cinema.php" class="nav-link">Cinema Mode</a>';
+              ?>
+          </li>
+          <li class="nav-item">
+              <?php 
+                  if(basename($_SERVER['PHP_SELF']) == "articles.php")
+                      echo '<a href="articles.php" class="nav-link active">Articles</a>';
+                  else
+                      echo '<a href="articles.php" class="nav-link">Articles</a>';
+              ?>
+          </li>
             
 
-            
+            <!--
             <li class="nav-item">
               <?php
+                  /*
                   if(basename($_SERVER['PHP_SELF']) == "what.php")
                       echo '<a href="what.php" class="nav-link active">About Us</a>';
                   else
                       echo '<a href="what.php" class="nav-link">About Us</a>';
+                  */
               ?>
             </li>
             <li class="nav-item">
-              <?php
+              <?php 
+                  /*
                   if(basename($_SERVER['PHP_SELF']) == "contact.php")
                       echo '<a href="contact.php" class="nav-link active">Contattaci</a>';
                   else
                       echo '<a href="contact.php" class="nav-link">Contattaci</a>';
+                  */
               ?>
             </li>
+            -->
+
+  
             <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "payments.php")
