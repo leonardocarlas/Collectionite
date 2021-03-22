@@ -150,7 +150,6 @@
             $("#album_ritornati").html(data);
             });
     }
-
 </script>
 
 

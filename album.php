@@ -5,6 +5,7 @@
     $total_avarage = 0;
     $total_trend = 0;
     $total_min = 0;
+    $array_dati_album = array();
 
     $inserimento_per_link = false;
     $inserimento_per_set_nome = false;
@@ -20,8 +21,7 @@
     }
 
 
-
-    //VARIABILI GLOBALI
+    // Variabili Globali
     $album_corrente = $_SESSION['album-selezionato'];
     $user = $_SESSION['usernamesession'];
     $idcollection = $_SESSION['idcollezione'];  
@@ -32,15 +32,12 @@
 
 <!-- Time Line -->
 
-    <div class="row mb-2">
-        <div class = "col">
-            <h5><a href= "home.php" >My collection </a></h5> <p> ></p> <h5 >Album: <?php echo $_SESSION['album-selezionato']; ?></h5> 
-        </div>   
-    </div>
+<div class="row mb-2">
+    <div class = "col">
+        <h5><a href= "home.php" >My collection </a></h5> <p> ></p> <h5 >Album: <?php echo $_SESSION['album-selezionato']; ?></h5> 
+    </div>   
+</div>
             
-
-
-
 
 
 
@@ -131,12 +128,12 @@
                             <th scope="col">Condizioni</th>
                             <th scope="col">Evaluation Price</th> 
                             <th scope="col">Link</th>      
-                            <th scope="col">Azioni</th>
+                            <th scope="col" colspan="2">Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'] ); -->
-                        <?php for($i = 0; $i < count($array_carte); $i = $i + 10) { ?>
+                        <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession'] ); -->
+                        <?php for($i = 0; $i < count($array_carte); $i = $i + 11) { ?>
                             <tr>
                                 <td> <?php echo $i/10 ?></td>
                                 <td> <?php echo '<img src="'.$array_carte[$i+2] .'" alt="Foto" width="100" height="150">'?></td>
@@ -150,10 +147,11 @@
                                 <td> <?php echo $array_carte[$i+8] ?></td>
                                 <td> <?php echo " - "?></td>
                                 <td> <?php $link = "https://www.cardmarket.com" . $array_carte[$i+9];  echo '<a href="'.$link.'"> link </a>'; ?></td>
-                                <td> <?php echo 'Elimina - Modifica ' ?></td>
+                                <td> <a href="php/CRUD_card.php?Edit=". $array_carte[$i+9] > Modifica</a> </td>
+                                <td> <a href="php/CRUD_card.php?Delete=". $array_carte[$i+9] > Elimina</a> </td>
                             </tr>
                         <?php } ?>
-                        </tbody>
+                    </tbody>
                 </table> 
             </div><!-- /.col-sm-12 -->
         </div><!-- /.row -->
@@ -248,7 +246,7 @@
         <p>Cliccando sul bottone sottostante, viene scaricato un file .txt contente i dati della tabella dell'album, in modo tale da poterlo condividere.</p>
     </div>
     <div class="row justify-content-center">
-        <button type="submit" class="btn text-white" style="background-color: #5401a7;" name="register-total"> Esporta Album </button>
+        <button onClick = <?php echo "export_album(".$array_dati_album.")"; ?>  type="button" class="btn text-white" style="background-color: #5401a7;" name="register-total"> Esporta Album </button>
     </div>
    
    
@@ -353,6 +351,16 @@ mysqli_close($connessione);
 
 
 
+<script type ="text/javascript">
+    //data è un echo, stampa le cose
+    function export_album(array_dati_album){
+        $.post("php/export_album.php",{"array":array_dati_album},function(data){
+            $("#").html(data);
+            });
+    }
+</script>
+
+
 
 <?php
     function get_cards_for_the_album($id_user, $id_album){
@@ -379,7 +387,7 @@ mysqli_close($connessione);
                     while($row = $result->fetch_assoc()) {
 
                         $dati_tabella = array();
-                        array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'] );
+                        array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession']);
                     }
                     return $dati_tabella;
                 }
@@ -630,7 +638,7 @@ mysqli_close($connessione);
 
 
 <?php
-    function manipulationlink($collegamento){
+    function manipulationlink($collegamento) {
         //https://www.cardmarket.com/en/Pokemon/Products/Singles/Wizards-Black-Star-Promos/Scizor-Pokemon-League
         $mystring = $collegamento;
         $pos = strpos($mystring, 'Singles');
@@ -650,7 +658,7 @@ mysqli_close($connessione);
 ?>
 
 <?php
-    function check_album_registration($id_album){
+    function check_album_registration($id_album) {
 
         // Controlla se l'album è già registrato nella tabella Statistic. In questo modo possiamo abilitareo meno
         // il pulsante "Start register"
