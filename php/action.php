@@ -79,24 +79,27 @@ if(isset($_POST['query_card'])){
 
 if(isset($_POST['query_card_set'])){
 
+    require "dbh.php";
+
     $input_text =  mysqli_real_escape_string($connessione, $_POST['query_card_set']);
     
-    $sql = "SELECT DISTINCT Card_name, Set_name, Idcard, Idset FROM card WHERE Card_name LIKE '%$input_text%' AND idCollection = ? LIMIT 10 ";
+    $sql = "SELECT DISTINCT English_card_name, cards.Id_set, Idcard, Image_link 
+    FROM cards
+    INNER JOIN expansion ON cards.Idset = expansion.Idset 
+    WHERE Italian_card_name LIKE '%$input_text%'  AND expansion.Idcollection = '$idcollection' LIMIT 10";
+
     $stmt = mysqli_stmt_init($connessione);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         echo "Error in the database";
     }
     else{
-        mysqli_stmt_bind_param($stmt, "i", $idcollection);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt); 
         
         $output = '<ul class="list-unstyled"';
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-        
-                $output .=   '<a><li>' . $row['Card_name'] .'    '. $row['Set_name'].'   '.'SIMBOLO'.'                     '.'<a class="btn text-white" style="background-color: #5401a7;" href="" >Aggiungi Carta</a>' .'</li></a>';
-                
+                $output .=   '<a><li>' . $row['English_card_name'] .'   '. $row['Id_set'].'   '.'BAMBA'.'   '.'<a class="btn text-white" style="background-color: #5401a7;" href="" >Aggiungi Carta</a>' .'</li></a>';   
             }
         }
         else{

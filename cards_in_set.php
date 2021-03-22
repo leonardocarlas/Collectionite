@@ -1,23 +1,22 @@
 <?php
-require "header.php";
+    require "header.php";
 ?>
 
-<br>
 
-<!-- Content Header (Page header) -->
-<div class="content-wrapper">
-    <div class="content-header">
-        <div class="container">
-            <div class="row mb-2">
-                
-                    <a class="btn text-white" style="background-color: #5401a7;" href="new_add_card.php">Torna indietro</a>    
-                
-            </div>
-        </div>
-    <div>
+
+
+
+<!-- Time Line -->
+
+<div class="row mb-2">
+    <div class = "col">
+        <h5><a href= "home.php" >My collection </a></h5>  > <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5> > <h5>Aggiungi carte</h5> > <h5>Set completo</h5>
+    </div>   
 </div>
-<!-- FINE Content Header  -->
-<br><br>
+
+
+
+
 
 <?php
 if(isset($_GET['EXP']))
@@ -25,7 +24,7 @@ if(isset($_GET['EXP']))
     $id_espansione = $_GET['EXP'];
     $double_arr = cards_in_the_set($id_espansione);
     $nome_set = $double_arr[0];
-                                        ?>
+                                     ?>
     
     <div id="myModal" class="modal">
     <span class="close">&times;</span>
@@ -116,14 +115,6 @@ if(isset($_GET['EXP']))
 }
 ?>
 
-
-
-
-
-
-
-
-
 <br><br><br>
 
 <?php 
@@ -131,7 +122,44 @@ if(isset($_GET['EXP']))
 ?>
 
 
+<?php
+    function cards_in_the_set($id_espansione){
+    
+        require "php/dbh.php";
+        $sql = "SELECT cards.Idcard, cards.Idset, cards.Image_link
+        FROM cards
+        INNER JOIN expansion ON cards.Idset = expansion.Idset
+        WHERE cards.Idset = ?
+        GROUP BY cards.Idcard; " ;
 
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo "Error in the database";
+        }
+        else{
+                mysqli_stmt_bind_param($stmt, "i", $id_espansione);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt); 
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+
+                        $carte_nel_set = array();
+                        array_push($carte_nel_set, $row['Idcard'], $row['Idset'], $row['Image_link']);
+                    }
+                    return $carte_nel_set;
+                }
+                else{
+                    $vuoto = array();
+                    return $vuoto;
+                }
+
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+    }
+
+?>
 
 
 
@@ -152,7 +180,7 @@ if(isset($_GET['EXP']))
 
 <?php
 
-function cards_in_the_set($id_set)
+function old_cards_in_the_set($id_set)
 {
 
         //GET https://api.cardmarket.com/ws/v2.0/expansions/1469/singles

@@ -5,24 +5,28 @@
 ?>
 
 
-<div class="content-wrapper" style="min-height: 636.763px;">
+<!-- Time Line -->
+
+<div class="row mb-2">
+    <div class = "col">
+        <h5><a href= "home.php" >My collection </a></h5>  > <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5> > <h5>Aggiungi carte</h5>
+    </div>   
+</div>
 
 <br>
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container">
-        <div class="row mb-5">
+<!-- Content Header  -->
 
-          <div class="col-sm-8">
-            <h4 class="m-0 text-dark">Aggiungi nuove carte all'album <?php echo $album_corrente; ?></h4> <br>
-            <h7><b>Attenzione</b>: CardMarket ci ha fornito solamente 1/3 del database delle carte visualizzabili sulla barra di ricerca. Se non la trovi li, ci riuscirai sicuramente tra i Set in basso. </h7> <br>
-            <h6>Le carte aggiunte in questa seziona saranno di default EX, English e Normal. Uqesti parametri potranno essere poi modificati nell'album.
-          </div><!-- /.col -->
-        </div>
-    </div>
+
+<div class="row justify-content-center">
+    <h4 class="m-0 text-dark">Aggiungi nuove carte all'album <?php echo $album_corrente; ?></h4>
 </div>
-<!-- FINE Content Header  -->
+<br>
+<div class="row justify-content-center">
+    <p>Le carte aggiunte in questa seziona saranno di default EX, English e Normal. Questi parametri potranno essere poi modificati nell'album.<p>
+</div>
+
+
 
 <br>
 
@@ -40,9 +44,8 @@
                 </div>
                                 
             </div>
-        </form>
-        
-    </div><!-- /.col -->
+        </form>  
+    </div>
 </div>
 <div class="row justify-content-center">
     
@@ -66,7 +69,7 @@
                     data:{query_card_set:searchText},
                     success:function(data)
                     {
-                        $("#show-list").fadeIn();
+                        //$("#show-list").fadeIn();
                         $("#show-list").html(data);
                     }
                 });
@@ -98,13 +101,11 @@
 
 
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <h4>Altrimenti cercala tra i Set:</h4>
-        </div>
-    <div>
+
+<div class="row justify-content-center">
+    <h4>Altrimenti cercala tra i Set:</h4>
 <div>
+
 
 
 <br><br><br><br>
@@ -112,7 +113,7 @@
 
 <?php
 require 'php/dbh.php';
-$sql = "SELECT nameExpansion, idExpansion, releaseDate FROM texp WHERE idCollection=? ORDER BY releaseDate DESC; ";
+$sql = "SELECT English_set_name, Idset, Release_date FROM expansion WHERE Idcollection=? ORDER BY Release_date DESC; ";
 $stmt = mysqli_stmt_init($connessione);
  if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo "Error in the database";
@@ -126,13 +127,13 @@ $stmt = mysqli_stmt_init($connessione);
         $array_vuoto = array();
         while($row = $result->fetch_assoc()) {
 
-            $data_in_anno = substr($row['releaseDate'],0,4);
+            $data_in_anno = substr($row['Release_date'],0,4);
             
             array_push($array_data_id_nome_espansione, $data_in_anno);
-            array_push($array_data_id_nome_espansione, $row['idExpansion']);
-            array_push($array_data_id_nome_espansione, $row['nameExpansion']);
-            $id = $row['idExpansion'];
-            $set = $row['nameExpansion'];
+            array_push($array_data_id_nome_espansione, $row['Idset']);
+            array_push($array_data_id_nome_espansione, $row['English_set_name']);
+            $id = $row['Idset'];
+            $set = $row['English_set_name'];
 
             if (array_key_exists($data_in_anno, $array_vuoto)) {
                 array_push($array_vuoto[$data_in_anno]["Set"], $set);
