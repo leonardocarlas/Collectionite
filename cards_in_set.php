@@ -7,13 +7,15 @@
 
 <!-- Time Line -->
 
-<div class="row mb-2">
-    <div class = "col">
-        <h5><a href= "home.php" >My collection </a></h5>  > <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5> > <h5>Aggiungi carte</h5> > <h5>Set completo</h5>
-    </div>   
+<div class="d-flex flex-row m-4">
+    <h5><a href= "home.php" >My collection </a></h5>
+    <h5> > </h5>
+    <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5>
+    <h5> > </h5>
+    <h5> Aggiungi carte </h5>
+    <h5> > </h5>
+    <h5> Set completo </h5>
 </div>
-
-
 
 
 

@@ -63,7 +63,7 @@
 
 </head>
 
-<body class="hold-transition layout-top-nav" >
+<body class="hold-transition layout-top-nav" style="max-width:100%; overflow-x:hidden;">
   
 <div>
 

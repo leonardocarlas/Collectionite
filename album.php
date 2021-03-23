@@ -32,10 +32,10 @@
 
 <!-- Time Line -->
 
-<div class="row mb-2">
-    <div class = "col">
-        <h5><a href= "home.php" >My collection </a></h5> <p> ></p> <h5 >Album: <?php echo $_SESSION['album-selezionato']; ?></h5> 
-    </div>   
+<div class="d-flex flex-row m-4">
+    <h5><a href= "home.php" >My collection </a></h5>
+    <h5> > </h5>
+    <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5>
 </div>
             
 
@@ -97,7 +97,6 @@
 <?php
 
     $array_carte = get_cards_for_the_album($id_user, $id_album);
-
     if (empty($array_carte)) {
 
         // Non ci sono carte, mostro solamente la tabella all'utente e spiego che non sono presenti
@@ -110,7 +109,7 @@
             
 ?>
 
-    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4 m-4">
         <div class="row justify-content-center">
             <div class="col-sm-12 table-responsive">
                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
@@ -216,12 +215,19 @@
         
     </div>
     <div class="row justify-content-center">
-        <button type="submit" class="btn btn-link" name="start-track">
-                <?php
-                    $start_track = "php/start_tracking.php?start-track=" . $id_album ;
-                    echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$start_track.'">Start Tracking</a> '; 
-                ?>
-        </button>
+        <?php
+        echo '<button type="submit" class="btn btn-link" name="start-track"';
+        if(check_album_registration($id_album))
+            echo "disabled";
+        
+        echo ">";
+                
+                    $start_track = "php/CRUD_statistic.php?start-track=" . $id_album ;
+                    
+                    echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$start_track.'" >Start Tracking</a> '; 
+                
+        echo '</button>';
+        ?>
     </div>
     <br>
     <div class="row justify-content-center">
@@ -246,7 +252,7 @@
         <p>Cliccando sul bottone sottostante, viene scaricato un file .txt contente i dati della tabella dell'album, in modo tale da poterlo condividere.</p>
     </div>
     <div class="row justify-content-center">
-        <button onClick = <?php echo "export_album(".$array_dati_album.")"; ?>  type="button" class="btn text-white" style="background-color: #5401a7;" name="register-total"> Esporta Album </button>
+        <button onClick = <?php echo "export_album()"; ?>  type="button" class="btn text-white" style="background-color: #5401a7;" name="register-total"> Esporta Album </button>
     </div>
    
    
@@ -353,9 +359,10 @@ mysqli_close($connessione);
 
 <script type ="text/javascript">
     //data è un echo, stampa le cose
-    function export_album(array_dati_album){
+    function export_album(){
+        array_dati_album = "dd";
         $.post("php/export_album.php",{"array":array_dati_album},function(data){
-            $("#").html(data);
+            //$("#").html(data);
             });
     }
 </script>
@@ -384,10 +391,9 @@ mysqli_close($connessione);
                 $result = mysqli_stmt_get_result($stmt); 
 
                 if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-
-                        $dati_tabella = array();
-                        array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession']);
+                    $dati_tabella = array();
+                    while($row = $result->fetch_assoc()) {                        
+                        array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession']);   
                     }
                     return $dati_tabella;
                 }
