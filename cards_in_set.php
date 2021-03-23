@@ -1,8 +1,7 @@
 <?php
     require "header.php";
+    require "php/dbh.php";
 ?>
-
-
 
 
 
@@ -21,26 +20,28 @@
 <?php
 if(isset($_GET['EXP']))
 {
-    $id_espansione = $_GET['EXP'];
-    $double_arr = cards_in_the_set($id_espansione);
-    $nome_set = $double_arr[0];
+    $id_espansione = mysqli_real_escape_string($connessione, $_GET['EXP']);
+
+    $carte_nel_set = cards_in_the_set($id_espansione);
+
                                      ?>
     
     <div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption">
+        </div>
     </div>
+
     <div class="card card-info card-outline">
         <div class="card-header">
-            <h3 class="card-title">Carte presenti nel set <?php echo $nome_set; ?></h3>
-        </div><!-- /.card-header -->
+            <h3 class="card-title">Carte presenti nel set <?php echo $carte_nel_set[3]; ?></h3>
+        </div>
         
         <div class="card-body">
             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
-
                     <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
                         <thead>
                             <tr>
@@ -50,28 +51,26 @@ if(isset($_GET['EXP']))
                                 <th scope="col">Expansion</th>
                                 <th scope="col">Action</th>   
                             </tr>
-                        </thead>
-                                
+                        </thead> 
                         <tbody>  
                                 <?php
-                                $returned_cards = $double_arr[1];
-                                $contatore_carte = count($returned_cards)/3;
-                                for($i=0; $i<count($returned_cards); $i=$i+3)
+                                $contatore_carte = count($carte_nel_set)/4;
+                                for($i = 0; $i < count($carte_nel_set); $i = $i + 4)
                                 {
-                                    $numero_carta = intdiv($i, 3) + 1;
+                                    $numero_carta = intdiv($i, 4) + 1;
                                     $imgId = 'myImg'.$numero_carta;
                                     echo '<tr>';
                                     echo '<td><img class="carta_pokemon"
-                                                    alt="'.$returned_cards[$i+1].'"
-                                                    src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
+                                                    alt="'.$carte_nel_set[$i+1].'"
+                                                    src="'.$carte_nel_set[$i].'" alt="alternatetext" width = "200" height = "250"
                                                     class="myImg"
                                                     id="'.$imgId.'"
                                               ></td>';
                                     echo '</td>';
                                     echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
-                                    echo '<td>'.$returned_cards[$i+1].'</td>';
-                                    echo '<td>'.$nome_set.'</td>';
-                                    $link_for_adding = 'php/cardinsert.php?INSERTCARD='.$returned_cards[$i];
+                                    echo '<td>'.$carte_nel_set[$i+1].'</td>';
+                                    echo '<td>'.$carte_nel_set[$i+2].'</td>';
+                                    $link_for_adding = 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i+3];
                                     echo '<td><a href='.$link_for_adding.'>Aggiungi Carta</td>';
                                     echo '</tr>';
                                     //echo "Nome della carta: ". $returned_cards[$i+1]." Id carta: ".$returned_cards[$i]. " <img src='".$returned_cards[$i+2]."' alt='alternatetext' width = '10' height = '15'> <br>";                            
@@ -126,7 +125,7 @@ if(isset($_GET['EXP']))
     function cards_in_the_set($id_espansione){
     
         require "php/dbh.php";
-        $sql = "SELECT cards.Idcard, cards.Idset, cards.Image_link
+        $sql = "SELECT cards.Idcard, cards.English_card_name, cards.Image_link, expansion.English_Set_name
         FROM cards
         INNER JOIN expansion ON cards.Idset = expansion.Idset
         WHERE cards.Idset = ?
@@ -145,7 +144,7 @@ if(isset($_GET['EXP']))
                     while($row = $result->fetch_assoc()) {
 
                         $carte_nel_set = array();
-                        array_push($carte_nel_set, $row['Idcard'], $row['Idset'], $row['Image_link']);
+                        array_push($carte_nel_set, $row['Image_link'], $row['English_card_name'], $row['English_Set_name'], $row['Idcard']);
                     }
                     return $carte_nel_set;
                 }
@@ -162,8 +161,7 @@ if(isset($_GET['EXP']))
 ?>
 
 
-
-
+ 
 
 
 
