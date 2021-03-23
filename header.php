@@ -87,7 +87,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/onlylogo.png" alt="AdminLTE Logo"  width="80" height="50"> <!-- image-circle -->
+          <img src="immagini/logopersito.png" alt="AdminLTE Logo"  width="240" height="70"> 
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,10 +101,10 @@
           
           <li class="nav-item">
                 <?php
-                    if(basename($_SERVER['PHP_SELF']) == "index.php")
-                        echo '<a href="index.php" class="nav-link active">Collection Sight</a>';
+                    if(basename($_SERVER['PHP_SELF']) == "home.php")
+                        echo '<a href="home.php" class="nav-link active">My Collection</a>';
                     else
-                        echo '<a href="index.php" class="nav-link">Collection Sight</a>';
+                        echo '<a href="home.php" class="nav-link">My Collection</a>';
                 ?>
           </li>
 
