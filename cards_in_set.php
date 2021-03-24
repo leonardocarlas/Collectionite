@@ -10,11 +10,11 @@
 <div class="d-flex flex-row m-4">
     <h5><a href= "home.php" >My collection </a></h5>
     <h5> > </h5>
-    <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5>
+    <h5><a href= "album.php" >Album: <?php echo $_SESSION['album-selezionato']; ?></a></h5>
     <h5> > </h5>
-    <h5> Aggiungi carte </h5>
+    <h5><a href= "new_add_card.php" > Aggiungi carte </a></h5>
     <h5> > </h5>
-    <h5> Set completo </h5>
+    <h5> Espansione </h5>
 </div>
 
 
@@ -143,9 +143,9 @@ if(isset($_GET['EXP']))
                 $result = mysqli_stmt_get_result($stmt); 
 
                 if ($result->num_rows > 0) {
+                    $carte_nel_set = array();
                     while($row = $result->fetch_assoc()) {
-
-                        $carte_nel_set = array();
+                        
                         array_push($carte_nel_set, $row['Image_link'], $row['English_card_name'], $row['English_Set_name'], $row['Idcard']);
                     }
                     return $carte_nel_set;

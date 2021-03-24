@@ -1,11 +1,10 @@
 <?php
 
-if(isset($_POST['collezione']) && isset($_POST['user'])) {
-
-    $id_user = $_POST['user'];
-    $id_collezione = $_POST['collezione'];
+if(isset($_POST['collezione'])) {
 
     session_start();
+    $id_user = $_SESSION['idusersession'];
+    $id_collezione = $_POST['collezione'];
     $_SESSION['idcollezione'] = $id_collezione;
 
     require "dbh.php";
@@ -42,7 +41,7 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
                                 </div>
                             </a>
                             <div class = "row justify-content-center">
-                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/albuminsert.php?delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
                             </div>
                         </div>
                     </div> 
@@ -61,7 +60,7 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
                         </div>
 
                         <div class="row justify-content-center">
-                            <form method="POST" action="php/albuminsert.php"> 
+                            <form method="POST" action="php/CRUD_album.php"> 
                                 <table>
                                     <tr>
                                         <td>
@@ -97,7 +96,7 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
                         </div>
 
                         <div class="row justify-content-center">
-                            <form method="POST" action="php/albuminsert.php"> 
+                            <form method="POST" action="php/CRUD_album.php"> 
                                 <table>
                                     <tr>
                                         <td>
@@ -149,9 +148,9 @@ if(isset($_POST['collezione']) && isset($_POST['user'])) {
 
 
 <script type ="text/javascript">
-    //data è echo
+
     function update_album(id_album, new_album_name){
-        $.post("php/albuminsert.php",{"id_album":id_album, "new_album_name":new_album_name},function(data){
+        $.post("php/CRUD_album.php",{"id_album":id_album, "new_album_name":new_album_name},function(data){
             $("#").html(data);
             });
     }

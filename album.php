@@ -7,10 +7,6 @@
     $total_min = 0;
     $array_dati_album = array();
 
-    $inserimento_per_link = false;
-    $inserimento_per_set_nome = false;
-    $ricarica_prezzi_min_trend = false;
-    $ricarica_prezzi_lan_cond = false;
 
 
     // APERTURA DA HOME.PHP, DOPO AVER SELEZIONATO L'ALBUM   --------   NORMAL MODE
@@ -21,14 +17,24 @@
     }
 
 
-    // Variabili Globali
+    // Variabili globali
     $album_corrente = $_SESSION['album-selezionato'];
     $user = $_SESSION['usernamesession'];
     $idcollection = $_SESSION['idcollezione'];  
     $id_user = $_SESSION['idusersession'];
     $id_album = $_SESSION['idalbum'];
 
+
+
+    $array_carte = get_cards_for_the_album($id_user, $id_album);
+    for($i = 0; $i < count($array_carte); $i = $i + 11) {
+        $total_trend += $array_carte[$i+4]; 
+        $total_min += $array_carte[$i+3];
+    }
+
 ?>
+
+
 
 <!-- Time Line -->
 
@@ -41,9 +47,39 @@
 
 
 
+<!-- Sommario -->
+
+<br>
+
+<div class="row justify-content-center">
+    <h2>Sommario</h2>
+</div>
+<div class="row justify-content-center">
+    <h5>Prezzo totale dell'album</h5>
+</div>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            Prezzo minimo: <?php echo $total_min; ?> €
+        </div>   
+        <div class="col-md-auto">
+            Prezzo di tendenza: <?php echo $total_trend; ?> €
+        </div>
+        <div class="col-md-auto">
+            Prezzo di valutazione: <?php echo $total_avarage; ?> €
+        </div>     
+    </div>
+</div>
+
+
+
+
+
 <!-- Bottone che manda a new_add_card.php per far inserire all'utente le carte -->
 
 <br><br>
+
 <div class="row justify-content-center">
     <div class="col-auto-sm">
         <a class="btn text-white" href="new_add_card.php" style="background-color: #5401a7;">
@@ -53,7 +89,7 @@
     </div>
 </div>
 
-<br><br>
+<br>
 
 
 
@@ -96,7 +132,7 @@
 
 <?php
 
-    $array_carte = get_cards_for_the_album($id_user, $id_album);
+    
     if (empty($array_carte)) {
 
         // Non ci sono carte, mostro solamente la tabella all'utente e spiego che non sono presenti
@@ -134,13 +170,13 @@
                         <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession'] ); -->
                         <?php for($i = 0; $i < count($array_carte); $i = $i + 11) { ?>
                             <tr>
-                                <td> <?php echo $i/10 ?></td>
+                                <td> <?php echo $i/11 ?></td>
                                 <td> <?php echo '<img src="'.$array_carte[$i+2] .'" alt="Foto" width="100" height="150">'?></td>
                                 <td> <?php echo $array_carte[$i] ?></td>
                                 <td> <?php echo $array_carte[$i+1] ?></td>
-                                <td> <?php echo $array_carte[$i+3];  ?></td>
-                                <td> <?php echo $array_carte[$i+4];  $total_trend += $array_carte[$i+4]; ?></td>
-                                <td> <?php echo $array_carte[$i+5];  $total_min += $array_carte[$i+5];  ?></td>
+                                <td> <?php echo $array_carte[$i+3].'€';  ?></td>
+                                <td> <?php echo $array_carte[$i+4].'€';  ?></td>
+                                <td> <?php echo $array_carte[$i+5];  ?></td>
                                 <td> <?php echo $array_carte[$i+6] ?></td>
                                 <td> <?php echo $array_carte[$i+7] ?></td>
                                 <td> <?php echo $array_carte[$i+8] ?></td>
@@ -164,30 +200,7 @@
 
 
 
-<!-- Sommario -->
 
-<br>
-
-<div class="row justify-content-center">
-    <h2>Sommario</h2>
-</div>
-<div class="row justify-content-center">
-    <h5>Prezzo totale dell'album</h5>
-</div>
-
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-auto">
-            Prezzo minimo: <?php echo $total_min; ?> €
-        </div>   
-        <div class="col-md-auto">
-            Prezzo di tendenza: <?php echo $total_trend; ?> €
-        </div>
-        <div class="col-md-auto">
-            Prezzo di valutazione: <?php echo $total_avarage; ?> €
-        </div>     
-    </div>
-</div>
 
 
 
@@ -230,6 +243,7 @@
         ?>
     </div>
     <br>
+    <!-- <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(10," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button> --> 
     <div class="row justify-content-center">
         <h5><p class="font-weight-bold">Registra il valore totale dell'album (prezzo minimo e di tendenza).</p></h5>
     </div>
@@ -237,12 +251,7 @@
         <p>Ti consigliamo di farlo una volta a settimana (per esempio, il noiosissimo lunedì).</p>
     </div>
     <div class="row justify-content-center">
-        <button type="submit" class="btn btn-link" name="register-total">
-            <?php
-                $register_values = "php/update_statistic.php?register=true&trend=".$total_trend."&min=".$total_min."&album=".$id_album;
-                echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$register_values.'">Register new values</a> '; 
-            ?>
-        </button>
+        <button class="btn text-white" style="background-color: #5401a7;" onClick = <?php echo "insert_statistic(" . $total_min . ",".$total_trend.")";?>  type="button" >Registra un nuovo valore</button>
     </div>
     <br>
     <div class="row justify-content-center">
@@ -355,17 +364,118 @@ mysqli_close($connessione);
 ?>
 
 
-
+<!-- Esporta l'album in formato .txt -->
 
 <script type ="text/javascript">
-    //data è un echo, stampa le cose
+    
     function export_album(){
-        array_dati_album = "dd";
-        $.post("php/export_album.php",{"array":array_dati_album},function(data){
+        strings = "dd";
+        $.post("php/export_album.php",{"array":stringa},function(data){
             //$("#").html(data);
             });
     }
 </script>
+
+
+<!-- Registra un nuovo valore dell'album in CRUD_statistic.php -->
+
+<script type ="text/javascript">
+    //data è echo
+    function insert_statistic(min_value, trend_value){
+        $.post("php/CRUD_statistic.php",{"minimo":min_value, "trend":trend_value},function(data){
+            //$("#").html(data);
+            });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -418,171 +528,7 @@ mysqli_close($connessione);
 
 
 
-<?php
-    function avarage_price( $id, $lan, $con){
 
-        $id_product = $id;
-        $language = 5 ;
-        $cond = $con;
-        $maxResults = 5;
-        $start = 0;
-        
-        $method             = "GET";
-        $url                = "https://api.cardmarket.com/ws/v2.0/output.json/articles/".$id_product;
-        $appToken           = "D5lSR859bgB50sVj";
-        $appSecret          = "DLszKXEZCrNbZRQ8dTc1kLo6QxyDkicR";
-        $accessToken        = "";
-        $accessSecret       = "";
-        $nonce              = "53eb1f44909d6";
-        $timestamp          = "1407917892";
-        $signatureMethod    = "HMAC-SHA1";
-        $version            = "1.0";
-
-        $params             = array(
-           'realm'                     => $url,
-           'oauth_consumer_key'        => $appToken,
-           'oauth_token'               => $accessToken,
-           'oauth_nonce'               => $nonce,
-           'oauth_timestamp'           => $timestamp,
-           'oauth_signature_method'    => $signatureMethod,
-           'oauth_version'             => $version,
-           'idLanguage'                => $language,
-           'minCondition'              => $cond,
-           'start'                     => $start,
-           'maxResults'                => $maxResults
-        );
-        
-        /**
-        * Start composing the base string from the method and request URI
-        *  $url    = "https://api.cardmarket.com/ws/v2.0/articles/".$id_product. "&idLanguage=".$language."&minCondition=".$cond."&start=0&maxResults=10";
-        * Attention: If you have query parameters, don't include them in the URI
-        *
-        * @var $baseString string Finally the encoded base string for that request, that needs to be signed
-        */
-        $baseString         = strtoupper($method) . "&";
-        $baseString        .= rawurlencode($url) . "&";
-        
-        /*
-        * Gather, encode, and sort the base string parameters
-        */
-        $encodedParams      = array();
-        foreach ($params as $key => $value)
-        {
-           if ("realm" != $key)
-           {
-               $encodedParams[rawurlencode($key)] = rawurlencode($value);
-           }
-        }
-        ksort($encodedParams);
-        
-        /*
-        * Expand the base string by the encoded parameter=value pairs
-        */
-        $values             = array();
-        foreach ($encodedParams as $key => $value)
-        {
-           $values[] = $key . "=" . $value;
-        }
-        $paramsString       = rawurlencode(implode("&", $values));
-        $baseString        .= $paramsString;
-        
-        /*
-        * Create the signingKey
-        */
-        $signatureKey       = rawurlencode($appSecret) . "&" . rawurlencode($accessSecret);
-        
-        /**
-        * Create the OAuth signature
-        * Attention: Make sure to provide the binary data to the Base64 encoder
-        *
-        * @var $oAuthSignature string OAuth signature value
-        */
-        $rawSignature       = hash_hmac("sha1", $baseString, $signatureKey, true);
-        $oAuthSignature     = base64_encode($rawSignature);
-        
-        /*
-        * Include the OAuth signature parameter in the header parameters array
-        */
-        $params['oauth_signature'] = $oAuthSignature;
-        
-        /*
-        * Construct the header string
-        */
-        $header             = "Authorization: OAuth ";
-        $headerParams       = array();
-        foreach ($params as $key => $value)
-        {
-           $headerParams[] = $key . "=\"" . $value . "\"";
-        }
-        $header            .= implode(", ", $headerParams);
-        
-        /*
-        * Get the cURL handler from the library function
-        */
-        $curlHandle         = curl_init();
-
-        $url = "https://api.cardmarket.com/ws/v2.0/output.json/articles/".$id_product. "?idLanguage=".$language."&minCondition=".$cond."&start=".$start."&maxResults=".$maxResults;
-        
-        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curlHandle, CURLOPT_URL, $url);
-        curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array($header));
-        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false);
-        
-        /**
-        * Execute the request, retrieve information about the request and response, and close the connection
-        *
-        * @var $content string Response to the request
-        * @var $info array Array with information about the last request on the $curlHandle
-        */
-        $content            = curl_exec($curlHandle);
-        $info               = curl_getinfo($curlHandle);
-        curl_close($curlHandle);
-
-        if(strlen($content)!=0)
-        {
-            //$decoded            = json_decode($content);
-            //$decoded            = simplexml_load_string($content);
-            
-            //echo "Contenuto  ". $content;
-            //echo "Informazioni  ";
-            //print_r($info );
-
-            
-            $jsonIterator = new RecursiveIteratorIterator(
-            new RecursiveArrayIterator(json_decode($content, TRUE)),
-            RecursiveIteratorIterator::SELF_FIRST);
-            
-            $prezzi = array();
-            $verification = false;
-            
-            foreach ($jsonIterator as $key => $val) {
-                if(is_array($val)) {
-                    //echo "$key:\n";
-                } else {
-                    //echo "$key => $val\n";
-                    if($key == "comments"){
-                            $verification = true;
-                    }
-                    if($key == "price" and $verification == true){
-                        array_push($prezzi, $val);
-                        $verification =false;
-                    }
-                    
-                }
-            }
-            if(count($prezzi)) {
-            $average = array_sum($prezzi)/count($prezzi);
-            }
-        
-        } else {
-            $average = 0;
-        }
-
-        return $average;
-
-
-    }
-?>
 
 
 <?php

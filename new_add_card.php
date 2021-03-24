@@ -10,7 +10,7 @@
 <div class="d-flex flex-row m-4">
     <h5><a href= "home.php" >My collection </a></h5>
     <h5> > </h5>
-    <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5>
+    <h5><a href= "album.php" >Album: <?php echo $_SESSION['album-selezionato']; ?></a></h5>
     <h5> > </h5>
     <h5> Aggiungi carte </h5>
 </div>
@@ -105,7 +105,7 @@
 
 <div class="row justify-content-center">
     <h4>Altrimenti cercala tra i Set:</h4>
-<div>
+</div>
 
 
 

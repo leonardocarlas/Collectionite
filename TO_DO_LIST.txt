@@ -1,0 +1,23 @@
+Obiettivo: rendere stabile la sezione My Collection
+
+Home.php:
+
+0. Se l'utente non ha l'account impedirgli di creare cazzate
+1. I pulsanti Cambia nome e Elimina album non funzionano propriamente, non mostrano messaggi di updates
+2. Bisogna settare l'idcollection per quando si ritorna sulla Home
+3. Chiedere conferma di eliminare l'album
+4. Rendere più bella la navbar
+
+Album.php:
+
+0. Se l'utente non ha carte mostrare l'header della tabella vuota
+1. L'ajax di registra un nuovo valore non funziona
+2. Esporta album non funziona
+3. Modifica ed elimina non funzionano
+3. Creare il pulsante di prezzo di valutazione (Modalità premium)
+
+New_add_card.php:
+
+2. Aggiustare la search_bar
+3. Mettere i bordi alle righe dei set
+4. Inserire immagini e abbreviazioni e aggiungi full album

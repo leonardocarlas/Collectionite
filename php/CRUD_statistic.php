@@ -1,12 +1,13 @@
 <?php
 
 require "dbh.php";
+session_start();
 
+if(isset($_POST['minimo']) && isset($_POST['trend'])) {
 
-if(isset($_GET['register'])){
-    $min = mysqli_real_escape_string($connessione, $_GET['min']);
-    $trend = mysqli_real_escape_string($connessione, $_GET['trend']);
-    $idalbum = mysqli_real_escape_string($connessione, $_GET['album']);
+    $min = mysqli_real_escape_string($connessione, $_POST['minimo']);
+    $trend = mysqli_real_escape_string($connessione, $_POST['trend']);
+    $idalbum = $_SESSION['idalbum'];
 
     $sql = "INSERT INTO statistic (Trend_value, Min_Value, Idalbum) VALUES (?,?,?)";
     $stmt = mysqli_stmt_init($connessione);

@@ -1,5 +1,5 @@
 <?php
-// Link al video dell'indiano https://www.youtube.com/watch?v=0Pe0MHa0PwI
+// 
 
 // da eseguire query per prendere dati carte dell'album -> id utente passare tramite session
 // formatta stringa
