@@ -26,22 +26,24 @@
 
         <br>
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class = "row justify-content-center">
+
+        <nav class="navbar navbar-expand-lg  " style = "background:transparent; background-color:transparent;">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?>  type="button" class="btn btn-outline-primary" >Magic: The Gathering</button>
+                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?>  type="button" class="btn btn-outline-primary" >Magic: The Gathering</button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary"> Pokémon </button>
+                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary"> Pokémon </button>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Yu-gi-oh!</button>
+                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Yu-gi-oh!</button>
                 </li>
             </ul>
             
@@ -52,41 +54,42 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Force of Will</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Force of Will</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Cardfight! Vanguard</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Cardfight! Vanguard</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Final Fantasy</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Final Fantasy</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Star Wars</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Star Wars</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragonball Super</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragonball Super</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragoborne</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragoborne</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">World of Warcraft</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">World of Warcraft</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">The Spoils</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">The Spoils</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link btn_load_screen" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button>
+                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button>
                     </li>
                     <!--
                     <li class="nav-item">
-                    <button class="nav-link btn_load_screen" onClick = <?php // echo "return_albums(12)";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
+                    <button class="nav-link text-white" onClick = <?php // echo "return_albums(12)";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
                     </li>
                     -->
                 </ul>
             </div>
         </nav>
 
+    </div>
 
       
 <!-- in questo div vengono ritornati gli album a seconda della collezione selezionata -->

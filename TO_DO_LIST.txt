@@ -3,7 +3,6 @@ Obiettivo: rendere stabile la sezione My Collection
 Home.php:
 
 
-Full screen mostrare in un certo modo, mobile altro modo
 1. I pulsanti Cambia nome e Elimina album non funzionano propriamente, non mostrano messaggi di updates
 2. Bisogna settare l'idcollection per quando si ritorna sulla Home
 3. Chiedere conferma di eliminare l'album
@@ -25,4 +24,5 @@ New_add_card.php:
 
 Card_in_set.php
 
-Non mostrarle tabellari, se da pc mostrarle in 5*5, se da 
+Non mostrarle tabellari, se da pc mostrarle in 5*5
+Creare il pulsante di aggiunta carta

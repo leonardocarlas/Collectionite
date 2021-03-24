@@ -40,3 +40,9 @@ background-image:none;
 color:#FFFFFF;
 }
 
+.navbar-inner {
+    background:transparent;
+    background-color:transparent;
+}
+
+
