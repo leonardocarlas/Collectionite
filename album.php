@@ -229,17 +229,17 @@
     </div>
     <div class="row justify-content-center">
         <?php
-        echo '<button type="submit" class="btn btn-link" name="start-track"';
-        if(check_album_registration($id_album))
-            echo "disabled";
-        
-        echo ">";
-                
-                    $start_track = "php/CRUD_statistic.php?start-track=" . $id_album ;
+            echo '<button type="submit" class="btn btn-link" name="start-track"';
+            if(check_album_registration($id_album))
+                echo "disabled";
+            
+            echo ">";
                     
-                    echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$start_track.'" >Start Tracking</a> '; 
-                
-        echo '</button>';
+                        $start_track = "php/CRUD_statistic.php?start-track=" . $id_album ;
+                        
+                        echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$start_track.'" >Start Tracking</a> '; 
+                    
+            echo '</button>';
         ?>
     </div>
     <br>
@@ -251,7 +251,17 @@
         <p>Ti consigliamo di farlo una volta a settimana (per esempio, il noiosissimo lunedì).</p>
     </div>
     <div class="row justify-content-center">
-        <button class="btn text-white" style="background-color: #5401a7;" onClick = <?php echo "insert_statistic(" . $total_min . ",".$total_trend.")";?>  type="button" >Registra un nuovo valore</button>
+        <?php
+            echo '<button type="submit"  ';
+
+            if(check_album_registration($id_album)==false)
+            {
+                echo "disabled";
+            }
+            
+            echo ' class="btn text-white" style="background-color: #5401a7;" onClick = "insert_statistic(" . $total_min . ",".$total_trend.") > Registra un nuovo valore </button> ';
+                    
+        ?>
     </div>
     <br>
     <div class="row justify-content-center">

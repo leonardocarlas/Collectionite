@@ -3,7 +3,9 @@
 if(isset($_POST['collezione'])) {
 
     session_start();
-    $id_user = $_SESSION['idusersession'];
+    if (isset($_SESSION['idusersession'])){
+        $id_user = $_SESSION['idusersession'];
+    }
     $id_collezione = $_POST['collezione'];
     $_SESSION['idcollezione'] = $id_collezione;
 
@@ -26,10 +28,95 @@ if(isset($_POST['collezione'])) {
                 array_push($array_album,  $row['Album_name']);
                 array_push($array_album,  $row['Idalbum']);
             }
-            for ($i = 0; $i < count ($array_album); $i = $i + 2){
-                echo '
-                    <div class = "row justify-content-center">
-                        <div class = "col">
+            if (is_mobile() == false) {
+
+                $numero_album = count ($array_album)/2;
+                $righe = floor(intdiv($numero_album, 4));
+                $riporto = $numero_album % 4;
+                
+
+                if ($righe > 0){
+                    
+                    for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 4) //27
+                    {
+                        
+                        echo '
+                        
+                            <div class="row justify-content-center">
+
+                                <div class="col"> 
+                                    <a href = "album.php?ID='.$array_album[$k+1].'&NAME='.$array_album[$k].'" >
+                                        <div>
+                                            <div class = "row justify-content-center">
+                                                <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                            </div>
+                                            <div class = "row justify-content-center">
+                                                <p> '.$array_album[$k].' </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class = "row justify-content-center">
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <a href = "album.php?ID='.$array_album[$k+3].'&NAME='.$array_album[$k+2].'" >
+                                        <div>
+                                            <div class = "row justify-content-center">
+                                                <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                            </div>
+                                            <div class = "row justify-content-center">
+                                                <p> '.$array_album[$k+2].' </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class = "row justify-content-center">
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+3].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+3].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <a href = "album.php?ID='.$array_album[$k+5].'&NAME='.$array_album[$k+4].'" >
+                                        <div>
+                                            <div class = "row justify-content-center">
+                                                <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                            </div>
+                                            <div class = "row justify-content-center">
+                                                <p> '.$array_album[$k+4].' </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class = "row justify-content-center">
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+5].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+5].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <a href = "album.php?ID='.$array_album[$k+7].'&NAME='.$array_album[$k+6].'" >
+                                        <div>
+                                            <div class = "row justify-content-center">
+                                                <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                            </div>
+                                            <div class = "row justify-content-center">
+                                                <p> '.$array_album[$k+6].' </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class = "row justify-content-center">
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+7].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+7].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                    </div>
+                                </div>
+
+                            </div>';
+                            echo '<br>';
+                    }
+                }
+
+                echo '<div class="row justify-content-center">';
+                for ($i = 0; $i < $riporto*2; $i=$i+2) {
+                    echo '
+                        <div class="col">
                             <a href = "album.php?ID='.$array_album[$i+1].'&NAME='.$array_album[$i].'" >
                                 <div>
                                     <div class = "row justify-content-center">
@@ -44,11 +131,44 @@ if(isset($_POST['collezione'])) {
                                 <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
                             </div>
                         </div>
-                    </div> 
-
-                    <br>
                     ';
-            } 
+                    }
+                echo '</div>';
+
+
+
+
+               
+
+            }
+            else {
+
+                for ($i = 0; $i < count ($array_album); $i = $i + 2){
+                    echo '
+                        <div class = "row justify-content-center">
+                            <div class = "col">
+                                <a href = "album.php?ID='.$array_album[$i+1].'&NAME='.$array_album[$i].'" >
+                                    <div>
+                                        <div class = "row justify-content-center">
+                                            <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                        </div>
+                                        <div class = "row justify-content-center">
+                                            <p> '.$array_album[$i].' </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class = "row justify-content-center">
+                                    <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                </div>
+                            </div>
+                        </div> 
+    
+                        <br>
+                        ';
+                } 
+
+            }
+            
 
             //DO LA POSSIBILITA' DI CREARE ALBUM
             echo '
@@ -124,6 +244,19 @@ if(isset($_POST['collezione'])) {
 
 
 
+
+
+
+    function is_mobile(){
+        $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+        $isMob = is_numeric(strpos($ua, "mobile"));
+        return $isMob;
+    }
+
+?>
+
+
+
 ?>
 
 <script type = "text/javascript">
@@ -156,3 +289,4 @@ if(isset($_POST['collezione'])) {
     }
 
 </script>
+

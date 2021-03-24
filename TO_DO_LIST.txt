@@ -2,7 +2,8 @@ Obiettivo: rendere stabile la sezione My Collection
 
 Home.php:
 
-0. Se l'utente non ha l'account impedirgli di creare cazzate
+
+Full screen mostrare in un certo modo, mobile altro modo
 1. I pulsanti Cambia nome e Elimina album non funzionano propriamente, non mostrano messaggi di updates
 2. Bisogna settare l'idcollection per quando si ritorna sulla Home
 3. Chiedere conferma di eliminare l'album
@@ -21,3 +22,7 @@ New_add_card.php:
 2. Aggiustare la search_bar
 3. Mettere i bordi alle righe dei set
 4. Inserire immagini e abbreviazioni e aggiungi full album
+
+Card_in_set.php
+
+Non mostrarle tabellari, se da pc mostrarle in 5*5, se da 
