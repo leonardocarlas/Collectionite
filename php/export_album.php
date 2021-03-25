@@ -6,17 +6,18 @@
 $outString = "scrivi qui";
 
 $file = "test.txt";
-$txt = fopen($file, "w") or die("Unable to open file!");
-fwrite($txt, $outString);
-fclose($txt);
+
+$content .= $outString.PHP_EOL;
+
 
 header('Content-Description: File Transfer');
-header('Content-Disposition: attachment; filename='.basename($file));
+header('Content-Type: application/octet-stream');
+header('Content-disposition: attachment; filename=S3S.cfg');
+header('Content-Length: '.strlen($content));
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Expires: 0');
-header('Cache-Control: must-revalidate');
 header('Pragma: public');
-header('Content-Length: ' . filesize($file));
-header("Content-Type: text/plain");
-readfile($file);
+echo $content;
+exit;
 
 ?>

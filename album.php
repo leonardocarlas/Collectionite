@@ -270,7 +270,7 @@
         <p>Cliccando sul bottone sottostante, viene scaricato un file .txt contente i dati della tabella dell'album, in modo tale da poterlo condividere.</p>
     </div>
     <div class="row justify-content-center">
-        <button onClick = <?php echo "export_album()"; ?>  type="button" class="btn text-white" style="background-color: #5401a7;" name="register-total"> Esporta Album </button>
+        <a <?php echo ' href = "Album.txt "'; ?>  class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </a>
     </div>
    
    
@@ -482,7 +482,13 @@ mysqli_close($connessione);
 
 
 
-
+<?php 
+    function crea_file_txt() {
+        header ("Content-Type: application/octet-stream");
+        header ("Content-disposition: attachment; filename=test.txt");
+        echo $string; //the string that is the file
+    }
+?>
 
 
 

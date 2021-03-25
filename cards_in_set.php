@@ -20,14 +20,25 @@
 
 
 <?php
-if(isset($_GET['EXP']))
-{
+
+if(isset($_GET['EXP'])) {
+
     $id_espansione = mysqli_real_escape_string($connessione, $_GET['EXP']);
-
     $carte_nel_set = cards_in_the_set($id_espansione);
+    $numero_carte = count ($carte_nel_set)/5;
+    $righe = floor(intdiv($numero_carte, 5));
+    $riporto = $numero_carte % 5;
 
-                                     ?>
+?>
     
+    <div class="row justify-content-center">
+        <h1>Carte presenti nel set <?php echo $carte_nel_set[2]; ?></h1>
+    </div>
+
+    <br><br><br>
+
+
+
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
@@ -35,58 +46,102 @@ if(isset($_GET['EXP']))
         </div>
     </div>
 
-    <div class="card card-info card-outline">
-        <div class="card-header">
-            <h3 class="card-title">Carte presenti nel set <?php echo $carte_nel_set[3]; ?></h3>
-        </div>
-        
-        <div class="card-body">
-            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row">
-                <div class="col-sm-12 table-responsive">
-                    <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Card Number</th>
-                                <th scope="col">Card Name</th>
-                                <th scope="col">Expansion</th>
-                                <th scope="col">Action</th>   
-                            </tr>
-                        </thead> 
-                        <tbody>  
-                                <?php
-                                $contatore_carte = count($carte_nel_set)/4;
-                                for($i = 0; $i < count($carte_nel_set); $i = $i + 4)
-                                {
-                                    $numero_carta = intdiv($i, 4) + 1;
-                                    $imgId = 'myImg'.$numero_carta;
-                                    echo '<tr>';
-                                    echo '<td><img class="carta_pokemon"
-                                                    alt="'.$carte_nel_set[$i+1].'"
-                                                    src="'.$carte_nel_set[$i].'" alt="alternatetext" width = "200" height = "250"
-                                                    class="myImg"
-                                                    id="'.$imgId.'"
-                                              ></td>';
-                                    echo '</td>';
-                                    echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
-                                    echo '<td>'.$carte_nel_set[$i+1].'</td>';
-                                    echo '<td>'.$carte_nel_set[$i+2].'</td>';
-                                    $link_for_adding = 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i+3];
-                                    echo '<td><a href='.$link_for_adding.'>Aggiungi Carta</td>';
-                                    echo '</tr>';
-                                    //echo "Nome della carta: ". $returned_cards[$i+1]." Id carta: ".$returned_cards[$i]. " <img src='".$returned_cards[$i+2]."' alt='alternatetext' width = '10' height = '15'> <br>";                            
-                                }
+       
+        <?php
+        // Inserimento nell'array $carte_nel_set, $row['Image_link'], $row['English_card_name'], $row['English_Set_name'], $row['Idcard']
+        for ($i = 0, $k = 0 ; $k < $righe; $k++, $i = $k*5 ) 
+        {
+            
+            echo '
+            
+                <div class="row">
 
-                                ?>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table> 
-                </div><!-- /.col-sm-12 -->
-            </div><!-- /.row -->
-            </div><!-- /.wrapper -->
-        </div><!-- /.cardbody -->
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$i + 1].'" src="'.$carte_nel_set[$i].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'.'myImg'. ($i + 1) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. ($i + 1) .' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. $carte_nel_set[$i + 1] .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i + 3] .'> Aggiungi Carta </a> </h3>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$i + 5].'" src="'.$carte_nel_set[$i + 4].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'. ($i + 2) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. ($i + 2)  .' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. $carte_nel_set[$i  + 5] .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i + 7] .'> Aggiungi Carta </a> </h3>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$i + 9].'" src="'.$carte_nel_set[$i  + 8].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'. ($i + 3) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. ($i + 3)  .' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. $carte_nel_set[$i  + 9] .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i  + 11] .'> Aggiungi Carta </a> </h3>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$i  + 13].'" src="'.$carte_nel_set[$i  + 12].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'. ($i + 4) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. ($i + 4) .' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. $carte_nel_set[$i  + 13] .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i  + 15] .'> Aggiungi Carta </a> </h3>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$i  + 17].'" src="'.$carte_nel_set[$i  + 16].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'. ($i + 5) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. ($i + 5) .' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. $carte_nel_set[$i  + 17] .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$i  + 19] .'> Aggiungi Carta </a> </h3>
+                        </div>
+                    </div>
+
+                    
+                </div>';
+
+            echo '<br>';
+        }
+
+        ?>
+
+
+
+        
         <script>
                         // Get the modal
                         var modalImg = document.getElementById("img01");
