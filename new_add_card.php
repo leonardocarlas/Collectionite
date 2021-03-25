@@ -64,15 +64,9 @@
             var searchText = $(this).val();
             if(searchText != '')
             {
-                $.ajax({
-                    url:'php/action.php',
-                    method:'POST',
-                    data:{query_card_set:searchText},
-                    success:function(data)
-                    {
-                        //$("#show-list").fadeIn();
-                        $("#show-list").html(data);
-                    }
+                $("#show-list").fadeIn();
+                $.post("php/action.php",{"query_card_set":searchText},function(data){
+                    $("#show-list").html(data);
                 });
             }
             else{

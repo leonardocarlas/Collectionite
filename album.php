@@ -270,7 +270,7 @@
         <p>Cliccando sul bottone sottostante, viene scaricato un file .txt contente i dati della tabella dell'album, in modo tale da poterlo condividere.</p>
     </div>
     <div class="row justify-content-center">
-        <a <?php echo ' href = "Album.txt "'; ?>  class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </a>
+        <a id="export_album_a" onclick="export_album(<?php echo $id_album; ?>)" class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </a>
     </div>
    
    
@@ -377,10 +377,12 @@ mysqli_close($connessione);
 
 <script type ="text/javascript">
     
-    function export_album(){
-        strings = "dd";
-        $.post("php/export_album.php",{"array":stringa},function(data){
-            //$("#").html(data);
+    function export_album(id_album){
+        $.post("php/export_album.php",{"id_album":id_album},function(data){
+                var link = document.createElement("a");
+                link.download = data;
+                link.href = "php/"+data;
+                link.click();
             });
     }
 </script>
@@ -395,6 +397,43 @@ mysqli_close($connessione);
             //$("#").html(data);
             });
     }
+
+    /* SWAL CON SELECT
+        const { value: fruit } = await Swal.fire({
+        title: 'Select field validation',
+        input: 'select',
+        inputOptions: {
+            'Fruits': {
+            apples: 'Apples',
+            bananas: 'Bananas',
+            grapes: 'Grapes',
+            oranges: 'Oranges'
+            },
+            'Vegetables': {
+            potato: 'Potato',
+            broccoli: 'Broccoli',
+            carrot: 'Carrot'
+            },
+            'icecream': 'Ice cream'
+        },
+        inputPlaceholder: 'Select a fruit',
+        showCancelButton: true,
+        inputValidator: (value) => {
+            return new Promise((resolve) => {
+            if (value === 'oranges') {
+                resolve()
+            } else {
+                resolve('You need to select oranges :)')
+            }
+            })
+        }
+        })
+
+        if (fruit) {
+        Swal.fire(`You selected: ${fruit}`)
+        }
+    */
+
 </script>
 
 

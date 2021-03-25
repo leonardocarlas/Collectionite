@@ -56,7 +56,7 @@ if(isset($_POST['collezione'])) {
                                         </div>
                                     </a>
                                     <div class = "row justify-content-center">
-                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+1].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$k+1].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                     </div>
                                 </div>
 
@@ -72,7 +72,7 @@ if(isset($_POST['collezione'])) {
                                         </div>
                                     </a>
                                     <div class = "row justify-content-center">
-                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+3].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+3].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+3].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$k+3].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@ if(isset($_POST['collezione'])) {
                                         </div>
                                     </a>
                                     <div class = "row justify-content-center">
-                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+5].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+5].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+5].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$k+5].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                     </div>
                                 </div>
 
@@ -104,7 +104,7 @@ if(isset($_POST['collezione'])) {
                                         </div>
                                     </a>
                                     <div class = "row justify-content-center">
-                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+7].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$k+7].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                        <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$k+7].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$k+7].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                     </div>
                                 </div>
 
@@ -128,7 +128,7 @@ if(isset($_POST['collezione'])) {
                                 </div>
                             </a>
                             <div class = "row justify-content-center">
-                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$i+1].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                             </div>
                         </div>
                     ';
@@ -158,7 +158,7 @@ if(isset($_POST['collezione'])) {
                                     </div>
                                 </a>
                                 <div class = "row justify-content-center">
-                                    <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].')"> Cambia nome </button><p> </p><a href=php/CRUD_album.php?Delete='.$array_album[$i+1].' type="button" class="btn btn-outline-danger" > Elimina album </a>
+                                    <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$i+1].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                 </div>
                             </div>
                         </div> 
@@ -260,7 +260,7 @@ if(isset($_POST['collezione'])) {
 ?>
 
 <script type = "text/javascript">
-    function modify_name(id_album) {
+    function modify_name(id_album,id_collezione) {
 
         Swal.fire({
         title: 'Cambia il nome dell\'album',
@@ -270,21 +270,61 @@ if(isset($_POST['collezione'])) {
         }).then((result) => {
                 
             if(result.value){
-                update_album( id_album , result.value);
+                update_album( id_album , result.value,id_collezione);
                 
             }
                 
         })
     }   
+
+    function delete_album(id_album, id_collezione)
+    {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        });
+
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+        }).then((result) => {
+            if(result.value){
+                delete_album_ajax(id_album,id_collezione);
+            } 
+        });
+    }
+
 </script>
 
 
 
 <script type ="text/javascript">
 
-    function update_album(id_album, new_album_name){
+    function update_album(id_album, new_album_name,id_collezione){
         $.post("php/CRUD_album.php",{"id_album":id_album, "new_album_name":new_album_name},function(data){
-            $("#").html(data);
+                return_albums(id_collezione);
+            });
+    }
+
+    function delete_album_ajax(id_album,id_collezione){
+        $.post("php/CRUD_album.php",{"delete_id_album":id_album},function(data){
+                if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Eliminato con successo',
+                        }).then((result) => {
+                            return_albums(id_collezione);
+                    });
+                }
             });
     }
 
