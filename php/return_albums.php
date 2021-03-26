@@ -1,12 +1,18 @@
 <?php
 
-if(isset($_POST['collezione'])) {
+if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
     session_start();
     if (isset($_SESSION['idusersession'])){
         $id_user = $_SESSION['idusersession'];
     }
-    $id_collezione = $_POST['collezione'];
+    if (isset($_POST['collezione'])){
+        $id_collezione = $_POST['collezione'];
+    }
+    if (isset($_GET['collezione'])){
+        $id_collezione = $_GET['collezione'];
+    }
+    
     $_SESSION['idcollezione'] = $id_collezione;
 
     require "dbh.php";

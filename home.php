@@ -31,19 +31,19 @@
         <nav class="navbar navbar-expand-lg  " style = "background:transparent; background-color:transparent;">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?>  type="button" class="btn btn-outline-primary" >Magic: The Gathering</button>
+                    <img src="immagini/magic_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?> width="90" height="40" style="cursor: pointer;" >
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary"> Pokémon </button>
+                    <img src="immagini/pokemon_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?> width="90" height="40" style="cursor: pointer;" >
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Yu-gi-oh!</button>
+                    <img src="immagini/ygo_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                 </li>
             </ul>
             
@@ -54,31 +54,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Force of Will</button>
+                        <img src="immagini/fow_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Cardfight! Vanguard</button>
+                        <img src="immagini/vanguard_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Final Fantasy</button>
+                        <img src="immagini/ff_logo.png"   onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Star Wars</button>
+                        <img src="immagini/starwars_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragonball Super</button>
+                        <img src="immagini/dbs_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Dragoborne</button>
+                        <img src="immagini/dragoborne_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">World of Warcraft</button>
+                        <img src="immagini/wow_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">The Spoils</button>
+                        <img src="immagini/spoils_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link text-white" style="background-color: #5401a7;" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button>
+                        <img src="immagini/ws_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                     </li>
                     <!--
                     <li class="nav-item">

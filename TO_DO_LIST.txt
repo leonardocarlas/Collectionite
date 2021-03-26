@@ -1,26 +1,29 @@
 Obiettivo: rendere stabile la sezione My Collection
 
+
 Home.php:
 
+1. I pulsanti Cambia nome e Elimina album non funzionano propriamente, non mostrano messaggi di updates (FATTO)
+2. Bisogna settare l'idcollection per quando si ritorna sulla Home (casino, non si può fare)
+3. Chiedere conferma di eliminare l'album (FATTO)
+4. Rendere più bella la navbar (FATTO)
 
-1. I pulsanti Cambia nome e Elimina album non funzionano propriamente, non mostrano messaggi di updates
-2. Bisogna settare l'idcollection per quando si ritorna sulla Home
-3. Chiedere conferma di eliminare l'album
-4. Rendere più bella la navbar
 
 Album.php:
 
-0. Se l'utente non ha carte mostrare l'header della tabella vuota
-1. L'ajax di registra un nuovo valore non funziona
-2. Esporta album non funziona
-3. Modifica ed elimina non funzionano
+0. Se l'utente non ha carte mostrare l'header della tabella vuota (DA FARE)
+1. L'ajax di registra un nuovo valore non funziona (DA FARE)
+2. Esporta album non funziona (FUNZIONA QUASI, BISOGNA ELIMINARE IL FILE E SCRIVERE IL CONTENUTO NELLA TABELLA)
+3. Modifica ed elimina non funzionano (PER MODIFICA, CREARE IL DIV, PER ELIMINA FARE COME SU HOME.PHP)
 3. Creare il pulsante di prezzo di valutazione (Modalità premium)
+
 
 New_add_card.php:
 
-2. Aggiustare la search_bar
-3. Mettere i bordi alle righe dei set
-4. Inserire immagini e abbreviazioni e aggiungi full album
+2. Aggiustare la search_bar ( DISPALYARE COME UNA TABELLA, MOSTRARE IN UNA PAGINA I RISULTATI DELLA RICERCA)
+3. Mettere i bordi alle righe dei set   (CREARE CARDS E TABELLE)
+4. Inserire immagini e abbreviazioni e aggiungi full album  (NICOLOOOOOOO DIOCANA)
+
 
 Card_in_set.php
 
