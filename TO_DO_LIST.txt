@@ -7,7 +7,7 @@ Home.php:
 2. Bisogna settare l'idcollection per quando si ritorna sulla Home (casino, non si può fare)
 3. Chiedere conferma di eliminare l'album (FATTO)
 4. Rendere più bella la navbar (FATTO)
-5. Mettere le scritte degli album sopra agli album o semplicemente abbellire i link
+5. Mettere le scEgli album o semplicemente abbellire i link
 
 
 Album.php:
@@ -23,10 +23,9 @@ New_add_card.php:
 
 2. Aggiustare la search_bar ( DISPLAYARE COME UNA TABELLA, MOSTRARE IN UNA PAGINA I RISULTATI DELLA RICERCA)
 3. Mettere i bordi alle righe dei set   (CREARE CARDS E TABELLE)
-4. Inserire immagini e abbreviazioni e aggiungi full album  (NICOLOOOOOOO DIOCANA)
+4. Inserire immagini e abbreviazioni e aggiungi full album 
 
 
 Card_in_set.php
 
-Non mostrarle tabellari, se da pc mostrarle in 5*5
 Creare il pulsante di aggiunta carta
