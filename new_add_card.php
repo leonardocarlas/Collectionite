@@ -169,70 +169,176 @@ $stmt = mysqli_stmt_init($connessione);
             $array_vuoto[$data]['Riporto'] = $riporto; 
         }
 
-        //print_r($array_vuoto);
-
-
-
 
         // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
         //print_r($array_data_righe_riporto);
+
+     
        
-        foreach ($array_vuoto as $data => $array){
-            $righe = $array['Righe'];
-            $riporto = $array['Riporto'];
-            $set_array = $array['Set'];
-            $id_array = $array['Id'];
+            foreach ($array_vuoto as $data => $array){
 
-            echo '
-                    <div class="row">
-                        <div class="col"><b>Anno:  '
-                            .$data. 
-                        '</b></div>
-                    </div>
-                    <br>';
+                $righe = $array['Righe'];
+                $riporto = $array['Riporto'];
+                $set_array = $array['Set'];
+                $id_array = $array['Id'];
 
-            echo '<br>';
-            $k = 0;
-            for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 5) //27
-            {
-                
                 echo '
+                        <div class="row justify-content-center">
+                            <h2>Anno:  ' .$data. '</h2>
+                        </div>
+                        <br>';
+
+                echo '<br>';
+                $k = 0;
+                for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 5) //27
+                {
+                    
+                    echo '
+                    
+                        <div class="row justify-content-center">
+
+                            <div class="col"> 
+                                <div class="card">
+                                    <img
+                                        src="immagini/magic_exp/'. $set_array[$k]  .'_logo.png "
+                                        class="card-img-top"
+                                        alt="Foto dell\'espansione"
+                                    />
+                        
+                                <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_array[$k]  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card">
+                                    <img
+                                        src="immagini/magic_exp/'. $set_array[$k+1]  .'_logo.png "
+                                        class="card-img-top"
+                                        alt="Foto dell\'espansione"
+                                    />
+                        
+                                    <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_array[$k+1]  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k+1]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+1].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card">
+                                    <img
+                                        src="immagini/magic_exp/'. $set_array[$k+2]  .'_logo.png "
+                                        class="card-img-top"
+                                        alt="Foto dell\'espansione"
+                                    />
+                                    
+                                    <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_array[$k+2]  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k+2]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+2].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card">
+                                        <img
+                                            src="immagini/magic_exp/'. $set_array[$k+3]  .'_logo.png "
+                                            class="card-img-top"
+                                            alt="Foto dell\'espansione"
+                                        />
+                                    
+                                    <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_array[$k+3]  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k+3]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+3].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card">
+                                        <img
+                                            src="immagini/magic_exp/'. $set_array[$k+4]  .'_logo.png "
+                                            class="card-img-top"
+                                            alt="Foto dell\'espansione"
+                                        />
+                                    
+                                    <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_array[$k+4]  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k+4]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+4].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>';
+                        echo '<br>';
+                }
+
+                echo '<div class="row justify-content-center">';
+                for ($i = 0; $i < $riporto; $i++) {
+                echo '
+                        <div class="col">
+                            <a href="cards_in_set.php?EXP='.$id_array[count($id_array) - ($i + 1)].'">'.$set_array[count($set_array) - ($i + 1)] .'</a>
+                        </div>';
+                }
+                echo '</div>';
+                echo '<br><br><br>';
                 
-                    <div class="row">
-                        <div class="col"> 
-                           <a href="cards_in_set.php?EXP='.$id_array[$k].'">'. $set_array[$k] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+1].'">'. $set_array[$k+1] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+2].'">'. $set_array[$k+2] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+3].'">'. $set_array[$k+3] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+4].'">'. $set_array[$k+4] .'</a>
-                        </div>
-                    </div>';
-                    echo '<br>';
             }
-
-            echo '<div class="row justify-content-center">';
-            for ($i = 0; $i < $riporto; $i++) {
-            echo '
-                    <div class="col">
-                        <a href="cards_in_set.php?EXP='.$id_array[count($id_array) - ($i + 1)].'">'.$set_array[count($set_array) - ($i + 1)] .'</a>
-                    </div>';
-            }
-            echo '</div>';
-            echo '<br><br><br>';
-            
-        }
           
            
          

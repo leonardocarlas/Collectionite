@@ -21,7 +21,7 @@
         </div>
             
         <div class = "row justify-content-center">
-            <p>Qui sullo sfondo ci metto un disegno</p>
+            <p>Crea il tuo album. Inserisci le carte. Tieni i prezzi aggiornati.</p>
         </div>
 
         <br>

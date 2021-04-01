@@ -178,7 +178,7 @@ if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
             //DO LA POSSIBILITA' DI CREARE ALBUM
             echo '
-                <br><br><br><br><br>
+                <br><br>
                 <div class="row justify-content-center">
                     <div class = "col" > 
                         <div class="row justify-content-center"> 

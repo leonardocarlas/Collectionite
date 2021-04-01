@@ -102,9 +102,9 @@
           <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "home.php")
-                        echo '<a href="home.php" class="nav-link active">My Collection</a>';
+                        echo '<a href="home.php" class="nav-link active"> <p><span style="color: #5401a7;"><strong> My Collection </strong></span></p></a>';
                     else
-                        echo '<a href="home.php" class="nav-link">My Collection</a>';
+                        echo '<a href="home.php" class="nav-link"><p><span style="color: #5401a7;"><strong> My Collection </strong></span></p></a>';
                 ?>
           </li>
 

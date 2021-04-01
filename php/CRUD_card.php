@@ -18,35 +18,30 @@
 
 // Cancello una linea della tabella possession in base all'Idpossession
 
-if(isset($_GET['Delete']))
-{
+if(isset($_POST['delete_id_possession'])) {
+
     
-    $id_possession = mysqli_real_escape_string($connessione, $_GET['delete']);
-    echo "ciao";
-    /*
+    $id_possession = mysqli_real_escape_string($connessione, $_POST['delete_id_possession']);
+
 
     $sql = "DELETE FROM possesses WHERE Idpossession = ? ";
     $stmt = mysqli_stmt_init($connessione);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("Location: ../album.php?error=sqlerror");
-        exit();
+        echo "error";
     }else{
 
-        
-        
         mysqli_stmt_bind_param($stmt, "i", $id_possession);
         mysqli_stmt_execute($stmt);
-        header("Location: get_cards.php?Deleted=True");
-        exit();
-        
-        
+
+        echo "success";
 
     }
     mysqli_stmt_close($stmt);
     mysqli_close($connessione);
 
-    */
+
 }
 
 if(isset($_GET['Edit']))

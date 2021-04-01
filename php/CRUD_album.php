@@ -53,7 +53,8 @@ if(isset($_POST['aggiungi_album'])){
  
 elseif(isset($_POST['delete_id_album'])){
 
-
+    $id_album = mysqli_real_escape_string($connessione,$_POST['delete_id_album']);
+    
     $sql = "DELETE FROM album WHERE Idalbum = ? ";
     $stmt = mysqli_stmt_init($connessione);
 
@@ -61,7 +62,7 @@ elseif(isset($_POST['delete_id_album'])){
         header("Location: ../home.php?error=sqlerror");
         echo "error";
     }else{
-        mysqli_stmt_bind_param($stmt, "i", $_POST['delete_id_album']);
+        mysqli_stmt_bind_param($stmt, "i", $id_album);
         mysqli_stmt_execute($stmt);
 
         echo "success";

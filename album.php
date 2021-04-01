@@ -48,28 +48,31 @@
 
 <!-- Sommario -->
 
-<br>
+
 
 <div class="row justify-content-center">
-    <h2>Sommario</h2>
+    <h1>Sommario</h1>
 </div>
 <div class="row justify-content-center">
-    <h5>Prezzo totale dell'album</h5>
+    <h2>Prezzo totale dell'album</h2>
 </div>
+
+<br>
 
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            Prezzo minimo: <?php echo $total_min; ?> €
+            <h4> Prezzo minimo: <?php echo $total_min; ?> € </p> </h4>
         </div>   
         <div class="col-md-auto">
-            Prezzo di tendenza: <?php echo $total_trend; ?> €
+            <h4> Prezzo di tendenza: <?php echo $total_trend; ?> € </h4>
         </div>
         <div class="col-md-auto">
-            Prezzo di valutazione: <?php echo $total_avarage; ?> €
+            <h4> Prezzo di valutazione: <?php echo $total_avarage; ?> € </h4>
         </div>     
     </div>
 </div>
+
 
 
 
@@ -136,7 +139,38 @@
 
         // Non ci sono carte, mostro solamente la tabella all'utente e spiego che non sono presenti
 
-        echo "<br><br>" . "Non hai ancora inserito carte per questo album". "<br>";
+        echo '<br><br>
+                <div class="row justify-content-center">
+                    <h3> Non hai ancora inserito carte per questo album </h3>
+                </div>
+            <br><br>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 table-responsive">
+                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Carta</th>
+                                <th scope="col">Espansione</th>
+                                <th scope="col">Min Price</th>
+                                <th scope="col">Trend Price</th>
+                                <th scope="col">Quantità</th>
+                                <th scope="col">Lingua</th>
+                                <th scope="col">Valori Extra</th>
+                                <th scope="col">Condizioni</th>
+                                <th scope="col">Evaluation Price</th> 
+                                <th scope="col">Link</th>      
+                                <th scope="col" colspan="2">Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table> 
+                </div>
+            </div>
+            <br><br><br>
+            ';
     }
     else {
 
@@ -144,11 +178,11 @@
             
 ?>
 
-    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4 m-4">
+        <br><br>
         <div class="row justify-content-center">
             <div class="col-sm-12 table-responsive">
-                <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
-                    <thead>
+                <table id="example2" class="table table-borderless table-hover" role="grid">
+                    <thead class="table-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Image</th>
@@ -181,15 +215,15 @@
                                 <td> <?php echo $array_carte[$i+8] ?></td>
                                 <td> <?php echo " - "?></td>
                                 <td> <?php $link = "https://www.cardmarket.com" . $array_carte[$i+9];  echo '<a href="'.$link.'"> link </a>'; ?></td>
-                                <td> <a href="php/CRUD_card.php?Edit=". $array_carte[$i+9] > Modifica</a> </td>
-                                <td> <a href="php/CRUD_card.php?Delete=". $array_carte[$i+9] > Elimina</a> </td>
+                                <td> <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal" > Modifica </button> </td>
+                                <td> <button type="button" <?php echo 'onclick="delete_card('.$array_carte[$i+10].')" '; ?> class="btn btn-outline-danger" > Elimina </button> </td> 
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table> 
             </div><!-- /.col-sm-12 -->
         </div><!-- /.row -->
-    </div><!-- /.wrapper -->
+ 
 
 <?php 
     } 
@@ -228,21 +262,18 @@
     </div>
     <div class="row justify-content-center">
         <?php
-            echo '<button type="submit" class="btn btn-link" name="start-track"';
-            if(check_album_registration($id_album))
+            echo '<button ';
+
+            if(check_album_registration($id_album) || empty($array_carte)) {
                 echo "disabled";
+            }
             
-            echo ">";
-                    
-                        $start_track = "php/CRUD_statistic.php?start-track=" . $id_album ;
-                        
-                        echo '<a class="btn text-white" style="background-color: #5401a7;" href="'.$start_track.'" >Start Tracking</a> '; 
-                    
-            echo '</button>';
+             echo ' class="btn text-white" style="background-color: #5401a7;" onclick = "start_tracking(' .$id_album. ')" > Start Tracking </button> '; 
+
         ?>
     </div>
     <br>
-    <!-- <button class="nav-link btn_load_screen" onClick = <?php echo "return_albums(10," . $id_user . ")";?>  type="button" class="btn btn-outline-primary">Weiss Schwarz</button> --> 
+     
     <div class="row justify-content-center">
         <h5><p class="font-weight-bold">Registra il valore totale dell'album (prezzo minimo e di tendenza).</p></h5>
     </div>
@@ -258,7 +289,7 @@
                 echo "disabled";
             }
             
-            echo ' class="btn text-white" style="background-color: #5401a7;" onClick = "insert_statistic(" . $total_min . ",".$total_trend.") > Registra un nuovo valore </button> ';
+            echo ' class="btn text-white" style="background-color: #5401a7;" onClick = "insert_statistic('. $total_min . ',' .$total_trend. ' )" > Registra un nuovo valore </button> ';
                     
         ?>
     </div>
@@ -270,9 +301,32 @@
         <p>Cliccando sul bottone sottostante, viene scaricato un file .txt contente i dati della tabella dell'album, in modo tale da poterlo condividere.</p>
     </div>
     <div class="row justify-content-center">
-        <a id="export_album_a" onclick="export_album(<?php echo $id_album; ?>)" class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </a>
+        <?php
+            echo '<button type="submit"  ';
+
+            if (empty($array_carte)) 
+            {
+                echo "disabled";
+            }
+            
+            echo ' id="export_album_a" onclick="export_album(' . $id_album. ')" class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </button>' ;
+        ?>
     </div>
+    <!-- if (empty($array_carte)) { -->
    
+   <br> 
+
+    <div class="row justify-content-center">
+        <h5><p class="font-weight-bold">Prezzo di Valutazione. [Coming Soon]</p></h5>
+    </div>
+    <div class="row justify-content-center">
+        <p>Cliccando sul bottone sottostante, la tabella contenente i dati viene ricaricata con un prezzo di valutazione basato
+         su due caratteristiche, la condizione e la lingua della carta.<br>Calcola la media delle prime cinque inserzioni degli utenti
+          di carmarket con quelle esatte caratteristiche della carta. L'operazione può richiedere un po' di tempo.</p>
+    </div>
+    <div class="row justify-content-center">
+        <button type="submit" disabled class="btn text-white" style="background-color: #5401a7;" > Prezzo di valutazione </button>
+    </div>
    
 
 
@@ -281,55 +335,27 @@
 
 <!-- Grafico che mostra i valori dell'album -->
 
-<?php
-
-$sql = "SELECT Stat_date, Trend_value, Min_value FROM statistic WHERE Idalbum = ? ";
-$stmt = mysqli_stmt_init($connessione);
-if(!mysqli_stmt_prepare($stmt, $sql)) {
-     echo "Error in the database";
-}
-else{
-        mysqli_stmt_bind_param($stmt, "i", $id_album);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt); 
-
-        if ($result->num_rows > 0) {
-
-            $chart_data = '';
-            while($row = $result->fetch_assoc()) {
-                $ora_in_breve = $row["Stat_date"];
-                $ora_in_breve = substr($ora_in_breve, 0, 10); 
-                $chart_data .= "{ date:'". $ora_in_breve ."', Trend_value:".$row["Trend_value"].",  Min_value:".$row["Min_value"]."}, ";
-            }
-            $chart_data = substr($chart_data, 0, -2); //elimina },
-            $no_data = false;
-
-        } else {
-          $no_data = true;
-        }
-
-}
-mysqli_stmt_close($stmt);
-mysqli_close($connessione);
-
-
-?>
-
     <div class="row justify-content-center mt-5">
             <div class="col-10">
                 <div class="card">
 
                         <div class="card-header">
-                            <?php if( $no_data == true) { ?>
+                            <?php 
+                                $chart_data = get_graph_datas($id_album);
+                                //var_dump($chart_data);
+                                
+                                if( empty($chart_data) ) { 
+                            ?>
                                 <h3 class="card-title">L'album non è ancora stato registrato</h3>
-                            <?php } else { ?>
+                            <?php } else { 
+                            ?>
                                 <h3 class="card-title">Dati dell'album</h3>
                             <?php } ?>
-                        </div><!-- /.card-header -->                      
+                        </div>                     
                         
 
                         <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            
                                 <div class="row">
                                     <div class="container" style="width:900px;">
 
@@ -338,30 +364,180 @@ mysqli_close($connessione);
 
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div> <!-- /.card-body -->
                 </div> <!-- /.card-->
         </div><!-- /.col-->
     </div><!-- /.row-->
 
-    <script>
-        Morris.Line({
-        element : 'chart',
-        data:[<?php echo $chart_data; ?>],
-        xkey:'date',
-        ykeys:['Trend_value','Min_value'], 
-        labels:['Trend Value', 'Min Value'],
-        hideHover:'auto',
-        stacked:true
-        });
-    </script>
-
-<!-- 5.E FINISH-->
 
 
     </div>
 </div>
 
+
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+        <div class = "col">
+                        <div class = "row justify-content-center">
+                            Condizione:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="conditions" class="form-control">
+                                <option>--Conditions--</option>
+                                <option>M</option>
+                                <option>NM</option>
+                                <option>EX</option>
+                                <option>GD</option>
+                                <option>LP</option>
+                                <option>PL</option>
+                                <option>P</option>
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            Valori Extra:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="extravalues" class="form-control">
+                                <option>--Extra Values--</option>
+                                <option>Normal</option>
+                                <option>Foil</option>
+                                <option>Signed</option>
+                                <option>Playset</option>
+                                <option>First Edition</option>
+                                <option>Alieved</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            Linguaggi:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="languages" class="form-control">
+                                <option>--Languages--</option>
+                                <option>Italian</option>
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>German</option>
+                                <option>French</option>
+                                <option>Portuguese</option>
+                                <option>Russian</option>
+                                <option>Korean</option>
+                                <option>Japanese</option>
+                                <option>Traditional Chinese</option>
+                                <option>Simplified Chinese</option>
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <div class="col">
+                                <button class = "btn" onclick = "" > Annulla </button>
+                            </div>   
+                            <div class="col">
+                                <button class = "btn" onclick = ""  ?>  Modifica </button>
+                            </div>  
+                        </div>
+
+                    </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+ 
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+                <div id = "modify_card_box" style = "display: none;" >
+                    <div class = "col">
+                        <div class = "row justify-content-center">
+                            Condizione:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="conditions" class="form-control">
+                                <option>--Conditions--</option>
+                                <option>M</option>
+                                <option>NM</option>
+                                <option>EX</option>
+                                <option>GD</option>
+                                <option>LP</option>
+                                <option>PL</option>
+                                <option>P</option>
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            Valori Extra:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="extravalues" class="form-control">
+                                <option>--Extra Values--</option>
+                                <option>Normal</option>
+                                <option>Foil</option>
+                                <option>Signed</option>
+                                <option>Playset</option>
+                                <option>First Edition</option>
+                                <option>Alieved</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            Linguaggi:
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <select name="languages" class="form-control">
+                                <option>--Languages--</option>
+                                <option>Italian</option>
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>German</option>
+                                <option>French</option>
+                                <option>Portuguese</option>
+                                <option>Russian</option>
+                                <option>Korean</option>
+                                <option>Japanese</option>
+                                <option>Traditional Chinese</option>
+                                <option>Simplified Chinese</option>
+                            </select>
+                        </div>
+
+                        <div class = "row justify-content-center">
+                            <div class="col">
+                                <button class = "btn" onclick = "" > Annulla </button>
+                            </div>   
+                            <div class="col">
+                                <button class = "btn" onclick = ""  ?>  Modifica </button>
+                            </div>  
+                        </div>
+
+                    </div>
+                </div>
 
 
 
@@ -376,7 +552,55 @@ mysqli_close($connessione);
 <!-- Esporta l'album in formato .txt -->
 
 <script type ="text/javascript">
+
+    var c = 0;
+    function pop() {
+        if (c == 0){
+            document.getElementById("modify_card_box").style.display = "block";
+            c = 1;
+        } else {
+            document.getElementById("modify_card_box").style.display = "none";
+            c = 0;
+        }
+    }
+
+    function modify_card(){
+        $.post("php/CRUD_card.php",{"delete_id_possession":id_possession},function(data){
+                if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Carta rimossa dall\'album',
+                        }).then((result) => {
+                            location.reload();
+                    });
+                }
+            });
+    }
+
+    Morris.Line({
+            element : 'chart',
+            data:[<?php echo $chart_data; ?>],
+            xkey:'date',
+            ykeys:['Trend_value','Min_value'], 
+            labels:['Trend Value', 'Min Value'],
+            hideHover:'auto',
+            stacked:true
+            
+    });
     
+    function start_tracking(id_album){
+        $.post("php/CRUD_statistic.php",{"start_tracking_id_album":id_album},function(data){
+            if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ora puoi registrare i valori della tua collezione',
+                        });
+                }
+            });
+    }
+
     function export_album(id_album){
         $.post("php/export_album.php",{"id_album":id_album},function(data){
                 var link = document.createElement("a");
@@ -385,16 +609,73 @@ mysqli_close($connessione);
                 link.click();
             });
     }
+
+
+    function delete_card(id_possession)
+    {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        });
+
+        Swal.fire({
+        title: 'Sei sicuro?',
+        text: "La carta verrà eliminata dal tuo album!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+        }).then((result) => {
+            if(result.value){
+                delete_card_ajax(id_possession);
+            } 
+        });
+    }
+
+    function delete_card_ajax(id_possession){
+        $.post("php/CRUD_card.php",{"delete_id_possession":id_possession},function(data){
+                if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Carta rimossa dall\'album',
+                        }).then((result) => {
+                            location.reload();
+                    });
+                }
+            });
+    }
+
+    
+
 </script>
 
 
 <!-- Registra un nuovo valore dell'album in CRUD_statistic.php -->
 
 <script type ="text/javascript">
-    //data è echo
+    
     function insert_statistic(min_value, trend_value){
         $.post("php/CRUD_statistic.php",{"minimo":min_value, "trend":trend_value},function(data){
-            //$("#").html(data);
+            if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Il grafico dei valore è stato aggiornato con successo',
+                        }).then((result) => {
+                            Morris.Line();
+                    });
+                }
+            });
+    }
+
+    function show_graph_datas(id_album){
+        $.post("php/return_albums.php",{"collezione":id_collection},function(data){
+            $("#album_ritornati").html(data);
             });
     }
 
@@ -448,92 +729,8 @@ mysqli_close($connessione);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-    function crea_file_txt() {
-        header ("Content-Type: application/octet-stream");
-        header ("Content-disposition: attachment; filename=test.txt");
-        echo $string; //the string that is the file
-    }
-?>
-
-
-
-
-
 <?php
+
     function get_cards_for_the_album($id_user, $id_album){
 
         require "php/dbh.php";
@@ -571,6 +768,42 @@ mysqli_close($connessione);
         mysqli_close($connessione);
 
          
+    }
+
+    function get_graph_datas($id_album) {
+
+        require "php/dbh.php";
+        $sql = "SELECT Stat_date, Trend_value, Min_value FROM statistic WHERE Idalbum = ? ";
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "Error in the database";
+        }
+        else{
+                mysqli_stmt_bind_param($stmt, "i", $id_album);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt); 
+                
+
+                if ($result->num_rows > 0) {
+
+                    $chart_data = '';
+                    while($row = $result->fetch_assoc()) {
+                        $ora_in_breve = $row["Stat_date"];
+                        $ora_in_breve = substr($ora_in_breve, 0, 10); 
+                        $chart_data .= "{ date:'". $ora_in_breve ."', Trend_value:".$row["Trend_value"].",  Min_value:".$row["Min_value"]."}, ";
+                    }
+                    $chart_data = substr($chart_data, 0, -2); //elimina },
+
+                    return $chart_data;
+
+                } else {
+                    $vuoto = array();
+                    return $vuoto;
+                } 
+
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
     }
 ?>
 
@@ -689,3 +922,176 @@ mysqli_close($connessione);
     }
 ?>
 
+
+
+
+
+
+
+
+
+<?php
+    function avarage_price( $id, $lan, $con){
+
+        $id_product = $id;
+        $language = 5 ;
+        $cond = $con;
+        $maxResults = 5;
+        $start = 0;
+        
+        $method             = "GET";
+        $url                = "https://api.cardmarket.com/ws/v2.0/output.json/articles/".$id_product;
+        $appToken           = "D5lSR859bgB50sVj";
+        $appSecret          = "DLszKXEZCrNbZRQ8dTc1kLo6QxyDkicR";
+        $accessToken        = "";
+        $accessSecret       = "";
+        $nonce              = "53eb1f44909d6";
+        $timestamp          = "1407917892";
+        $signatureMethod    = "HMAC-SHA1";
+        $version            = "1.0";
+
+        $params             = array(
+           'realm'                     => $url,
+           'oauth_consumer_key'        => $appToken,
+           'oauth_token'               => $accessToken,
+           'oauth_nonce'               => $nonce,
+           'oauth_timestamp'           => $timestamp,
+           'oauth_signature_method'    => $signatureMethod,
+           'oauth_version'             => $version,
+           'idLanguage'                => $language,
+           'minCondition'              => $cond,
+           'start'                     => $start,
+           'maxResults'                => $maxResults
+        );
+        
+        /**
+        * Start composing the base string from the method and request URI
+        *  $url    = "https://api.cardmarket.com/ws/v2.0/articles/".$id_product. "&idLanguage=".$language."&minCondition=".$cond."&start=0&maxResults=10";
+        * Attention: If you have query parameters, don't include them in the URI
+        *
+        * @var $baseString string Finally the encoded base string for that request, that needs to be signed
+        */
+        $baseString         = strtoupper($method) . "&";
+        $baseString        .= rawurlencode($url) . "&";
+        
+        /*
+        * Gather, encode, and sort the base string parameters
+        */
+        $encodedParams      = array();
+        foreach ($params as $key => $value)
+        {
+           if ("realm" != $key)
+           {
+               $encodedParams[rawurlencode($key)] = rawurlencode($value);
+           }
+        }
+        ksort($encodedParams);
+        
+        /*
+        * Expand the base string by the encoded parameter=value pairs
+        */
+        $values             = array();
+        foreach ($encodedParams as $key => $value)
+        {
+           $values[] = $key . "=" . $value;
+        }
+        $paramsString       = rawurlencode(implode("&", $values));
+        $baseString        .= $paramsString;
+        
+        /*
+        * Create the signingKey
+        */
+        $signatureKey       = rawurlencode($appSecret) . "&" . rawurlencode($accessSecret);
+        
+        /**
+        * Create the OAuth signature
+        * Attention: Make sure to provide the binary data to the Base64 encoder
+        *
+        * @var $oAuthSignature string OAuth signature value
+        */
+        $rawSignature       = hash_hmac("sha1", $baseString, $signatureKey, true);
+        $oAuthSignature     = base64_encode($rawSignature);
+        
+        /*
+        * Include the OAuth signature parameter in the header parameters array
+        */
+        $params['oauth_signature'] = $oAuthSignature;
+        
+        /*
+        * Construct the header string
+        */
+        $header             = "Authorization: OAuth ";
+        $headerParams       = array();
+        foreach ($params as $key => $value)
+        {
+           $headerParams[] = $key . "=\"" . $value . "\"";
+        }
+        $header            .= implode(", ", $headerParams);
+        
+        /*
+        * Get the cURL handler from the library function
+        */
+        $curlHandle         = curl_init();
+
+        $url = "https://api.cardmarket.com/ws/v2.0/output.json/articles/".$id_product. "?idLanguage=".$language."&minCondition=".$cond."&start=".$start."&maxResults=".$maxResults;
+        
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array($header));
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false);
+        
+        /**
+        * Execute the request, retrieve information about the request and response, and close the connection
+        *
+        * @var $content string Response to the request
+        * @var $info array Array with information about the last request on the $curlHandle
+        */
+        $content            = curl_exec($curlHandle);
+        $info               = curl_getinfo($curlHandle);
+        curl_close($curlHandle);
+
+        if(strlen($content)!=0)
+        {
+            //$decoded            = json_decode($content);
+            //$decoded            = simplexml_load_string($content);
+            
+            //echo "Contenuto  ". $content;
+            //echo "Informazioni  ";
+            //print_r($info );
+
+            
+            $jsonIterator = new RecursiveIteratorIterator(
+            new RecursiveArrayIterator(json_decode($content, TRUE)),
+            RecursiveIteratorIterator::SELF_FIRST);
+            
+            $prezzi = array();
+            $verification = false;
+            
+            foreach ($jsonIterator as $key => $val) {
+                if(is_array($val)) {
+                    //echo "$key:\n";
+                } else {
+                    //echo "$key => $val\n";
+                    if($key == "comments"){
+                            $verification = true;
+                    }
+                    if($key == "price" and $verification == true){
+                        array_push($prezzi, $val);
+                        $verification =false;
+                    }
+                    
+                }
+            }
+            if(count($prezzi)) {
+            $average = array_sum($prezzi)/count($prezzi);
+            }
+        
+        } else {
+            $average = 0;
+        }
+
+        return $average;
+
+
+    }
+?>
