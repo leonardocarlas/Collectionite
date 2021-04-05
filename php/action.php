@@ -83,7 +83,7 @@ if(isset($_POST['query_card_set'])){
 
     $input_text =  mysqli_real_escape_string($connessione, $_POST['query_card_set']);
     
-    $sql = "SELECT DISTINCT English_card_name, cards.Idset, Idcard, Image_link 
+    $sql = "SELECT DISTINCT English_card_name, cards.Idset, Idcard, Image_link, expansion.English_set_name
     FROM cards
     INNER JOIN expansion ON cards.Idset = expansion.Idset 
     WHERE Italian_card_name LIKE '%$input_text%'  AND expansion.Idcollection = '$idcollection' LIMIT 10";
@@ -96,16 +96,19 @@ if(isset($_POST['query_card_set'])){
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt); 
         
-        $output = '<ul class="list-unstyled"';
+        
+        $output = '<table>';
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                $output .=   '<a><li>' . $row['English_card_name'] .'   '. $row['Idset'].'   '.'BAMBA'.'   '.'<a class="btn text-white" style="background-color: #5401a7;" href="" >Aggiungi Carta</a>' .'</li></a>';   
+                $output .=   '<tr><td><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td><td>' . $row['English_card_name'] .' </td> <td> <img src = "immagini/'.$row['Idset'].'.png"> </td> <td>'. $row['English_set_name'].' </td> <td> <button class="btn text-white" style="background-color: #5401a7;" onclick="" >Aggiungi Carta</button> </td> </tr> ';   
             }
+            
         }
         else{
-            $output .= '<li>Carta non nel Database</li>';
+            $output .= '<ul><li>Carta non nel Database</li></ul>';
         }
-        $output .= '</ul>';
+        $output .= '</table>';
+        
         echo $output;
 
 

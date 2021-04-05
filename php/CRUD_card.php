@@ -20,9 +20,7 @@
 
 if(isset($_POST['delete_id_possession'])) {
 
-    
     $id_possession = mysqli_real_escape_string($connessione, $_POST['delete_id_possession']);
-
 
     $sql = "DELETE FROM possesses WHERE Idpossession = ? ";
     $stmt = mysqli_stmt_init($connessione);
@@ -41,6 +39,33 @@ if(isset($_POST['delete_id_possession'])) {
     mysqli_stmt_close($stmt);
     mysqli_close($connessione);
 
+}
+
+if(isset($_POST['insert_id_card'])) {
+
+    $id_card = mysqli_real_escape_string($connessione, $_POST['insert_id_card']);
+    $quantity = 1;
+    $language = 'EN';
+    $extra_values = 'Normal';
+    $conditions = 'EX';
+
+    // INSERT INTO possesses (Iduser, Idcard, Quantity, Language, ExtraValues, Conditions, Idalbum) VALUES (11, 123412, 1, 'EN', Nomarl, EX, 21);
+    $sql = "INSERT INTO possesses (Iduser, Idcard, Quantity, Language, ExtraValues, Conditions, Idalbum) VALUES (?, ?, ?, ?, ?, ?, ?) ";
+    $stmt = mysqli_stmt_init($connessione);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("Location: ../cards_in_set.php?error=sqlerror");
+        echo "error";
+    }else{
+
+        mysqli_stmt_bind_param($stmt, "iiisssi", $id_card ,$id_user, $quantity, $language, $extra_values, $conditions, $id_album );
+        mysqli_stmt_execute($stmt);
+
+        echo "success";
+
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 
 }
 

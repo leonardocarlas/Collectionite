@@ -86,14 +86,7 @@
 
 
 
-
-
-
-
-
 <br><br><br><br>
-
-
 
 
 
@@ -106,7 +99,10 @@
 <br><br><br><br>
 
 
+
+
 <?php
+
 require 'php/dbh.php';
 $sql = "SELECT English_set_name, Idset, Release_date FROM expansion WHERE Idcollection=? ORDER BY Release_date DESC; ";
 $stmt = mysqli_stmt_init($connessione);
@@ -141,6 +137,7 @@ $stmt = mysqli_stmt_init($connessione);
         }
 
         $array_di_date = array();
+        
         for ($i=0; $i<count($array_data_id_nome_espansione); $i = $i + 3) {
             $array_di_date[] = $array_data_id_nome_espansione[$i] ;
         }
@@ -148,6 +145,7 @@ $stmt = mysqli_stmt_init($connessione);
         $array_date_contate = array_count_values($array_di_date);
         $array_data_righe_riporto = array();
         echo '<br>';
+
         foreach ($array_date_contate as $data => $contatore) {
             $righe_giuste = intdiv($contatore, 5);
             $riporto = $contatore % 5;
@@ -190,24 +188,84 @@ $stmt = mysqli_stmt_init($connessione);
 
                 echo '<br>';
                 $k = 0;
-                for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 5) //27
+                for ($i = 0; $i < $righe; $i++) //27
                 {
-                    
-                    echo '
-                    
-                        <div class="row justify-content-center">
+                    $set_name =  str_replace(' ','_', $set_array[$k] );
 
+                    echo '<div class="row justify-content-center">';
+
+                    for ($j = 0; $j < 5; $j++) {
+
+                        echo '
+                            
                             <div class="col"> 
                                 <div class="card">
                                     <img
-                                        src="immagini/magic_exp/'. $set_array[$k]  .'_logo.png "
+                                        
+                                        src="immagini/magic_exp/'. $set_name .'_logo.png "
                                         class="card-img-top"
                                         alt="Foto dell\'espansione"
                                     />
                         
                                 <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_array[$k]  .'</h5>
+                                            <h5 class="card-title">'. $set_name  .'</h5>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img
+                                            src="immagini/magic_exp/'. $set_array[$k]  .'_icon.png "
+                                            alt="Icona dell\'espansione"
+                                            />
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k].'">Apri Album</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        ';
+                    }
+
+                    echo '</div>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    echo '
+
+                        <div class="row justify-content-center">
+
+                            <div class="col"> 
+                                <div class="card">
+                                    <img
+                                        
+                                        src="immagini/magic_exp/'. $set_name .'_logo.png "
+                                        class="card-img-top"
+                                        alt="Foto dell\'espansione"
+                                    />
+                        
+                                <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <h5 class="card-title">'. $set_name  .'</h5>
                                         </div>
                                         <div class="row justify-content-center">
                                             <img

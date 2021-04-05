@@ -73,13 +73,13 @@ if(isset($_GET['EXP'])) {
                             <img class="carta_pokemon" alt="'.$carte_nel_set[$k + 1].'" src="'.$carte_nel_set[$k].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'.'myImg'. ($k + 1) .'">
                         </div>
                         <div class="row justify-content-center">
-                            <h3>'. (($k/4)+1).' / '. $numero_carte .'</h3>
+                            <h4>'. (($k/4)+1).' / '. $numero_carte .'</h4>
                         </div>
                         <div class="row justify-content-center">
-                            <h3>'. $carte_nel_set[$k + 1] .'</h3>
+                            <h5>'. $carte_nel_set[$k + 1] .'</h5>
                         </div>
                         <div class="row justify-content-center">
-                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$k + 3] .'> Aggiungi Carta </a> </h3>
+                            <button type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
                         </div>
                     </div>
                 ';
@@ -111,7 +111,7 @@ if(isset($_GET['EXP'])) {
                             <h3>'. $carte_nel_set[$k + 1] .'</h3>
                         </div>
                         <div class="row justify-content-center">
-                            <h3><a href='. 'php/CRUD_card.php?Insertcard='.$carte_nel_set[$k + 3] .'> Aggiungi Carta </a> </h3>
+                            <button type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
                         </div>
                     </div>
                 ';
@@ -152,6 +152,38 @@ if(isset($_GET['EXP'])) {
 
         </script>
     </div><!-- /.card -->
+
+
+
+
+
+
+
+
+<script type ="text/javascript">
+
+    function insert_card(id_card){
+        $.post("php/CRUD_card.php",{"insert_id_card":id_card},function(data){
+                if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Carta inserita',
+                        });
+                }
+            });
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
 
 
 <?php
