@@ -24,4 +24,7 @@ body, html {
         color: white;
 }
 
+.table td {
+    text-align: center;   
+}
 

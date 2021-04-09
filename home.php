@@ -29,6 +29,7 @@
     <div class = "row justify-content-center">
 
         <nav class="navbar navbar-expand-lg" style = "background:transparent; background-color:transparent;">
+        
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <img src="immagini/magic_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?> width="90" height="40" style="cursor: pointer;" >

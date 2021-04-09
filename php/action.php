@@ -100,7 +100,12 @@ if(isset($_POST['query_card_set'])){
         $output = '<table>';
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                $output .=   '<tr><td><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td><td>' . $row['English_card_name'] .' </td> <td> <img src = "immagini/'.$row['Idset'].'.png"> </td> <td>'. $row['English_set_name'].' </td> <td> <button class="btn text-white" style="background-color: #5401a7;" onclick="" >Aggiungi Carta</button> </td> </tr> ';   
+                if ( str_contains($row['English_card_name'], "Online")  == true ) {
+                    continue;
+                }
+                else {
+                    $output .=   '<tr><td><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td><td>' . $row['English_card_name'] .' </td> <td> <img src = "immagini/'.$row['Idset'].'.png"> </td> <td>'. $row['English_set_name'].' </td> <td> <button class="btn text-white" style="background-color: #5401a7;" onclick="" >Aggiungi Carta</button> </td> </tr> ';   
+                }
             }
             
         }

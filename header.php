@@ -108,50 +108,50 @@
           <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "home.php")
-                        echo '<a href="home.php" class="nav-link active"> <p><span style="color: #5401a7;"><strong> My Collection </strong></span></p></a>';
+                        echo '<a href="home.php" class="nav-link active"> <p><span style="color: #5401a7;"> My Collection </span></p></a>';
                     else
-                        echo '<a href="home.php" class="nav-link"><p><span style="color: #5401a7;"><strong> My Collection </strong></span></p></a>';
+                        echo '<a href="home.php" class="nav-link"><p><span style="color: #5401a7;"> My Collection </span></p></a>';
                 ?>
           </li>
 
           <li class="nav-item">
               <?php
                   if(basename($_SERVER['PHP_SELF']) == "wallstreet.php")
-                      echo '<a href="wallstreet.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Wall Street </strong></span></p></a>';
+                      echo '<a href="wallstreet.php" class="nav-link active"><p><span style="color: #5401a7;"> Wall Street </span></p></a>';
                   else
-                      echo '<a href="wallstreet.php" class="nav-link"> <p><span style="color: #5401a7;"><strong> Wall Street </strong></span></p> </a>';
+                      echo '<a href="wallstreet.php" class="nav-link"> <p><span style="color: #5401a7;"> Wall Street </span></p> </a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "reddsight.php")
-                      echo '<a href="reddsight.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Redd Sight </strong></span></p></a>';
+                      echo '<a href="reddsight.php" class="nav-link active"><p><span style="color: #5401a7;"> Redd Sight </span></p></a>';
                   else
-                      echo '<a href="reddsight.php" class="nav-link"><p><span style="color: #5401a7;"><strong> Redd Sight </strong></span></p></a>';
+                      echo '<a href="reddsight.php" class="nav-link"><p><span style="color: #5401a7;"> Redd Sight  </span></p></a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "wantedlist.php")
-                      echo '<a href="wantedlist.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Wanted List </strong></span></p></a>';
+                      echo '<a href="wantedlist.php" class="nav-link active"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
                   else
-                      echo '<a href="wantedlist.php" class="nav-link"><p><span style="color: #5401a7;"><strong> Wanted List </strong></span></p></a>';
+                      echo '<a href="wantedlist.php" class="nav-link"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "cinema.php")
-                      echo '<a href="cinema.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Cinema Mode </strong></span></p></a>';
+                      echo '<a href="cinema.php" class="nav-link active"><p><span style="color: #5401a7;"> Cinema Mode </span></p></a>';
                   else
-                      echo '<a href="cinema.php" class="nav-link"><p><span style="color: #5401a7;"><strong> Cinema Mode </strong></span></p></a>';
+                      echo '<a href="cinema.php" class="nav-link"><p><span style="color: #5401a7;"> Cinema Mode </span></p></a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "articles.php")
-                      echo '<a href="articles.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Articles </strong></span></p></a>';
+                      echo '<a href="articles.php" class="nav-link active"><p><span style="color: #5401a7;"> Articles </span></p></a>';
                   else
-                      echo '<a href="articles.php" class="nav-link"><p><span style="color: #5401a7;"><strong> Articles </strong></span></p></a>';
+                      echo '<a href="articles.php" class="nav-link"><p><span style="color: #5401a7;"> Articles </span></p></a>';
               ?>
           </li>
             
@@ -183,9 +183,9 @@
             <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                        echo '<a href="payments.php" class="nav-link active"><p><span style="color: #5401a7;"><strong> Dona </strong></span></p></a>';
+                        echo '<a href="payments.php" class="nav-link active"><p><span style="color: #5401a7;"> Dona </span></p></a>';
                     else
-                        echo '<a href="payments.php" class="nav-link"><p><span style="color: #5401a7;"><strong> Dona </strong></span></p></a>';
+                        echo '<a href="payments.php" class="nav-link"><p><span style="color: #5401a7;"> Dona </span></p></a>';
                 ?>
             </li>
             

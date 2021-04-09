@@ -8,9 +8,9 @@
 <!-- Time Line -->
 
 <div class="d-flex flex-row m-4">
-    <h5><a href= "home.php" >My collection </a></h5>
+    <h5><a href= "home.php" class="text-dark" > <u> My collection </u> </a></h5>
     <h5> > </h5>
-    <h5><a href= "album.php" >Album: <?php echo $_SESSION['album-selezionato']; ?></a></h5>
+    <h5><a href= "album.php" class="text-dark" > <u> Album: <?php echo $_SESSION['album-selezionato']; ?> </u> </a></h5>
     <h5> > </h5>
     <h5> Aggiungi carte </h5>
 </div>
@@ -103,313 +103,122 @@
 
 <?php
 
-require 'php/dbh.php';
-$sql = "SELECT English_set_name, Idset, Release_date FROM expansion WHERE Idcollection=? ORDER BY Release_date DESC; ";
-$stmt = mysqli_stmt_init($connessione);
- if (!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "Error in the database";
- }else{
-    mysqli_stmt_bind_param($stmt, "i", $idcollection);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt); 
 
-    if ($result->num_rows > 0) {
-        $array_data_id_nome_espansione = array();
-        $array_vuoto = array();
-        while($row = $result->fetch_assoc()) {
+$array_espansioni = get_expansions($idcollection);
 
-            $data_in_anno = substr($row['Release_date'],0,4);
-            
-            array_push($array_data_id_nome_espansione, $data_in_anno);
-            array_push($array_data_id_nome_espansione, $row['Idset']);
-            array_push($array_data_id_nome_espansione, $row['English_set_name']);
-            $id = $row['Idset'];
-            $set = $row['English_set_name'];
+foreach ($array_espansioni as $data => $array_dati_relativi) {
 
-            if (array_key_exists($data_in_anno, $array_vuoto)) {
-                array_push($array_vuoto[$data_in_anno]["Set"], $set);
-                array_push($array_vuoto[$data_in_anno]["Id"], $id);
-            } else {
-                $array_vuoto[$data_in_anno] = array( 'Set' => array(), 'Id' => array());
-                array_push($array_vuoto[$data_in_anno]["Set"], $set);
-                array_push($array_vuoto[$data_in_anno]["Id"], $id);
-            }
-        }
-
-        $array_di_date = array();
-        
-        for ($i=0; $i<count($array_data_id_nome_espansione); $i = $i + 3) {
-            $array_di_date[] = $array_data_id_nome_espansione[$i] ;
-        }
-
-        $array_date_contate = array_count_values($array_di_date);
-        $array_data_righe_riporto = array();
-        echo '<br>';
-
-        foreach ($array_date_contate as $data => $contatore) {
-            $righe_giuste = intdiv($contatore, 5);
-            $riporto = $contatore % 5;
-            $array_righe_riporto['RigheGiuste'] = $righe_giuste;
-            $array_righe_riporto['Riporto'] = $riporto;
-            $array_data_righe_riporto[$data] = $array_righe_riporto;
-            
-        }
-        //print_r($array_data_id_nome_espansione);
-        //echo '<br>';
-        //print_r($array_data_righe_riporto);
-        //Array ( [2020] => Array ( [RigheGiuste] => 5 [Riporto] => 0 )
-        //print_r($array_vuoto);
-        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
-        foreach($array_data_righe_riporto as $data => $array){
-            $righe_giuste = $array['RigheGiuste'];
-            $riporto = $array['Riporto'];
-            $array_vuoto[$data]['Righe'] = $righe_giuste;
-            $array_vuoto[$data]['Riporto'] = $riporto; 
-        }
+    echo '
+            <div class="row justify-content-center">
+                <h2>Anno:  ' .$data. '</h2>
+            </div>
+            <br>';
 
 
-        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
-        //print_r($array_data_righe_riporto);
+    // Eseguo i calcoli sull'array dei dati relativi
+   
+    $numero_espansioni = count ($array_dati_relativi)/7;
+    var_dump($numero_espansioni);
+    $righe = floor(intdiv($numero_espansioni, 5));
+    var_dump($righe);
+    $riporto = $numero_espansioni % 5;
+    var_dump($riporto);
+    
 
-     
-       
-            foreach ($array_vuoto as $data => $array){
 
-                $righe = $array['Righe'];
-                $riporto = $array['Riporto'];
-                $set_array = $array['Set'];
-                $id_array = $array['Id'];
+    // Scanditore dell'array delle carte
+    $k = 0;
+
+    // Stampo le righe
+
+    for ($i = 0; $i < $righe; $i++ ) {
+
+        echo '<div class="row justify-content-center">';
+            for ($j = 0; $j < 5; $j++) {
 
                 echo '
-                        <div class="row justify-content-center">
-                            <h2>Anno:  ' .$data. '</h2>
-                        </div>
-                        <br>';
-
-                echo '<br>';
-                $k = 0;
-                for ($i = 0; $i < $righe; $i++) //27
-                {
-                    $set_name =  str_replace(' ','_', $set_array[$k] );
-
-                    echo '<div class="row justify-content-center">';
-
-                    for ($j = 0; $j < 5; $j++) {
-
-                        echo '
-                            
-                            <div class="col"> 
-                                <div class="card">
-                                    <img
-                                        
-                                        src="immagini/magic_exp/'. $set_name .'_logo.png "
-                                        class="card-img-top"
-                                        alt="Foto dell\'espansione"
-                                    />
-                        
-                                <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_name  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        ';
-                    }
-
-                    echo '</div>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    echo '
-
-                        <div class="row justify-content-center">
-
-                            <div class="col"> 
-                                <div class="card">
-                                    <img
-                                        
-                                        src="immagini/magic_exp/'. $set_name .'_logo.png "
-                                        class="card-img-top"
-                                        alt="Foto dell\'espansione"
-                                    />
-                        
-                                <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_name  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img
-                                        src="immagini/magic_exp/'. $set_array[$k+1]  .'_logo.png "
-                                        class="card-img-top"
-                                        alt="Foto dell\'espansione"
-                                    />
-                        
-                                    <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_array[$k+1]  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k+1]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+1].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                    <img
-                                        src="immagini/magic_exp/'. $set_array[$k+2]  .'_logo.png "
-                                        class="card-img-top"
-                                        alt="Foto dell\'espansione"
-                                    />
-                                    
-                                    <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_array[$k+2]  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k+2]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+2].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card">
-                                        <img
-                                            src="immagini/magic_exp/'. $set_array[$k+3]  .'_logo.png "
-                                            class="card-img-top"
-                                            alt="Foto dell\'espansione"
-                                        />
-                                    
-                                    <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_array[$k+3]  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k+3]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+3].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-
-                                <div class="card">
-                                        <img
-                                            src="immagini/magic_exp/'. $set_array[$k+4]  .'_logo.png "
-                                            class="card-img-top"
-                                            alt="Foto dell\'espansione"
-                                        />
-                                    
-                                    <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <h5 class="card-title">'. $set_array[$k+4]  .'</h5>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <img
-                                            src="immagini/magic_exp/'. $set_array[$k+4]  .'_icon.png "
-                                            alt="Icona dell\'espansione"
-                                            />
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$id_array[$k+4].'">Apri Album</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col"> 
+                        <div class="card">
+                            <img
                                 
-                            </div>
-                            
-                        </div>';
-                        echo '<br>';
-                }
-
-                echo '<div class="row justify-content-center">';
-                for ($i = 0; $i < $riporto; $i++) {
-                echo '
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[count($id_array) - ($i + 1)].'">'.$set_array[count($set_array) - ($i + 1)] .'</a>
-                        </div>';
-                }
-                echo '</div>';
-                echo '<br><br><br>';
+                                src="immagini/magic_exp/'. $array_dati_relativi[$k] .'_logo.png "
+                                class="card-img-top"
+                                alt="Foto dell\'espansione"
+                            />
                 
+                        <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <h5 class="card-title" style = "text-align: center;" >'. $array_dati_relativi[$k+1]  .'</h5>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <img
+                                    src="immagini/magic_exp/'. $array_dati_relativi[$k]  .'_icon.png "
+                                    alt="Icona dell\'espansione"
+                                    />
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+                $k += 7;
             }
-          
-           
-         
-        
-    } else {
-        echo '';
+        echo '</div> <br>';
     }
+
+    // Riporto
+
+    echo '<div class="row justify-content-center">';
+        for ( $i = 0; $i < $riporto ; $i++ ) {
+            echo '
+                    <div class="col"> 
+                        <div class="card">
+                            <img
+                                
+                                src="immagini/magic_exp/'. $array_dati_relativi[$k] .'_logo.png "
+                                class="card-img-top"
+                                alt="Foto dell\'espansione"
+                            />
+                
+                        <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <h5 class="card-title" style = "text-align: center;" >'. $array_dati_relativi[$k+1]  .'</h5>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <img
+                                    src="immagini/magic_exp/'. $array_dati_relativi[$k]  .'_icon.png "
+                                    alt="Icona dell\'espansione"
+                                    />
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+            $k += 7; 
+        }
+    echo '</div>';
+
+
+
 }
-mysqli_stmt_close($stmt);
-mysqli_close($connessione);
+
+
+        
+?>
 
 
 
+<br><br><br><br>
+
+
+
+
+<?php
+
+    require "footer.php";
 
 ?>
 
@@ -417,6 +226,94 @@ mysqli_close($connessione);
 
 
 
-<br><br><br><br>
+
 <?php
-    require "footer.php";
+
+    /**
+    *  Metodo che ritorna un array contenente due array:
+    *  array di date
+    *  array con i dati delle espansioni
+    */
+
+    function get_expansions($idcollection) {
+
+        require 'php/dbh.php';
+    
+        $sql = "SELECT Release_date, Idset, English_set_name, French_set_name, German_set_name, Spanish_set_name, Italian_set_name,  Abbreviation FROM expansion WHERE Idcollection=? ORDER BY Release_date DESC; ";
+        $stmt = mysqli_stmt_init($connessione);
+    
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+    
+            echo "Error in the database";
+    
+        }
+        else {
+    
+            mysqli_stmt_bind_param($stmt, "i", $idcollection);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt); 
+    
+            if ($result->num_rows > 0) {
+    
+                $array_completo = array();
+                $array_date = array();
+    
+                // Metto tutte le informazioni che o preso dalla query in un array completo
+    
+                while ($row = $result->fetch_assoc()) {
+    
+                    $data_in_anno = substr($row['Release_date'],0,4);
+                    
+                    array_push($array_completo, $data_in_anno);
+                    array_push($array_completo, $row['Idset']);
+                    array_push($array_completo, $row['English_set_name']);
+                    array_push($array_completo, $row['French_set_name']);
+                    array_push($array_completo, $row['German_set_name']);
+                    array_push($array_completo, $row['Spanish_set_name']);
+                    array_push($array_completo, $row['Italian_set_name']);
+                    array_push($array_completo, $row['Abbreviation']);
+                 
+                }
+    
+                for ($i = 0; $i < count($array_completo); $i += 8 ) {
+    
+                    // La data è già registrata
+    
+                    if (array_key_exists($array_completo[$i], $array_date)) { 
+    
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+1]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+2]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+3]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+4]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+5]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+6]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+7]);
+    
+                    } 
+    
+                    // La data NON è già registrata
+    
+                    else { 
+    
+                        $array_date[$array_completo[$i]] = array();
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+1]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+2]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+3]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+4]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+5]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+6]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+7]);
+    
+                    }
+                }
+    
+               
+            }
+    
+        }
+    
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+    
+        return $array_date; 
+    }

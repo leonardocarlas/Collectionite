@@ -39,7 +39,7 @@
 <!-- Time Line -->
 
 <div class="d-flex flex-row m-4">
-    <h5><a href= "home.php" >My collection </a></h5>
+    <h5><a href= "home.php" class="text-dark" ><u> My collection </u></a></h5>
     <h5> > </h5>
     <h5>Album: <?php echo $_SESSION['album-selezionato']; ?></h5>
 </div>
@@ -62,7 +62,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            <h4> Prezzo minimo: <?php echo $total_min; ?> € </p> </h4>
+            <h4> Prezzo minimo:  <?php echo $total_min; ?> € </p> </h4>
         </div>   
         <div class="col-md-auto">
             <h4> Prezzo di tendenza: <?php echo $total_trend; ?> € </h4>
@@ -184,39 +184,39 @@
                 <table id="example2" class="table table-borderless table-hover" role="grid">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Carta</th>
-                            <th scope="col">Espansione</th>
-                            <th scope="col">Min Price</th>
-                            <th scope="col">Trend Price</th>
-                            <th scope="col">Quantità</th>
-                            <th scope="col">Lingua</th>
-                            <th scope="col">Valori Extra</th>
-                            <th scope="col">Condizioni</th>
-                            <th scope="col">Evaluation Price</th> 
-                            <th scope="col">Link</th>      
-                            <th scope="col" colspan="2">Azioni</th>
+                            <th style = "text-align: center;" scope="col">#</th>
+                            <th style = "text-align: center;" scope="col">Image</th>
+                            <th style = "text-align: center;" scope="col">Carta</th>
+                            <th style = "text-align: center;" scope="col">Espansione</th>
+                            <th style = "text-align: center;" scope="col">Min Price</th>
+                            <th style = "text-align: center;" scope="col">Trend Price</th>
+                            <th style = "text-align: center;" scope="col">Quantità</th>
+                            <th style = "text-align: center;" scope="col">Lingua</th>
+                            <th style = "text-align: center;" scope="col">Valori Extra</th>
+                            <th style = "text-align: center;" scope="col">Condizioni</th>
+                            <th style = "text-align: center;" scope="col">Evaluation Price</th> 
+                            <th style = "text-align: center;" scope="col">Link</th>      
+                            <th style = "text-align: center;" scope="col" colspan="2">Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession'] ); -->
                         <?php for($i = 0; $i < count($array_carte); $i = $i + 11) { ?>
                             <tr>
-                                <td> <?php echo $i/11 ?></td>
-                                <td> <?php echo '<img src="'.$array_carte[$i+2] .'" alt="Foto" width="100" height="150">'?></td>
-                                <td> <?php echo $array_carte[$i] ?></td>
-                                <td> <?php echo $array_carte[$i+1] ?></td>
-                                <td> <?php echo $array_carte[$i+3].'€';  ?></td>
-                                <td> <?php echo $array_carte[$i+4].'€';  ?></td>
-                                <td> <?php echo $array_carte[$i+5];  ?></td>
-                                <td> <?php echo $array_carte[$i+6] ?></td>
-                                <td> <?php echo $array_carte[$i+7] ?></td>
-                                <td> <?php echo $array_carte[$i+8] ?></td>
-                                <td> <?php echo " - "?></td>
-                                <td> <?php $link = "https://www.cardmarket.com" . $array_carte[$i+9];  echo '<a href="'.$link.'"> link </a>'; ?></td>
-                                <td> <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal" > Modifica </button> </td>
-                                <td> <button type="button" <?php echo 'onclick="delete_card('.$array_carte[$i+10].')" '; ?> class="btn btn-outline-danger" > Elimina </button> </td> 
+                                <td style = "text-align: center;"> <?php echo $i/11 ?></td>
+                                <td style = "text-align: center;"> <?php echo '<img src="'.$array_carte[$i+2] .'" alt="Foto" width="100" height="150">'?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i] ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+1] ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+3].'€';  ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+4].'€';  ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+5];  ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+6] ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+7] ?></td>
+                                <td style = "text-align: center;"> <?php echo $array_carte[$i+8] ?></td>
+                                <td style = "text-align: center;"> <?php echo " - "?></td>
+                                <td style = "text-align: center;"> <?php $link = "https://www.cardmarket.com" . $array_carte[$i+9];  echo '<a href="'.$link.'"> link </a>'; ?></td>
+                                <td style = "text-align: center;"> <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal" > Modifica </button> </td>
+                                <td style = "text-align: center;"> <button type="button" <?php echo 'onclick="delete_card('.$array_carte[$i+10].')" '; ?> class="btn btn-outline-danger" > Elimina </button> </td> 
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -120,25 +120,27 @@ if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
                 }
 
                 echo '<div class="row justify-content-center">';
-                for ($i = 0; $i < $riporto*2; $i=$i+2) {
-                    echo '
-                        <div class="col">
-                            <a href = "album.php?ID='.$array_album[$i+1].'&NAME='.$array_album[$i].'" >
-                                <div>
-                                    <div class = "row justify-content-center">
-                                        <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+
+                    for ($i = 0; $i < $riporto*2; $i=$i+2) {
+                        echo '
+                            <div class="col">
+                                <a href = "album.php?ID='.$array_album[$i+1].'&NAME='.$array_album[$i].'" >
+                                    <div>
+                                        <div class = "row justify-content-center">
+                                            <img src = "immagini/album_nuovo.png" width = "100" height = "100" >
+                                        </div>
+                                        <div class = "row justify-content-center">
+                                            <p class="text-dark" > '.$array_album[$i].' </p>
+                                        </div>
                                     </div>
-                                    <div class = "row justify-content-center">
-                                        <p> '.$array_album[$i].' </p>
-                                    </div>
+                                </a>
+                                <div class = "row justify-content-center">
+                                    <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$i+1].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                                 </div>
-                            </a>
-                            <div class = "row justify-content-center">
-                                <button type="button" class="btn btn-outline-info" onclick="modify_name('.$array_album[$i+1].','.$_SESSION["idcollezione"].')"> Cambia nome </button><p> </p><a type="button" onclick="delete_album('.$array_album[$i+1].','.$_SESSION["idcollezione"].')" class="btn btn-outline-danger" > Elimina album </a>
                             </div>
-                        </div>
-                    ';
+                        ';
                     }
+
                 echo '</div>';
 
 

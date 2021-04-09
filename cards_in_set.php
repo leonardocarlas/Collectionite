@@ -8,11 +8,11 @@
 <!-- Time Line -->
 
 <div class="d-flex flex-row m-4">
-    <h5><a href= "home.php" >My collection </a></h5>
+    <h5><a href= "home.php" class="text-dark"> <u> My collection </u></a></h5>
     <h5> > </h5>
-    <h5><a href= "album.php" >Album: <?php echo $_SESSION['album-selezionato']; ?></a></h5>
+    <h5><a href= "album.php" class="text-dark"> <u> Album: <?php echo $_SESSION['album-selezionato']; ?> </u></a></h5>
     <h5> > </h5>
-    <h5><a href= "new_add_card.php" > Aggiungi carte </a></h5>
+    <h5><a href= "new_add_card.php" class="text-dark"> <u> Aggiungi carte </u></a></h5>
     <h5> > </h5>
     <h5> Espansione </h5>
 </div>
@@ -68,7 +68,7 @@ if(isset($_GET['EXP'])) {
 
             for ($j = 0; $j < 5; $j++) {
                 echo '
-                <div class="col">
+                    <div class="col">
                         <div class="row justify-content-center">
                             <img class="carta_pokemon" alt="'.$carte_nel_set[$k + 1].'" src="'.$carte_nel_set[$k].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'.'myImg'. ($k + 1) .'">
                         </div>
@@ -76,10 +76,10 @@ if(isset($_GET['EXP'])) {
                             <h4>'. (($k/4)+1).' / '. $numero_carte .'</h4>
                         </div>
                         <div class="row justify-content-center">
-                            <h5>'. $carte_nel_set[$k + 1] .'</h5>
+                            <h6 style = "text-align: center;" >'. $carte_nel_set[$k + 1] .'</h6>
                         </div>
                         <div class="row justify-content-center">
-                            <button type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
+                            <button class="btn text-white" style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
                         </div>
                     </div>
                 ';
@@ -108,12 +108,13 @@ if(isset($_GET['EXP'])) {
                             <h3>'. (($k/4)+1).' / '. $numero_carte .'</h3>
                         </div>
                         <div class="row justify-content-center">
-                            <h3>'. $carte_nel_set[$k + 1] .'</h3>
+                            <h5>'. $carte_nel_set[$k + 1] .'</h5>
                         </div>
                         <div class="row justify-content-center">
-                            <button type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
+                            <button class="btn text-white" style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
                         </div>
                     </div>
+                    <br>
                 ';
                 
                 $k += 4;
