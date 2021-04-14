@@ -312,8 +312,9 @@
             echo ' id="export_album_a" onclick="export_album(' . $id_album. ')" class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </button>' ;
         ?>
     </div>
-    <!-- if (empty($array_carte)) { -->
-   
+
+
+
    <br> 
 
     <div class="row justify-content-center">
@@ -389,6 +390,7 @@
         </div>
         <div class="modal-body">
         <div class = "col">
+
                         <div class = "row justify-content-center">
                             Condizione:
                         </div>
@@ -468,85 +470,12 @@
 
 
 
-
-
-                <div id = "modify_card_box" style = "display: none;" >
-                    <div class = "col">
-                        <div class = "row justify-content-center">
-                            Condizione:
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            <select name="conditions" class="form-control">
-                                <option>--Conditions--</option>
-                                <option>M</option>
-                                <option>NM</option>
-                                <option>EX</option>
-                                <option>GD</option>
-                                <option>LP</option>
-                                <option>PL</option>
-                                <option>P</option>
-                            </select>
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            Valori Extra:
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            <select name="extravalues" class="form-control">
-                                <option>--Extra Values--</option>
-                                <option>Normal</option>
-                                <option>Foil</option>
-                                <option>Signed</option>
-                                <option>Playset</option>
-                                <option>First Edition</option>
-                                <option>Alieved</option>
-                                
-                            </select>
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            Linguaggi:
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            <select name="languages" class="form-control">
-                                <option>--Languages--</option>
-                                <option>Italian</option>
-                                <option>English</option>
-                                <option>Spanish</option>
-                                <option>German</option>
-                                <option>French</option>
-                                <option>Portuguese</option>
-                                <option>Russian</option>
-                                <option>Korean</option>
-                                <option>Japanese</option>
-                                <option>Traditional Chinese</option>
-                                <option>Simplified Chinese</option>
-                            </select>
-                        </div>
-
-                        <div class = "row justify-content-center">
-                            <div class="col">
-                                <button class = "btn" onclick = "" > Annulla </button>
-                            </div>   
-                            <div class="col">
-                                <button class = "btn" onclick = ""  ?>  Modifica </button>
-                            </div>  
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
 <br><br><br>
 
 <?php
     require "footer.php";
 ?>
+
 
 
 <!-- Esporta l'album in formato .txt -->
@@ -1095,3 +1024,4 @@
 
     }
 ?>
+

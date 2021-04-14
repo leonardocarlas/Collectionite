@@ -6,6 +6,12 @@ session_start();
 $idcollection = $_SESSION['idcollezione'];
 
 
+if (isset($_POST['testo_cercato'])) {
+
+    echo "ciao bomber";
+}
+
+
 if(isset($_POST['query_set'])){
 
     $input_text =  mysqli_real_escape_string($connessione, $_POST['query_set']);
@@ -122,6 +128,17 @@ if(isset($_POST['query_card_set'])){
     mysqli_close($connessione);
 
 }
+
+
+function str_contains(string $haystack, string $needle): bool {
+
+    return '' === $needle || false !== strpos($haystack, $needle);
+
+}
+
+
+
+
 
 
 

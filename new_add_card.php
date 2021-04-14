@@ -41,7 +41,7 @@
 
                 <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi inserire" aria-label="User collection search item" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cerca</button>
+                    <button onclick = "cerca_carta()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
                 </div>
                                 
             </div>
@@ -55,6 +55,16 @@
         </div>
 
 </div>
+
+
+<script>
+    function cerca_carta(){
+        var testo = "Gesu";
+        $.post("php/action.php",{"testo_cercato":testo},function(data){
+            $("#show-list").html(data);
+        });
+    }
+</script>
 
 
 <!-- script per auto completamento   query = searchText-->
@@ -93,6 +103,10 @@
 <div class="row justify-content-center">
     <h4>Altrimenti cercala tra i Set:</h4>
 </div>
+<br>
+<div class="row justify-content-center">
+    <p>Se mancano alcune immagini o loghi delle varie espansioni aiutaci a completare il sito e mandaci una mail a collectionsight@gmail.com<p>
+</div>
 
 
 
@@ -118,11 +132,11 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
     // Eseguo i calcoli sull'array dei dati relativi
    
     $numero_espansioni = count ($array_dati_relativi)/7;
-    var_dump($numero_espansioni);
+    
     $righe = floor(intdiv($numero_espansioni, 5));
-    var_dump($righe);
+    
     $riporto = $numero_espansioni % 5;
-    var_dump($riporto);
+    
     
 
 
@@ -138,30 +152,26 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
 
                 echo '
                     <div class="col"> 
-                        <div class="card">
-                            <img
-                                
-                                src="immagini/magic_exp/'. $array_dati_relativi[$k] .'_logo.png "
-                                class="card-img-top"
-                                alt="Foto dell\'espansione"
-                            />
-                
-                        <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <h5 class="card-title" style = "text-align: center;" >'. $array_dati_relativi[$k+1]  .'</h5>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <img
-                                    src="immagini/magic_exp/'. $array_dati_relativi[$k]  .'_icon.png "
-                                    alt="Icona dell\'espansione"
-                                    />
-                                </div>
+                        <div class="card">';
+
+                if ($idcollection == 1)
+                    magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                if ($idcollection == 3)
+                    yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
+                if ($idcollection == 6)
+                    pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+
+                echo '
                                 <div class="row justify-content-center">
                                     <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a href = "#" >Aggiungi intero album</a>
                                 </div>
                             </div>
                         </div>
                     </div>';
+
                 $k += 7;
             }
         echo '</div> <br>';
@@ -199,7 +209,7 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
                     </div>';
             $k += 7; 
         }
-    echo '</div>';
+    echo '</div><br><br>';
 
 
 
@@ -228,6 +238,69 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
 
 
 <?php
+
+    function magic_format($logo, $titolo, $icona){
+
+        echo ' 
+                <img
+                    src="immagini/magic_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <img
+                        src="immagini/magic_exp/'.  $icona  .'_icon.png "
+                        alt="Icona dell\'espansione"
+                        />
+                    </div>
+                ';
+    }
+
+    function pokemon_format($logo, $titolo, $icona){
+
+        echo ' 
+                <img
+                    src="immagini/pokemon_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <img
+                        src="immagini/pokemon_exp/'.  $icona  .'_icon.png "
+                        alt="Icona dell\'espansione"
+                        />
+                    </div>
+                ';
+    }
+
+    function yugioh_format($logo, $titolo, $abbreviazione){
+
+        echo ' 
+                <img
+                    src="immagini/yugioh_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <strong> <h5 style = "text-align: center;" >'. $abbreviazione .'</h5></strong>
+                    </div>
+                ';
+    }
 
     /**
     *  Metodo che ritorna un array contenente due array:
@@ -316,4 +389,10 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
         mysqli_close($connessione);
     
         return $array_date; 
+    }
+
+
+    function str_contains(string $haystack, string $needle): bool
+    {
+        return '' === $needle || false !== strpos($haystack, $needle);
     }
