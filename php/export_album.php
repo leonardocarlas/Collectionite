@@ -15,14 +15,13 @@ $content .= $carte . "\n";
 
 $content .= "End Collection Sight Format, www.collectionsight.com";
 
-echo $content;
-
 fwrite($txt, $content);
 
 
 fclose($txt);
+echo $file;
 
-if (file_exists($file)) {
+/*if (file_exists($file)) {
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename="'.basename($file).'"');
@@ -32,7 +31,7 @@ if (file_exists($file)) {
     header('Content-Length: ' . filesize($file));
     readfile($file);
     exit;
-}
+}*/
 
 
 

@@ -17,9 +17,7 @@
 
 
 // Cancello una linea della tabella possession in base all'Idpossession
-
 if(isset($_POST['delete_id_possession'])) {
-
     $id_possession = mysqli_real_escape_string($connessione, $_POST['delete_id_possession']);
 
     $sql = "DELETE FROM possesses WHERE Idpossession = ? ";
@@ -73,24 +71,10 @@ if(isset($_GET['Edit']))
 {
     echo "ciao";
 }
-
-
-
-
-else{
+/*else{
     header("Location: ../album.php?error=strangeerror");
     exit();
-}
-
-
-
-
-
-
-
-
-
-
+}*/
 
 
 

@@ -8,7 +8,7 @@ $idcollection = $_SESSION['idcollezione'];
 
 if (isset($_POST['testo_cercato'])) {
 
-    echo "ciao bomber";
+    echo $_POST['testo_cercato'];
 }
 
 

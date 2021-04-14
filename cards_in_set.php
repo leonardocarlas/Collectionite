@@ -130,7 +130,7 @@ if(isset($_GET['EXP'])) {
 
 
         
-        <script>
+        <!--<script>
                         // Get the modal
                         var modalImg = document.getElementById("img01");
                         var captionText = document.getElementById("caption");
@@ -151,7 +151,7 @@ if(isset($_GET['EXP'])) {
                         }
                         // When the user clicks on <span> (x), close the modal
 
-        </script>
+        </script>-->
     </div><!-- /.card -->
 
 
@@ -165,7 +165,7 @@ if(isset($_GET['EXP'])) {
 
     function insert_card(id_card){
         $.post("php/CRUD_card.php",{"insert_id_card":id_card},function(data){
-                if(data == "success")
+                if(data.trim() == "success")
                 {
                     Swal.fire({
                         icon: 'success',

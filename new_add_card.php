@@ -59,8 +59,7 @@
 
 <script>
     function cerca_carta(){
-        var testo = "Gesu";
-        $.post("php/action.php",{"testo_cercato":testo},function(data){
+        $.post("php/action.php",{"testo_cercato":document.getElementById('card_searched').value},function(data){
             $("#show-list").html(data);
         });
     }

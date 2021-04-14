@@ -309,7 +309,7 @@
                 echo "disabled";
             }
             
-            echo ' id="export_album_a" onclick="export_album(' . $id_album. ')" class="btn text-white" style="background-color: #5401a7;" download > Esporta Album </button>' ;
+            echo ' id="export_album_a" onclick="export_album()" class="btn text-white" style="background-color: #5401a7;"> Esporta Album </button>' ;
         ?>
     </div>
 
@@ -482,6 +482,19 @@
 
 <script type ="text/javascript">
 
+
+    function start_tracking(id_album){
+        $.post("php/CRUD_statistic.php",{"start_tracking_id_album":id_album},function(data){
+            if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ora puoi registrare i valori della tua collezione',
+                        });
+                }
+            });
+    }
+
     var c = 0;
     function pop() {
         if (c == 0){
@@ -509,7 +522,7 @@
 
     Morris.Line({
             element : 'chart',
-            data:[<?php echo $chart_data; ?>],
+            data:[<?php if(!empty($chart_data)) { echo $chart_data; } ?>],
             xkey:'date',
             ykeys:['Trend_value','Min_value'], 
             labels:['Trend Value', 'Min Value'],
@@ -517,24 +530,15 @@
             stacked:true
             
     });
-    
-    function start_tracking(id_album){
-        $.post("php/CRUD_statistic.php",{"start_tracking_id_album":id_album},function(data){
-            if(data == "success")
-                {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Ora puoi registrare i valori della tua collezione',
-                        });
-                }
-            });
-    }
 
-    function export_album(id_album){
-        $.post("php/export_album.php",{"id_album":id_album},function(data){
+
+    function export_album(){
+        $.post("php/export_album.php",{},function(data){
+            alert(data)
                 var link = document.createElement("a");
                 link.download = data;
                 link.href = "php/"+data;
+                
                 link.click();
             });
     }
@@ -554,11 +558,11 @@
         title: 'Sei sicuro?',
         text: "La carta verrà eliminata dal tuo album!",
         icon: 'warning',
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
         reverseButtons: true
         }).then((result) => {
+            
             if(result.value){
                 delete_card_ajax(id_possession);
             } 
@@ -567,7 +571,7 @@
 
     function delete_card_ajax(id_possession){
         $.post("php/CRUD_card.php",{"delete_id_possession":id_possession},function(data){
-                if(data == "success")
+                if(data.trim() == "success")
                 {
                     Swal.fire({
                         icon: 'success',

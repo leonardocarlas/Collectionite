@@ -33,7 +33,6 @@ if(isset($_POST['minimo']) && isset($_POST['trend'])) {
 }
 
 if(isset($_POST['start_tracking_id_album'])){
-
     require "dbh.php";
 
     $id_album = mysqli_real_escape_string($connessione, $_POST['start_tracking_id_album']);
