@@ -27,6 +27,7 @@
 
 
     $array_carte = get_cards_for_the_album($id_user, $id_album);
+    $_SESSION['cartealbum'] = $array_carte; 
     for($i = 0; $i < count($array_carte); $i = $i + 11) {
         $total_trend += $array_carte[$i+4]; 
         $total_min += $array_carte[$i+3];
@@ -309,7 +310,7 @@
                 echo "disabled";
             }
             
-            echo ' id="export_album_a" onclick="export_album()" class="btn text-white" style="background-color: #5401a7;"> Esporta Album </button>' ;
+            echo ' id="export_album_a" onclick="export_album(54)" class="btn text-white" style="background-color: #5401a7;"> Esporta Album </button>' ;
         ?>
     </div>
 
@@ -532,13 +533,12 @@
     });
 
 
-    function export_album(){
-        $.post("php/export_album.php",{},function(data){
-            alert(data)
+    function export_album(magic_number){
+        // Il magic number è 54
+        $.post("php/CRUD_album.php",{"magic_number":magic_number},function(data){
                 var link = document.createElement("a");
                 link.download = data;
                 link.href = "php/"+data;
-                
                 link.click();
             });
     }
@@ -600,7 +600,7 @@
                         icon: 'success',
                         title: 'Il grafico dei valore è stato aggiornato con successo',
                         }).then((result) => {
-                            Morris.Line();
+                            location.reload();
                     });
                 }
             });

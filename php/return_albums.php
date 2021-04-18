@@ -3,6 +3,7 @@
 if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
     session_start();
+    
     if (isset($_SESSION['idusersession'])){
         $id_user = $_SESSION['idusersession'];
     }
@@ -255,7 +256,7 @@ if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
 
 
-    function is_mobile(){
+    function is_mobile() {
         $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
         $isMob = is_numeric(strpos($ua, "mobile"));
         return $isMob;

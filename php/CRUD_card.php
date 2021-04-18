@@ -1,17 +1,18 @@
 <?php
-    require 'dbh.php';
 
-    session_start();
+require 'dbh.php';
 
-    if(isset($_SESSION['idusersession'])){
-        $id_user = $_SESSION['idusersession'];
-    }
-    if(isset($_SESSION['idalbum'])){
-        $id_album = $_SESSION['idalbum'];
-    }
-    if(isset($_SESSION['idcollezionne'])){
-        $id_collezione = $_SESSION['idcollezione'];
-    }
+session_start();
+
+if(isset($_SESSION['idusersession'])){
+    $id_user = $_SESSION['idusersession'];
+}
+if(isset($_SESSION['idalbum'])){
+    $id_album = $_SESSION['idalbum'];
+}
+if(isset($_SESSION['idcollezionne'])){
+    $id_collezione = $_SESSION['idcollezione'];
+}
 
 
 
@@ -56,9 +57,8 @@ if(isset($_POST['insert_id_card'])) {
         echo "error";
     }else{
 
-        mysqli_stmt_bind_param($stmt, "iiisssi", $id_card ,$id_user, $quantity, $language, $extra_values, $conditions, $id_album );
+        mysqli_stmt_bind_param($stmt, "iiisssi",$id_user, $id_card, $quantity, $language, $extra_values, $conditions, $id_album );
         mysqli_stmt_execute($stmt);
-
         echo "success";
 
     }
@@ -66,18 +66,6 @@ if(isset($_POST['insert_id_card'])) {
     mysqli_close($connessione);
 
 }
-
-if(isset($_GET['Edit']))
-{
-    echo "ciao";
-}
-/*else{
-    header("Location: ../album.php?error=strangeerror");
-    exit();
-}*/
-
-
-
 
 
 
@@ -508,8 +496,4 @@ if(isset($_GET['Edit']))
         return $card_name;
     }
 ?>
-
-
-
-
 

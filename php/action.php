@@ -5,10 +5,55 @@ require "dbh.php";
 session_start();
 $idcollection = $_SESSION['idcollezione'];
 
+//INNER JOIN expansion ON cards.Idset = expansion.Idset 
 
 if (isset($_POST['testo_cercato'])) {
 
-    echo $_POST['testo_cercato'];
+    $testo_cercato = mysqli_real_escape_string($connessione, $_POST['testo_cercato']);
+
+    $sql = "SELECT DISTINCT English_card_name, cards.Idset, Idcard, Image_link, expansion.English_set_name
+    FROM cards
+    INNER JOIN expansion ON cards.Idset = expansion.Idset 
+    WHERE English_card_name LIKE '%$testo_cercato%'  AND expansion.Idcollection = '$idcollection' LIMIT 70";
+
+    $stmt = mysqli_stmt_init($connessione);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        echo "Error in the database";
+    }
+    else{
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt); 
+        
+        
+        $output = '<table>';
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                if ( str_contains($row['English_card_name'], "Online")  == true ) {
+                    continue;
+                }
+                else {
+                    $output .=   '<tr>
+                                        <td style="padding:0 15px 0 15px;" ><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td>
+                                        <td style="padding:0 15px 0 15px;">' . $row['English_card_name'] .' </td> 
+                                        <td style="padding:0 15px 0 15px;"> <img src = "immagini/'.$row['Idset'].'.png"> </td> 
+                                        <td style="padding:0 15px 0 15px;">'. $row['English_set_name'].' </td> 
+                                        <td style="padding:0 15px 0 15px;"> <button class="btn text-white" style="background-color: #5401a7;" onclick="insert_card('.$row['Idcard'] .')" >Aggiungi Carta</button> </td>
+                                 </tr> ';   
+                }
+            }
+            
+        }
+        else{
+            $output .= '<ul><li>Carta non nel Database</li></ul>';
+        }
+        $output .= '</table>';
+        
+        echo $output;
+
+
+    }    
+    mysqli_stmt_close($stmt);
+    mysqli_close($connessione);
 }
 
 
@@ -110,7 +155,12 @@ if(isset($_POST['query_card_set'])){
                     continue;
                 }
                 else {
-                    $output .=   '<tr><td><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td><td>' . $row['English_card_name'] .' </td> <td> <img src = "immagini/'.$row['Idset'].'.png"> </td> <td>'. $row['English_set_name'].' </td> <td> <button class="btn text-white" style="background-color: #5401a7;" onclick="" >Aggiungi Carta</button> </td> </tr> ';   
+                    $output .=   '<tr>
+                                    <td style="padding:0 15px 0 15px;"><img src="'.$row['Image_link'] .'" width = "30" height = "35" ></td>
+                                    <td style="padding:0 15px 0 15px;">' . $row['English_card_name'] .' </td> 
+                                    <td style="padding:0 15px 0 15px;"> <img src = "immagini/'.$row['Idset'].'.png"> </td> <td>'. $row['English_set_name'].' </td> 
+                                    <td style="padding:0 15px 0 15px;"> <button class="btn text-white" style="background-color: #5401a7;" onclick="insert_card('.$row['Idcard'] .')" >Aggiungi Carta</button> </td> 
+                                    </tr> ';   
                 }
             }
             
@@ -137,13 +187,31 @@ function str_contains(string $haystack, string $needle): bool {
 }
 
 
+?>
+
+
+
+<script type ="text/javascript">
+
+    function insert_card(id_card){
+        $.post("php/CRUD_card.php",{"insert_id_card":id_card},function(data){
+                if(data.trim() == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Carta inserita',
+                        });
+                }
+            });
+    }
+
+</script>
 
 
 
 
 
-
-
+<?php
 
 /*
 require "dbh.php";
