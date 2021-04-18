@@ -27,11 +27,15 @@
 
 
     $array_carte = get_cards_for_the_album($id_user, $id_album);
-    $_SESSION['cartealbum'] = $array_carte; 
+    $passaggio_id_carte = array();
+
     for($i = 0; $i < count($array_carte); $i = $i + 11) {
+        array_push( $passaggio_id_carte, $array_carte[$i] );
         $total_trend += $array_carte[$i+4]; 
         $total_min += $array_carte[$i+3];
     }
+    
+    $_SESSION['carte_album_corrente']  = $passaggio_id_carte;
 
 ?>
 

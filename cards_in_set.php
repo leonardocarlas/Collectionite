@@ -1,6 +1,7 @@
 <?php
     require "header.php";
     require "php/dbh.php";
+
 ?>
 
 
@@ -19,40 +20,49 @@
 
 
 
+
 <?php
 
 if(isset($_GET['EXP'])) {
 
+    $array_carte_album = $_SESSION['carte_album_corrente'] ;
+
     $id_espansione = mysqli_real_escape_string($connessione, $_GET['EXP']);
+
     $carte_nel_set = cards_in_the_set($id_espansione);
     
-
     $numero_carte = (count($carte_nel_set))/4;
-
 
     $righe = floor($numero_carte / 5); //27 = 5 * 5 + 2
  
-
     $riporto = $numero_carte % 5;
     
+    $intersezione_carte = array_intersect($array_carte_album, $carte_nel_set);
 
+    $int_percentage = count($intersezione_carte) / $numero_carte;
 ?>
     
     <div class="row justify-content-center">
         <h1>Carte presenti nel set <?php echo $carte_nel_set[2]; ?></h1>
     </div>
 
-    <br><br><br>
+    <br>
+
+    <div class="w3-light-grey w3-round-xlarge">
+        <?php echo '<div class="w3-container w3-blue w3-round-xlarge" style="width:'.$int_percentage.'%">'.$int_percentage.'%</div>'; ?>
+    </div>
+
+    <br><br>
 
 
-
+<!-- 
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption">
         </div>
     </div>
- 
+-->
     <?php
 
         // Scanditore dell'array delle carte
@@ -65,7 +75,7 @@ if(isset($_GET['EXP'])) {
             
                 <div class="row">
             ';
-
+            //if (in_array($carte_nel_set[$k+3], $array_carte_album)) echo 'V';
             for ($j = 0; $j < 5; $j++) {
                 echo '
                     <div class="col">
@@ -75,11 +85,22 @@ if(isset($_GET['EXP'])) {
                         <div class="row justify-content-center">
                             <h4>'. (($k/4)+1).' / '. $numero_carte .'</h4>
                         </div>
-                        <div class="row justify-content-center">
-                            <h6 style = "text-align: center;" >'. $carte_nel_set[$k + 1] .'</h6>
+                        <div class="row justify-content-center">';
+                            if (in_array($carte_nel_set[$k+3], $array_carte_album)){
+                                echo '<del>';
+                            }
+                            echo   '<h6 style = "text-align: center;" >'. $carte_nel_set[$k + 1] .'</h6>';
+                            if (in_array($carte_nel_set[$k+3], $array_carte_album)) {
+                                echo '</del>';
+                            }
+                        echo '
                         </div>
                         <div class="row justify-content-center">
-                            <button class="btn text-white" style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
+                            <button class="btn text-white" ';
+                        if (in_array($carte_nel_set[$k+3], $array_carte_album)){
+                            echo ' disabled ';
+                        }
+                        echo 'style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
                         </div>
                     </div>
                 ';

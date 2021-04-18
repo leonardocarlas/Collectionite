@@ -55,7 +55,8 @@
     <script data-ad-client="ca-pub-1305697659771768" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     
-
+    <!-- W3 scchool completition % bar> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
     <link rel="stylesheet" type="text/css" href="css/image.scss">
     <link rel="stylesheet" type="text/css" href="css/image.css">
