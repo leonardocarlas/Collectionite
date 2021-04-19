@@ -57,7 +57,7 @@ if(isset($_POST['insert_id_card'])) {
         echo "error";
     }else{
 
-        mysqli_stmt_bind_param($stmt, "iiisssi",$id_user, $id_card, $quantity, $language, $extra_values, $conditions, $id_album );
+        mysqli_stmt_bind_param($stmt, "iiiiiii",$id_user, $id_card, $quantity, $language, $extra_values, $conditions, $id_album );
         mysqli_stmt_execute($stmt);
         echo "success";
 
