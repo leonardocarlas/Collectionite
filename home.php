@@ -1,4 +1,5 @@
 <?php
+
     require "header.php";
     
     if (isset($_SESSION['idcollezione'])){
@@ -8,102 +9,92 @@
         $id_user = $_SESSION['idusersession'];
     }
 
-
 ?>
 
+<br>
+ 
+<div class = "row justify-content-center">
+    <h1>My Collection</h1>
+</div>
+    
+<div class = "row justify-content-center">
+    <p>Crea il tuo album. Inserisci le carte. Tieni i prezzi aggiornati.</p>
+</div>
 
 <br>
+    
+<div class = "row justify-content-center">
 
+    <nav class="navbar navbar-expand-lg" style = "background:transparent; background-color:transparent;">
+    
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <img src="immagini/magic_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?> width="90" height="40" style="cursor: pointer;" >
+            </li>
+        </ul>
 
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <img src="immagini/pokemon_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?> width="90" height="40" style="cursor: pointer;" >
+            </li>
+        </ul>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <img src="immagini/ygo_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+            </li>
+        </ul>
         
-        <div class = "row justify-content-center">
-            <h1>My Collection</h1>
-        </div>
-            
-        <div class = "row justify-content-center">
-            <p>Crea il tuo album. Inserisci le carte. Tieni i prezzi aggiornati.</p>
-        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <br>
-        
-    <div class = "row justify-content-center">
-
-        <nav class="navbar navbar-expand-lg" style = "background:transparent; background-color:transparent;">
-        
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <img src="immagini/magic_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(1)"; } else { echo "advise_login()" ;} ?> width="90" height="40" style="cursor: pointer;" >
+                    <img src="immagini/fow_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                 </li>
-            </ul>
-
-            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <img src="immagini/pokemon_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(6)"; } else { echo "advise_login()" ;}?> width="90" height="40" style="cursor: pointer;" >
+                    <img src="immagini/vanguard_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
                 </li>
-            </ul>
-
-            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <img src="immagini/ygo_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(3)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                    <img src="immagini/ff_logo.png"   onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
                 </li>
-            </ul>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <img src="immagini/fow_logo.png"  onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(7)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/vanguard_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(8)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/ff_logo.png"   onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(9)"; } else { echo "advise_login()" ;}?>   width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/starwars_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/dbs_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/dragoborne_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/wow_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/spoils_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <li class="nav-item">
-                        <img src="immagini/ws_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
-                    </li>
-                    <!--
-                    <li class="nav-item">
+                <li class="nav-item">
+                    <img src="immagini/starwars_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(15)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <li class="nav-item">
+                    <img src="immagini/dbs_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(13)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <li class="nav-item">
+                    <img src="immagini/dragoborne_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(11)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <li class="nav-item">
+                    <img src="immagini/wow_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(2)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <li class="nav-item">
+                    <img src="immagini/spoils_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(5)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <li class="nav-item">
+                    <img src="immagini/ws_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
+                </li>
+                <!--
+                <li class="nav-item">
                     <button class="nav-link text-white" onClick = <?php // echo "return_albums(12)";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
-                    </li>
-                    -->
-                </ul>
-            </div>
-        </nav>
-
-    </div>
-
-      
-<!-- in questo div vengono ritornati gli album a seconda della collezione selezionata -->
-<div id = "album_ritornati">
-
-
+                </li>
+                -->
+            </ul>
+        </div>
+    </nav>
 
 </div>
 
+      
+<!-- In questo div vengono ritornati gli album a seconda della collezione selezionata -->
+<div id = "album_ritornati">
 
 
-
-
+</div>
 
 
 <br><br><br><br><br><br><br><br><br>
@@ -116,19 +107,14 @@
 
 
 
-
-
-
-
-
-
 <script type ="text/javascript">
-    //data è echo
+    
     function return_albums(id_collection){
         $.post("php/return_albums.php",{"collezione":id_collection},function(data){
             $("#album_ritornati").html(data);
             });
     }
+
 </script>
 
 

@@ -117,10 +117,10 @@
 
           <li class="nav-item">
               <?php
-                  if(basename($_SERVER['PHP_SELF']) == "wallstreet.php")
-                      echo '<a href="wallstreet.php" class="nav-link active"><p><span style="color: #5401a7;"> Wall Street </span></p></a>';
+                  if(basename($_SERVER['PHP_SELF']) == "wall_street.php")
+                      echo '<a href="wall_street.php" class="nav-link active"><p><span style="color: #5401a7;"> Wall Street </span></p></a>';
                   else
-                      echo '<a href="wallstreet.php" class="nav-link"> <p><span style="color: #5401a7;"> Wall Street </span></p> </a>';
+                      echo '<a href="wall_street.php" class="nav-link"> <p><span style="color: #5401a7;"> Wall Street </span></p> </a>';
               ?>
           </li>
           <li class="nav-item">
@@ -133,10 +133,10 @@
           </li>
           <li class="nav-item">
               <?php 
-                  if(basename($_SERVER['PHP_SELF']) == "wantedlist.php")
-                      echo '<a href="wantedlist.php" class="nav-link active"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
+                  if(basename($_SERVER['PHP_SELF']) == "wanted_list.php")
+                      echo '<a href="wanted_list.php" class="nav-link active"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
                   else
-                      echo '<a href="wantedlist.php" class="nav-link"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
+                      echo '<a href="wanted_list.php" class="nav-link"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
               ?>
           </li>
           <li class="nav-item">

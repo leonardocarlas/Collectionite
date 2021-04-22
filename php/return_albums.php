@@ -3,7 +3,8 @@
 if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
     session_start();
-    
+    require "dbh.php";
+
     if (isset($_SESSION['idusersession'])){
         $id_user = $_SESSION['idusersession'];
     }
@@ -16,7 +17,6 @@ if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
     
     $_SESSION['idcollezione'] = $id_collezione;
 
-    require "dbh.php";
     $array_album = array();
 
     $sql = "SELECT Album_name, Idalbum FROM album WHERE Iduser=? AND Idcollection=? ; ";
