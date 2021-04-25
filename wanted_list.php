@@ -97,9 +97,9 @@
         <form action="">
             <div class="input-group mb-3 float-right">
 
-                <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi inserire" aria-label="User collection search item" aria-describedby="button-addon2">
+                <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi vendere" aria-label="User collection search item" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button onclick = "cerca_carta()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
+                    <button onclick = "cerca_wanted_list_con_carta()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
                 </div>
                                 
             </div>
@@ -107,32 +107,28 @@
     </div>
 </div>
 
+
+
 <div class="row justify-content-center">
-    
-        <div class="list-group" id="show-list">
-            <!-- Here autocomplete list will be display -->
+
+    <div class="list-group" id="show-list">
+        <!-- Here autocomplete list will be display -->
+    </div>
+
+</div>
+
+
+
+
+
+<div class="row justify-content-center">
+    <div class = "col-8">
+        <div id = "posting_wanted_list">
+
+
         </div>
-
+    </div>
 </div>
-
-
-
-
-
-<div id = "posting_wanted_list">
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -143,18 +139,6 @@
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -176,4 +160,34 @@
             });
     }
     
+    function cerca_wanted_list_con_carta(){
+        $.post("php/CRUD_wantedlist.php",{"testo_cercato":document.getElementById('card_searched').value},function(data){
+            $("#show-list").html(data);
+        });
+    }
+
+    // script per auto completamento   query = searchText
+
+    $(document).ready( function(){
+        $("#card_searched").keyup(function(){
+            var searchText = $(this).val();
+            if(searchText != '')
+            {
+                $("#show-list").fadeIn();
+                $.post("php/action.php",{"query_card_set":searchText},function(data){
+                    $("#show-list").html(data);
+                });
+            }
+            else{
+                $("#show-list").fadeOut();
+                $("#show-list").html('');
+            }
+        });
+        $("#show-list").on('click','li',function(){
+            $("#card_searched").val($(this).text());
+            $("#show-list").fadeOut();
+        });
+
+    });
+
 </script>
