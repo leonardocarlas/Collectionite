@@ -138,7 +138,9 @@
                 'Prima di creare un album devi registrarti!',
                 '',
                 'success'
-                );
+                ).then((result) => {
+                        window.location.href = 'get_started.php?Action=Register';
+                    });
         }
     </script>
 

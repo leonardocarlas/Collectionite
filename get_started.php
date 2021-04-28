@@ -4,21 +4,7 @@
 
 
     <main>
-    <!--
-    <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container">
-                  <div class="row mb-3">
-                      <div class="col-sm-6">
-                      <h1 class="m-0 text-dark">Iniziamo!</h1>
-                      </div>
-                  </div>
-                
-                </div>
-            </div> 
-        <div>
-    </div>
-    -->
+
 
 <?php 
     /////////   GESTIONE MESSAGGI   ///////
@@ -98,13 +84,7 @@ if( isset($_GET['Action']) ) {
 
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <!--<div class="card card-primary card-outline">
-
-                     <div class="card-header">
-                        <h5 class="card-title m-0">Registra i tuoi dati</h5>
-                    </div> -->
-
-                    <!--<div class="card-body"> -->
+            
                       <div class="row justify-content-center" class="form-group">
                       <table>
                           <form method="POST" action="php/insert.php">

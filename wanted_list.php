@@ -83,13 +83,13 @@
 <br>
 
 <div class = "row justify-content-center">
-    <h3>You a buyer?</h3>
+    <h3>Cerchi delle carte?</h3>
 </div>
 <div class = "row justify-content-center">
     <a class="btn m-2 text-white" style="background-color: #5401a7;" href = "home.php?Advise-wanted-list">Post a Wanted List</a> 
 </div>
 <div class = "row justify-content-center">
-    <h3>You an owner and want to buy?</h3>
+    <h3>Hai delle carte di cui disfarti e le vuoi vendere?</h3>
 </div>
 <br>
 <div class="row justify-content-center">
@@ -153,6 +153,10 @@
 ?>
 
 <script type ="text/javascript">
+
+    window.onload = function() {
+        return_wantedlist(1);
+    };
     
     function return_wantedlist(id_collection){
         $.post("php/CRUD_wantedlist.php",{"collezione":id_collection},function(data){

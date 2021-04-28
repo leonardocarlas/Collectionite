@@ -8,7 +8,6 @@ if( isset($_POST['collezione']) ) {
 
     get_things($id_collezione);
 
-
 }
 
 
@@ -27,7 +26,7 @@ function get_things($id_collezione){
     JOIN expansion ON cards.Idset = expansion.Idset
     WHERE expansion.Idcollection = ?
     ORDER BY EXPECTEDMC DESC
-    LIMIT 100
+    LIMIT 1000
      " ;
 
     // ORDER BY CAST(VAR30 AS SIGNED) DESC 
@@ -46,25 +45,26 @@ function get_things($id_collezione){
 
                 echo '
                     <div class = "row justify-content-center">
-                            <table>
-                                <thead>
-                                    <th>#</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Set</th>
-                                    <th>Count Articles</th>
-                                    <th>Count Foils</th>
-                                    <th>Min Price</th>
-                                    <th>Trend Price</th>
-                                    <th>24h%</th>
-                                    <th>7d%</th>
-                                    <th>30d%</th>
-                                    <th>Min Price Foil</th>
-                                    <th>Trend Price Foil</th>
-                                    <th>24h% Foil</th>
-                                    <th>7d% Foil</th>
-                                    <th>30d% Foil</th>
-                                    <th>Expected Market Cap</th>
+                        <div class="col-sm-12 table-responsive">
+                            <table class="table table-borderless table-hover" role="grid">
+                                <thead style="background-color: #5401a7;" class="text-white">
+                                    <!-- <th style = "text-align: center;" scope="col">#</th> -->
+                                    <th style = "text-align: center;" scope="col">Image</th>
+                                    <th style = "text-align: center;" scope="col">Name</th>
+                                    <th style = "text-align: center;" scope="col">Set</th>
+                                    <th style = "text-align: center;" scope="col">Count Articles</th>
+                                    <th style = "text-align: center;" scope="col">Count Foils</th>
+                                    <th style = "text-align: center;" scope="col">Min Price</th>
+                                    <th style = "text-align: center;" scope="col">Trend Price</th>
+                                    <th style = "text-align: center;" scope="col">24h%</th>
+                                    <th style = "text-align: center;" scope="col">7d%</th>
+                                    <th style = "text-align: center;" scope="col">30d%</th>
+                                    <th style = "text-align: center;" scope="col">Min Price Foil</th>
+                                    <th style = "text-align: center;" scope="col">Trend Price Foil</th>
+                                    <th style = "text-align: center;" scope="col">24h% Foil</th>
+                                    <th style = "text-align: center;" scope="col">7d% Foil</th>
+                                    <th style = "text-align: center;" scope="col">30d% Foil</th>
+                                    <!-- <th style = "text-align: center;" scope="col">Expected Market Cap</th> -->
                                     
                                 </thead>
                                 <tbody>
@@ -73,11 +73,12 @@ function get_things($id_collezione){
                 while ($row = $result->fetch_assoc()) {
 
                     $c = 0; 
+
                     echo '
                         
 
                                 <tr>
-                                    <td>'.$c.'</td>
+                                    <!-- <td>'.$c.'</td> -->
                                     <td><img src = "'.$row['Image_link'].'" widtd = "20" height = "30" ></td>
                                     <td>'.$row['English_card_name'].'</td>
                                     <td>'.$row['English_set_name'].'</td>
@@ -85,23 +86,24 @@ function get_things($id_collezione){
                                     <td>'.$row['Count_foils'].'</td>
                                     <td>'.$row['Min_value'].'</td>
                                     <td>'.$row['Trend_value'].'</td>
-                                    <td>'.$row['VAR1'].'</td>
-                                    <td>'.$row['VAR7'].'</td>
-                                    <td>'.$row['VAR30'].'</td>
+                                    <td>'.red_or_green($row['VAR1']).'</td>
+                                    <td>'.red_or_green($row['VAR7']).'</td>
+                                    <td>'.red_or_green($row['VAR30']).'</td>
                                     <td>'.$row['Foil_low'].'</td>
                                     <td>'.$row['Foil_trend'].'</td>
-                                    <td>'.$row['FOILVAR1'].'</td>
-                                    <td>'.$row['FOILVAR7'].'</td>
-                                    <td>'.$row['FOILVAR30'].'</td>
-                                    <td>'.$row['EXPECTEDMC'].'</td>
+                                    <td>'.red_or_green($row['FOILVAR1']).'</td>
+                                    <td>'.red_or_green($row['FOILVAR7']).'</td>
+                                    <td>'.red_or_green($row['FOILVAR30']).'</td>
+                                    <!-- <td>'.$row['EXPECTEDMC'].'</td> -->
                                 </tr>
                             
                         ';
                     $c += 1;
                 }
                 echo '
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 ';
                 
@@ -111,6 +113,57 @@ function get_things($id_collezione){
             }
     }
 }
+
+
+
+
+function red_or_green($stringa) {
+
+    $value = (float) $stringa;
+    if ($value == 0) {
+        return '<p> / </p>';
+    }
+    if ($value > 0) {
+        return '<p class = "text-success" >' . round($value, 2). '%</p>';
+    }
+    else {
+        return '<p class = "text-danger" >' . round($value, 2). '%</p>';
+    }
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

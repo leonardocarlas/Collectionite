@@ -187,7 +187,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-12 table-responsive">
                 <table id="example2" class="table table-borderless table-hover" role="grid">
-                    <thead class="table-dark">
+                    <thead style="background-color: #5401a7;" class="text-white">
                         <tr>
                             <th style = "text-align: center;" scope="col">#</th>
                             <th style = "text-align: center;" scope="col">Image</th>

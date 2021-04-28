@@ -3,9 +3,9 @@
 
 require "dbh.php";
 session_start();
+
 $idcollection = $_SESSION['idcollezione'];
 
-//INNER JOIN expansion ON cards.Idset = expansion.Idset 
 
 if (isset($_POST['testo_cercato'])) {
 
@@ -178,6 +178,7 @@ if(isset($_POST['query_card_set'])){
     mysqli_close($connessione);
 
 }
+
 
 
 function str_contains(string $haystack, string $needle): bool {

@@ -24,7 +24,7 @@ if( isset($_POST['collezione']) ) {
 
         echo '
             <div class="card">
-                <h5 class="card-header"><a href=user.php/U='.$array_informazioni_carte[3].' ><u>'.$array_informazioni_carte[2].'</u></a> ha postato questa Wanted List in data '.$array_informazioni_carte[0].'. Luogo: '.$array_informazioni_carte[4].'</h5>
+                <h5 class="card-header text-white" style="background-color: #5401a7;" ><a href=user.php/U='.$array_informazioni_carte[3].' ><u>'.$array_informazioni_carte[2].'</u></a> ha postato questa Wanted List in data '.$array_informazioni_carte[0].'. Luogo: '.$array_informazioni_carte[4].'</h5>
                 <div class="card-body">
                     <h5 class="card-title">'.$array_informazioni_carte[1].'</h5>
                     <p class="card-text">
@@ -49,9 +49,19 @@ if( isset($_POST['collezione']) ) {
         }
         echo'
                         </table>
-                    
                     </p>
-                    <a href="#" class="btn btn-primary">Contatta il collezionista</a>
+
+                    <div class = "row justify-content-center" > 
+                        <button onClick = " '; 
+                            if(isset($_SESSION['idusersession'])){ 
+                                echo 'contatta(2918)'; 
+                            } else { 
+                                echo 'advise_login()';
+                            }
+                        echo '" 
+                            style="background-color: #5401a7;" class="btn text-white" > Contatta il collezionista 
+                        </button>
+                    </div>
                 </div>
             </div>
             <br>
@@ -69,7 +79,7 @@ if( isset($_POST['collezione']) ) {
 
 
 
-if (isset($_POST['testo_cercato'])) {
+if ( isset($_POST['testo_cercato']) ) {
 
     $testo_cercato = mysqli_real_escape_string($connessione, $_POST['testo_cercato']);
 
