@@ -1,27 +1,20 @@
 <?php 
-    require "header.php"; 
-    require "php/dbh.php";
-?>
-
-
-<?php if ( isset( $_GET['EXP']) ) { ?>
-
-    <!-- Time Line -->
-
-    <div class="d-flex flex-row m-4">
-        <h5><a href= "cinema.php" class="text-dark" ><u> Seleziona l'espansione </u></a></h5>
-    </div>
-
-<?php } ?>
+    
+require "header.php"; 
+require "php/dbh.php";
 
 
 
-
-<?php if ( isset( $_GET['EXP']) ) { 
+if ( isset( $_GET['EXP']) ) { 
 
     $id_exp = mysqli_real_escape_string($connessione, $_GET['EXP']);
     $array_immagini = get_images($id_exp);
 
+    echo'
+
+    <div class="d-flex flex-row m-4">
+        <h5><a href= "cinema.php" class="text-dark" ><u> Seleziona l\'espansione </u></a></h5>
+    </div> ';
 
     echo '
 
@@ -60,7 +53,9 @@
   
     ';
 
-}  else {  ?>
+} else {  
+
+    echo '
 
     <div class = "row justify-content-center">
         <h1> Cinema Mode </h1>
@@ -127,28 +122,24 @@
 
     </div>
 
-    <br><br><br><br>
+    <br>
 
-<?php } ?>
+    <div id = "expansions">
 
+    </div> 
 
+    <br><br>
+    ';
 
-<br><br><br><br><br><br><br><br>
+    require "footer.php";    
 
-<div id = "expansions">
-
-</div> 
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-<?php
-
-    require "footer.php";
+}
 
 ?>
+
+
+
+
 
 
 

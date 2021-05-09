@@ -24,7 +24,7 @@ if( isset($_POST['collezione']) ) {
 
         echo '
             <div class="card">
-                <h5 class="card-header text-white" style="background-color: #5401a7;" ><a href=user.php/U='.$array_informazioni_carte[3].' ><u>'.$array_informazioni_carte[2].'</u></a> ha postato questa Wanted List in data '.$array_informazioni_carte[0].'. Luogo: '.$array_informazioni_carte[4].'</h5>
+                <h5 class="card-header text-white" style="background-color: #5401a7;" ><a href=user.php?U='.$array_informazioni_carte[3].' ><u>'.$array_informazioni_carte[2].'</u></a> ha postato questa Wanted List in data '.$array_informazioni_carte[0].'. Luogo: '.$array_informazioni_carte[4].'</h5>
                 <div class="card-body">
                     <h5 class="card-title">'.$array_informazioni_carte[1].'</h5>
                     <p class="card-text">
