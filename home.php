@@ -78,11 +78,6 @@
                 <li class="nav-item">
                     <img src="immagini/ws_logo.png" onClick = <?php if(isset($_SESSION['idusersession'])){ echo "return_albums(10)"; } else { echo "advise_login()" ;}?>  width="90" height="40" style="cursor: pointer;" >
                 </li>
-                <!--
-                <li class="nav-item">
-                    <button class="nav-link text-white" onClick = <?php // echo "return_albums(12)";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
-                </li>
-                -->
             </ul>
         </div>
     </nav>
@@ -108,7 +103,9 @@
 
 
 <script type ="text/javascript">
-    
+    window.onload = function() {
+        return_albums(1);
+    };
     function return_albums(id_collection){
         $.post("php/return_albums.php",{"collezione":id_collection},function(data){
             $("#album_ritornati").html(data);

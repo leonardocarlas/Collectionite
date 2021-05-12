@@ -59,8 +59,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
     <link rel="stylesheet" href="css/cinema.css">
-    <link rel="stylesheet" type="text/css" href="css/image.scss">
-    <link rel="stylesheet" type="text/css" href="css/image.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/home.css">
 
 
 </head>
@@ -156,40 +156,16 @@
                       echo '<a href="articles.php" class="nav-link"><p><span style="color: #5401a7;"> Articles </span></p></a>';
               ?>
           </li>
-            
+          
 
-            <!--
-            <li class="nav-item">
+          <li class="nav-item">
               <?php
-                  /*
-                  if(basename($_SERVER['PHP_SELF']) == "what.php")
-                      echo '<a href="what.php" class="nav-link active">About Us</a>';
+                  if(basename($_SERVER['PHP_SELF']) == "payments.php")
+                      echo '<a href="payments.php" class="nav-link active"><p><span style="color: #5401a7;"> Dona </span></p></a>';
                   else
-                      echo '<a href="what.php" class="nav-link">About Us</a>';
-                  */
+                      echo '<a href="payments.php" class="nav-link"><p><span style="color: #5401a7;"> Dona </span></p></a>';
               ?>
-            </li>
-            <li class="nav-item">
-              <?php 
-                  /*
-                  if(basename($_SERVER['PHP_SELF']) == "contact.php")
-                      echo '<a href="contact.php" class="nav-link active">Contattaci</a>';
-                  else
-                      echo '<a href="contact.php" class="nav-link">Contattaci</a>';
-                  */
-              ?>
-            </li>
-            -->
-
-  
-            <li class="nav-item">
-                <?php
-                    if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                        echo '<a href="payments.php" class="nav-link active"><p><span style="color: #5401a7;"> Dona </span></p></a>';
-                    else
-                        echo '<a href="payments.php" class="nav-link"><p><span style="color: #5401a7;"> Dona </span></p></a>';
-                ?>
-            </li>
+          </li>
             
 
           </ul>
@@ -198,7 +174,7 @@
 
             <?php
               if(isset($_SESSION['usernamesession'])){
-                  $user=$_SESSION['usernamesession'];
+                  
                   echo '
                   
                         <form action="php/logout.php" method="post">
@@ -206,14 +182,10 @@
                             <!-- <div class="row row justify-content-center align-self-center">  -->
                             
                             <ul class="navbar-nav">
+                              
                               <li class="nav-item">
                                 <div class="form-group  m-2">
-                                  <i class="fa fa-user" style="font-size:20px;" aria-hidden="true"></i>
-                                </div>
-                              </li>
-                              <li class="nav-item">
-                                <div class="form-group  m-2">
-                                  <h4><span style="text-transform: uppercase;">'.$user.'</span></h4>
+                                  <h4><a href="user.php?U='.$_SESSION['idusersession'].' "><u>'.$_SESSION['usernamesession'].'</u></a></h4>
                                 </div>
                               </li>
                               
