@@ -72,10 +72,44 @@
     <br>
 
     <div class = "row justify-content-center">
-        <a class="btn m-2 text-white" style="background-color: #5401a7;" href = "contact.php">Crea un Post</a> 
+        <button type="button" class="btn m-2 text-white" style="background-color: #5401a7;"  data-toggle="modal" data-target="#modal1">Crea un Post</button>
     </div>
 
     <br>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Limite versione beta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <text>In questa versione di sviluppo non è ancora possibile creare dei post all'interno del sito. <br> Se vorrai farlo potrai andare al sito www.reddit.com e creare un post lì.</text> 
+        </div>
+        <div class="modal-footer">
+            <button type="button"  class="btn m-2 text-white" style="background-color: #5401a7;" data-dismiss="modal">Ho capito</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div id = "posts"> 
     </div>

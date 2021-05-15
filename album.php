@@ -263,7 +263,6 @@
         <p>
         In questo modo il sito potrà disegnare un grafico davvero indicativo dell'andamento dei prezzi del tuo album.
         </p>
-        
     </div>
     <div class="row justify-content-center">
         <?php
@@ -332,6 +331,40 @@
     </div>
     <div class="row justify-content-center">
         <button type="submit" disabled class="btn text-white" style="background-color: #5401a7;" > Prezzo di valutazione </button>
+    </div>
+
+    <br> 
+
+    <div class="row justify-content-center">
+        <h5><p class="font-weight-bold">Trasforma l'album in Wanted List</p></h5>
+    </div>
+    <div class="row justify-content-center">
+        <p>Cliccando sul bottone sottostante, le carte inserite in questo album verrano inserite in una wanted list,
+         quindi verranno viste dagli altri utenti come carte di cui tu sei ala ricerca</p>
+    </div>
+    <div class="row justify-content-center">
+        <button type="submit" class="btn text-white" style="background-color: #5401a7;" data-toggle="modal" data-target="#modal1"> Trasforma in Wanted List </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Trasforma in Wanted List</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <img src = "" alt = "Immagine trasformazione a wanted list"> 
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  data-dismiss="modal">Annulla</button>
+            <button type="button"  class="btn m-2 text-white" style="background-color: #5401a7;" >Trasforma</button>
+        </div>
+        </div>
+    </div>
     </div>
    
 

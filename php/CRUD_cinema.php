@@ -37,12 +37,18 @@ if( isset($_POST['collezione']) ) {
                         <div class="col"> 
                             <div class="card">';
         
-                    if ($id_collezione == 1)
+                    if ($id_collezione == 1) {
                         magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
-                    if ($id_collezione == 3)
+                    }
+                    if ($id_collezione == 3) {
                         yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
-                    if ($id_collezione == 6)
+                    }
+                    if ($id_collezione == 6) {
                         pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                    }
+                    if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                        whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                    }
         
                     echo '
                                     <div class="row justify-content-center">
@@ -66,12 +72,18 @@ if( isset($_POST['collezione']) ) {
                     <div class="col"> 
                         <div class="card">';
 
-                if ($id_collezione == 1)
+                if ($id_collezione == 1) {
                     magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
-                if ($id_collezione == 3)
+                }
+                if ($id_collezione == 3) {
                     yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
-                if ($id_collezione == 6)
+                }
+                if ($id_collezione == 6) {
                     pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                    whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                }
 
                 echo '
                                 <div class="row justify-content-center">
@@ -242,6 +254,19 @@ function yugioh_format($logo, $titolo, $abbreviazione){
                 alt="Foto dell\'espansione"
             />
 
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                </div>
+                <div class="row justify-content-center">
+                    <strong> <h5 style = "text-align: center;" >'. $abbreviazione .'</h5></strong>
+                </div>
+            ';
+}
+
+function whatever_format($logo, $titolo, $abbreviazione){
+
+    echo ' 
             <div class="card-body">
                 <div class="row justify-content-center">
                     <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
