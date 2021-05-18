@@ -1,7 +1,7 @@
 <?php
     require "header.php";
     $album_corrente = $_SESSION['album-selezionato'];
-    $idcollection = $_SESSION['idcollezione'];
+    $id_collezione = $_SESSION['idcollezione'];
 ?>
 
 
@@ -118,7 +118,7 @@
 <?php
 
 
-$array_espansioni = get_expansions($idcollection);
+$array_espansioni = get_expansions($id_collezione);
 
 foreach ($array_espansioni as $data => $array_dati_relativi) {
 
@@ -328,7 +328,7 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
     *  array con i dati delle espansioni
     */
 
-    function get_expansions($idcollection) {
+    function get_expansions($id_collezione) {
 
         require 'php/dbh.php';
     
@@ -342,7 +342,7 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
         }
         else {
     
-            mysqli_stmt_bind_param($stmt, "i", $idcollection);
+            mysqli_stmt_bind_param($stmt, "i", $id_collezione);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt); 
     

@@ -69,11 +69,7 @@
                 <li class="nav-item">
                     <img src="immagini/ws_logo.png" onClick = "return_wantedlist(10)" width="90" height="40" style="cursor: pointer;" >
                 </li>
-                <!--
-                <li class="nav-item">
-                    <button class="nav-link text-white" onClick = <?php // echo "return_wantedlist(12)";?> type="button" class="btn btn-outline-primary"> My Little Pony </button>
-                </li>
-                -->
+
             </ul>
         </div>
     </nav>
@@ -82,30 +78,8 @@
 
 <br>
 
-<div class = "row justify-content-center">
-    <h3>Cerchi delle carte?</h3>
-</div>
-<div class = "row justify-content-center">
-    <a class="btn m-2 text-white" style="background-color: #5401a7;" href = "home.php?Advise-wanted-list">Post a Wanted List</a> 
-</div>
-<div class = "row justify-content-center">
-    <h3>Hai delle carte di cui disfarti e le vuoi vendere?</h3>
-</div>
-<br>
-<div class="row justify-content-center">
-    <div class="col-sm-6">
-        <form action="">
-            <div class="input-group mb-3 float-right">
 
-                <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi vendere" aria-label="User collection search item" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button onclick = "cerca_wanted_list_con_carta()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
-                </div>
-                                
-            </div>
-        </form>  
-    </div>
-</div>
+
 
 
 
@@ -154,6 +128,27 @@
 
 <script type ="text/javascript">
 
+    function save_text_wantedlist(idcollezione){    
+        
+        $.post("php/CRUD_wantedlist.php",{"idcollezione": idcollezione, "testo_wantedlist":document.getElementById('wantedlist-text').value},function(data){
+            if(data.trim() == "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'La tua wanted list è stata registrata',
+                        });
+            }
+        });
+    }
+
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+            currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+    }
+
+
     window.onload = function() {
         return_wantedlist(1);
     };
@@ -161,7 +156,7 @@
     function return_wantedlist(id_collection){
         $.post("php/CRUD_wantedlist.php",{"collezione":id_collection},function(data){
             $("#posting_wanted_list").html(data);
-            });
+        });
     }
     
     function cerca_wanted_list_con_carta(){
@@ -193,5 +188,7 @@
         });
 
     });
+
+    
 
 </script>

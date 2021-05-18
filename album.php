@@ -346,9 +346,12 @@
         <button type="submit" class="btn text-white" style="background-color: #5401a7;" data-toggle="modal" data-target="#modal1"> Trasforma in Wanted List </button>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+
+
+
+    <!-- Modal Wanted List -->
+    <div class="modal fade bd-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Trasforma in Wanted List</h5>
@@ -357,15 +360,82 @@
             </button>
         </div>
         <div class="modal-body">
-            <img src = "" alt = "Immagine trasformazione a wanted list"> 
+            <div class="container-fluid">
+
+                <div class="row justify-content-center">
+                    <div class="d-flex flex-row m-4">
+                        <h2><?php echo $album_corrente; ?></h2>
+                        <img src = "immagini/freccialista.png" alt = "Immagine trasformazione a wanted list" width = "300" height = "150">
+                    </div>
+
+                    <table id="example2" class="table table-borderless table-hover" role="grid">
+                        <thead style="background-color: #5401a7;" class="text-white">
+                            <tr>
+
+                                <th style = "text-align: center;" scope="col">Image</th>
+                                <th style = "text-align: center;" scope="col">Carta</th>
+                                <th style = "text-align: center;" scope="col">Espansione</th>
+                                <th style = "text-align: center;" scope="col">Max Price (euro)</th>
+
+                                <th style = "text-align: center;" scope="col">Lingua</th>
+                                <th style = "text-align: center;" scope="col">Valori Extra</th>
+                                <th style = "text-align: center;" scope="col">Condizioni</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Solo per debugging:  array_push($dati_tabella, $row['Idcard'], $row['Idset'], $row['Image_link'], $row['Min_value'], $row['Trend_Value'], $row['Quantity'], $row['Language'], $row['ExtraValues'], $row['Conditions'], $row['Website'], $row['Idpossession'] ); -->
+                            <?php for($i = 0; $i < count($array_carte); $i = $i + 11) { ?>
+                                <tr>
+
+                                    <td style = "text-align: center;"> <?php echo '<img src="'.$array_carte[$i+2] .'" alt="Foto" width="100" height="150">'?></td>
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i] ?></td>
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i+1] ?></td>
+                                    <td style = "text-align: center;"> 
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id= <?php echo '"carta' .$i. '"' ;  ?> >
+                                        </div>
+                                    </td>
+
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i+5];  ?></td>
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i+6] ?></td>
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i+7] ?></td>
+                                    <td style = "text-align: center;"> <?php echo $array_carte[$i+8] ?></td>
+
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!--
+                <div class="row justify-content-center">
+                    <div class="col-md-4">   </div>
+                    <div class="col-md-4"><img src = "immagini/freccialista.png" alt = "Immagine trasformazione a wanted list" width = "300" height = "150"></div>
+                </div>
+                -->
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary"  data-dismiss="modal">Annulla</button>
-            <button type="button"  class="btn m-2 text-white" style="background-color: #5401a7;" >Trasforma</button>
+            <button type="button"  class="btn m-2 text-white" style="background-color: #5401a7;" onClick = <?php echo 'trasforma_in_wantedlist('.$id_album.')" ';?> >Trasforma</button>
         </div>
         </div>
     </div>
     </div>
+
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+    </script>
    
 
 
@@ -516,10 +586,21 @@
 
 
 
-<!-- Esporta l'album in formato .txt -->
+
 
 <script type ="text/javascript">
 
+    function trasforma_in_wantedlist(){
+        $.post("php/CRUD_wantedlist.php",{"album":id_album},function(data){
+            if(data == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Wanted List registrata con successo',
+                        });
+                }
+            });
+    }
 
     function start_tracking(id_album){
         $.post("php/CRUD_statistic.php",{"start_tracking_id_album":id_album},function(data){
@@ -533,18 +614,8 @@
             });
     }
 
-    var c = 0;
-    function pop() {
-        if (c == 0){
-            document.getElementById("modify_card_box").style.display = "block";
-            c = 1;
-        } else {
-            document.getElementById("modify_card_box").style.display = "none";
-            c = 0;
-        }
-    }
 
-    function modify_card(){
+    function modify_card() {
         $.post("php/CRUD_card.php",{"delete_id_possession":id_possession},function(data){
                 if(data == "success")
                 {
@@ -555,7 +626,7 @@
                             location.reload();
                     });
                 }
-            });
+        });
     }
 
     Morris.Line({

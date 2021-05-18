@@ -26,7 +26,7 @@ function get_things($id_collezione){
     JOIN expansion ON cards.Idset = expansion.Idset
     WHERE expansion.Idcollection = ?
     ORDER BY EXPECTEDMC DESC
-    LIMIT 1000
+    LIMIT 20
      " ;
 
     // ORDER BY CAST(VAR30 AS SIGNED) DESC 
@@ -42,6 +42,8 @@ function get_things($id_collezione){
             $result = mysqli_stmt_get_result($stmt); 
                                 
             if ($result->num_rows > 0) {
+
+
 
                 echo '
                     <div class = "row justify-content-center">
@@ -141,57 +143,3 @@ function red_or_green($stringa) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    echo '
-    <div class = "row justify-content-center">
-        <table>
-            <thead>
-                <th>#</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Min Price</th>
-                <th>Trend Price</th>
-                <th>24h %</th>
-                <th>7d %</th>
-                <th>Count Articles</th>
-                <th>Count Foils</th>
-                <th>Count Wanted</th>
-                <th>Expected Market Cap</th>
-                <th>Sentimento</th>
-            </thead>
-        </table>
-    </div>
-    
-    ';
-*/

@@ -48,7 +48,7 @@
 
             <br>
 
-            <div class = "row justify-content-center"  style="background-color: #5401a7;">
+            <div class = "row justify-content-center"  >
 
                 <nav class="navbar navbar-expand-lg" style = "background:transparent; background-color:transparent;">
                 
@@ -77,7 +77,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <img src="immagini/fow.png"  onClick = "return_articles(7)" width="90" height="40" style="cursor: pointer;" >
+                                <img src="immagini/fow_logo.png"  onClick = "return_articles(7)" width="90" height="40" style="cursor: pointer;" >
                             </li>
                             <li class="nav-item">
                                 <img src="immagini/vanguard_logo.png" onClick = "return_articles(8)"   width="90" height="40" style="cursor: pointer;" >
