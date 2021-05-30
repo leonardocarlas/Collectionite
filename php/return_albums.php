@@ -266,8 +266,6 @@ if(isset($_POST['collezione']) || isset($_GET['collezione'])) {
 
 
 
-?>
-
 <script type = "text/javascript">
     function modify_name(id_album,id_collezione) {
 

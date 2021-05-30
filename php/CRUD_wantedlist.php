@@ -25,8 +25,6 @@ if( isset($_POST['collezione']) ) {
 
         $array_informazioni_carte = $lista[$i+1];
         
-        
-
         echo '
             <div class="card">
                 <div class = "row justify-content-center" style="background-color: #5401a7;">
@@ -100,63 +98,14 @@ if( isset($_POST['collezione']) ) {
 
 
 
-if( isset($_POST['idalbum']) ) {
-    
-    $id_album =  mysqli_real_escape_string($connessione, $_POST['idalbum']);
-    echo "success";
-
-}
-
-if( isset($_POST['testo_wantedlist']) &&  isset($_POST['idcollezione']) ) {
-    
-    $testo_cercato =  mysqli_real_escape_string($connessione, $_POST['testo_wantedlist']);
-    $id_collezione =  mysqli_real_escape_string($connessione, $_POST['idcollezione']);
-
-    if (empty($testo_cercato))
-    {
-        echo "no text";
-    }
-    else {
-
-        // Tecnica della carta fittizia
-        // Cercare l'id della carta più stupido dell'intero db
-        // Selezionare il max Idwantedlist presente
-        // INSERT INTO wanted_list (Description, Idcollection) VALUES ("Prova Prova zio", 1)
-        // INSERT INTO desires (Iduser, Idcard, Idwantedlist, Min_condition, Language_wanted, Max_price) VALUES(11, 1, 7, 1,1,0)
-
-        $sql = "INSERT INTO wanted_list (Description, Idcollection) VALUES (?, ?) ";
-        $stmt = mysqli_stmt_init($connessione);
-    
-        if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../cards_in_set.php?error=sqlerror");
-            echo "error";
-        }else{
-    
-            mysqli_stmt_bind_param($stmt, "si", $testo_cercato, $id_collezione);
-            mysqli_stmt_execute($stmt);
-            echo "success";
-    
-        }
-        mysqli_stmt_close($stmt);
-        mysqli_close($connessione);
-    }
-
-
-}
-
-
-
-
-
-
-if ( isset($_POST['testo_cercato']) ) {
+function search_card_in_wl($id_collezione) {
 
     $testo_cercato = mysqli_real_escape_string($connessione, $_POST['testo_cercato']);
 
     $sql = "SELECT DISTINCT English_card_name, cards.Idset, Idcard, Image_link, expansion.English_set_name
     FROM cards
     INNER JOIN expansion ON cards.Idset = expansion.Idset 
-    WHERE English_card_name LIKE '%$testo_cercato%'  AND expansion.Idcollection = '$idcollection' LIMIT 70";
+    WHERE English_card_name LIKE '%$testo_cercato%'  AND expansion.Idcollection = '$id_collezione' LIMIT 70";
 
     $stmt = mysqli_stmt_init($connessione);
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -197,6 +146,8 @@ if ( isset($_POST['testo_cercato']) ) {
     mysqli_stmt_close($stmt);
     mysqli_close($connessione);
 }
+
+
 
 
 ?>
@@ -258,7 +209,7 @@ if ( isset($_POST['testo_cercato']) ) {
 
                             <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi vendere" aria-label="User collection search item" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button onclick = "cerca_wanted_list_con_carta('.$id_collezione.')" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
+                                <button onclick = "search_card_in_wl('.$id_collezione.')" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
                             </div>
                                             
                         </div>
@@ -373,4 +324,48 @@ if ( isset($_POST['testo_cercato']) ) {
 
     }
 
-?>
+
+    if( isset($_POST['idalbum']) ) {
+    
+        $id_album =  mysqli_real_escape_string($connessione, $_POST['idalbum']);
+        echo "success";
+    
+    }
+    
+    if( isset($_POST['testo_wantedlist']) &&  isset($_POST['idcollezione']) ) {
+        
+        $testo_cercato =  mysqli_real_escape_string($connessione, $_POST['testo_wantedlist']);
+        $id_collezione =  mysqli_real_escape_string($connessione, $_POST['idcollezione']);
+    
+        if (empty($testo_cercato))
+        {
+            echo "no text";
+        }
+        else {
+    
+            // Tecnica della carta fittizia
+            // Cercare l'id della carta più stupido dell'intero db
+            // Selezionare il max Idwantedlist presente
+            // INSERT INTO wanted_list (Description, Idcollection) VALUES ("Prova Prova zio", 1)
+            // INSERT INTO desires (Iduser, Idcard, Idwantedlist, Min_condition, Language_wanted, Max_price) VALUES(11, 1, 7, 1,1,0)
+    
+            $sql = "INSERT INTO wanted_list (Description, Idcollection) VALUES (?, ?) ";
+            $stmt = mysqli_stmt_init($connessione);
+        
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("Location: ../cards_in_set.php?error=sqlerror");
+                echo "error";
+            }else{
+        
+                mysqli_stmt_bind_param($stmt, "si", $testo_cercato, $id_collezione);
+                mysqli_stmt_execute($stmt);
+                echo "success";
+        
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($connessione);
+        }
+    
+    
+    }
+    

@@ -95,7 +95,7 @@
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/logopersito.png" alt="Logo Collection Sight"  width="200" height="60"> 
+          <img src="immagini/prova.png" alt="Logo Collection Sight"  style="max-width:80px; max-height:80px;"> 
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
