@@ -1,7 +1,7 @@
 <?php
     require "header.php";
     $album_corrente = $_SESSION['album-selezionato'];
-    $idcollection = $_SESSION['idcollezione'];
+    $id_collezione = $_SESSION['idcollezione'];
 ?>
 
 
@@ -48,6 +48,7 @@
         </form>  
     </div>
 </div>
+
 <div class="row justify-content-center">
     
         <div class="list-group" id="show-list">
@@ -117,7 +118,7 @@
 <?php
 
 
-$array_espansioni = get_expansions($idcollection);
+$array_espansioni = get_expansions($id_collezione);
 
 foreach ($array_espansioni as $data => $array_dati_relativi) {
 
@@ -153,12 +154,18 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
                     <div class="col"> 
                         <div class="card">';
 
-                if ($idcollection == 1)
+                if ($id_collezione == 1) {
                     magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
-                if ($idcollection == 3)
+                }
+                if ($id_collezione == 3) {
                     yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
-                if ($idcollection == 6)
+                }
+                if ($id_collezione == 6) {
                     pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                    whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                }
 
                 echo '
                                 <div class="row justify-content-center">
@@ -182,31 +189,33 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
         for ( $i = 0; $i < $riporto ; $i++ ) {
             echo '
                     <div class="col"> 
-                        <div class="card">
-                            <img
-                                
-                                src="immagini/magic_exp/'. $array_dati_relativi[$k] .'_logo.png "
-                                class="card-img-top"
-                                alt="Foto dell\'espansione"
-                            />
-                
-                        <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <h5 class="card-title" style = "text-align: center;" >'. $array_dati_relativi[$k+1]  .'</h5>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <img
-                                    src="immagini/magic_exp/'. $array_dati_relativi[$k]  .'_icon.png "
-                                    alt="Icona dell\'espansione"
-                                    />
-                                </div>
+                        <div class="card">';
+
+                if ($id_collezione == 1) {
+                    magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 3) {
+                    yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
+                }
+                if ($id_collezione == 6) {
+                    pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                    whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                }
+
+                echo '
                                 <div class="row justify-content-center">
                                     <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a href = "#" >Aggiungi intero album</a>
                                 </div>
                             </div>
                         </div>
                     </div>';
-            $k += 7; 
+
+                $k += 7; 
         }
     echo '</div><br><br>';
 
@@ -300,6 +309,18 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
                     </div>
                 ';
     }
+    function whatever_format($logo, $titolo, $abbreviazione){
+
+        echo ' 
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <strong> <h5 style = "text-align: center;" >'. $abbreviazione .'</h5></strong>
+                    </div>
+                ';
+    }
 
     /**
     *  Metodo che ritorna un array contenente due array:
@@ -307,7 +328,7 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
     *  array con i dati delle espansioni
     */
 
-    function get_expansions($idcollection) {
+    function get_expansions($id_collezione) {
 
         require 'php/dbh.php';
     
@@ -321,7 +342,7 @@ foreach ($array_espansioni as $data => $array_dati_relativi) {
         }
         else {
     
-            mysqli_stmt_bind_param($stmt, "i", $idcollection);
+            mysqli_stmt_bind_param($stmt, "i", $id_collezione);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt); 
     

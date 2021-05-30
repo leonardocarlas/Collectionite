@@ -48,7 +48,7 @@ if(isset($_POST['aggiungi_album'])){
 
 
 
-/////////////// FROM: home.php --- Gestione eliminazione Album ////////////////
+// FROM: home.php --- Gestione eliminazione Album 
  
 elseif(isset($_POST['delete_id_album'])){
 

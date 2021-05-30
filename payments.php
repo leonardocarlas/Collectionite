@@ -1,9 +1,8 @@
 <?php
     require "header.php";
     require "php/dbh.php";
+    $user_id=(isset($_SESSION['idusersession']))?$_SESSION['idusersession']:''; 
 ?>
-
-<?php $user_id=(isset($_SESSION['idusersession']))?$_SESSION['idusersession']:''; ?>
 
 <br><br><br><br>
 
@@ -86,7 +85,7 @@
                 
                 <br><br><br>
 
-            </div> <!--.\ card-body -->
+                </div> <!--.\ card-body -->
             <div> <!--.\ card -->
         </div> <!--.\ content -->
     </div>  <!--.\ container -->

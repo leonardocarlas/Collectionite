@@ -1,48 +1,6 @@
-#nav ul {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-}
+body {
+    background-color: #edeef6;
+    font-family: 'Poppins', sans-serif;
+  }
 
-#nav  ul li {
-position: relative;
-border-bottom:1px solid #ccc;
-width: 200px;
-float: left;
-}
-
-#nav li ul {
-position: absolute;
-z-index: 1;
-display: none;
-}
-
-#nav ul li a {
-display: block;
-text-decoration: none;
-color: #777;
-background: #fff;
-padding: 5px;
-}
-
-#nav  li:hover ul, #nav li.jshover ul {
-display: block;
-}
-
-#nav li:hover  a, #nav li.jshover a {
-color:#FFFFFF;
-background: black;
-}
-
-#nav  li:hover ul a:hover, #nav li.jshover ul a:hover {
-background-color:#cccccc;
-background-image:none;
-color:#FFFFFF;
-}
-
-.navbar-inner {
-    background:transparent;
-    background-color:transparent;
-}
-
-
+  

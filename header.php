@@ -58,8 +58,9 @@
     <!-- W3 scchool completition % bar> -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
-    <link rel="stylesheet" type="text/css" href="css/image.scss">
-    <link rel="stylesheet" type="text/css" href="css/image.css">
+    <link rel="stylesheet" href="css/cinema.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/home.css">
 
 
 </head>
@@ -90,11 +91,11 @@
 
 
 
-    <nav class="main-header navbar navbar-expand-md" style = "background:transparent; background-color:transparent;">
+    <nav class="main-header navbar navbar-expand-md" style="background-color: #5401a7;">
       <!--<div class="container"> -->
 
         <a href="index.php" class="navbar-link">
-          <img src="immagini/logopersito.png" alt="AdminLTE Logo"  width="200" height="60"> 
+          <img src="immagini/prova.png" alt="Logo Collection Sight"  style="max-width:80px; max-height:80px;"> 
         </a>
           
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,95 +110,69 @@
           <li class="nav-item">
                 <?php
                     if(basename($_SERVER['PHP_SELF']) == "home.php")
-                        echo '<a href="home.php" class="nav-link active"> <p><span style="color: #5401a7;"> My Collection </span></p></a>';
+                        echo '<a href="home.php" class="nav-link active text-white"> My Collection</a>';
                     else
-                        echo '<a href="home.php" class="nav-link"><p><span style="color: #5401a7;"> My Collection </span></p></a>';
+                        echo '<a  href="home.php" class="nav-link text-white"> My Collection </a>';
                 ?>
           </li>
 
           <li class="nav-item">
               <?php
-                  if(basename($_SERVER['PHP_SELF']) == "wallstreet.php")
-                      echo '<a href="wallstreet.php" class="nav-link active"><p><span style="color: #5401a7;"> Wall Street </span></p></a>';
+                  if(basename($_SERVER['PHP_SELF']) == "wall_street.php")
+                      echo '<a href="wall_street.php" class="nav-link active text-white"> Wall Street </a>';
                   else
-                      echo '<a href="wallstreet.php" class="nav-link"> <p><span style="color: #5401a7;"> Wall Street </span></p> </a>';
+                      echo '<a href="wall_street.php" class="nav-link text-white">  Wall Street  </a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "reddsight.php")
-                      echo '<a href="reddsight.php" class="nav-link active"><p><span style="color: #5401a7;"> Redd Sight </span></p></a>';
+                      echo '<a href="reddsight.php" class="nav-link active text-white"> Redd Sight </a>';
                   else
-                      echo '<a href="reddsight.php" class="nav-link"><p><span style="color: #5401a7;"> Redd Sight  </span></p></a>';
+                      echo '<a href="reddsight.php" class="nav-link text-white"> Redd Sight  </a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
-                  if(basename($_SERVER['PHP_SELF']) == "wantedlist.php")
-                      echo '<a href="wantedlist.php" class="nav-link active"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
+                  if(basename($_SERVER['PHP_SELF']) == "wanted_list.php")
+                      echo '<a href="wanted_list.php" class="nav-link active text-white"> Wanted List </a>';
                   else
-                      echo '<a href="wantedlist.php" class="nav-link"><p><span style="color: #5401a7;"> Wanted List </span></p></a>';
+                      echo '<a href="wanted_list.php" class="nav-link text-white"> Wanted List </a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "cinema.php")
-                      echo '<a href="cinema.php" class="nav-link active"><p><span style="color: #5401a7;"> Cinema Mode </span></p></a>';
+                      echo '<a href="cinema.php" class="nav-link active text-white"> Cinema Mode </a>';
                   else
-                      echo '<a href="cinema.php" class="nav-link"><p><span style="color: #5401a7;"> Cinema Mode </span></p></a>';
+                      echo '<a href="cinema.php" class="nav-link text-white"> Cinema Mode </a>';
               ?>
           </li>
           <li class="nav-item">
               <?php 
                   if(basename($_SERVER['PHP_SELF']) == "articles.php")
-                      echo '<a href="articles.php" class="nav-link active"><p><span style="color: #5401a7;"> Articles </span></p></a>';
+                      echo '<a href="articles.php" class="nav-link active text-white"> Articles </a>';
                   else
-                      echo '<a href="articles.php" class="nav-link"><p><span style="color: #5401a7;"> Articles </span></p></a>';
+                      echo '<a href="articles.php" class="nav-link text-white"> Articles </a>';
               ?>
           </li>
-            
+          
 
-            <!--
-            <li class="nav-item">
+          <li class="nav-item">
               <?php
-                  /*
-                  if(basename($_SERVER['PHP_SELF']) == "what.php")
-                      echo '<a href="what.php" class="nav-link active">About Us</a>';
+                  if(basename($_SERVER['PHP_SELF']) == "payments.php")
+                      echo '<a href="payments.php" class="nav-link active text-white"> Dona </a>';
                   else
-                      echo '<a href="what.php" class="nav-link">About Us</a>';
-                  */
+                      echo '<a href="payments.php" class="nav-link text-white"> Dona </a>';
               ?>
-            </li>
-            <li class="nav-item">
-              <?php 
-                  /*
-                  if(basename($_SERVER['PHP_SELF']) == "contact.php")
-                      echo '<a href="contact.php" class="nav-link active">Contattaci</a>';
-                  else
-                      echo '<a href="contact.php" class="nav-link">Contattaci</a>';
-                  */
-              ?>
-            </li>
-            -->
-
-  
-            <li class="nav-item">
-                <?php
-                    if(basename($_SERVER['PHP_SELF']) == "payments.php")
-                        echo '<a href="payments.php" class="nav-link active"><p><span style="color: #5401a7;"> Dona </span></p></a>';
-                    else
-                        echo '<a href="payments.php" class="nav-link"><p><span style="color: #5401a7;"> Dona </span></p></a>';
-                ?>
-            </li>
-            
-
-          </ul>
-
-            
+          </li>
+          
+        
+      </ul>
 
             <?php
               if(isset($_SESSION['usernamesession'])){
-                  $user=$_SESSION['usernamesession'];
+                  
                   echo '
                   
                         <form action="php/logout.php" method="post">
@@ -205,23 +180,20 @@
                             <!-- <div class="row row justify-content-center align-self-center">  -->
                             
                             <ul class="navbar-nav">
+                              
                               <li class="nav-item">
                                 <div class="form-group  m-2">
-                                  <i class="fa fa-user" style="font-size:20px;" aria-hidden="true"></i>
-                                </div>
-                              </li>
-                              <li class="nav-item">
-                                <div class="form-group  m-2">
-                                  <h4><span style="text-transform: uppercase;">'.$user.'</span></h4>
+                                  <h4><a  class = "text-white" href="user.php?U='.$_SESSION['idusersession'].' "><u>'.$_SESSION['usernamesession'].'</u></a></h4>
                                 </div>
                               </li>
                               
                               <li class="nav-item">
                                 <div class="form-group  m-2"> 
-                                  <button class="btn text-white" type="submit" style="background-color: #5401a7;" name="logout-submit">Logout</button>
+                                  <button  type="submit" style="background-color: #FFFFFF;" class="btn text-dark" name="logout-submit">Logout</button>
                                 </div>
                               </li>
-                              </ul>  
+
+                            </ul>  
                           
                       </form>
                           ';
@@ -229,25 +201,12 @@
               else {
                   echo '
                     <ul class="navbar-nav">
-                        <!--
-                        <form  action="php/login.php" method="post" class="form-inline">
+                        
                           <li class="nav-item">
-                            <div class="form-group m-2 ">
-                                <input type="text" name="username" class="form-control" placeholder="Username">       
-                            </div> 
+                            <a href = "get_started.php?Action=Register" class="btn m-2 text-white" ><u>Register</u></a>
                           </li>
                           <li class="nav-item">
-                            <div class="form-group m-2">          
-                                <input type="password" name="password" class="form-control" placeholder="Password"> 
-                            </div>
-                          </li>
-                          -->
-
-                          <li class="nav-item">
-                            <a href = "get_started.php?Action=Register" class="btn m-2 text-dark" >Register</a>
-                          </li>
-                          <li class="nav-item">
-                            <a href = "get_started.php?Action=Login" class="btn m-2 text-white" style="background-color: #5401a7;"> Login </a>
+                            <a href = "get_started.php?Action=Login" class="btn m-2 text-dark" style="background-color: #FFFFFF;" > Login </a>
                           </li>
 
                         <!--
