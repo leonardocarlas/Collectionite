@@ -41,20 +41,6 @@
 <?php }?>
 
 
-    <!-- SPOSTARE DI POSIZIONE        
-    <div class="row ml-1">
-      <div class="col-sm-6 ml-auto mr-3">
-        <form action="search_page.php">
-          <div class="input-group float-right">
-            <input type="text" class="form-control" name="user-searched" placeholder="Enter the name of the user to see his collection" aria-label="User collection search item" aria-describedby="button-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit"  id="button-addon2">Search</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>row -->
-    <!-- RICORDARSI DEL SEARCH ---->
 
 
 <div class="content-wrapper" style="min-height: 636.763px;">
@@ -89,27 +75,17 @@
 
       <div class="row">
         <a href="home.php" style="background-color: #FFFFFF;"class="btn text-dark btn-lg mx-auto d-block mb-5">Inizia</a>
-            <?php
-                        
-                if(isset($_SESSION['usernamesession'])){
-                    $username=$_SESSION['usernamesession'];
-
-                    echo ' <a class="btn text-dark btn-lg mx-auto d-block mb-5" style="background-color: #FFFFFF;" href="home.php">My Collection</a>
-                          ';
-                        
-                }else{
-                    echo '' ;
-                }
-            ?>
       </div>
 
       <div class="row justify-content-center">
         <div class="col text-center">
-          <p class="text-white">Per ora la nostra community conta <?php 
-                                                    $numero_utenti = count_users();
-                                                    echo $numero_utenti; 
-                                                ?>
-            utenti. Siamo in BETA.</p>
+          <p class="text-white">
+          Per ora la nostra community conta 
+          <?php 
+          $numero_utenti = count_users();
+          echo $numero_utenti; 
+          ?>
+          utenti. Siamo in BETA.</p>
         </div>            
       </div>
 
@@ -235,16 +211,7 @@
             </div>
           </div>
 
-          <!--
-          <div class="row justify-content-center">
-            <div class="col-5">
-                <img class="img-thumbnail" src="immagini/card.jpg">
-            </div>
-            <div class="col-5">
-                <img class="img-thumbnail" src="immagini/img2.jpg">
-            </div>
-          </div>
-          -->
+
           <!-- /.col-md-6 -->
         </div>
         <br><br>
@@ -265,6 +232,7 @@
   </div>
 
   <script>
+
     const cookieContainer = document.querySelector(".cookie-container");
     const cookieButton = document.querySelector(".cookie-btn");
 
@@ -318,8 +286,6 @@ function count_users(){
       $result = mysqli_stmt_get_result($stmt); 
       $row = $result->fetch_assoc();
       $numero_utenti = $row['num_users'];
-
-
 
   }    
   mysqli_stmt_close($stmt);

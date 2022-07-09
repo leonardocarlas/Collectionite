@@ -1,28 +1,33 @@
 <?php
     require "header.php";
     $album_corrente = $_SESSION['album-selezionato'];
-    $idcollection = $_SESSION['idcollezione'];
+    $id_collezione = $_SESSION['idcollezione'];
 ?>
 
 
-<div class="content-wrapper" style="min-height: 636.763px;">
+<!-- Time Line -->
 
+<div class="d-flex flex-row m-4">
+    <h5><a href= "home.php" class="text-dark" > <u> My collection </u> </a></h5>
+    <h5> > </h5>
+    <h5><a href= "album.php" class="text-dark" > <u> Album: <?php echo $_SESSION['album-selezionato']; ?> </u> </a></h5>
+    <h5> > </h5>
+    <h5> Aggiungi carte </h5>
+</div>
 <br>
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container">
-        <div class="row mb-5">
+<!-- Content Header  -->
 
-          <div class="col-sm-8">
-            <h4 class="m-0 text-dark">Aggiungi nuove carte all'album <?php echo $album_corrente; ?></h4> <br>
-            <h7><b>Attenzione</b>: CardMarket ci ha fornito solamente 1/3 del database delle carte visualizzabili sulla barra di ricerca. Se non la trovi li, ci riuscirai sicuramente tra i Set in basso. </h7> <br>
-            <h6>Le carte aggiunte in questa seziona saranno di default EX, English e Normal. Uqesti parametri potranno essere poi modificati nell'album.
-          </div><!-- /.col -->
-        </div>
-    </div>
+
+<div class="row justify-content-center">
+    <h4 class="m-0 text-dark">Aggiungi nuove carte all'album <?php echo $album_corrente; ?></h4>
 </div>
-<!-- FINE Content Header  -->
+<br>
+<div class="row justify-content-center">
+    <p>Le carte aggiunte in questa seziona saranno di default EX, English e Normal. Questi parametri potranno essere poi modificati nell'album.<p>
+</div>
+
+
 
 <br>
 
@@ -36,14 +41,14 @@
 
                 <input type="text" name="card_searched" id="card_searched" class="form-control" placeholder="Inserisci il nome della carta che vuoi inserire" aria-label="User collection search item" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cerca</button>
+                    <button onclick = "cerca_carta()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cerca</button>
                 </div>
                                 
             </div>
-        </form>
-        
-    </div><!-- /.col -->
+        </form>  
+    </div>
 </div>
+
 <div class="row justify-content-center">
     
         <div class="list-group" id="show-list">
@@ -53,6 +58,15 @@
 </div>
 
 
+<script>
+    function cerca_carta(){
+        $.post("php/action.php",{"testo_cercato":document.getElementById('card_searched').value},function(data){
+            $("#show-list").html(data);
+        });
+    }
+</script>
+
+
 <!-- script per auto completamento   query = searchText-->
 <script>
     $(document).ready( function(){
@@ -60,15 +74,9 @@
             var searchText = $(this).val();
             if(searchText != '')
             {
-                $.ajax({
-                    url:'php/action.php',
-                    method:'POST',
-                    data:{query_card_set:searchText},
-                    success:function(data)
-                    {
-                        $("#show-list").fadeIn();
-                        $("#show-list").html(data);
-                    }
+                $("#show-list").fadeIn();
+                $.post("php/action.php",{"query_card_set":searchText},function(data){
+                    $("#show-list").html(data);
                 });
             }
             else{
@@ -88,170 +96,147 @@
 
 
 
+<br><br><br><br>
 
 
+
+<div class="row justify-content-center">
+    <h4>Altrimenti cercala tra i Set:</h4>
+</div>
+<br>
+<div class="row justify-content-center">
+    <p>Se mancano alcune immagini o loghi delle varie espansioni aiutaci a completare il sito e mandaci una mail a collectionsight@gmail.com<p>
+</div>
 
 
 
 <br><br><br><br>
 
 
-
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <h4>Altrimenti cercala tra i Set:</h4>
-        </div>
-    <div>
-<div>
-
-
-<br><br><br><br>
 
 
 <?php
-require 'php/dbh.php';
-$sql = "SELECT nameExpansion, idExpansion, releaseDate FROM texp WHERE idCollection=? ORDER BY releaseDate DESC; ";
-$stmt = mysqli_stmt_init($connessione);
- if (!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "Error in the database";
- }else{
-    mysqli_stmt_bind_param($stmt, "i", $idcollection);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt); 
-
-    if ($result->num_rows > 0) {
-        $array_data_id_nome_espansione = array();
-        $array_vuoto = array();
-        while($row = $result->fetch_assoc()) {
-
-            $data_in_anno = substr($row['releaseDate'],0,4);
-            
-            array_push($array_data_id_nome_espansione, $data_in_anno);
-            array_push($array_data_id_nome_espansione, $row['idExpansion']);
-            array_push($array_data_id_nome_espansione, $row['nameExpansion']);
-            $id = $row['idExpansion'];
-            $set = $row['nameExpansion'];
-
-            if (array_key_exists($data_in_anno, $array_vuoto)) {
-                array_push($array_vuoto[$data_in_anno]["Set"], $set);
-                array_push($array_vuoto[$data_in_anno]["Id"], $id);
-            } else {
-                $array_vuoto[$data_in_anno] = array( 'Set' => array(), 'Id' => array());
-                array_push($array_vuoto[$data_in_anno]["Set"], $set);
-                array_push($array_vuoto[$data_in_anno]["Id"], $id);
-            }
-        }
-
-        $array_di_date = array();
-        for ($i=0; $i<count($array_data_id_nome_espansione); $i = $i + 3) {
-            $array_di_date[] = $array_data_id_nome_espansione[$i] ;
-        }
-
-        $array_date_contate = array_count_values($array_di_date);
-        $array_data_righe_riporto = array();
-        echo '<br>';
-        foreach ($array_date_contate as $data => $contatore) {
-            $righe_giuste = intdiv($contatore, 5);
-            $riporto = $contatore % 5;
-            $array_righe_riporto['RigheGiuste'] = $righe_giuste;
-            $array_righe_riporto['Riporto'] = $riporto;
-            $array_data_righe_riporto[$data] = $array_righe_riporto;
-            
-        }
-        //print_r($array_data_id_nome_espansione);
-        //echo '<br>';
-        //print_r($array_data_righe_riporto);
-        //Array ( [2020] => Array ( [RigheGiuste] => 5 [Riporto] => 0 )
-        //print_r($array_vuoto);
-        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
-        foreach($array_data_righe_riporto as $data => $array){
-            $righe_giuste = $array['RigheGiuste'];
-            $riporto = $array['Riporto'];
-            $array_vuoto[$data]['Righe'] = $righe_giuste;
-            $array_vuoto[$data]['Riporto'] = $riporto; 
-        }
-
-        //print_r($array_vuoto);
 
 
+$array_espansioni = get_expansions($id_collezione);
+
+foreach ($array_espansioni as $data => $array_dati_relativi) {
+
+    echo '
+            <div class="row justify-content-center">
+                <h2>Anno:  ' .$data. '</h2>
+            </div>
+            <br>';
 
 
-        // Array ( [2020] => Array ( [Set] => Array ( [0] => Commander Collection: Green) [24] => 2999 ) [Righe] => 5 [Riporto] => 0 )
-        //print_r($array_data_righe_riporto);
-       
-        foreach ($array_vuoto as $data => $array){
-            $righe = $array['Righe'];
-            $riporto = $array['Riporto'];
-            $set_array = $array['Set'];
-            $id_array = $array['Id'];
+    // Eseguo i calcoli sull'array dei dati relativi
+   
+    $numero_espansioni = count ($array_dati_relativi)/7;
+    
+    $righe = floor(intdiv($numero_espansioni, 5));
+    
+    $riporto = $numero_espansioni % 5;
+    
+    
 
-            echo '
-                    <div class="row">
-                        <div class="col"><b>Anno:  '
-                            .$data. 
-                        '</b></div>
-                    </div>
-                    <br>';
 
-            echo '<br>';
-            $k = 0;
-            for ($i = 0, $k = 0; $i < $righe; $i++, $k = $i * 5) //27
-            {
-                
+    // Scanditore dell'array delle carte
+    $k = 0;
+
+    // Stampo le righe
+
+    for ($i = 0; $i < $righe; $i++ ) {
+
+        echo '<div class="row justify-content-center">';
+            for ($j = 0; $j < 5; $j++) {
+
                 echo '
-                
-                    <div class="row">
-                        <div class="col"> 
-                           <a href="cards_in_set.php?EXP='.$id_array[$k].'">'. $set_array[$k] .'</a>
-                        </div>
+                    <div class="col"> 
+                        <div class="card">';
 
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+1].'">'. $set_array[$k+1] .'</a>
-                        </div>
+                if ($id_collezione == 1) {
+                    magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 3) {
+                    yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
+                }
+                if ($id_collezione == 6) {
+                    pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                    whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                }
 
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+2].'">'. $set_array[$k+2] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+3].'">'. $set_array[$k+3] .'</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="cards_in_set.php?EXP='.$id_array[$k+4].'">'. $set_array[$k+4] .'</a>
+                echo '
+                                <div class="row justify-content-center">
+                                    <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a href = "#" >Aggiungi intero album</a>
+                                </div>
+                            </div>
                         </div>
                     </div>';
-                    echo '<br>';
-            }
 
-            echo '<div class="row justify-content-center">';
-            for ($i = 0; $i < $riporto; $i++) {
-            echo '
-                    <div class="col">
-                        <a href="cards_in_set.php?EXP='.$id_array[count($id_array) - ($i + 1)].'">'.$set_array[count($set_array) - ($i + 1)] .'</a>
-                    </div>';
+                $k += 7;
             }
-            echo '</div>';
-            echo '<br><br><br>';
-            
-        }
-          
-           
-         
-        
-    } else {
-        echo '';
+        echo '</div> <br>';
     }
+
+    // Riporto
+
+    echo '<div class="row justify-content-center">';
+        for ( $i = 0; $i < $riporto ; $i++ ) {
+            echo '
+                    <div class="col"> 
+                        <div class="card">';
+
+                if ($id_collezione == 1) {
+                    magic_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 3) {
+                    yugioh_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] );
+                }
+                if ($id_collezione == 6) {
+                    pokemon_format( $array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k] );
+                }
+                if ($id_collezione == 5 || $id_collezione == 2 || $id_collezione == 7 || $id_collezione == 9 || $id_collezione == 8 || $id_collezione == 10 || $id_collezione == 11 || $id_collezione == 12 || $id_collezione == 13 ) {
+                    whatever_format($array_dati_relativi[$k], $array_dati_relativi[$k+1], $array_dati_relativi[$k+6] ) ;
+                }
+
+                echo '
+                                <div class="row justify-content-center">
+                                    <a class="btn text-white" style="background-color: #5401a7;" href="cards_in_set.php?EXP='.$array_dati_relativi[$k].'">Apri Album</a>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a href = "#" >Aggiungi intero album</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+
+                $k += 7; 
+        }
+    echo '</div><br><br>';
+
+
+
 }
-mysqli_stmt_close($stmt);
-mysqli_close($connessione);
+
+
+        
+?>
+
+
+
+<br><br><br><br>
 
 
 
 
+<?php
 
+    require "footer.php";
 
 ?>
 
@@ -260,10 +245,174 @@ mysqli_close($connessione);
 
 
 
-
-
-
-
-<br><br><br><br>
 <?php
-    require "footer.php";
+
+    function magic_format($logo, $titolo, $icona){
+
+        echo ' 
+                <img
+                    src="immagini/magic_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <img
+                        src="immagini/magic_exp/'.  $icona  .'_icon.png "
+                        alt="Icona dell\'espansione"
+                        />
+                    </div>
+                ';
+    }
+
+    function pokemon_format($logo, $titolo, $icona){
+
+        echo ' 
+                <img
+                    src="immagini/pokemon_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <img
+                        src="immagini/pokemon_exp/'.  $icona  .'_icon.png "
+                        alt="Icona dell\'espansione"
+                        />
+                    </div>
+                ';
+    }
+
+    function yugioh_format($logo, $titolo, $abbreviazione){
+
+        echo ' 
+                <img
+                    src="immagini/yugioh_exp/'. $logo .'_logo.png "
+                    class="card-img-top"
+                    alt="Foto dell\'espansione"
+                />
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <strong> <h5 style = "text-align: center;" >'. $abbreviazione .'</h5></strong>
+                    </div>
+                ';
+    }
+    function whatever_format($logo, $titolo, $abbreviazione){
+
+        echo ' 
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <h5 class="card-title" style = "text-align: center;" >'. $titolo .'</h5>
+                    </div>
+                    <div class="row justify-content-center">
+                        <strong> <h5 style = "text-align: center;" >'. $abbreviazione .'</h5></strong>
+                    </div>
+                ';
+    }
+
+    /**
+    *  Metodo che ritorna un array contenente due array:
+    *  array di date
+    *  array con i dati delle espansioni
+    */
+
+    function get_expansions($id_collezione) {
+
+        require 'php/dbh.php';
+    
+        $sql = "SELECT Release_date, Idset, English_set_name, French_set_name, German_set_name, Spanish_set_name, Italian_set_name,  Abbreviation FROM expansion WHERE Idcollection=? ORDER BY Release_date DESC; ";
+        $stmt = mysqli_stmt_init($connessione);
+    
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+    
+            echo "Error in the database";
+    
+        }
+        else {
+    
+            mysqli_stmt_bind_param($stmt, "i", $id_collezione);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt); 
+    
+            if ($result->num_rows > 0) {
+    
+                $array_completo = array();
+                $array_date = array();
+    
+                // Metto tutte le informazioni che o preso dalla query in un array completo
+    
+                while ($row = $result->fetch_assoc()) {
+    
+                    $data_in_anno = substr($row['Release_date'],0,4);
+                    
+                    array_push($array_completo, $data_in_anno);
+                    array_push($array_completo, $row['Idset']);
+                    array_push($array_completo, $row['English_set_name']);
+                    array_push($array_completo, $row['French_set_name']);
+                    array_push($array_completo, $row['German_set_name']);
+                    array_push($array_completo, $row['Spanish_set_name']);
+                    array_push($array_completo, $row['Italian_set_name']);
+                    array_push($array_completo, $row['Abbreviation']);
+                 
+                }
+    
+                for ($i = 0; $i < count($array_completo); $i += 8 ) {
+    
+                    // La data è già registrata
+    
+                    if (array_key_exists($array_completo[$i], $array_date)) { 
+    
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+1]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+2]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+3]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+4]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+5]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+6]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+7]);
+    
+                    } 
+    
+                    // La data NON è già registrata
+    
+                    else { 
+    
+                        $array_date[$array_completo[$i]] = array();
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+1]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+2]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+3]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+4]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+5]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+6]);
+                        array_push($array_date[$array_completo[$i]], $array_completo[$i+7]);
+    
+                    }
+                }
+    
+               
+            }
+    
+        }
+    
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+    
+        return $array_date; 
+    }
+
+
+    function str_contains(string $haystack, string $needle): bool
+    {
+        return '' === $needle || false !== strpos($haystack, $needle);
+    }

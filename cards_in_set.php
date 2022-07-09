@@ -1,93 +1,157 @@
 <?php
-require "header.php";
+    require "header.php";
+    require "php/dbh.php";
+
 ?>
 
-<br>
 
-<!-- Content Header (Page header) -->
-<div class="content-wrapper">
-    <div class="content-header">
-        <div class="container">
-            <div class="row mb-2">
-                
-                    <a class="btn text-white" style="background-color: #5401a7;" href="new_add_card.php">Torna indietro</a>    
-                
-            </div>
-        </div>
-    <div>
+
+<!-- Time Line -->
+
+<div class="d-flex flex-row m-4">
+    <h5><a href= "home.php" class="text-dark"> <u> My collection </u></a></h5>
+    <h5> > </h5>
+    <h5><a href= "album.php" class="text-dark"> <u> Album: <?php echo $_SESSION['album-selezionato']; ?> </u></a></h5>
+    <h5> > </h5>
+    <h5><a href= "new_add_card.php" class="text-dark"> <u> Aggiungi carte </u></a></h5>
+    <h5> > </h5>
+    <h5> Espansione </h5>
 </div>
-<!-- FINE Content Header  -->
-<br><br>
+
+
+
 
 <?php
-if(isset($_GET['EXP']))
-{
-    $id_espansione = $_GET['EXP'];
-    $double_arr = cards_in_the_set($id_espansione);
-    $nome_set = $double_arr[0];
-                                        ?>
+
+if(isset($_GET['EXP'])) {
+
+    $array_carte_album = $_SESSION['carte_album_corrente'] ;
+
+    $id_espansione = mysqli_real_escape_string($connessione, $_GET['EXP']);
+
+    $carte_nel_set = cards_in_the_set($id_espansione);
     
-    <div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
+    $numero_carte = (count($carte_nel_set))/4;
+
+    $righe = floor($numero_carte / 5); //27 = 5 * 5 + 2
+ 
+    $riporto = $numero_carte % 5;
+    
+    $intersezione_carte = array_intersect($array_carte_album, $carte_nel_set);
+
+    $int_percentage = count($intersezione_carte) / $numero_carte;
+?>
+    
+    <div class="row justify-content-center">
+        <h1>Carte presenti nel set <?php echo $carte_nel_set[2]; ?></h1>
     </div>
-    <div class="card card-info card-outline">
-        <div class="card-header">
-            <h3 class="card-title">Carte presenti nel set <?php echo $nome_set; ?></h3>
-        </div><!-- /.card-header -->
+
+    <br>
+
+    <div class="w3-light-grey w3-round-xlarge">
+        <?php echo '<div class="w3-container w3-blue w3-round-xlarge" style="width:'.$int_percentage.'%">'.$int_percentage.'%</div>'; ?>
+    </div>
+
+    <br><br>
+
+
+<!-- 
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption">
+        </div>
+    </div>
+-->
+    <?php
+
+        // Scanditore dell'array delle carte
+        $k = 0;
+
+        // Inserimento nell'array $carte_nel_set, $row['Image_link'], $row['English_card_name'], $row['English_Set_name'], $row['Idcard']
+        for ($i = 0 ; $i < $righe;  $i++ ) {
+
+            echo '
+            
+                <div class="row">
+            ';
+            //if (in_array($carte_nel_set[$k+3], $array_carte_album)) echo 'V';
+            for ($j = 0; $j < 5; $j++) {
+                echo '
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$k + 1].'" src="'.$carte_nel_set[$k].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'.'myImg'. ($k + 1) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h4>'. (($k/4)+1).' / '. $numero_carte .'</h4>
+                        </div>
+                        <div class="row justify-content-center">';
+                            if (in_array($carte_nel_set[$k+3], $array_carte_album)){
+                                echo '<del>';
+                            }
+                            echo   '<h6 style = "text-align: center;" >'. $carte_nel_set[$k + 1] .'</h6>';
+                            if (in_array($carte_nel_set[$k+3], $array_carte_album)) {
+                                echo '</del>';
+                            }
+                        echo '
+                        </div>
+                        <div class="row justify-content-center">
+                            <button class="btn text-white" ';
+                        if (in_array($carte_nel_set[$k+3], $array_carte_album)){
+                            echo ' disabled ';
+                        }
+                        echo 'style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
+                        </div>
+                    </div>
+                ';
+
+                $k += 4;
+
+            }
+     
+            echo ' </div>';
+            echo '<br>'; 
+            
+        }
+
+        if ( $riporto > 0 ) {
+
+            echo '<div class="row">';
+
+            for ( $r = 0; $r < $riporto; $r++ ) {
+
+                echo '
+                    <div class="col">
+                        <div class="row justify-content-center">
+                            <img class="carta_pokemon" alt="'.$carte_nel_set[$k + 1].'" src="'.$carte_nel_set[$k].'" alt="alternatetext" width = "200" height = "250" class="myImg" id="'.'myImg'. ($k + 1) .'">
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>'. (($k/4)+1).' / '. $numero_carte .'</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h5>'. $carte_nel_set[$k + 1] .'</h5>
+                        </div>
+                        <div class="row justify-content-center">
+                            <button class="btn text-white" style="background-color: #5401a7;" type = "button" onclick="insert_card('.$carte_nel_set[$k + 3] .')"> Aggiungi Carta </button>
+                        </div>
+                    </div>
+                    <br>
+                ';
+                
+                $k += 4;
+            }
+            echo '</div>';
+
+        }
+
+        ?>
+
+
+
+
+
         
-        <div class="card-body">
-            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row">
-                <div class="col-sm-12 table-responsive">
-
-                    <table id="example" class="display table table-striped table-bordered table-hover display" role="grid" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Card Number</th>
-                                <th scope="col">Card Name</th>
-                                <th scope="col">Expansion</th>
-                                <th scope="col">Action</th>   
-                            </tr>
-                        </thead>
-                                
-                        <tbody>  
-                                <?php
-                                $returned_cards = $double_arr[1];
-                                $contatore_carte = count($returned_cards)/3;
-                                for($i=0; $i<count($returned_cards); $i=$i+3)
-                                {
-                                    $numero_carta = intdiv($i, 3) + 1;
-                                    $imgId = 'myImg'.$numero_carta;
-                                    echo '<tr>';
-                                    echo '<td><img class="carta_pokemon"
-                                                    alt="'.$returned_cards[$i+1].'"
-                                                    src="'.$returned_cards[$i+2].'" alt="alternatetext" width = "20" height = "25"
-                                                    class="myImg"
-                                                    id="'.$imgId.'"
-                                              ></td>';
-                                    echo '</td>';
-                                    echo '<td>'. $numero_carta .' su '.$contatore_carte.'</td>';
-                                    echo '<td>'.$returned_cards[$i+1].'</td>';
-                                    echo '<td>'.$nome_set.'</td>';
-                                    $link_for_adding = 'php/cardinsert.php?INSERTCARD='.$returned_cards[$i];
-                                    echo '<td><a href='.$link_for_adding.'>Aggiungi Carta</td>';
-                                    echo '</tr>';
-                                    //echo "Nome della carta: ". $returned_cards[$i+1]." Id carta: ".$returned_cards[$i]. " <img src='".$returned_cards[$i+2]."' alt='alternatetext' width = '10' height = '15'> <br>";                            
-                                }
-
-                                ?>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table> 
-                </div><!-- /.col-sm-12 -->
-            </div><!-- /.row -->
-            </div><!-- /.wrapper -->
-        </div><!-- /.cardbody -->
-        <script>
+        <!--<script>
                         // Get the modal
                         var modalImg = document.getElementById("img01");
                         var captionText = document.getElementById("caption");
@@ -108,21 +172,45 @@ if(isset($_GET['EXP']))
                         }
                         // When the user clicks on <span> (x), close the modal
 
-        </script>
+        </script>-->
     </div><!-- /.card -->
+
+
+
+
+
+
+
+
+<script type ="text/javascript">
+
+    function insert_card(id_card){
+        $.post("php/CRUD_card.php",{"insert_id_card":id_card},function(data){
+                if(data.trim() == "success")
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Carta inserita',
+                        });
+                }
+            });
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
 
 
 <?php
 }
 ?>
-
-
-
-
-
-
-
-
 
 <br><br><br>
 
@@ -131,11 +219,47 @@ if(isset($_GET['EXP']))
 ?>
 
 
+<?php
+    function cards_in_the_set($id_espansione){
+    
+        require "php/dbh.php";
+        $sql = "SELECT cards.Idcard, cards.English_card_name, cards.Image_link, expansion.English_Set_name
+        FROM cards
+        INNER JOIN expansion ON cards.Idset = expansion.Idset
+        WHERE cards.Idset = ?
+        GROUP BY cards.Idcard; " ;
+
+        $stmt = mysqli_stmt_init($connessione);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo "Error in the database";
+        }
+        else{
+                mysqli_stmt_bind_param($stmt, "i", $id_espansione);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt); 
+
+                if ($result->num_rows > 0) {
+                    $carte_nel_set = array();
+                    while($row = $result->fetch_assoc()) {
+                        
+                        array_push($carte_nel_set, $row['Image_link'], $row['English_card_name'], $row['English_Set_name'], $row['Idcard']);
+                    }
+                    return $carte_nel_set;
+                }
+                else{
+                    $vuoto = array();
+                    return $vuoto;
+                }
+
+        }
+        mysqli_stmt_close($stmt);
+        mysqli_close($connessione);
+    }
+
+?>
 
 
-
-
-
+ 
 
 
 
@@ -152,7 +276,7 @@ if(isset($_GET['EXP']))
 
 <?php
 
-function cards_in_the_set($id_set)
+function old_cards_in_the_set($id_set)
 {
 
         //GET https://api.cardmarket.com/ws/v2.0/expansions/1469/singles

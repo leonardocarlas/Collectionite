@@ -1,1991 +1,360 @@
 
+<?php require_once "header.php"; ?>
 
 
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
-xmlns="http://www.w3.org/TR/REC-html40">
-
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 15">
-<meta name=Originator content="Microsoft Word 15">
-<link rel=File-List href="policy_archivos/filelist.xml">
-<!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>Leonardo Carlassare</o:Author>
-  <o:Template>Normal</o:Template>
-  <o:LastAuthor>Leonardo Carlassare</o:LastAuthor>
-  <o:Revision>2</o:Revision>
-  <o:TotalTime>1</o:TotalTime>
-  <o:Created>2021-01-29T19:01:00Z</o:Created>
-  <o:LastSaved>2021-01-29T19:01:00Z</o:LastSaved>
-  <o:Pages>1</o:Pages>
-  <o:Words>1401</o:Words>
-  <o:Characters>7992</o:Characters>
-  <o:Lines>66</o:Lines>
-  <o:Paragraphs>18</o:Paragraphs>
-  <o:CharactersWithSpaces>9375</o:CharactersWithSpaces>
-  <o:Version>16.00</o:Version>
- </o:DocumentProperties>
- <o:OfficeDocumentSettings>
-  <o:AllowPNG/>
- </o:OfficeDocumentSettings>
-</xml><![endif]-->
-<link rel=themeData href="policy_archivos/themedata.thmx">
-<link rel=colorSchemeMapping href="policy_archivos/colorschememapping.xml">
-<!--[if gte mso 9]><xml>
- <w:WordDocument>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
-  <w:TrackMoves>false</w:TrackMoves>
-  <w:TrackFormatting/>
-  <w:HyphenationZone>14</w:HyphenationZone>
-  <w:PunctuationKerning/>
-  <w:ValidateAgainstSchemas/>
-  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
-  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
-  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
-  <w:DoNotPromoteQF/>
-  <w:LidThemeOther>IT</w:LidThemeOther>
-  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
-  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
-  <w:Compatibility>
-   <w:BreakWrappedTables/>
-   <w:SnapToGridInCell/>
-   <w:WrapTextWithPunct/>
-   <w:UseAsianBreakRules/>
-   <w:DontGrowAutofit/>
-   <w:SplitPgBreakAndParaMark/>
-   <w:EnableOpenTypeKerning/>
-   <w:DontFlipMirrorIndents/>
-   <w:OverrideTableStyleHps/>
-  </w:Compatibility>
-  <m:mathPr>
-   <m:mathFont m:val="Cambria Math"/>
-   <m:brkBin m:val="before"/>
-   <m:brkBinSub m:val="&#45;-"/>
-   <m:smallFrac m:val="off"/>
-   <m:dispDef/>
-   <m:lMargin m:val="0"/>
-   <m:rMargin m:val="0"/>
-   <m:defJc m:val="centerGroup"/>
-   <m:wrapIndent m:val="1440"/>
-   <m:intLim m:val="subSup"/>
-   <m:naryLim m:val="undOvr"/>
-  </m:mathPr></w:WordDocument>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
-  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
-  LatentStyleCount="376">
-  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index 9"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 1"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 2"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 3"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 4"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 5"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 6"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 7"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 8"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" Name="toc 9"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Normal Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footnote text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="header"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footer"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="index heading"/>
-  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="table of figures"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="envelope address"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="envelope return"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="footnote reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="line number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="page number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="endnote reference"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="endnote text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="table of authorities"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="macro"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="toa heading"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Bullet 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Number 5"/>
-  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Closing"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Signature"/>
-  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
-   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="List Continue 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Message Header"/>
-  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Salutation"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Date"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text First Indent"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text First Indent 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Note Heading"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Body Text Indent 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Block Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Hyperlink"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="FollowedHyperlink"/>
-  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
-  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Document Map"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Plain Text"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="E-mail Signature"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Top of Form"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Bottom of Form"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Normal (Web)"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Acronym"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Address"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Cite"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Code"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Definition"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Keyboard"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Preformatted"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Sample"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Typewriter"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="HTML Variable"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="annotation subject"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="No List"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Outline List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Simple 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Classic 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Colorful 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Columns 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Grid 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 4"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 5"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 7"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table List 8"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table 3D effects 3"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Contemporary"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Elegant"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Professional"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Subtle 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Subtle 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Web 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Table Web 2"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Balloon Text"/>
-  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
-  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
-  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
-  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
-  <w:LsdException Locked="false" Priority="34" QFormat="true"
-   Name="List Paragraph"/>
-  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
-  <w:LsdException Locked="false" Priority="30" QFormat="true"
-   Name="Intense Quote"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
-  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
-  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
-  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="19" QFormat="true"
-   Name="Subtle Emphasis"/>
-  <w:LsdException Locked="false" Priority="21" QFormat="true"
-   Name="Intense Emphasis"/>
-  <w:LsdException Locked="false" Priority="31" QFormat="true"
-   Name="Subtle Reference"/>
-  <w:LsdException Locked="false" Priority="32" QFormat="true"
-   Name="Intense Reference"/>
-  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
-  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
-   UnhideWhenUsed="true" Name="Bibliography"/>
-  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
-   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
-  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
-  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
-  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
-  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
-  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
-  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
-  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
-  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
-  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 1"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 2"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 3"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 4"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 5"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="Grid Table 1 Light Accent 6"/>
-  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
-  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="Grid Table 6 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="Grid Table 7 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
-  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
-  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 1"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 1"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 2"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 2"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 3"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 3"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 4"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 4"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 5"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 5"/>
-  <w:LsdException Locked="false" Priority="46"
-   Name="List Table 1 Light Accent 6"/>
-  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
-  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
-  <w:LsdException Locked="false" Priority="51"
-   Name="List Table 6 Colorful Accent 6"/>
-  <w:LsdException Locked="false" Priority="52"
-   Name="List Table 7 Colorful Accent 6"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Mention"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Smart Hyperlink"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Hashtag"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Unresolved Mention"/>
-  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
-   Name="Smart Link"/>
- </w:LatentStyles>
-</xml><![endif]-->
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:Helvetica;
-	panose-1:2 11 6 4 2 2 2 2 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:-536858881 -1073711013 9 0 511 0;}
-@font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;
-	mso-font-charset:2;
-	mso-generic-font-family:auto;
-	mso-font-pitch:variable;
-	mso-font-signature:0 268435456 0 0 -2147483648 0;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:roman;
-	mso-font-pitch:variable;
-	mso-font-signature:3 0 0 0 1 0;}
-@font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:0cm;
-	line-height:107%;
-	mso-pagination:widow-orphan;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-h2
-	{mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-link:"Título 2 Car";
-	mso-margin-top-alt:auto;
-	margin-right:0cm;
-	mso-margin-bottom-alt:auto;
-	margin-left:0cm;
-	mso-pagination:widow-orphan;
-	mso-outline-level:2;
-	font-size:18.0pt;
-	font-family:"Times New Roman",serif;
-	mso-fareast-font-family:"Times New Roman";
-	font-weight:bold;}
-h3
-	{mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-link:"Título 3 Car";
-	mso-margin-top-alt:auto;
-	margin-right:0cm;
-	mso-margin-bottom-alt:auto;
-	margin-left:0cm;
-	mso-pagination:widow-orphan;
-	mso-outline-level:3;
-	font-size:13.5pt;
-	font-family:"Times New Roman",serif;
-	mso-fareast-font-family:"Times New Roman";
-	font-weight:bold;}
-a:link, span.MsoHyperlink
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	color:blue;
-	text-decoration:underline;
-	text-underline:single;}
-a:visited, span.MsoHyperlinkFollowed
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	color:#954F72;
-	mso-themecolor:followedhyperlink;
-	text-decoration:underline;
-	text-underline:single;}
-p
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-margin-top-alt:auto;
-	margin-right:0cm;
-	mso-margin-bottom-alt:auto;
-	margin-left:0cm;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Times New Roman",serif;
-	mso-fareast-font-family:"Times New Roman";}
-span.Ttulo2Car
-	{mso-style-name:"Título 2 Car";
-	mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Título 2";
-	mso-ansi-font-size:18.0pt;
-	mso-bidi-font-size:18.0pt;
-	font-family:"Times New Roman",serif;
-	mso-ascii-font-family:"Times New Roman";
-	mso-fareast-font-family:"Times New Roman";
-	mso-hansi-font-family:"Times New Roman";
-	mso-bidi-font-family:"Times New Roman";
-	mso-fareast-language:IT;
-	font-weight:bold;}
-span.Ttulo3Car
-	{mso-style-name:"Título 3 Car";
-	mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Título 3";
-	mso-ansi-font-size:13.5pt;
-	mso-bidi-font-size:13.5pt;
-	font-family:"Times New Roman",serif;
-	mso-ascii-font-family:"Times New Roman";
-	mso-fareast-font-family:"Times New Roman";
-	mso-hansi-font-family:"Times New Roman";
-	mso-bidi-font-family:"Times New Roman";
-	mso-fareast-language:IT;
-	font-weight:bold;}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
-.MsoChpDefault
-	{mso-style-type:export-only;
-	mso-default-props:yes;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-fareast-font-family:Calibri;
-	mso-fareast-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-.MsoPapDefault
-	{mso-style-type:export-only;
-	margin-bottom:8.0pt;
-	line-height:107%;}
-@page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:70.85pt 2.0cm 2.0cm 2.0cm;
-	mso-header-margin:35.4pt;
-	mso-footer-margin:35.4pt;
-	mso-paper-source:0;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
- @list l0
-	{mso-list-id:176239733;
-	mso-list-template-ids:886760682;}
-@list l0:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l0:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l0:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l0:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1
-	{mso-list-id:234244915;
-	mso-list-template-ids:806903128;}
-@list l1:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l1:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l1:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l1:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2
-	{mso-list-id:756361769;
-	mso-list-template-ids:1553354226;}
-@list l2:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l2:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l2:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l2:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3
-	{mso-list-id:1107886696;
-	mso-list-template-ids:-115278656;}
-@list l3:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l3:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l3:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l3:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4
-	{mso-list-id:1545756755;
-	mso-list-template-ids:389083542;}
-@list l4:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l4:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l4:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l4:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5
-	{mso-list-id:1627615025;
-	mso-list-template-ids:4196662;}
-@list l5:level1
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0B7;
-	mso-level-tab-stop:36.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Symbol;}
-@list l5:level2
-	{mso-level-number-format:bullet;
-	mso-level-text:o;
-	mso-level-tab-stop:72.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:"Courier New";
-	mso-bidi-font-family:"Times New Roman";}
-@list l5:level3
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:108.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level4
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:144.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level5
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:180.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level6
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:216.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level7
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:252.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level8
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:288.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-@list l5:level9
-	{mso-level-number-format:bullet;
-	mso-level-text:\F0A7;
-	mso-level-tab-stop:324.0pt;
-	mso-level-number-position:left;
-	text-indent:-18.0pt;
-	mso-ansi-font-size:10.0pt;
-	font-family:Wingdings;}
-ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
--->
-</style>
-<!--[if gte mso 10]>
-<style>
- /* Style Definitions */
- table.MsoNormalTable
-	{mso-style-name:"Tabla normal";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-parent:"";
-	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-	mso-para-margin-top:0cm;
-	mso-para-margin-right:0cm;
-	mso-para-margin-bottom:8.0pt;
-	mso-para-margin-left:0cm;
-	line-height:107%;
-	mso-pagination:widow-orphan;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:minor-bidi;
-	mso-fareast-language:EN-US;}
-</style>
-<![endif]--><!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="1026"/>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <o:shapelayout v:ext="edit">
-  <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><![endif]-->
-</head>
-
-<body lang=IT link=blue vlink="#954F72" style='tab-interval:35.4pt;word-wrap:
-break-word'>
-
-<div class=WordSection1>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-2;background:#F6F6F6'><b><span style='font-size:22.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Terms and Conditions</span></b><span style='font-size:22.5pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Welcome to Collection Sight!<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>These terms and conditions outline the rules and regulations for the use of
-Collection Sight's Website, located at https://collectionsight.com.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>By accessing this website we assume you accept these terms and conditions.
-Do not continue to use Collection Sight if you do not agree to take all of the
-terms and conditions stated on this page.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>The following terminology applies to these Terms and Conditions, Privacy
-Statement and Disclaimer Notice and all Agreements: &quot;Client&quot;,
-&quot;You&quot; and &quot;Your&quot; refers to you, the person log on this
-website and compliant to the Company’s terms and conditions. </span><span
-lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>&quot;<span
-class=SpellE>The</span> Company&quot;, &quot;<span class=SpellE>Ourselves</span>&quot;,
-&quot;<span class=SpellE>We</span>&quot;, &quot;<span class=SpellE>Our</span>&quot;
-and &quot;<span class=SpellE>Us</span>&quot;, <span class=SpellE>refers</span> <span
-class=SpellE>to</span> <span class=SpellE>our</span> Company. &quot;<span
-class=SpellE>Party</span>&quot;, &quot;<span class=SpellE>Parties</span>&quot;,
-<span class=SpellE>or</span> &quot;<span class=SpellE>Us</span>&quot;, <span
-class=SpellE>refers</span> <span class=SpellE>to</span> <span class=SpellE>both</span>
-<span class=SpellE>the</span> Client and <span class=SpellE>ourselves</span>. <span
-class=SpellE>All</span> <span class=SpellE>terms</span> <span class=SpellE>refer</span>
-<span class=SpellE>to</span> <span class=SpellE>the</span> <span class=SpellE>offer</span>,
-<span class=SpellE>acceptance</span> and <span class=SpellE>consideration</span>
-<span class=SpellE>of</span> <span class=SpellE>payment</span> <span
-class=SpellE>necessary</span> <span class=SpellE>to</span> <span class=SpellE>undertake</span>
-<span class=SpellE>the</span> <span class=SpellE>process</span> <span
-class=SpellE>of</span> <span class=SpellE>our</span> <span class=SpellE>assistance</span>
-<span class=SpellE>to</span> <span class=SpellE>the</span> Client in <span
-class=SpellE>the</span> <span class=SpellE>most</span> <span class=SpellE>appropriate</span>
-<span class=SpellE>manner</span> <span class=SpellE>for</span> <span
-class=SpellE>the</span> <span class=SpellE>express</span> <span class=SpellE>purpose</span>
-<span class=SpellE>of</span> <span class=GramE>meeting</span> <span
-class=SpellE>the</span> <span class=SpellE>Client’s</span> <span class=SpellE>needs</span>
-in <span class=SpellE>respect</span> <span class=SpellE>of</span> <span
-class=SpellE>provision</span> <span class=SpellE>of</span> <span class=SpellE>the</span>
-<span class=SpellE>Company’s</span> <span class=SpellE>stated</span> <span
-class=SpellE>services</span>, in <span class=SpellE>accordance</span> <span
-class=SpellE>with</span> and <span class=SpellE>subject</span> <span
-class=SpellE>to</span>, <span class=SpellE>prevailing</span> <span
-class=SpellE>law</span> <span class=SpellE>of</span> <span class=SpellE>Netherlands</span>.
-<span class=SpellE>Any</span> use <span class=SpellE>of</span> <span
-class=SpellE>the</span> <span class=SpellE>above</span> <span class=SpellE>terminology</span>
-<span class=SpellE>or</span> <span class=SpellE>other</span> <span
-class=SpellE>words</span> in <span class=SpellE>the</span> singular, plural, <span
-class=SpellE>capitalization</span> and/<span class=SpellE>or</span> he/<span
-class=SpellE>she</span> <span class=SpellE>or</span> <span class=SpellE>they</span>,
-are <span class=SpellE>taken</span> as <span class=SpellE>interchangeable</span>
-and <span class=SpellE>therefore</span> as <span class=SpellE>referring</span> <span
-class=SpellE>to</span> <span class=SpellE>same</span>.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span lang=ES style='font-size:18.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>Cookies</span></b><span lang=ES
-style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>We</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>employ</span> <span class=SpellE>the</span> use <span
-class=SpellE>of</span> cookies. </span><span style='font-size:12.0pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-fareast-language:IT'>By accessing Collection Sight, you
-agreed to use cookies in agreement with the Collection Sight's Privacy Policy.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>Most</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>interactive</span> <span class=SpellE>websites</span> use cookies <span
-class=SpellE>to</span> <span class=SpellE>let</span> <span class=SpellE>us</span>
-<span class=SpellE>retrieve</span> <span class=SpellE>the</span> <span
-class=SpellE>user’s</span> <span class=SpellE>details</span> <span
-class=SpellE>for</span> <span class=SpellE>each</span> <span class=SpellE>visit</span>.
-Cookies are <span class=SpellE>used</span> <span class=SpellE>by</span> <span
-class=SpellE>our</span> <span class=SpellE>website</span> <span class=SpellE>to</span>
-<span class=SpellE>enable</span> <span class=SpellE>the</span> <span
-class=SpellE>functionality</span> <span class=SpellE>of</span> <span
-class=SpellE>certain</span> <span class=SpellE>areas</span> <span class=SpellE>to</span>
-<span class=SpellE>make</span> <span class=SpellE>it</span> <span class=SpellE>easier</span>
-<span class=SpellE>for</span> <span class=SpellE>people</span> <span
-class=SpellE>visiting</span> <span class=SpellE>our</span> <span class=SpellE>website</span>.
-</span><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Some of our affiliate/advertising partners may also use cookies.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>License</span></b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Unless otherwise stated, Collection Sight and/or its licensors own the
-intellectual property rights for all material on Collection Sight. All
-intellectual property rights are reserved. You may access this from Collection
-Sight for your own personal use subjected to restrictions set in these terms
-and conditions.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>You must not:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Republish
-     material from Collection Sight<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Sell,
-     rent or sub-license material from Collection Sight<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Reproduce,
-     duplicate or copy material from Collection Sight<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Redistribute
-     content from Collection Sight<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>This</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>Agreement</span> <span class=SpellE>shall</span> <span
-class=SpellE>begin</span> <span class=SpellE>on</span> <span class=SpellE>the</span>
-date <span class=SpellE>hereof</span>. <span class=SpellE>Our</span> <span
-class=SpellE>Terms</span> and <span class=SpellE>Conditions</span> <span
-class=SpellE>were</span> <span class=SpellE>created</span> <span class=SpellE>with</span>
-<span class=SpellE>the</span> <span class=SpellE>help</span> <span
-class=SpellE>of</span> <span class=SpellE>the</span>&nbsp;</span><span
-class=SpellE><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'><a href="https://www.termsandconditionsgenerator.com/"><span lang=ES
-style='color:#5D88B3;mso-ansi-language:ES'>Terms</span><span lang=ES
-style='color:#5D88B3;mso-ansi-language:ES'> And Conditions</span><span lang=ES
-style='color:#5D88B3;mso-ansi-language:ES'> Generator</span></a></span></span><span
-lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>&nbsp;and
-<span class=SpellE>the</span>&nbsp;</span><span class=SpellE><span
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-fareast-language:IT'><a
-href="https://www.generateprivacypolicy.com/"><span lang=ES style='color:#5D88B3;
-mso-ansi-language:ES'>Privacy</span><span lang=ES style='color:#5D88B3;
-mso-ansi-language:ES'> Policy</span><span lang=ES style='color:#5D88B3;
-mso-ansi-language:ES'> Generator</span></a></span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Parts of this website offer an opportunity for users to post and exchange
-opinions and information in certain areas of the website. Collection Sight does
-not filter, edit, publish or review Comments prior to their presence on the
-website. Comments do not reflect the views and opinions of Collection Sight,its
-agents and/or affiliates. Comments reflect the views and opinions of the person
-who post their views and opinions. To the extent permitted by applicable laws,
-Collection Sight shall not be liable for the Comments or for any liability,
-damages or expenses caused and/or suffered as a result of any use of and/or
-posting of and/or appearance of the Comments on this website.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Collection Sight reserves the right to monitor all Comments and to remove
-any Comments which can be considered inappropriate, offensive or causes breach
-of these Terms and Conditions.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>You warrant and represent that:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>You are
-     entitled to post the Comments on our website and have all necessary
-     licenses and consents to do so;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>The
-     Comments do not invade any intellectual property right, including without
-     limitation copyright, patent or trademark of any third party;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>The
-     Comments do not contain any defamatory, libelous, offensive, indecent or
-     otherwise unlawful material which is an invasion of privacy<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>The
-     Comments will not be used to solicit or promote business or custom or
-     present commercial activities or unlawful activity.<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>You hereby grant Collection Sight a non-exclusive license to use,
-reproduce, edit and authorize others to use, reproduce and edit any of your
-Comments in any and all forms, formats or media.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Hyperlinking to our Content</span></b><span style='font-size:18.0pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>The following organizations may link to our Website without prior written
-approval:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Government
-     agencies;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Search
-     engines;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>News
-     organizations;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>Online
-     directory distributors may link to our Website in the same manner as they
-     hyperlink to the Websites of other listed businesses; and<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>System
-     wide Accredited Businesses except soliciting non-profit organizations,
-     charity shopping malls, and charity fundraising groups which may not
-     hyperlink to our Web site.<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>These organizations may link to our home page, to publications or to other
-Website information so long as the link: (a) is not in any way deceptive; (b)
-does not falsely imply sponsorship, endorsement or approval of the linking
-party and its products and/or services; and (c) fits within the context of the
-linking party’s site.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>We may consider and approve other link requests from the following types of
-organizations:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>commonly-known
-     consumer and/or business information sources;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>dot.com
-     community sites;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>associations
-     or other groups representing charities;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>online
-     directory distributors;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>internet
-     portals;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>accounting,
-     law and consulting firms; and<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l2 level1 lfo4;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>educational
-     institutions and trade associations.<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>We will approve link requests from these organizations if we decide that:
-(a) the link would not make us look unfavorably to ourselves or to our
-accredited businesses; (b) the organization does not have any negative records
-with us; (c) the benefit to us from the visibility of the hyperlink compensates
-the absence of Collection Sight; and (d) the link is in the context of general
-resource information.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>These organizations may link to our home page so long as the link: (a) is
-not in any way deceptive; (b) does not falsely imply sponsorship, endorsement
-or approval of the linking party and its products or services; and (c) fits
-within the context of the linking party’s site.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>If you are one of the organizations listed in paragraph 2 above and are
-interested in linking to our website, you must inform us by sending an e-mail
-to Collection Sight. Please include your name, your organization name, contact
-information as well as the URL of your site, a list of any URLs from which you
-intend to link to our Website, and a list of the URLs on our site to which you
-would like to link. Wait 2-3 weeks for a response.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Approved organizations may hyperlink to our Website as follows:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l4 level1 lfo5;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>By use
-     of our corporate name; or<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l4 level1 lfo5;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>By use
-     of the uniform resource locator being linked to; or<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l4 level1 lfo5;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>By use
-     of any other description of our Website being linked to that makes sense
-     within the context and format of content on the linking party’s site.<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>No use of Collection Sight's logo or other artwork will be allowed for
-linking absent a trademark license agreement.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>iFrames</span></b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Without prior approval and written permission, you may not create frames
-around our Webpages that alter in any way the visual presentation or appearance
-of our Website.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Content Liability</span></b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>We shall not be hold responsible for any content that appears on your
-Website. You agree to protect and defend us against all claims that is rising
-on your Website. No link(s) should appear on any Website that may be
-interpreted as libelous, obscene or criminal, or which infringes, otherwise
-violates, or advocates the infringement or other violation of, any third party
-rights.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'>Your Privacy</span></b><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-fareast-language:
-IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>Please</span></span><span
-lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>read</span> <span class=SpellE>Privacy</span> <span class=SpellE>Policy</span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><span class=SpellE><b><span lang=ES style='font-size:
-18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>Reservation</span></b></span><b><span
-lang=ES style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>of</span> <span class=SpellE>Rights</span></span></b><span
-lang=ES style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>We</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>
-reserve <span class=SpellE>the</span> <span class=SpellE>right</span> <span
-class=SpellE>to</span> <span class=SpellE>request</span> <span class=SpellE>that</span>
-<span class=SpellE>you</span> <span class=SpellE>remove</span> <span
-class=SpellE>all</span> links <span class=SpellE>or</span> <span class=SpellE>any</span>
-particular <span class=GramE>link</span> <span class=SpellE>to</span> <span
-class=SpellE>our</span> <span class=SpellE>Website</span>. <span class=SpellE>You</span>
-<span class=SpellE>approve</span> <span class=SpellE>to</span> <span
-class=SpellE>immediately</span> <span class=SpellE>remove</span> <span
-class=SpellE>all</span> links <span class=SpellE>to</span> <span class=SpellE>our</span>
-<span class=SpellE>Website</span> <span class=SpellE>upon</span> <span
-class=SpellE>request</span>. <span class=SpellE>We</span> <span class=SpellE>also</span>
-reserve <span class=SpellE>the</span> <span class=SpellE>right</span> <span
-class=SpellE>to</span> amen <span class=SpellE>these</span> <span class=SpellE>terms</span>
-and <span class=SpellE>conditions</span> and <span class=SpellE>it’s</span> <span
-class=SpellE>linking</span> <span class=SpellE>policy</span> at <span
-class=SpellE>any</span> time. <span class=SpellE>By</span> <span class=SpellE>continuously</span>
-<span class=SpellE>linking</span> <span class=SpellE>to</span> <span
-class=SpellE>our</span> <span class=SpellE>Website</span>, <span class=SpellE>you</span>
-<span class=SpellE>agree</span> <span class=SpellE>to</span> be <span
-class=SpellE>bound</span> <span class=SpellE>to</span> and <span class=SpellE>follow</span>
-<span class=SpellE>these</span> <span class=SpellE>linking</span> <span
-class=SpellE>terms</span> and <span class=SpellE>conditions</span>.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><span class=SpellE><b><span lang=ES style='font-size:
-18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>Removal</span></b></span><b><span
-lang=ES style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>of</span> links <span class=SpellE>from</span> <span class=SpellE>our</span>
-<span class=SpellE>website</span></span></b><span lang=ES style='font-size:
-18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>If</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>you</span> <span class=SpellE>find</span> <span class=SpellE>any</span>
-<span class=GramE>link</span> <span class=SpellE>on</span> <span class=SpellE>our</span>
-<span class=SpellE>Website</span> <span class=SpellE>that</span> <span
-class=SpellE>is</span> <span class=SpellE>offensive</span> <span class=SpellE>for</span>
-<span class=SpellE>any</span> <span class=SpellE>reason</span>, <span
-class=SpellE>you</span> are free <span class=SpellE>to</span> <span
-class=SpellE>contact</span> and <span class=SpellE>inform</span> <span
-class=SpellE>us</span> <span class=SpellE>any</span> <span class=SpellE>moment</span>.
-<span class=SpellE>We</span> <span class=SpellE>will</span> <span class=SpellE>consider</span>
-<span class=SpellE>requests</span> <span class=SpellE>to</span> <span
-class=SpellE>remove</span> links <span class=SpellE>but</span> <span
-class=SpellE>we</span> are <span class=SpellE>not</span> <span class=SpellE>obligated</span>
-<span class=SpellE>to</span> <span class=SpellE>or</span> so <span
-class=SpellE>or</span> <span class=SpellE>to</span> <span class=SpellE>respond</span>
-<span class=SpellE>to</span> <span class=SpellE>you</span> <span class=SpellE>directly</span>.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>We</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>
-do <span class=SpellE>not</span> <span class=SpellE>ensure</span> <span
-class=SpellE>that</span> <span class=SpellE>the</span> <span class=SpellE>information</span>
-<span class=SpellE>on</span> <span class=SpellE>this</span> <span class=SpellE>website</span>
-<span class=SpellE>is</span> <span class=SpellE>correct</span>, <span
-class=SpellE>we</span> do <span class=SpellE>not</span> warrant <span
-class=SpellE>its</span> <span class=SpellE>completeness</span> <span
-class=SpellE>or</span> <span class=SpellE>accuracy</span>; <span class=SpellE>nor</span>
-do <span class=SpellE>we</span> <span class=SpellE>promise</span> <span
-class=SpellE>to</span> <span class=SpellE>ensure</span> <span class=SpellE>that</span>
-<span class=SpellE>the</span> <span class=SpellE>website</span> <span
-class=SpellE>remains</span> <span class=SpellE>available</span> <span
-class=SpellE>or</span> <span class=SpellE>that</span> <span class=SpellE>the</span>
-material <span class=SpellE>on</span> <span class=SpellE>the</span> <span
-class=SpellE>website</span> <span class=SpellE>is</span> <span class=SpellE>kept</span>
-up <span class=SpellE>to</span> date.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:13.5pt;line-height:normal;mso-outline-level:
-3;background:#F6F6F6'><span class=SpellE><b><span lang=ES style='font-size:
-18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'>Disclaimer</span></b></span><span
-lang=ES style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>To</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>the</span> <span class=SpellE>maximum</span> <span class=SpellE>extent</span>
-<span class=SpellE>permitted</span> <span class=SpellE>by</span> <span
-class=SpellE>applicable</span> <span class=SpellE>law</span>, <span
-class=SpellE>we</span> <span class=SpellE>exclude</span> <span class=SpellE>all</span>
-<span class=SpellE>representations</span>, <span class=SpellE>warranties</span>
-and <span class=SpellE>conditions</span> <span class=SpellE>relating</span> <span
-class=SpellE>to</span> <span class=SpellE>our</span> <span class=SpellE>website</span>
-and <span class=SpellE>the</span> use <span class=SpellE>of</span> <span
-class=SpellE>this</span> <span class=SpellE>website</span>. </span><span
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-fareast-language:IT'>Nothing in this
-disclaimer will:<o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l5 level1 lfo6;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span class=SpellE><span lang=ES style='font-size:
-     12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     mso-ansi-language:ES;mso-fareast-language:IT'>limit</span></span><span
-     lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-ansi-language:ES;mso-fareast-language:
-     IT'> <span class=SpellE>or</span> <span class=SpellE>exclude</span> <span
-     class=SpellE>our</span> <span class=SpellE>or</span> <span class=SpellE>your</span>
-     <span class=SpellE>liability</span> <span class=SpellE>for</span> <span
-     class=SpellE>death</span> <span class=SpellE>or</span> personal <span
-     class=SpellE>injury</span>;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l5 level1 lfo6;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span class=SpellE><span lang=ES style='font-size:
-     12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     mso-ansi-language:ES;mso-fareast-language:IT'>limit</span></span><span
-     lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-ansi-language:ES;mso-fareast-language:
-     IT'> <span class=SpellE>or</span> <span class=SpellE>exclude</span> <span
-     class=SpellE>our</span> <span class=SpellE>or</span> <span class=SpellE>your</span>
-     <span class=SpellE>liability</span> <span class=SpellE>for</span> <span
-     class=SpellE>fraud</span> <span class=SpellE>or</span> <span class=SpellE>fraudulent</span>
-     <span class=SpellE>misrepresentation</span>;<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l5 level1 lfo6;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-fareast-language:IT'>limit
-     any of our or your liabilities in any way that is not permitted under
-     applicable law; or<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#333333;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;line-height:normal;mso-list:l5 level1 lfo6;tab-stops:list 36.0pt;
-     background:#F6F6F6'><span class=SpellE><span lang=ES style='font-size:
-     12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     mso-ansi-language:ES;mso-fareast-language:IT'>exclude</span></span><span
-     lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";mso-ansi-language:ES;mso-fareast-language:
-     IT'> <span class=SpellE>any</span> <span class=SpellE>of</span> <span
-     class=SpellE>our</span> <span class=SpellE>or</span> <span class=SpellE>your</span>
-     <span class=SpellE>liabilities</span> <span class=SpellE>that</span> <span
-     class=SpellE>may</span> <span class=SpellE>not</span> be <span
-     class=SpellE>excluded</span> <span class=SpellE>under</span> <span
-     class=SpellE>applicable</span> <span class=SpellE>law</span>.<o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span class=SpellE><span lang=ES style='font-size:12.0pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#333333;
-mso-ansi-language:ES;mso-fareast-language:IT'>The</span></span><span lang=ES
-style='font-size:12.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#333333;mso-ansi-language:ES;mso-fareast-language:IT'> <span
-class=SpellE>limitations</span> and <span class=SpellE>prohibitions</span> <span
-class=SpellE>of</span> <span class=SpellE>liability</span> set in <span
-class=SpellE>this</span> <span class=SpellE>Section</span> and <span
-class=SpellE>elsewhere</span> in <span class=SpellE>this</span> <span
-class=SpellE>disclaimer</span>: (a) are <span class=SpellE>subject</span> <span
-class=SpellE>to</span> <span class=SpellE>the</span> <span class=SpellE>preceding</span>
-<span class=SpellE>paragraph</span>; and (b) <span class=SpellE>govern</span> <span
-class=SpellE>all</span> <span class=SpellE>liabilities</span> <span
-class=SpellE>arising</span> <span class=SpellE>under</span> <span class=SpellE>the</span>
-<span class=SpellE>disclaimer</span>, <span class=SpellE>including</span> <span
-class=SpellE>liabilities</span> <span class=SpellE>arising</span> in <span
-class=SpellE>contract</span>, in <span class=SpellE>tort</span> and <span
-class=SpellE>for</span> <span class=SpellE>breach</span> <span class=SpellE>of</span>
-<span class=SpellE>statutory</span> <span class=SpellE>duty</span>.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:15.0pt;line-height:normal;background:
-#F6F6F6'><span lang=ES style='font-size:12.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#333333;mso-ansi-language:ES;
-mso-fareast-language:IT'>As <span class=SpellE>long</span> as <span
-class=SpellE>the</span> <span class=SpellE>website</span> and <span
-class=SpellE>the</span> <span class=SpellE>information</span> and <span
-class=SpellE>services</span> <span class=SpellE>on</span> <span class=SpellE>the</span>
-<span class=SpellE>website</span> are <span class=SpellE>provided</span> free <span
-class=SpellE>of</span> <span class=SpellE>charge</span>, <span class=SpellE>we</span>
-<span class=SpellE>will</span> <span class=SpellE>not</span> be <span
-class=SpellE>liable</span> <span class=SpellE>for</span> <span class=SpellE>any</span>
-<span class=SpellE>loss</span> <span class=SpellE>or</span> <span class=SpellE>damage</span>
-<span class=SpellE>of</span> <span class=SpellE>any</span> <span class=SpellE>nature</span>.<o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='text-align:center'><span lang=ES
-style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
-
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>Regolamento privacy Collection Sight</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>1. Informazioni generali</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito Collection Sight raccoglie, tratta e utilizza i tuoi dati personali in conformit&agrave; alle disposizioni italiane ed europee in materia di protezione dei dati. Ad eccezione di alcune informazioni obbligatorie che ci servono per poterti offrire i nostri servizi, puoi decidere tu stesso quali informazioni fornire e quali no.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nel limite del possibile, nel nostro sito Web utilizziamo tecnologie di trasmissione sicure, ad esempio la crittografia TLS. Tuttavia, nonostante tutte le precauzioni, la trasmissione dei dati su Internet, soprattutto nell&rsquo;ambito della comunicazione tramite e-mail, pu&ograve; sempre presentare lacune in termini di sicurezza. Non &egrave; possibile proteggere ininterrottamente i dati dall&rsquo;accesso di terzi.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Utilizzando il sito Web&nbsp;</span><a href="http://www.collectionsight.com"><span style='font-size:16px;font-family:"Times New Roman",serif;color:#4472C4;text-decoration:none;'>www.collectionsight.com</span></a><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;e registrandoti come membro, acconsenti a Collection Sight di raccogliere, trattare ed utilizzare sui propri server i dati personali da te forniti, in qualit&agrave; di responsabile del trattamento. Ti informiamo che i dati da te trasmessi nell&apos;ambito dell&apos;utilizzo del sito Web vengono trattati e memorizzati con l&apos;ausilio di un sistema di elaborazione dati (EDP). I dati personali saranno ovviamente trattati in modo confidenziale.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Raccogliamo dati personali, ovvero informazioni singole relative a circostanze personali o concrete di una determinata persona fisica o determinabile, solo se necessitiamo questi dati ai fini della fornitura di servizi. Raccoglieremo esclusivamente i dati da te forniti. Il trattamento dei dati personali comprende la memorizzazione, la modifica, il trasferimento, il blocco e la cancellazione di tali dati. Tutti i dati personali verranno conservati solo per il periodo necessario alle rispettive finalit&agrave; menzionate o per il periodo di conservazione previsto dalla legge.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Le informazioni sull&apos;accesso (ad es. la data, l&rsquo;ora, la pagina visualizzata) possono gi&agrave; essere memorizzate sul server al momento della visita del nostro sito Web. Questi dati non rientrano nella categoria dei dati personali ma in quella dei dati anonimi, ad esempio il nome del provider Internet, il tipo di browser Internet, le pagine visitate all&rsquo;interno del sito Web. Analizziamo questi dati esclusivamente ai fini della statistica e del miglioramento dell&rsquo;offerta. Con la visita al nostro sito Web &egrave; anche possibile che dei dati vengano memorizzati sul tuo computer. Questi dati vengono chiamati &ldquo;cookie&rdquo; e facilitano l&rsquo;utilizzo del sito Web. Hai tuttavia la possibilit&agrave; di disattivare questa funzione all&rsquo;interno del tuo browser di rete. In questo caso potrebbero verificarsi delle limitazioni nell&rsquo;utilizzo delle nostre pagine.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati personali non vengono trasmessi a terzi. Sono esclusi da ci&ograve; solo i partner di servizio di Collection Sight, che ci servono per l&rsquo;esecuzione del rapporto contrattuale, ad esempio i fornitori di sistemi di pagamento per le donazioni (come PayPal) e il trasferimento di dati alle Autorit&agrave; nell&apos;ambito dell&apos;espletamento dei nostri obblighi legali. La portata della trasmissione dei dati &egrave; in ogni caso limitata al minimo.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Tuttavia, hai il diritto illimitato di revocare il tuo consenso in qualsiasi momento con effetto futuro. I dati di contatto per l&rsquo;esercizio del diritto di revoca presente <u>sul</u> nostro sito Web.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;utente ha il diritto di ricevere informazioni a riguardo, correggere, cancellare o bloccare i dati memorizzati in qualsiasi momento, nella misura in cui si tratti di dati personali ai sensi della RGPD. Per contattarci puoi utilizzare i dati di contatto disponibili nel nostro sito Web.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>2. Responsabile del trattamento</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Responsabile del trattamento ai sensi del Regolamento generale sulla protezione dei dati (RGPD) &egrave;:</span></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Collecton Sight</span></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Indirizzo</span></strong></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Via Preazzi di Sotto 11/A<br>&nbsp;36013 &nbsp;Piovene Rocchette</span></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Telefono</span></strong></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>+39 345 875 3375</span></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>E-Mail</span></strong></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong><a href="mailto:collectionsight@gmail.com"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>collectionsight@gmail.com</span></strong></a></p>
+<p style='margin-top:0cm;margin-right:-11.25pt;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Dirigenti: Leonardo Carlassare, Thomas Porro, Nicol&ograve; Cervo</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>3. Nome e indirizzo del responsabile della protezione dei dati:</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;incaricato della protezione dei dati del titolare del trattamento &egrave;:</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Leonardo Carlassare<br>&nbsp;Via Preazzi di Sotto, 11/A<br>&nbsp;36013 Piovene Rocchette</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>E-Mail:&nbsp;</span>leonardo.carlassare@studenti.unipd.it<span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>4. Informazioni generali sul trattamento dei dati</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>In linea di principio, i dati personali vengono trattati solo se ci&ograve; &egrave; necessario per fornire un sito Web funzionante con tutti i contenuti e i servizi. Di regola i dati vengono trattati solo previo consenso dell&apos;interessato. In via eccezionale, i dati verranno trattati senza il consenso dell&apos;interessato qualora ci&ograve; non sia possibile per motivi legittimi e il trattamento dei dati sia consentito dalla legge.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;art. 6 cpv. 1 lett. a) del RGPD &egrave; la base giuridica per il trattamento dei dati personali, a condizione che la persona interessata abbia fornito il proprio consenso al trattamento dei dati personali.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;art. 6 cpv.1 lett. b) del RGPD &egrave; la base giuridica per il trattamento dei dati personali, nella misura in cui ci&ograve; &egrave; necessario per l&apos;esecuzione di un contratto di cui la persona interessata &egrave; parte. Ci&ograve; vale anche per le operazioni di trattamento necessarie all&apos;esecuzione di misure precontrattuali.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;art. 6 cpv.. 1 lett. c) del RGPD &egrave; la base giuridica per il trattamento dei dati personali, nella misura in cui il trattamento dei dati personali &egrave; necessario per adempiere a un obbligo legale cui &egrave; soggetta l&apos;azienda.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;art. 6 cpv.. 1 lett. f) del RGPD &egrave; la base giuridica per il trattamento dei dati personali, nella misura in cui ci&ograve; &egrave; necessario per la salvaguardia di un interesse legittimo dell&apos;azienda o di terzi e gli interessi, i diritti e le libert&agrave; fondamentali della persona interessata non prevalgono sul precedente interesse.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati personali dell&apos;interessato vengono cancellati o bloccati non appena decade la finalit&agrave; per la quale sono stati conservati. Inoltre, i dati possono essere memorizzati se ci&ograve; &egrave; previsto dalle normative nazionali o europee in materia. I dati vengono inoltre bloccati o cancellati in caso di scadenza del termine di conservazione previsto dalle suddette norme, a meno la stipula o l&apos;esecuzione di un contratto non richieda un&rsquo;ulteriore conservazione dei dati.</span></p>
 </div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>5. Utilizzo del sito Web</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Ad ogni accesso al sito, il sistema raccoglie automaticamente dati e informazioni inviate dal sistema informatico del computer mediante il quale viene effettuato l&rsquo;accesso.</span></li>
+    </ol>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Vengono raccolti i seguenti dati:</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;" type="1">
+        <ol start="1" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;indirizzo IP</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La data e l&rsquo;ora della richiesta</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La differenza di fuso orario rispetto all&apos;ora di Greenwich (GMT)</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il contenuto della pagina Web</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Lo stato dell&rsquo;accesso (stato HHTP)</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La quantit&agrave; di dati trasferiti</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il browser di rete</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La lingua e la versione del browser</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sistema operativo</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito internet dal quale viene effettuato l&rsquo;accesso al sito internet</span></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati vengono memorizzati nei file di registro del sistema. Questi dati non vengono memorizzati insieme ad altri dati personali dell&apos;utente.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="2" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La base giuridica &egrave; l&apos;art. 6 cpv. 1 lett. f) del RGPD.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La raccolta e la memorizzazione temporanea dell&apos;indirizzo IP sono necessarie per consentire la visualizzazione del sito Web sul dispositivo. A questo scopo, il vostro indirizzo IP deve essere memorizzato per tutta la durata della vostra visita al sito Web. Questi dati non vengono analizzati a scopi di marketing.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati vengono cancellati al termine della sessione. Se questi dati vengono memorizzati in file di registro, vengono cancellati al pi&ugrave; tardi dopo sette giorni. &Egrave; possibile conservare i dati oltre questa scadenza. In questo caso gli indirizzi IP degli utenti vengono cancellati o anonimizzati, in modo che non possano pi&ugrave; messi in relazione al client .che ha visitato il sito.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La raccolta dei dati e la memorizzazione di tali dati in file di registro &egrave; assolutamente necessaria per mettere a disposizione il sito Web. Di conseguenza, non &egrave; possibile fare opposizione a tale raccolta.</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:32px;font-family:"Segoe UI",sans-serif;color:#012169;'>6. Funzioni di registrazione</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito offre agli utenti la possibilit&agrave; di registrarsi mediante trasmissione di dati personali. I dati vengono inseriti in un modulo di immissione, trasmessi e memorizzati. Non vengono trasmessi dati a terzi. Durante il processo di registrazione vengono raccolti i seguenti dati:</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;" type="1">
+        <ol start="1" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il nome (nome, cognome)</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;indirizzo di domicilio (via, n. civico, CAP, paese)</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;indirizzo e-mail</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La data e l&rsquo;ora della registrazione</span></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Durante la registrazione, l&apos;utente acconsente al trattamento di questi dati secondo la dichiarazione sulla protezione dei dati.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="2" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La base giuridica &egrave; l&apos;art. 6 cpv. 1 lett. a) del RGPD, se l&apos;utente ha dato il suo consenso. Se la registrazione serve ai fini dell&rsquo;esecuzione di un contratto di cui l&apos;utente &egrave; parte contrattuale o della messa in atto di misure precontrattuali, l&apos;art. 6 cpv. 1 lett. b) del RGPD funge da base giuridica supplementare per il trattamento dei dati. Nella misura in cui siamo obbligati a trattare i dati da utenti commerciali e venditori privati, la base giuridica &egrave; l&apos;articolo 6, comma 1 c).</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;utente deve registrarsi per creare un account cliente. La registrazione &egrave; necessaria ai fini dell&rsquo;identificazione dell&apos;utente e dell&rsquo;adempimento del contratto d&apos;uso del servizio. I dati forniti da utenti commerciali o venditori privati vengono utilizzati per l&apos;adempimento dei nostri obblighi legali nei confronti delle Autorit&agrave; Fiscali.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati saranno cancellati non appena non saranno pi&ugrave; necessari per il raggiungimento della finalit&agrave; per il quale sono stati raccolti. Anche dopo la stipula del contratto pu&ograve; essere necessario conservare i dati personali del partner contrattuale ai fini dell&rsquo;adempimento di obblighi contrattuali o di legge.</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>7. Contatto tramite e-mail o modulo di contatto</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito Web utilizza moduli di contatto che possono essere utilizzati per contattarci elettronicamente. All&rsquo;utilizzo, i dati immessi nel modulo verranno trasmessi al sito Web dove verranno memorizzati. Questi dati comprendono:</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;" type="1">
+        <ol start="1" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;indirizzo e-mail</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il contenuto del messaggio di presa di contatto</span></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Inoltre, alla presa di contatto vengono raccolti i seguenti dati:</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;" type="1">
+        <ol start="3" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;indirizzo IP del computer che visita il sito</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La data e l&rsquo;ora del contatto</span></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>In questo contesto, i dati non verranno trasmessi a terzi. I dati vengono utilizzati esclusivamente per l&apos;elaborazione della conversazione.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="2" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se l&rsquo;utente ha dato il suo consenso, la base giuridica per il trattamento dei dati &egrave; l&apos;art. 6 cpv. 1 lett. a) del RGPD.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La base giuridica per il trattamento dei dati trasmessi nell&apos;ambito dell&apos;invio di un&apos;e-mail &egrave; l&apos;art. 6 cpv. 1 lett. f) del RGPD.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se la presa di contatto tramite e-mail avviene ai fini della stipula o dell&rsquo;adempimento di un contratto, la base giuridica supplementare per l&apos;elaborazione &egrave; l&apos;art. 6 cpv. 1 lett. b) del RGPD.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="3" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati personali contenuti nel modulo di contatto vengono trattati esclusivamente ai fini dell&rsquo;elaborazione della richiesta. In caso di presa di contatto tramite e-mail, ci&ograve; costituisce anche il necessario interesse legittimo al trattamento dei dati.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Gli altri dati personali trattati durante il processo di invio servono a prevenire abusi del modulo di contatto e a garantire la sicurezza dei sistemi informatici.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="4" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati saranno cancellati non appena non saranno pi&ugrave; necessari per il raggiungimento dello scopo per il quale sono stati raccolti. I dati personali contenuti nel modulo di immissione del modulo di contatto e quelli inviati via e-mail vengono cancellati quando la conversazione con l&apos;interessato &egrave; terminata. La conversazione &ecirc; considerata terminata quando le circostanze inducono ad evincere che i fatti in questione sono stati chiariti definitivamente. I dati personali aggiuntivi raccolti durante il l&rsquo;invio vengono cancellati al pi&ugrave; tardi dopo sette giorni.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;interessato pu&ograve; revocare in qualsiasi momento il proprio consenso al trattamento dei dati personali. In caso di contatto tramite e-mail, &egrave; possibile opporsi in qualsiasi momento alla memorizzazione dei dati personali. In tal caso non &egrave; tuttavia possibile proseguire la conversazione. Tutti i dati personali memorizzati nel corso del contatto in questo caso verranno cancellati.</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>11. Utilizzo di cookie</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito web utilizza i cookie. I cookie sono file di testo che vengono memorizzati nel browser Internet o dal browser Internet nel sistema informatico dell&apos;utente. Questi cookie contengono una caratteristica sequenza di caratteri che consente di identificare in modo univoco il browser alla prossima visita del sito Web. I cookie non possono trasmettere virus al dispositivo n&eacute; eseguire autonomamente dei programmi.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I cookie vengono utilizzati per semplificare l&rsquo;utilizzo di un sito web. Alcuni elementi del sito Web richiedono l&rsquo;identificazione del browser che visita il sito anche dopo un cambio di pagina.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I cookie transitori vengono eliminati automaticamente alla chiusura della sessione. Dei cookie transitori fanno parte i cookie di sessione, che memorizzano il cosiddetto ID di sessione, che pu&ograve; essere messo in relazione alla sessione condivisa in base alle varie richieste provenienti dal browser Web. In questo modo &egrave; possibile riconoscere il dispositivo mobile durante una nuova sessione.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I cookie persistenti vengono eliminati automaticamente dopo un periodo di archiviazione specificato, che pu&ograve; variare a seconda del cookie. Le rispettive impostazioni possono essere cancellate in qualsiasi momento nelle impostazioni del browser di rete.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nei cookie vengono memorizzati i seguenti dati:</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;" type="1">
+        <ol start="1" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Le informazioni di accesso</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Le impostazioni della lingua</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I termini di ricerca inseriti</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il numero di accessi al sito Web</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;utilizzo di singole funzioni del sito Web</span></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="2" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La base giuridica &egrave; l&apos;art. 6 cpv. 1 lett. f) del RGPD.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Lo scopo dell&rsquo;utilizzo di cookie tecnicamente necessari &egrave; quello di semplificare l&apos;utilizzo dei siti Web da parte degli utenti. Alcune funzioni del sito Web non possono essere offerte senza l&rsquo;impiego di cookie. Per questo &egrave; necessario che il browser venga riconosciuto anche dopo un cambio di pagina.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I dati dell&apos;utente raccolti tramite i cookie tecnicamente necessari non vengono utilizzati per creare profili utente.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="4" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>I cookie vengono memorizzati sul computer dell&apos;utente e trasmessi al nostro sito. Pertanto lei in qualit&agrave; di utente, ha anche il pieno controllo sull&apos;utilizzo dei cookie. &Egrave; possibile disattivare o limitare l&rsquo;utilizzo dei cookie modificando le impostazioni del browser Internet. I cookie gi&agrave; salvati possono essere cancellati in qualsiasi momento, anche mediante cancellazione automatica. Se i cookie vengono disattivati per il nostro sito Web, potrebbe non essere pi&ugrave; possibile utilizzare tutte le funzioni del sito Web.</span></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>12. Google Analytics</span></strong></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="1" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito Web utilizza &quot;Google Analytics&quot;, un servizio di analisi di rete di Google Inc, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (in seguito &quot;Google&quot;). Google utilizza dei &quot;cookie&quot;, ovvero piccoli file di testo che vengono memorizzati sul dispositivo e che consentono di analizzare l&apos;utilizzo di Internet. Le informazioni generate dai cookie sull&apos;utilizzo di questo sito Web vengono di solito trasferite a un server di Google negli Stati Uniti, dove vengono conservate. Se l&apos;indirizzo IP da trasmettere tramite il cookie viene attivato con l&apos;estensione &quot;_anonymizeIp()&quot; sul sito Web (in seguito &ldquo;anonimizzazione dell&rsquo;IP&rdquo;), Google abbrevier&agrave; il vostro indirizzo IP negli Stati membri dell&apos;Unione europea o in altri Stati parti dell&apos;accordo sullo Spazio economico europeo, prima di trasmetterlo. Solo in casi eccezionali l&apos;indirizzo IP completo viene trasmesso a un server di Google negli USA, dove verr&agrave; abbreviato. Google utilizzer&agrave; queste informazioni allo scopo di tracciare ed esaminare l&apos;utilizzo del sito Web per conto del titolare del trattamento, compilare report sull&apos;utilizzo e fornire ulteriori servizi legati all&apos;utilizzo del sito web e di Internet. Dai dati elaborati possono essere creare profili utente tramite l&rsquo;uso di pseudonimi. L&apos;indirizzo IP trasmesso durante l&apos;utilizzo di Google Analytics non viene messo in relazione ad altri dati di Google.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito Web utilizza Google Analytics solo con l&apos;anonimizzazione dell&apos;IP precedentemente descritta. Significa che Google elaborer&agrave; il vostro indirizzo IP solo in forma abbreviata. Questo indirizzo IP non permette quindi di risalire alla persona.</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="2" style="margin-bottom:0cm;margin-top:0cm;" type="1">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>La base giuridica del trattamento &egrave; l&apos;interesse legittimo all&apos;analisi, all&apos;ottimizzazione e allo sfruttamento economico del sito Web ai sensi dell&apos;art. 6 cpv. 1 lett. f) del RGPD.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il sito Web utilizza Google Analytics allo scopo di analizzare l&apos;utilizzo del sito Web e di migliorare continuamente le singole funzioni e offerte, nonch&eacute; l&apos;esperienza utente. La valutazione statistica del comportamento dell&apos;utente pu&ograve; migliorare l&apos;offerta e renderla pi&ugrave; interessante per lo stesso. Anche in questo consiste il legittimo interesse al trattamento dei dati da parte di Google.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&Egrave; possibile impedire la memorizzazione dei cookie generati da Google Analytics mediante impostazione adeguata del browser di rete. Va precisato che in tal caso potrebbe non essere possibile utilizzare tutte le funzionalit&agrave; del sito Web. Se si desidera impedire la raccolta dei dati generati dal cookie e relativi al comportamento dell&apos;utente (compreso il vostro indirizzo IP) e l&apos;elaborazione di questi dati da parte di Google, &egrave; possibile scaricare e installare il plug-in per il browser di rete disponibile al seguente link:&nbsp;</span><a href="http://tools.google.com/dlpage/gaoptout" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:     none;'>http://tools.google.com/dlpage/gaoptout</span></strong></a><span style='font-size:16px;font-family:"Times New Roman",serif;'>.</span></li>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Al fine di obbligare Google a elaborare i dati trasmessi esclusivamente in conformit&agrave; alle istruzioni e alle disposizioni vigenti in materia di protezione dei dati, il titolare del trattamento ha stipulato con Google un contratto per il trattamento dei dati.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Per i casi eccezionali in cui i dati personali vengono trasferiti negli Stati Uniti, Google ha aderito allo Scudo UE-USA per la privacy stipulato tra l&apos;Unione Europea e gli Stati Uniti e si &egrave; certificata. Google si impegna a rispettare le norme e le disposizioni del diritto europeo in materia di protezione dei dati. Ulteriori informazioni sono disponibili al seguente indirizzo:&nbsp;</span><a href="https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&status=Active" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active</span></strong></a></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Informazioni del fornitore terzo: Google Dublin, Google Ireland Ltd., Gordon House, Barrow Street, Dublino 4, Irlanda, Fax: +353 (1) 436 1001. Ulteriori informazioni sull&apos;utilizzo dei dati da parte di Google, sulle possibilit&agrave; di impostazione e di opposizione e sulla protezione dei dati sono disponibili sulle seguenti pagine Web di Google:</span></p>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:54.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <ol start="4" style="margin-bottom:0cm;" type="1">
+        <ol start="1" style="margin-bottom:0cm;" type="1">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Condizioni di utilizzo:<br>&nbsp;</span><a href="http://www.google.com/analytics/terms/" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:      none;'>http://www.google.com/analytics/terms/</span></strong></a></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Panoramica sulla protezione dei dati:<br>&nbsp;</span><a href="http://www.google.com/intl/de/analytics/learn/privacy.html" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>http://www.google.com/intl/de/analytics/learn/privacy.html</span></strong></a></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Informativa sulla privacy:<br>&nbsp;</span><a href="https://www.google.com/intl/de/policies/privacy/" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>https://www.google.com/intl/de/policies/privacy/</span></strong></a></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Utilizzo dei dati da parte di Google quando si utilizzano i siti Web o le app dei nostri partner:<br>&nbsp;</span><a href="https://www.google.com/intl/de/policies/privacy/partners/" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>https://www.google.com/intl/de/policies/privacy/partners/</span></strong></a></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Utilizzo dei dati per finalit&agrave; promozionali:<br>&nbsp;</span><a href="https://www.google.com/policies/technologies/ads/" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>https://www.google.com/policies/technologies/ads/</span></strong></a></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:-18.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Impostazioni promozionali personalizzate tramite Google:<br>&nbsp;</span><a href="http://www.google.de/settings/ads" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:      none;'>http://www.google.de/settings/ads</span></strong></a></li>
+        </ol>
+    </ol>
+</div>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;border:none;border-left:solid #DFC463 1.5pt;padding:0cm 0cm 0cm 6.0pt;'>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>In alternativa all&rsquo;Add On del browser o all&apos;interno di browser su dispositivi mobili, inserire&nbsp;</span><a href="https://www.cardmarket.com/it/PostGetAction/User_DisableAnalytics?cookieName=ga_optOut" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>opt out</span></strong></a><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;per impedire la raccolta da parte di Google Analytics all&apos;interno di questo sito Web in futuro. Un cookie di opt-out viene memorizzato sul tuo dispositivo. Eliminando i tuoi cookie, dovrai nuovamente fare clic su questo link.</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;border:none;padding:0cm;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Per i visitatori che accedano al nostro sito Web dalla Repubblica popolare cinese (RPC), &egrave; possibile che invece di Google Analytics utilizziamo per lo stesso scopo e con le stesse restrizioni i servizi di Site Monitor del provider Miaozhen Ltd, Pechino, RPC con server nella RPC. Per disattivare i servizi di monitoraggio del sito, visitare&nbsp;</span><a href="http://i.miaozhen.com.cookie_opt.html/" target="_blank"><strong><span style='font-size:16px;font-family:"Times New Roman",serif;color:#0240CA;text-decoration:none;'>http://i.miaozhen.com.cookie_opt.html</span></strong></a></p>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>13. Trasmissione crittografata dei dati</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>All&rsquo;iscrizione (&quot;login&quot;) o alla presa di contatto, tutti i dati vengono trasmessi tramite una connessione crittografata con tecnologia TLS. Il certificato richiesto, installato sui server, &egrave; stato emesso da un&apos;organizzazione indipendente.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Una connessione crittografata pu&ograve; essere riconosciuta dal fatto che la riga dell&apos;indirizzo del browser cambia da http:// a https://.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Non appena viene stabilita la connessione TLS crittografata, i dati da te inseriti e trasmessi al negozio, non possono pi&ugrave; essere letti da terzi.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-size:31px;font-family:"Times New Roman",serif;color:#012169;'>14. Diritti della persona interessata</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se i dati personali vengono trattati da , gli utenti sono &quot;interessati&quot; ai sensi del RGPD e hanno i seguenti diritti nei confronti del titolare del trattamento:</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="1" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di informazione</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;interessato pu&ograve; chiedere al titolare del trattamento la conferma dell&apos;esistenza o meno di un trattamento di dati personali.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se tale trattamento ha avuto luogo, al titolare del trattamento pu&ograve; essere richiesto di fornire le seguenti informazioni:</span></p>
+<ol style="list-style-type: decimal;">
+    <li><span style='font-family:"Times New Roman",serif;'>le finalit&agrave; per le quali i dati personali v trattati;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>le categorie di dati personali trattati;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>i destinatari o le categorie di destinatari ai quali i dati personali sono stati trasmessi o si trovano tuttora in fase di trasmissione;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>la durata prevista della conservazione dei dati personali o, qualora non sia possibile fornire informazioni specifiche, i criteri per la determinazione del periodo di conservazione;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>l&apos;esistenza di un diritto di rettifica o di cancellazione dei dati personali, di un diritto di limitazione del trattamento da parte del responsabile del trattamento o di un diritto di opposizione a tale trattamento;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>l&apos;esistenza di un diritto di reclamo presso un&apos;autorit&agrave; di controllo;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>qualsiasi informazione disponibile sull&apos;origine dei dati se i dati personali non sono raccolti presso l&apos;interessato;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>l&apos;esistenza di un processo decisionale automatizzato, compresa la definizione di profili ai sensi dell&apos;articolo 22, capoversi 1 e 4, del RGPD e - almeno in questi casi - di informazioni significative sulla logica in questione, nonch&eacute; sulla portata e sugli effetti previsti di tale trattamento per la persona interessata.</span></li>
+</ol>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sussiste il diritto di informarsi se i dati personali vengono trasmessi a un paese terzo o a un&apos;organizzazione internazionale. In tale contesto l&rsquo;utente pu&ograve; richiedere di essere informato in merito alle garanzie adeguate ai sensi dell&apos;art. 46 del RGPD in relazione alla trasmissione.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="2" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di rettifica</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se i dati personali trattati sono errati o incompleti, l&rsquo;utente ha il diritto di chiedere al titolare del trattamento la rettifica e/o il completamento Il titolare del trattamento deve procedere senza indugio alla rettifica.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="3" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di limitazione di trattamento</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il trattamento dei dati personali pu&ograve; essere richiesto alle condizioni seguenti:</span></p>
+<ol style="list-style-type: decimal;">
+    <li><span style='font-family:"Times New Roman",serif;'>qualora venisse contestata l&apos;accuratezza dei dati personali per un periodo di tempo tale da consentire alla persona responsabile di verificarla;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>se il trattamento &egrave; illecito e la cancellazione dei dati personali &egrave; stata rifiutata e in cambio &egrave; stata richiesta la limitazione dell&apos;uso dei dati personali;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>il responsabile del trattamento non ha pi&ugrave; bisogno dei dati personali ai fini del trattamento, ma questi dati sono necessari per far valere, esercitare o difendere un diritto in sede giudiziaria, oppure</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>in caso di opposizione al trattamento ai sensi dell&apos;art. 21 cpv. 1 del RGPD e nel qual caso non sia stato ancora accertato se le ragioni legittime del titolare del trattamento prevalgano su quelle della persona interessata.</span></li>
+</ol>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Qualora il trattamento dei dati personali sia stato limitato, tali dati possono essere trattati, oltre che memorizzati, solo con il consenso della persona interessata o al fine di far valere, esercitare o difendere diritti o tutelare diritti di un&apos;altra persona fisica o giuridica o per un interesse pubblico rilevante dell&apos;Unione o di uno Stato membro.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se la limitazione del trattamento &egrave; stata limitata conformemente alle condizioni di cui sopra, il responsabile del trattamento ne informa l&apos;interessato prima che la limitazione sia revocata.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="4" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto alla cancellazione</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Obbligo di cancellazione</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il titolare del trattamento ha il diritto di chiedere che i dati personali vengano cancellati immediatamente e il titolare del trattamento &egrave; tenuto a cancellarli immediatamente se si verifica una delle seguenti circostanze:</span></p>
+<ol style="list-style-type: decimal;">
+    <li><span style='font-family:"Times New Roman",serif;'>i dati personali non sono pi&ugrave; necessari per le finalit&agrave; per le quali sono stati raccolti o in altro modo trattati.</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>Il consenso su cui si basa il trattamento ai sensi dell&apos;art. 6 cpv. 1 lett. a) o dell&apos;art. 9 cpv. 2 lett. a) del RGPD &egrave; stato revocato e non sussiste alcun altro fondamento giuridico per il trattamento.</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>Il trattamento ai sensi dell&apos;art. 21 cpv. 1 del RGPD &egrave; oggetto di opposizione e non sussiste alcun motivo imperativo e legittimo per il trattamento, oppure &egrave; oggetto di opposizione ai sensi dell&apos;art. 21 cpv. 2 del RGPD.</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>I dati personali sono stati trattati illecitamente.</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>La cancellazione di dati personali &egrave; necessaria per adempiere a un obbligo legale previsto dal diritto dell&apos;Unione o dal diritto degli Stati membri cui &egrave; soggetto il titolare del trattamento.</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>I dati personali sono stati raccolti in relazione ai servizi della societ&agrave; dell&apos;informazione offerti ai sensi dell&apos;art. 8 cpv. 1 del RGPD.</span></li>
+</ol>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Informazioni a terzi</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se il titolare del trattamento ha reso pubblici i dati personali ed &egrave; obbligato cancellarli ai sensi dell&apos;art. 17 cpv. 1 del RGPD, deve adottare misure adeguate, anche di natura tecnica, tenendo conto della tecnologia disponibile e dei costi di attuazione, per informare i responsabili del trattamento che gli interessati hanno richiesto di cancellare tutti i link a tali dati personali o ne hanno richiesto una copia o replica.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Deroghe</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il diritto di cancellazione non sussiste nella misura in cui il trattamento &egrave; necessario</span></p>
+<ol style="list-style-type: undefined;">
+    <li><span style='font-family:"Times New Roman",serif;'>ad esercitare la libert&agrave; di espressione e di informazione;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>per l&apos;esecuzione di obblighi giuridici derivanti dal diritto dell&apos;Unione o degli Stati membri cui &egrave; soggetto il titolare del trattamento o per ottemperare a compito di interesse pubblico o dell&apos;esercizio di pubblici poteri conferita a quest&apos;ultimo;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>per motivi di interesse pubblico nel settore della sanit&agrave; pubblica ai sensi dell&apos;art. 9 cpv. 2 lett. h) e i) e dell&apos;art. 9 cpv. 3 del RGPD;</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>per scopi di archiviazione di interesse pubblico, per scopi di ricerca scientifica o storica o per scopi statistici ai sensi dell&apos;art. 89 cpv. 1 del RGPD, nella misura in cui la legge di cui alla lett. a) possa rendere impossibile o pregiudicare gravemente il raggiungimento degli scopi del trattamento, oppure</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>per far valere, esercitare o difendere un diritto in sede giudiziaria.</span></li>
+</ol>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="5" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto all&apos;informazione</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se nei confronti del titolare del trattamento &egrave; stato fatto valere il diritto di rettifica, cancellazione o limitazione del trattamento, questi &egrave; tenuto ad informare tutti i destinatari ai quali sono stati comunicati i dati personali di tale rettifica o cancellazione o limitazione, a meno che ci&ograve; non risulti impossibile o implichi uno sforzo sproporzionato.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&rsquo;utente ha il diritto di essere informato dal titolare del trattamento in merito a tali destinatari.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="6" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto alla trasferibilit&agrave; dei dati</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Esiste il diritto di ricevere i dati personali forniti al responsabile del trattamento in un formato strutturato, comune e leggibile elettronicamente. Inoltre, i dati possono essere comunicati a un altro responsabile del trattamento senza interferenze che il responsabile al quale sono stati forniti i dati personali lo impedisca, a condizione che</span></p>
+<ol style="list-style-type: decimal;">
+    <li><span style='font-family:"Times New Roman",serif;'>il trattamento si basi sul consenso ai sensi dell&apos;art. 6 cpv. 1 lett. a) del RGPD o dell&apos;art. 9 cpv. 2 lett. a) del RGPD o su un contratto ai sensi dell&apos;art. 6 cpv.. 1 lett. b) del RGPD e</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>il trattamento avviene mediante procedure automatizzate.</span></li>
+</ol>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nell&apos;esercizio di tale diritto, sussiste inoltre anche il diritto fare in modo che i dati personali vengano trasferiti direttamente da un responsabile del trattamento a un altro, se questo &egrave; tecnicamente fattibile. Questo non deve pregiudicare le libert&agrave; e i diritti di altre persone.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il diritto alla trasferibilit&agrave; dei dati non si applica al trattamento dei dati personali necessari all&apos;esercizio di una funzione di interesse pubblico o dell&apos;autorit&agrave; di controllo conferita al titolare del trattamento.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="7" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di opposizione</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;interessato ha il diritto di opporsi in qualsiasi momento al trattamento dei dati personali ai sensi dell&apos;articolo 6, capoverso 1, lettere e) o f), del RGPD per ragioni legate alla sua situazione specifica; ci&ograve; vale anche per la profilazione basata su tali disposizioni.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Il titolare del trattamento non tratta pi&ugrave; i dati personali a meno che non sia in grado di dimostrare l&rsquo;esistenza di motivi impellenti per la protezione del trattamento prevalenti sugli interessi, sui diritti e sulle libert&agrave; dell&apos;interessato o che i dati vengono trattati allo scopo di far valere, esercitare o difendere un diritto in sede giudiziaria.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Se i dati personali vengono trattati per finalit&agrave; di marketing diretto, esiste il diritto di opporsi in qualsiasi momento al trattamento dei dati personali ai fini di questo tipo di pubblicit&agrave;; ci&ograve; vale anche per la profilazione se &egrave; associata a tale marketing diretto.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>In caso di opposizione al trattamento per finalit&agrave; di marketing diretto, i dati personali non verranno pi&ugrave; trattati per tali finalit&agrave;.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nell&rsquo;ambito dell&rsquo;utilizzo di servizi della societ&agrave; di informazione il diritto di opposizione pu&ograve; essere esercitato mediante procedure automatizzate con tecniche specifiche. In deroga alla direttiva 2002/58/CE</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="8" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di revoca del consenso al trattamento dei dati</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sussiste il diritto di revocare in qualsiasi momento il consenso al trattamento dei dati. La revoca del consenso non pregiudica la legittimit&agrave; del trattamento effettuato sulla base dello stesso fino al momento della revoca.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol style="margin-bottom:0cm;list-style-type: lower-roman;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Processo decisionale automatizzato in casi singoli inclusa la profilazione</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Sussiste diritto di non assoggettarsi una decisione basata esclusivamente su un trattamento automatizzato, compresa la profilazione, che comporti effetti giuridici o effetti analoghi per la persona interessata o abbia un effetto negativo considerevole su di essa . Questo diritto non sussiste se la decisione</span></p>
+<ol class="decimal_type" style="list-style-type: decimal;">
+    <li><span style='font-family:"Times New Roman",serif;'>&egrave; necessaria per la conclusione o l&apos;esecuzione di un contratto tra l&apos;interessato e il titolare del trattamento</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>&egrave; consentita dalle disposizioni legali dell&apos;Unione o degli Stati membri alle quali &egrave; soggetta la persona responsabile e tale diritto contiene misure idonee a salvaguardare i diritti, le libert&agrave; e gli interessi legittimi di quest&apos;ultima, oppure</span></li>
+    <li><span style='font-family:"Times New Roman",serif;'>viene presa con il consenso esplicito della persona interessata.</span></li>
+</ol>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Queste decisioni non possono tuttavia basarsi su categorie particolari di dati personali ai sensi dell&apos;art. 9 cpv. 1 del RGPD, a meno che non venga applicato l&apos;art. 9 cpv. 2 lett. a) o g) e non siano state adottate misure adeguate per proteggere i vostri diritti, le vostre libert&agrave; e i vostri interessi legittimi.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nei casi di cui ai paragrafi (1) e (3), il titolare del trattamento adotta misure adeguate a salvaguardare i diritti, le libert&agrave; e gli interessi legittimi dell&apos;interessato, compreso almeno il diritto di ottenere l&apos;intervento di una persona per conto del titolare del trattamento, di spiegare il proprio parere e di impugnare la decisione.</span></p>
+<div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
+    <ol start="10" style="margin-bottom:0cm;list-style-type: lower-alpha;margin-left:26px;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><span style='font-family:"Times New Roman",serif;'>Diritto di reclamo presso un&rsquo;autorit&agrave; di controllo</span></strong></li>
+    </ol>
+</div>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Salvo altri ricorsi amministrativi o giudiziari, il diritto di reclamo presso un&apos;autorit&agrave; di controllo, in particolare nello Stato membro di residenza della persona interessata, nel luogo di lavoro o nel luogo in cui &egrave; avvenuta la presunta infrazione, sussiste qualora si ritenga che il trattamento dei dati personali sia contrario al RGPD.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>L&apos;autorit&agrave; di controllo presso la quale &egrave; stato presentato il reclamo informa la persona che inoltra reclamo sullo stato e sui i risultati del reclamo e la informa anche sulla possibilit&agrave; di un ricorso giurisdizionale ai sensi dell&apos;articolo 78 del RGPD.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
 
-</body>
-
-</html>
 
 
-
-<?php
-    require "footer.php";
-?>
+<? require "footer.php"; ?>
