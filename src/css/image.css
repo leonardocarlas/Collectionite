@@ -1,0 +1,30 @@
+
+body, html {
+        height: 100%;
+}
+
+.cookie-container {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background: #5401a7;
+        color: white;
+        padding: 0 32px;
+        box-shadow: #5401a77c;
+
+        transition: 400ms;
+}
+
+.cookie-container.active{
+        bottom: 0;
+}
+
+.cookie-container a {
+        color: white;
+}
+
+.table td {
+    text-align: center;   
+}
+
