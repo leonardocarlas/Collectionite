@@ -1,0 +1,5 @@
+Collection Sight Format, Album of cards 
+Card name, Set name, Min Value, Trend_value, Quantity, Language, Extra values, Conditions 
+Charizard [Fire Spin],  Base Set,  40,  341.17,  1,  0,  0,  0
+
+End Collection Sight Format, www.collectionsight.com
