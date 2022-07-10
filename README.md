@@ -3,7 +3,7 @@
 Collectionite is an open source project. Its goal is to build a web app for european cards collectioners.
 
 
-![alt text](https://github.com/leonardocarlas/Energy-Consumption-BLO/blob/master/images/BLMFtest1.png "Logo") 
+![alt text](https://github.com/leonardocarlas/Collectionite/blob/master/1.JPG "Logo") 
 
 
 Collectionite was a startup: gathering datas from [cardmarket](https://www.cardmarket.com/it), it was offering
