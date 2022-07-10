@@ -25,3 +25,8 @@ For this reason we decided to make the project free and open source with the hop
 7. server: Python and Java file to let running in a server in order to gather datas from cardmarket
 8. src: Php, Javascript, Css and Html code of the webapp
 9. logos.rar: [large collection of card brand images](https://megafile.cc/KxXr/logos.rar)
+
+## Some Screens: 
+
+![alt text](https://github.com/leonardocarlas/Collectionite/blob/master/2.JPG "Logo") 
+![alt text](https://github.com/leonardocarlas/Collectionite/blob/master/3.JPG "Logo") 
