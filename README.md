@@ -30,3 +30,12 @@ For this reason we decided to make the project free and open source with the hop
 
 ![alt text](https://github.com/leonardocarlas/Collectionite/blob/master/2.JPG "Logo") 
 ![alt text](https://github.com/leonardocarlas/Collectionite/blob/master/3.JPG "Logo") 
+
+## 2023 Update
+
+We will start creating a CRUD api following microservice architecture
+
+### To dev with us
+
+- `cd src/api/`
+- `php -S localhost:8000`
