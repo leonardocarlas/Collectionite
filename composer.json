@@ -1,0 +1,17 @@
+{
+    "name": "leonardo/collectionite",
+    "description": "A REST Api for a card pull rates app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Collectionite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leonardo Carlassare",
+            "email": "lio.del.bronx@gmail.com"
+        }
+    ],
+    "require": {}
+}
