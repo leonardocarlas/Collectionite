@@ -11,15 +11,19 @@
 	<groupId>com.collectionite</groupId>
 	<artifactId>pulls</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pulls</name>
-	<description>Restful API</description>
-	<properties>
+    <packaging>pom</packaging>
+    <name>pulls</name>
+	<description>Microservice for Collectionite.com</description>
+    <modules>
+        <module>domain</module>
+    </modules>
+    <properties>
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
