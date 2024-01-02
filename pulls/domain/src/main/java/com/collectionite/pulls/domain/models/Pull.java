@@ -1,4 +1,4 @@
-package com.collectionite.pulls.application.domain.models;
+package com.collectionite.pulls.domain.models;
 
 import lombok.*;
 

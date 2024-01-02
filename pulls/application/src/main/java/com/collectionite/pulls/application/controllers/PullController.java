@@ -1,8 +1,7 @@
 package com.collectionite.pulls.application.controllers;
 
 
-import com.collectionite.pulls.application.domain.models.Pull;
-import org.springframework.stereotype.Controller;
+//import com.collectionite.pulls.domain.models.Pull;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,12 +19,12 @@ public class PullController {
     }
 
     @PostMapping
-    public String createPull(@RequestBody Pull pull) {
+    public String createPull(@RequestBody String s) {
         return  "Created new pull with id 209421jj32";
     }
 
     @PutMapping("/{id}")
-    public String updatePull(@PathVariable String id, @RequestBody Pull pull) {
+    public String updatePull(@PathVariable String id, @RequestBody String s) {
         return String.format("Updated pull with id %s", id);
     }
 

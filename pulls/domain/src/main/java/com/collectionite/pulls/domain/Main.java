@@ -1,6 +1,6 @@
-package com.collectionite.pulls.application.domain;
+package com.collectionite.pulls.domain;
 
-import com.collectionite.pulls.application.domain.models.Pull;
+import com.collectionite.pulls.domain.models.Pull;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.

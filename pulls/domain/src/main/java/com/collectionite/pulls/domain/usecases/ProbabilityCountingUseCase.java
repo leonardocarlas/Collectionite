@@ -1,4 +1,4 @@
-package com.collectionite.pulls.application.domain.usecases;
+package com.collectionite.pulls.domain.usecases;
 
 import lombok.NoArgsConstructor;
 
