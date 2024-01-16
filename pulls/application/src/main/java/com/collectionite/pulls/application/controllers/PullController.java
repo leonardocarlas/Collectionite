@@ -4,8 +4,10 @@ package com.collectionite.pulls.application.controllers;
 //import com.collectionite.pulls.domain.models.Pull;
 import org.springframework.web.bind.annotation.*;
 
+import static com.collectionite.pulls.application.controllers.Routes.PULL_ROUTE;
+
 @RestController
-@RequestMapping("/api/v1/pull")
+@RequestMapping(PULL_ROUTE)
 public class PullController {
 
     @GetMapping

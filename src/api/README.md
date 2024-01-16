@@ -1,5 +1,18 @@
 # Documentation
 
+Mongo DB:
+
+/ Expansion
+    - id
+    - imageUrl
+    - name 
+
+/ Pull
+    - id
+    - image
+
+
+
 - una pull corrisponde all'apertura di una bustina
     - ha un'id (assegnata in automatico)
     - un numero X di carte (settato manualmente)
