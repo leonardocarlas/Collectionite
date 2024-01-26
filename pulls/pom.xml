@@ -17,7 +17,8 @@
     <modules>
         <module>domain</module>
 		<module>application</module>
-	</modules>
+        <module>infrastructure</module>
+    </modules>
 	<properties>
 		<java.version>21</java.version>
 		<maven.compiler.source>21</maven.compiler.source>
