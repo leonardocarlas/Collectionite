@@ -56,3 +56,10 @@ yarn test:e2e tests/example.spec.ts
 # Runs the tests in debug mode
 yarn test:e2e --debug
 ```
+
+### Build e run containerized application
+
+```
+docker build -t vuejs-cookbook/dockerize-vuejs-app .
+docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
+```
