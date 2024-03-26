@@ -1,3 +1,8 @@
+<script setup lang="ts">
+</script>
+
 <template>
-    test contact page
+  <main>
+    Home Page
+  </main>
 </template>
