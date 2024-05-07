@@ -1,4 +1,4 @@
-package com.collectionite.pulls;
+package com.collectionite.pulls.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
