@@ -2,21 +2,42 @@
 
 Mongo DB:
 
-/ Expansion
+/ expansions   // Run migrations
     - id
-    - imageUrl
-    - name 
+    - idExpansion
+    - enName
+    - abbreviation
+    - releaseDate
+    - idGame
+    - totalCards
+    - links
+        - backgroundCover
+        - logo
 
-/ Pull
+/ pulls
     - id
-    - image
+    - totalCards
+    - cards
+    - idExpansion
+    - idGame
 
 
+/ cards        // Run migrations
+    - id
+    - idProduct                            
+    - enName                             
+    - website                   
+    - image                     
+    - idGame                              
+    - number                                       
+    - expansionName
+    - idExpansion
 
-- una pull corrisponde all'apertura di una bustina
+
+- una pull corrisponde all'apertura di più bustine: in totale ho trovato n carte
     - ha un'id (assegnata in automatico)
-    - un numero X di carte (settato manualmente)
-    - contiene gli X id delle carte aperte (li cerco da cardmarket)
+    - un numero n di carte (settato manualmente)
+    - contiene gli n id delle carte aperte (li cerco da cardmarket)
     - corrisponde ad una espansione con id (chiamo carmarket)
     - corrisponde ad un game con un id (li cerco da carmarket)
 
