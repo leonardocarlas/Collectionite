@@ -1,22 +1,21 @@
 import unittest
 
-from src.main.utils import verify_driver_directory_path
+from src.main.utils import verify_driver_directory_path, DriverNotFoundException
 
 
 class UtilTestCase(unittest.TestCase):
-    def test_it_should_not_validate_a_wrong_path(self):
-        path: str = 'src/pippo'
+    def test_invalid_directory_path(self):
+        path = 'src/pippo'
 
-        is_path_valid: bool = verify_driver_directory_path(path)
-
-        self.assertEqual(is_path_valid, False)
+        with self.assertRaises(DriverNotFoundException) as context:
+            verify_driver_directory_path(path)
 
     def test_it_should_validate_a_correct_path(self):
-        path: str = 'src/'
+        path: str = ''
 
-        is_path_valid: bool = verify_driver_directory_path(path)
+        is_valid: bool = verify_driver_directory_path(path)
 
-        self.assertEqual(is_path_valid, True)
+        self.assertTrue(is_valid)
 
 
 if __name__ == '__main__':

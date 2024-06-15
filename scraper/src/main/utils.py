@@ -1,14 +1,17 @@
 import os
-from driver_not_found_exception import DriverNotFoundException
 
 
-def verify_driver_directory_path(path: str):
+class DriverNotFoundException(Exception):
+    pass
+
+
+def verify_driver_directory_path(path: str) -> bool:
 
     absolute_directory_path = os.path.abspath(path)
 
     if os.path.exists(absolute_directory_path):
         if os.path.isdir(absolute_directory_path):
-            pass
+            return True
         else:
             raise DriverNotFoundException(f"{absolute_directory_path} is not a directory.")
     else:

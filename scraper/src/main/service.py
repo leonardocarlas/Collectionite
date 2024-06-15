@@ -3,8 +3,7 @@
 # from selenium.webdriver.chrome.options import Options
 # from bs4 import BeautifulSoup
 import os
-from utils import verify_driver_directory_path
-from driver_not_found_exception import DriverNotFoundException
+from utils import verify_driver_directory_path, DriverNotFoundException
 
 
 def curl(url: str) -> str:

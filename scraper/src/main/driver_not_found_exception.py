@@ -1,2 +1,0 @@
-class DriverNotFoundException(Exception):
-    pass
