@@ -10,7 +10,7 @@ all: setup run
 
 setup:
 	@echo "Setting up the environment..."
-	$(PYTHON) setup.py
+	sudo bash init.sh
 
 run:
 	@echo "Running the main script..."
@@ -18,6 +18,6 @@ run:
 
 test:
 	@echo "Running tests..."
-	$(PYTHON) -m unittest discover -s tests
+	$(PYTHON) -m unittest discover -s src/test -p "*.py"
 
 .PHONY: all setup run test
