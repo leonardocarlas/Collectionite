@@ -1,7 +1,8 @@
 import unittest
-from typing import List
+from typing import List, Dict
 
-from src.main.utils import verify_driver_file_path, DriverNotFoundException, link_generator
+from src.main.utils import verify_driver_file_path, DriverNotFoundException, link_generator, \
+    extract_data_from_single_div
 
 
 class UtilTestCase(unittest.TestCase):
@@ -39,6 +40,46 @@ class UtilTestCase(unittest.TestCase):
             "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=12",
             "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=13",
         ])
+
+    def test_it_should_retrieve_values_from_single_div(self):
+        div: str = '''
+        <div class="d-flex mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+            <a class="card text-center w-100 galleryBox" href="/en/Pokemon/Products/Singles/Temporal-Forces/Raging-Bolt-ex-V1-TEF123">
+            <img alt="Raging Bolt ex " class="lazy card-img-top img-fluid" data-echo="https://product-images.s3.cardmarket.com/51/TEF/760753/760753.jpg" src="/img/transparent.gif"/>
+            <div class="card-body d-flex flex-column">
+                <h2 class="card-title h3">
+                <span aria-label="Temporal Forces" class="expansion-symbol is-pokemon icon is-24x24" data-bs-html="true" data-bs-original-title="Temporal Forces" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                <span style="display: inline-block; width: 21px; height: 21px; background-image: url('//static.cardmarket.com/img/ed0b9795fe1c1b416fd56983a180f8b0/expansionicons/expicons.png'); background-position: -126px -2121px;">
+                </span>
+                </span>
+                Raging Bolt ex (TEF 123)
+                </h2>
+                <p class="card-text h5">
+                </p>
+                <p class="card-text text-muted">
+                From
+                <b>
+                0,75 €
+                </b>
+                </p>
+            </div>
+            </a>
+            </div>
+        '''
+
+        data: Dict = extract_data_from_single_div(div)
+
+        self.assertEqual(
+            first=data,
+            second={
+                "link_url": "/en/Pokemon/Products/Singles/Temporal-Forces/Raging-Bolt-ex-V1-TEF123",
+                "image_url": "https://product-images.s3.cardmarket.com/51/TEF/760753/760753.jpg",
+                "card_title": "Raging Bolt ex (TEF 123)"
+            }
+        )
+
+
+
 
 
 if __name__ == '__main__':
