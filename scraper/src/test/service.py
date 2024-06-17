@@ -1,10 +1,10 @@
 import unittest
-from src.main.service import curl
+from src.main.service import get_html_content_from_url
 
 
 class MyTestCase(unittest.TestCase):
     def test_it_should_return_a_string(self):
-        returned_value: str = curl("https://www.google.it/")
+        returned_value: str = get_html_content_from_url("https://www.google.it/")
 
         self.assertIsInstance(returned_value, str)
 
