@@ -1,4 +1,5 @@
 import os
+from typing import List
 
 
 class DriverNotFoundException(Exception):
@@ -16,3 +17,12 @@ def verify_driver_file_path(path: str) -> bool:
             raise DriverNotFoundException(f"{absolute_directory_path} is not a file.")
     else:
         raise DriverNotFoundException(f"The file {absolute_directory_path} does not exist.")
+
+def link_generator(url: str, max: int) -> List[str]:
+
+    links: List[str] = []
+    for i in range(1,max):
+        links.append(url + str(i))
+    return links
+
+
