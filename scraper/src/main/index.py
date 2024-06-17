@@ -17,6 +17,10 @@ for i in range(1,13):
 if __name__ == "__main__":
     print(sys.version)
     print("Collection Scraper")
+    # Example usage
+    url = "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=13"
+    html_content = get_html_content_from_url(url)
+    print(html_content)
     # urls: List[str] = getUrls("https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=")
     document: str = get_html_content_from_url("test")
     print(document)

@@ -8,6 +8,11 @@ class MyTestCase(unittest.TestCase):
 
         self.assertIsInstance(returned_value, str)
 
+    def test_it_should_not_return_an_empty_string(self):
+        html_content: str = get_html_content_from_url("https://www.google.it/")
+
+        self.assertGreater(len(html_content), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

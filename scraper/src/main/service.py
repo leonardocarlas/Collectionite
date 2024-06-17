@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import os
-from utils import verify_driver_directory_path, DriverNotFoundException
+from utils import verify_driver_file_path, DriverNotFoundException
 
 
 def get_html_content_from_url(url: str) -> str:
@@ -12,8 +12,8 @@ def get_html_content_from_url(url: str) -> str:
     html_content: str = ""
 
     try:
-        # verify_driver_directory_path(relative_directory_path_chrome)
-        # verify_driver_directory_path(relative_directory_path_chromedriver)
+        verify_driver_file_path(relative_directory_path_chrome)
+        verify_driver_file_path(relative_directory_path_chromedriver)
 
         chrome_options = Options()
         chrome_options.add_argument("--disable-gpu")
@@ -40,8 +40,3 @@ def get_html_content_from_url(url: str) -> str:
 
     return html_content
 
-
-# Example usage
-url = "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=13"
-html_content = get_html_content_from_url(url)
-print(html_content)
