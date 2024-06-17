@@ -74,7 +74,7 @@ class UtilTestCase(unittest.TestCase):
             second={
                 "link_url": "/en/Pokemon/Products/Singles/Temporal-Forces/Raging-Bolt-ex-V1-TEF123",
                 "image_url": "https://product-images.s3.cardmarket.com/51/TEF/760753/760753.jpg",
-                "card_title": "Raging Bolt ex (TEF 123)"
+                "card_name": "Raging Bolt ex (TEF 123)"
             }
         )
 
