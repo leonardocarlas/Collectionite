@@ -11,7 +11,6 @@ if __name__ == "__main__":
     for link in links:
         document: str = get_html_content_from_url(link)
         soup = BeautifulSoup(document, 'html.parser')
-        # print(soup.prettify())
         divs: List[Tag] = extract_divs_from_document(document)
         for div in divs:
             card_data = extract_data_from_single_div(div)

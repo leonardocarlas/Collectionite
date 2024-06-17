@@ -27,7 +27,7 @@ class UtilTestCase(unittest.TestCase):
 
         links: List[str] = link_generator(url=url, max=max)
 
-        self.assertEqual(links,[
+        self.assertEqual(links, [
             "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=1",
             "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=2",
             "https://www.cardmarket.com/en/Pokemon/Products/Singles/Temporal-Forces?idCategory=51&idExpansion=5589&idRarity=0&sortBy=collectorsnumber_asc&site=3",
@@ -74,6 +74,7 @@ class UtilTestCase(unittest.TestCase):
         self.assertEqual(
             first=data,
             second={
+                "id": "760753",
                 "link_url": "/en/Pokemon/Products/Singles/Temporal-Forces/Raging-Bolt-ex-V1-TEF123",
                 "image_url": "https://product-images.s3.cardmarket.com/51/TEF/760753/760753.jpg",
                 "card_name": "Raging Bolt ex (TEF 123)"
@@ -166,6 +167,7 @@ class UtilTestCase(unittest.TestCase):
         id: str = extract_id_from_link(link=link)
 
         self.assertEqual(id, "760781")
+
 
 if __name__ == '__main__':
     unittest.main()
