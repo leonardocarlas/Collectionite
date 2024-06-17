@@ -1,6 +1,6 @@
 import sys
 from service import get_html_content_from_url
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 from typing import List
 
 from src.main.utils import link_generator, extract_divs_from_document, extract_data_from_single_div
@@ -12,10 +12,9 @@ if __name__ == "__main__":
         document: str = get_html_content_from_url(link)
         soup = BeautifulSoup(document, 'html.parser')
         # print(soup.prettify())
-        divs: List[str] = extract_divs_from_document(document)
+        divs: List[Tag] = extract_divs_from_document(document)
         for div in divs:
-            print(div)
             card_data = extract_data_from_single_div(div)
-            print(card_data)
+            print(card_data, '\n')
 
 

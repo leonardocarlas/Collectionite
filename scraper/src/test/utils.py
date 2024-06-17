@@ -1,8 +1,10 @@
 import unittest
 from typing import List, Dict
 
+from bs4 import Tag, BeautifulSoup
+
 from src.main.utils import verify_driver_file_path, DriverNotFoundException, link_generator, \
-    extract_data_from_single_div, extract_divs_from_document
+    extract_data_from_single_div, extract_divs_from_document, extract_id_from_link
 
 
 class UtilTestCase(unittest.TestCase):
@@ -67,7 +69,7 @@ class UtilTestCase(unittest.TestCase):
             </div>
         '''
 
-        data: Dict = extract_data_from_single_div(div)
+        data: Dict = extract_data_from_single_div(BeautifulSoup(div, 'html.parser'))
 
         self.assertEqual(
             first=data,
@@ -154,13 +156,16 @@ class UtilTestCase(unittest.TestCase):
          </div>
         '''
 
-        divs: List[str] = extract_divs_from_document(html_document=html_document)
+        divs: List[Tag] = extract_divs_from_document(html_document=html_document)
 
         self.assertEqual(len(divs), 2)
 
+    def test_it_should_extract_id_from_link(self):
+        link: str = "https://product-images.s3.cardmarket.com/51/TEF/760781/760781.jpg"
 
+        id: str = extract_id_from_link(link=link)
 
-
+        self.assertEqual(id, "760781")
 
 if __name__ == '__main__':
     unittest.main()
