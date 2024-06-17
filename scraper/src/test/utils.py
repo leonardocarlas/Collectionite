@@ -2,7 +2,7 @@ import unittest
 from typing import List, Dict
 
 from src.main.utils import verify_driver_file_path, DriverNotFoundException, link_generator, \
-    extract_data_from_single_div
+    extract_data_from_single_div, extract_divs_from_document
 
 
 class UtilTestCase(unittest.TestCase):
@@ -77,6 +77,86 @@ class UtilTestCase(unittest.TestCase):
                 "card_title": "Raging Bolt ex (TEF 123)"
             }
         )
+
+    def test_it_should_extract_divs_from_document(self):
+        html_document: str = '''
+            <a class="filterToggle d-md-none btn btn-lg btn-primary btn-rounded btn-fixed" data-backdrop="true" data-bs-target="#modal" data-bs-toggle="modal" data-modal="/en/Pokemon/Modal/Category_FilterProducts?idCategory=51&amp;idExpansion=5589&amp;mode=gallery" href="#">
+         <span class="fonticon-filter">
+         </span>
+        </a>
+        <div class="row my-3 align-items-center">
+         <div class="col-auto d-none d-md-block">
+          244 Hits
+         </div>
+         <div class="col-auto ms-auto">
+          <div>
+           <a class="btn btn-primary btn-sm ms-1" href="/en/Pokemon/Products/Singles/Temporal-Forces?mode=list&amp;site=1" role="button">
+            <span class="fonticon-table">
+            </span>
+            <span class="d-none d-md-inline">
+             List View
+            </span>
+           </a>
+           <a class="btn btn-sm ms-1 btn-primary disabled" role="button">
+            <span class="fonticon-gallery">
+            </span>
+            <span class="d-none d-md-inline">
+             Grid View
+            </span>
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="row">
+         <div class="d-flex mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+          <a class="card text-center w-100 galleryBox" href="/en/Pokemon/Products/Singles/Temporal-Forces/Live-Code-Card-Booster-TEF">
+           <img alt="Live Code Card (Booster)" class="lazy card-img-top img-fluid" src="https://product-images.s3.cardmarket.com/51/TEF/750382/750382.jpg"/>
+           <div class="card-body d-flex flex-column">
+            <h2 class="card-title h3">
+             <span aria-label="Temporal Forces" class="expansion-symbol is-pokemon icon is-24x24" data-bs-html="true" data-bs-original-title="Temporal Forces" data-bs-placement="bottom" data-bs-toggle="tooltip">
+              <span style="display: inline-block; width: 21px; height: 21px; background-image: url('//static.cardmarket.com/img/ed0b9795fe1c1b416fd56983a180f8b0/expansionicons/expicons.png'); background-position: -126px -2121px;">
+              </span>
+             </span>
+             Live Code Card (Booster) (TEF)
+            </h2>
+            <p class="card-text h5">
+            </p>
+            <p class="card-text text-muted">
+             From
+             <b>
+              0,02 €
+             </b>
+            </p>
+           </div>
+          </a>
+         </div>
+         <div class="d-flex mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+          <a class="card text-center w-100 galleryBox" href="/en/Pokemon/Products/Singles/Temporal-Forces/Buddy-Buddy-Poffin-TEF144">
+           <img alt="Buddy-Buddy Poffin" class="lazy card-img-top img-fluid" src="https://product-images.s3.cardmarket.com/51/TEF/760774/760774.jpg"/>
+           <div class="card-body d-flex flex-column">
+            <h2 class="card-title h3">
+             <span aria-label="Temporal Forces" class="expansion-symbol is-pokemon icon is-24x24" data-bs-html="true" data-bs-original-title="Temporal Forces" data-bs-placement="bottom" data-bs-toggle="tooltip">
+              <span style="display: inline-block; width: 21px; height: 21px; background-image: url('//static.cardmarket.com/img/ed0b9795fe1c1b416fd56983a180f8b0/expansionicons/expicons.png'); background-position: -126px -2121px;">
+              </span>
+             </span>
+             Buddy-Buddy Poffin (TEF 144)
+            </h2>
+            <p class="card-text h5">
+            </p>
+            <p class="card-text text-muted">
+             From
+             <b>
+              0,02 €
+             </b>
+            </p>
+           </div>
+          </a>
+         </div>
+        '''
+
+        divs: List[str] = extract_divs_from_document(html_document=html_document)
+
+        self.assertEqual(len(divs), 2)
 
 
 

@@ -36,3 +36,14 @@ def extract_data_from_single_div(div: str) -> Dict:
     data['card_title'] = soup.find('h2', class_='card-title h3').get_text(strip=True)
 
     return data
+
+def extract_divs_from_document(html_document: str)-> List[str]:
+    divs: List[str] = []
+    soup = BeautifulSoup(html_document, 'html.parser')
+    try:
+        divs = soup.find_all(name='div', class_='d-flex mb-4 col-12 col-sm-6 col-md-4 col-lg-3')
+    except FileNotFoundError:
+        print("Not Found")
+    return divs
+
+
