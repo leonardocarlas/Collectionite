@@ -4,7 +4,7 @@ from typing import List, Dict
 from bs4 import Tag, BeautifulSoup
 
 from src.main.utils import verify_driver_file_path, DriverNotFoundException, link_generator, \
-    extract_data_from_single_div, extract_divs_from_document, extract_id_from_link
+    extract_data_from_single_div, extract_divs_from_document, extract_id_from_link, extract_id_expansion_from_document
 
 
 class UtilTestCase(unittest.TestCase):
@@ -167,6 +167,12 @@ class UtilTestCase(unittest.TestCase):
         id: str = extract_id_from_link(link=link)
 
         self.assertEqual(id, "760781")
+
+    def test_it_should_extract_id_expansion(self):
+        with open('page.html', 'r', encoding='utf-8') as file:
+            html_content = file.read()
+            id_expansion = extract_id_expansion_from_document(html_content)
+            self.assertEqual(id_expansion, "5589")
 
 
 if __name__ == '__main__':
