@@ -1,14 +1,18 @@
 import os
-from typing import List
+from typing import List, Any
 from typing import Dict
 import re
 
 from bs4 import BeautifulSoup, Tag
 
+from src.main.card import Card
+
 
 class DriverNotFoundException(Exception):
     pass
 
+class DataNotValidException(Exception):
+    pass
 
 def verify_driver_file_path(path: str) -> bool:
     absolute_directory_path = os.path.abspath(path)
@@ -29,28 +33,20 @@ def link_generator(url: str, max: int) -> List[str]:
     return links
 
 
-def extract_data_from_single_div(div: Tag) -> Dict:
-    data: Dict = {}
-
+def extract_data_from_single_div(div: Tag) -> Card:
     if div is None:
-        print("Warning: div is None")
-        return data
+        raise DataNotValidException("Warning: div is None")
 
     if not isinstance(div, Tag):
-        print(f"Warning: div is not a BeautifulSoup Tag, it is {type(div)}")
-        return data
+        raise DataNotValidException(f"Warning: div is not a BeautifulSoup Tag, it is {type(div)}")
 
     card_name = div.find('h2').text.strip() if div.find('h2') else 'Unknown'
-    image_url = div.find('img')['src'] if div.find('img')['src'].__contains__("product") else div.find('img')[
-        'data-echo']
+    image_url = div.find('img')['src'] if div.find('img')['src'].__contains__("product") else div.find('img')['data-echo']
     link_url = div.find('a')['href'] if div.find('a') else 'Unknown'
 
-    data['id'] = extract_id_from_link(image_url)
-    data['link_url'] = link_url
-    data['image_url'] = image_url
-    data['card_name'] = card_name
+    card: Card = Card(id_card=extract_id_from_link(image_url), link_image=image_url, card_name=card_name, marketplace_link=link_url)
 
-    return data
+    return card
 
 
 def extract_divs_from_document(html_document: str) -> List[Tag]:
