@@ -13,6 +13,13 @@ def create_component(card: Card) -> str:
     </div>'''
     )
 
+def create_image(url: str) -> str:
+    return (
+        f'''
+        <img src="{url}" alt="Card Image" class="card-image">
+        '''
+    )
+
 
 def add_style() -> str:
     return '''
