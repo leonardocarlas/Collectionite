@@ -1,0 +1,42 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
+import os
+from utils import verify_driver_file_path, DriverNotFoundException
+
+
+def get_html_content_from_url(url: str) -> str:
+    relative_directory_path_chrome = '../../drivers/chrome-linux64/chrome'
+    relative_directory_path_chromedriver = '../../drivers/chromedriver-linux64/chromedriver'
+    html_content: str = ""
+
+    try:
+        verify_driver_file_path(relative_directory_path_chrome)
+        verify_driver_file_path(relative_directory_path_chromedriver)
+
+        chrome_options = Options()
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--remote-debugging-port=9222")
+        chrome_options.binary_location = relative_directory_path_chrome
+
+        # Set up the ChromeDriver service
+        service = Service(relative_directory_path_chromedriver)
+
+        # Launch the browser
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver.get(url)
+
+        # Get the page source
+        html_content = driver.page_source
+        driver.quit()
+
+    except DriverNotFoundException as e:
+        print(f"Caught custom exception: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    return html_content
+
